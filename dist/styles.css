@@ -351,3 +351,12 @@ body .book-volume>img{display:block;width:100%!important;height:100%!important;m
 
 /* Desktop already exposes primary navigation; mobile keeps its menu. */
 @media(min-width:761px){.site-header .menu-toggle,.site-index{display:none}}
+
+/* Article collections use the same controls as the homepage galleries. */
+.article-track > .memory-card{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start}
+.memory-category .overview-heading{align-items:center}
+.memory-category .memory-category-heading{margin:0}
+.memory-category .carousel-actions{width:auto;flex-shrink:0}
+@media(max-width:1000px){.article-track > .memory-card{flex-basis:calc((100% - 24px)/2)}}
+@media(max-width:640px){.article-track > .memory-card{flex-basis:86%}}
+@media print{.memory-category .carousel-actions{display:none}.memory-category .article-track{display:grid;overflow:visible}}
