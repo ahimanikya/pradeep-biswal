@@ -59,8 +59,43 @@ async function startAdmin(){
   }
   cursor=snap.docs.at(-1)||null;more.hidden=snap.size<25;if(!snap.size&&!append)tell('No comments waiting for review.');
  }
- login.addEventListener('click',async()=>{login.disabled=true;try{await setup();await signInWithPopup(auth,new GoogleAuthProvider());await refresh();login.hidden=true;logout.hidden=false;}catch(e){tell(e.message==='not-configured'?'Firebase setup is not complete.':'This account cannot access moderation.');if(auth?.currentUser)await signOut(auth);}finally{login.disabled=false;}});
+ login.addEventListener('click',async()=>{login.disabled=true;try{await setup();await signInWithPopup(auth,new GoogleAuthProvider());await refresh();login.hidden=true;logout.hidden=false;await startInbox();}catch(e){tell(e.message==='not-configured'?'Firebase setup is not complete.':'This account cannot access moderation.');if(auth?.currentUser)await signOut(auth);}finally{login.disabled=false;}});
  more.addEventListener('click',async()=>{more.disabled=true;try{await refresh(true);}catch{tell('Could not load more comments.');}finally{more.disabled=false;}});
  logout.addEventListener('click',async()=>{await signOut(auth);location.reload();});
 }
 if(section)startArticle();if(adminPage)startAdmin();
+
+// Contact messages never enter the public comments collections.
+export async function sendContactMessage(data, previous) {
+ await setup();const user=await guest();
+ const content=JSON.stringify(data);
+ const submission=previous?.content===content ? previous : {id:doc(collection(db,'contactMessages')).id,content};
+ const ref=doc(db,'contactMessages',submission.id);
+ try {
+  let sent=false;try{sent=(await getDoc(ref)).exists();}catch(e){if(e.code!=='permission-denied')throw e;}
+  if(!sent){const batch=writeBatch(db);batch.set(doc(db,'contactLimits',user.uid),{lastAt:serverTimestamp(),lastId:submission.id});batch.set(ref,{...data,uid:user.uid,createdAt:serverTimestamp(),status:'new'});await batch.commit();}
+  return submission;
+ }catch(e){e.submission=submission;throw e;}
+}
+async function startInbox(){
+ const panel=adminPage.querySelector('.admin-inbox');if(!panel)return;
+ panel.hidden=false;const list=panel.querySelector('.inbox-messages'),more=panel.querySelector('.inbox-more'),refreshButton=panel.querySelector('.inbox-refresh'),notice=panel.querySelector('.inbox-status');let cursor=null;
+ async function load(append=false){
+  more.disabled=true;refreshButton.disabled=true;notice.textContent='Loading private messages…';
+  try{const constraints=[orderBy('createdAt','desc'),limit(25)];if(append&&cursor)constraints.push(startAfter(cursor));
+   const snap=await getDocs(query(collection(db,'contactMessages'),...constraints));if(!append)list.replaceChildren();
+   for(const item of snap.docs){const d=item.data(),row=document.createElement('article');row.className='reader-comment';
+    row.append(paragraph(d.subject,'h3'),paragraph('From '+d.name+' · '+d.email));
+    if(d.createdAt)row.append(paragraph(d.createdAt.toDate().toLocaleString(),'time'));
+    const body=paragraph(d.message);body.style.whiteSpace='pre-wrap';row.append(body);
+    const state=paragraph('Status: '+d.status);row.append(state);
+    const reply=document.createElement('a');reply.textContent='Reply by email';reply.className='text-link';reply.href='mailto:'+encodeURIComponent(d.email)+'?subject='+encodeURIComponent('Re: '+d.subject);row.append(reply);
+    for(const [label,value] of [['Mark read','read'],['Archive','archived'],['Mark unread','new']]){const button=document.createElement('button');button.textContent=label;button.disabled=d.status===value;button.addEventListener('click',async()=>{row.querySelectorAll('button').forEach(b=>b.disabled=true);try{const batch=writeBatch(db);batch.update(item.ref,{status:value});await batch.commit();d.status=value;state.textContent='Status: '+value;notice.textContent='Message updated.';}catch{notice.textContent='Could not update the message. Please try again.';}finally{row.querySelectorAll('button').forEach(b=>b.disabled=b.dataset.status===d.status);}});button.dataset.status=value;row.append(button);}
+    list.append(row);
+   }
+   cursor=snap.docs.at(-1)||cursor;more.hidden=snap.size<25;notice.textContent=!snap.size&&!append?'No contact messages yet.':'Messages are private. Email notifications are not enabled.';
+  }catch{notice.textContent='Unable to load the inbox. Try Refresh inbox.';}finally{more.disabled=false;refreshButton.disabled=false;}
+ }
+ if(!panel.dataset.ready){more.addEventListener('click',()=>load(true));refreshButton.addEventListener('click',()=>load(false));panel.dataset.ready='true';}
+ await load();
+}
