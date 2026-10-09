@@ -400,3 +400,53 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .awards-intro{max-width:700px;color:var(--muted)}
 
 .recognition-feature{display:flex;align-items:center;gap:32px;margin:8px 0 36px;padding:28px 32px;border:1px solid var(--line);border-left:3px solid #9f8a59;background:#eee8d8}.recognition-year{font:46px/1 var(--serif);color:#766846}.recognition-feature .eyebrow{display:block;margin-bottom:8px}.recognition-feature h3{font:36px/1.15 var(--serif);margin:0 0 6px}.recognition-feature p{margin:0}.recognition-feature .recognition-source{margin-top:12px;font-size:12px;color:var(--muted);max-width:650px}@media(max-width:600px){.recognition-feature{gap:18px;padding:22px 18px;align-items:flex-start}.recognition-year{font-size:32px}.recognition-feature h3{font-size:28px}}
+
+/* Compact page rhythm: reduce section gaps while preserving reading typography. */
+.home-overview .hero{padding-top:22px;padding-bottom:20px}
+.home-overview .hero-composition{padding-block:14px 0}
+.home-overview .hero-bottom{padding-top:10px}
+.home-section{padding-block:40px}
+.home-overview .books-band{padding-block:36px}
+.overview-heading{margin-bottom:20px}
+.home-overview .featured-quote{padding-top:16px}
+.inner-page{padding-block:28px 48px}
+.inner-page>h1{margin-top:16px;margin-bottom:28px}
+.inner-refined .inner-page>h1{margin-bottom:24px}
+.collection-links{padding-block:12px;margin:16px 0 24px}
+.reading-layout{margin-top:24px}
+.reading-index{margin-bottom:28px}
+.reading-body .source-entry{margin-bottom:40px;padding-bottom:32px}
+.page-memory-index .memory-index-heading{padding-top:28px}
+.memory-categories{margin-top:22px;padding-block:14px}
+.memory-category{margin:32px 0 40px}
+.memory-story-heading{padding:28px 0 18px}
+.memory-community{margin-top:36px;padding-top:24px}
+.memory-pagination{margin-top:32px;padding-top:22px}
+.book-shelf{gap:34px 36px}
+.recognition-feature{margin-bottom:24px;padding:22px 28px}
+.literary-closing{padding-top:32px}
+.closing-art{width:min(460px,100%);margin-bottom:14px}
+.closing-composition{padding-bottom:28px}
+.closing-copy .eyebrow{margin-bottom:10px}
+.literary-closing h2{margin-bottom:14px}
+.closing-copy p{margin-bottom:16px}
+.closing-flourish{margin-top:24px}
+@media(max-width:760px){
+ .home-overview .hero{padding-top:18px;padding-bottom:16px}
+ .home-section{padding-block:28px}
+ .home-overview .books-band{padding-block:28px}
+ .inner-page{padding-block:22px 32px}
+ .inner-page>h1,.inner-refined .inner-page>h1{margin-top:14px;margin-bottom:22px}
+ .collection-links{margin-block:14px 20px}
+ .reading-layout{gap:24px;margin-top:20px}
+ .reading-body .source-entry{margin-bottom:32px;padding-bottom:26px}
+ .book-shelf{gap:28px 20px}
+ .memory-category{margin:26px 0 32px}
+ .page-memory-index .memory-index-heading{padding-top:22px}
+ .memory-story-heading{padding-top:22px}
+ .recognition-feature{padding:20px 18px}
+ .literary-closing{padding-top:24px}
+ .closing-art{width:min(360px,100%);margin-bottom:12px}
+ .closing-composition{padding-bottom:22px}
+ .closing-flourish{margin-top:18px}
+}
