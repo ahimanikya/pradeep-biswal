@@ -48,7 +48,7 @@ if (memoryStory) {
   const status = document.querySelector('.share-status');
   const url = new URL(location.href);
   url.hash = ''; url.search = '';
-  const shareUrl = url.href;
+  const shareUrl = document.querySelector('link[rel="canonical"]')?.href || url.href;
   const fallback = () => {
     const panel = document.querySelector('.share-fallback');
     const input = panel.querySelector('input');
@@ -56,21 +56,21 @@ if (memoryStory) {
     input.focus(); input.select();
     status.textContent = 'Select and copy the article link.';
   };
-  copy.hidden = false;
-  copy.addEventListener('click', async () => {
+  const copyLink = async () => {
     try {
       if (!navigator.clipboard?.writeText) return fallback();
       await navigator.clipboard.writeText(shareUrl);
       status.textContent = 'Link copied.';
     } catch { fallback(); }
+  };
+  copy.hidden = false;
+  share.hidden = false;
+  copy.addEventListener('click', copyLink);
+  share.addEventListener('click', async () => {
+    if (!navigator.share) return copyLink();
+    try { await navigator.share({ title: document.querySelector('h1').textContent, url: shareUrl }); }
+    catch (error) { if (error.name !== 'AbortError') await copyLink(); }
   });
-  if (navigator.share) {
-    share.hidden = false;
-    share.addEventListener('click', async () => {
-      try { await navigator.share({ title: document.querySelector('h1').textContent, url: shareUrl }); }
-      catch (error) { if (error.name !== 'AbortError') fallback(); }
-    });
-  }
 }
 // Progressive enhancement: without JavaScript every archived image remains visible.
 const collection = document.querySelector('[data-collection]');
