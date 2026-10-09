@@ -28,7 +28,11 @@ for page in source.rglob('*.html'):
   alias=out/page.relative_to(source).with_suffix('')/'index.html'
   alias.parent.mkdir(parents=True,exist_ok=True)
   # Every alias is one directory below its maintained source HTML.
-  alias.write_text(text.replace('<head>','<head><base href="../"/>',1))
+  # Crawlers receive complete metadata; browsers use the maintained .html URL.
+  # Carry query/hash across so legacy article anchors keep working.
+  target='../'+page.name
+  redirect='<script>location.replace('+json.dumps(target)+'+location.search+location.hash)</script>'
+  alias.write_text(text.replace('<head>','<head><base href="../"/>'+redirect,1))
  count+=1
 # Root-relative URLs make the 404 page usable at any unknown nested address.
 notfound=out/'404.html'
