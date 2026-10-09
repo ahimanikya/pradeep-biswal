@@ -348,3 +348,6 @@ body .book-volume>img{display:block;width:100%!important;height:100%!important;m
 .reader-comment{padding:24px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
 .reader-comment h3{font:600 18px var(--sans);margin-bottom:12px}.reader-comment p{font:18px/1.75 var(--reading)}
 .reader-comment time{font-size:13px;color:var(--muted)}.reader-admin{display:block;padding-top:40px;padding-bottom:60px}
+
+/* Desktop already exposes primary navigation; mobile keeps its menu. */
+@media(min-width:761px){.site-header .menu-toggle,.site-index{display:none}}
