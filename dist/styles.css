@@ -450,3 +450,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
  .closing-composition{padding-bottom:22px}
  .closing-flourish{margin-top:18px}
 }
+
+/* Article chrome keeps the attention on the writing. */
+.site-header.article-site-header{min-height:76px;gap:20px}
+.article-site-header .brand{font:28px/1.2 var(--serif)}
+.article-nav a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:14px;text-decoration:none}
+.page-memory-article .memory-story-heading{padding-top:8px}
+.article-footer{border-top:1px solid var(--line);padding:24px 0 14px;background:#eeeade}
+.article-footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.article-footer-name{font:26px/1.2 var(--serif);text-decoration:none}
+.article-footer nav{display:flex;gap:24px}
+.article-footer nav a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;text-decoration:none}
+.article-copyright p{font-size:11px;color:var(--muted);margin:12px 0 0}
+@media(max-width:600px){.site-header.article-site-header{min-height:68px}.article-site-header .brand{font-size:25px}.article-footer-row{flex-wrap:wrap;gap:8px}.article-footer nav{gap:20px}.article-footer{padding-top:18px}}
