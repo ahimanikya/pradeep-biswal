@@ -26,7 +26,7 @@ async function startArticle(){
  const slug=section.dataset.readerArticle,form=section.querySelector('form'),like=document.querySelector('.memory-like');
  const list=section.querySelector('.reader-comments'),more=section.querySelector('.reader-more');
  const load=section.querySelector('.reader-load');let liked=false,cursor=null,busy=false;
- async function counts(){const count=await getCountFromServer(collection(db,'articles',slug,'likes'));if(auth.currentUser)liked=(await getDoc(doc(db,'articles',slug,'likes',auth.currentUser.uid))).exists();like.textContent=`${liked?'♥ Liked':'♡ Like'}${count.data().count?' · '+count.data().count:''}`;like.setAttribute('aria-pressed',String(liked));}
+ async function counts(){const count=await getCountFromServer(collection(db,'articles',slug,'likes'));if(auth.currentUser)liked=(await getDoc(doc(db,'articles',slug,'likes',auth.currentUser.uid))).exists();const total=count.data().count;const badge=like.querySelector('.memory-like-count');badge.textContent=String(total);badge.hidden=!total;const label=liked?'Unlike this article':'Like this article';like.setAttribute('aria-label',`${label}${total?`, ${total} ${total===1?'like':'likes'}`:''}`);like.title=label;like.querySelector('.memory-action-tip').textContent=liked?'Unlike':'Like';like.setAttribute('aria-pressed',String(liked));}
  async function comments(){
   const rules=[orderBy('createdAt','desc'),limit(20)];if(cursor)rules.push(startAfter(cursor));
   const snap=await getDocs(query(collection(db,'articles',slug,'comments'),...rules));

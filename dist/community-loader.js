@@ -7,7 +7,7 @@ async function start(event){
  try{
   const config=await fetch('/reader-config.json',{cache:'no-store'}).then(r=>r.json());
   if(!config.enabled)throw Error('not-configured');
-  await import('./community.js?v=20261010-contact');
+  await import('./community.js?v=20261010-action-icons');
   triggers.forEach(b=>{b.removeEventListener('click',start);b.disabled=false;});
   if(trigger.matches('.memory-like')){
    document.querySelector('[data-reader-article]').dataset.likeRequested='true';

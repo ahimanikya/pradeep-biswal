@@ -463,3 +463,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .article-footer nav a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;text-decoration:none}
 .article-copyright p{font-size:11px;color:var(--muted);margin:12px 0 0}
 @media(max-width:600px){.site-header.article-site-header{min-height:68px}.article-site-header .brand{font-size:25px}.article-footer-row{flex-wrap:wrap;gap:8px}.article-footer nav{gap:20px}.article-footer{padding-top:18px}}
+
+/* Quiet article actions, matching the literary icon treatment. */
+.memory-actions{gap:10px}
+.memory-actions button,.memory-actions>a{position:relative;min-width:44px;height:44px;padding:10px;border-color:transparent;border-radius:50%;transition:background-color .18s,color .18s}
+.memory-actions :is(button,a):hover{background:rgba(43,71,62,.08)}
+.memory-actions :is(button,a):focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.memory-actions svg{width:22px;height:22px;flex-shrink:0}
+.memory-actions .memory-action-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);padding:5px 8px;border-radius:3px;background:var(--ink);color:var(--paper,#f7f3e5);font:12px var(--sans);line-height:1.4;white-space:nowrap;pointer-events:none;opacity:0}
+.memory-actions :is(button,a):is(:hover,:focus-visible) .memory-action-tip{opacity:1}
+.memory-actions .memory-like[aria-pressed="true"] svg{fill:currentColor}
+.memory-actions .memory-like-count{font:12px var(--sans)}
+.memory-actions .memory-like-count[hidden]{display:none}
+.memory-actions .share-status{flex-basis:100%}
+.memory-actions .share-status:empty{display:none}
+@media(prefers-reduced-motion:reduce){.memory-actions button,.memory-actions>a{transition:none}}
