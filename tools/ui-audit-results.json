@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-10",
+  "pages": 59,
+  "local_links_checked": 2322,
+  "image_references_checked": 517,
+  "errors": [],
+  "fixed": [
+    "Book carousel arrow contrast on dark background",
+    "Four-book desktop scroll increment",
+    "Incorrect current-page highlights on moderation and 404 pages",
+    "Related-section navigation to writer note, book reviews and interview videos",
+    "Consistent section headings",
+    "Homepage article previews synchronized with article banners",
+    "Mobile article heading and arrow alignment",
+    "Mobile menu closes when returning to desktop",
+    "Keyboard focus visibility and reduced-motion scrolling"
+  ],
+  "browser_checks": {
+    "widths": [
+      320,
+      390,
+      768,
+      1280
+    ],
+    "mobile_page_types": 8,
+    "horizontal_overflow": false,
+    "gallery_filter": "7 of 7 awards",
+    "lightbox": "opens, Escape closes, focus returns to thumbnail",
+    "desktop_books": "1020px scroll advances four 227px cards with 28px gaps"
+  },
+  "deferred": [
+    "Contact form delivery remains intentionally disabled",
+    "App Check bot protection not configured",
+    "Poet review and search-engine indexing remain deferred"
+  ]
+}

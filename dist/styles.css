@@ -368,3 +368,14 @@ body .book-volume>img{display:block;width:100%!important;height:100%!important;m
 .home-overview .books-track>.book-stage{flex:0 0 calc((100% - 84px)/4);height:auto;box-sizing:border-box}
 @media(max-width:760px){.home-overview .book-layout .books-track{gap:18px}.home-overview .books-track>.book-stage{flex-basis:calc((100% - 18px)/2)}.home-overview .books-intro .carousel-actions{flex-wrap:wrap;gap:8px}}
 @media print{.books-intro .carousel-actions button{display:none}.home-overview .book-layout .books-track{display:grid;overflow:visible}}
+
+/* Consistency and accessible contrast audit, October 2026. */
+.books-band .carousel-actions button{color:var(--paper);border-color:#d9e0d0a6}
+.books-band .carousel-actions button:disabled{opacity:.5}
+.books-band .carousel-actions button:focus-visible{outline-color:var(--paper)}
+.carousel-actions button:not(:disabled):hover{background:#263e360d}
+.books-band .carousel-actions button:not(:disabled):hover{background:#ffffff14}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.collection-links{flex-wrap:wrap}
+@media(max-width:760px){.memory-category .overview-heading{align-items:flex-start}.memory-category .carousel-actions{align-self:flex-start}.memory-category .memory-category-heading{text-align:left}.books-intro .carousel-actions{justify-content:flex-end}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

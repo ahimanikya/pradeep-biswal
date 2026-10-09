@@ -11,6 +11,7 @@ if (toggle && index) {
   document.addEventListener('keydown', event => {
     if(event.key === 'Escape' && !index.hidden) { setMenu(false); toggle.focus(); }
   });
+  matchMedia('(min-width:761px)').addEventListener('change', event => { if(event.matches) setMenu(false); });
   document.addEventListener('click', event => {
     if(!index.hidden && !index.contains(event.target) && !toggle.contains(event.target)) setMenu(false);
   });
@@ -154,14 +155,16 @@ document.querySelectorAll('.home-carousel').forEach(section => {
   const track = section.querySelector('.carousel-track');
   const previous = section.querySelector('.carousel-previous');
   const next = section.querySelector('.carousel-next');
+  if (!track || !previous || !next) return;
   const update = () => {
     previous.disabled = track.scrollLeft <= 2;
     next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
   };
   const move = direction => {
     const card = track.firstElementChild;
-    const step = card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap);
-    const count = Math.max(1, Math.floor((track.clientWidth + 1) / step));
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const step = card.getBoundingClientRect().width + gap;
+    const count = Math.max(1, Math.floor((track.clientWidth + gap + 1) / step));
     track.scrollBy({left:direction * step * count, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
   };
   previous.addEventListener('click', () => move(-1));
@@ -173,7 +176,8 @@ document.querySelectorAll('.home-carousel').forEach(section => {
     if(event.key === 'Home' || event.key === 'End') track.scrollTo({left:event.key === 'Home' ? 0 : track.scrollWidth});
     else move(event.key === 'ArrowLeft' ? -1 : 1);
   });
-  new ResizeObserver(update).observe(track);
+  if ('ResizeObserver' in window) new ResizeObserver(update).observe(track);
+  else window.addEventListener('resize', update);
   update();
 });
 // Start with a random testimonial; navigation wraps through the complete collection.
