@@ -478,3 +478,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .memory-actions .share-status{flex-basis:100%}
 .memory-actions .share-status:empty{display:none}
 @media(prefers-reduced-motion:reduce){.memory-actions button,.memory-actions>a{transition:none}}
+
+/* Small pen-line illustrations for wayfinding and controls. */
+.site-line-icon{display:inline-block;width:20px;height:20px;vertical-align:-.2em;flex-shrink:0;pointer-events:none}
+.desktop-nav a,.site-index nav a,.article-footer nav a{gap:7px}
+.desktop-nav .site-line-icon{width:17px;height:17px}
+.site-index nav a{display:flex;align-items:center}
+.text-link .site-line-icon,.button .site-line-icon,.closing-link .site-line-icon,.send-message .site-line-icon{margin-left:5px}
+.carousel-actions button .site-line-icon,.testimonial-controls button .site-line-icon{width:24px;height:24px}
+.viewer-controls .site-line-icon{margin-inline:4px}
+@media(min-width:801px) and (max-width:1150px){.desktop-nav{gap:14px}.desktop-nav .site-line-icon{width:15px;height:15px}}
