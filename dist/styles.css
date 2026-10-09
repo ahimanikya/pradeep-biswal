@@ -379,3 +379,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .collection-links{flex-wrap:wrap}
 @media(max-width:760px){.memory-category .overview-heading{align-items:flex-start}.memory-category .carousel-actions{align-self:flex-start}.memory-category .memory-category-heading{text-align:left}.books-intro .carousel-actions{justify-content:flex-end}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Stack the books section label above its heading, like the other sections. */
+.home-overview .books-intro .books-heading{min-width:0}
+.home-overview .books-intro .books-heading .eyebrow{display:block;width:auto;margin:0 0 12px}
