@@ -488,3 +488,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .carousel-actions button .site-line-icon,.testimonial-controls button .site-line-icon{width:24px;height:24px}
 .viewer-controls .site-line-icon{margin-inline:4px}
 @media(min-width:801px) and (max-width:1150px){.desktop-nav{gap:14px}.desktop-nav .site-line-icon{width:15px;height:15px}}
+
+/* Let the portrait and the poet's own lines carry the atmosphere. */
+.poet-portrait{border-bottom:0}
+.hero h1,.inner-page>h1,.memory-story-heading h1,.overview-heading h2{text-wrap:balance}
+.hero-bottom p,.memory-story-copy p{text-wrap:pretty}
+.poetry-preview>div:first-child{border-left:2px solid #a54f3440;padding-left:24px}
+.poetry-preview .poem-lines{line-height:1.8}
+::selection{background:#e3ccb0;color:#263e36}
+.memory-actions.tooltips-dismissed .memory-action-tip{opacity:0!important}
+@media(max-width:600px){.poetry-preview>div:first-child{padding-left:18px}}

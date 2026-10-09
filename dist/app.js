@@ -198,3 +198,11 @@ if (testimonialTemplate) {
     controls.querySelector('.testimonial-next').addEventListener('click', () => showQuote(position + 1));
   }
 }
+
+// Let keyboard readers dismiss action tooltips without moving focus.
+const articleActions=document.querySelector('.memory-actions');
+if(articleActions){
+ articleActions.addEventListener('keydown',event=>{if(event.key==='Escape')articleActions.classList.add('tooltips-dismissed');});
+ articleActions.addEventListener('focusin',()=>articleActions.classList.remove('tooltips-dismissed'));
+ articleActions.addEventListener('pointerover',()=>articleActions.classList.remove('tooltips-dismissed'));
+}

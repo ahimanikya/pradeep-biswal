@@ -29,8 +29,8 @@
     "desktop_books": "1020px scroll advances four 227px cards with 28px gaps"
   },
   "deferred": [
-    "Contact form delivery remains intentionally disabled",
     "App Check bot protection not configured",
-    "Poet review and search-engine indexing remain deferred"
+    "Poet review and search-engine indexing remain deferred",
+    "Automatic contact email notifications not configured; private inbox must be checked"
   ]
 }
