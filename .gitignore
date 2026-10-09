@@ -3,3 +3,5 @@
 .env.*
 .sites-runtime/
 node_modules/
+_site/
+__pycache__/

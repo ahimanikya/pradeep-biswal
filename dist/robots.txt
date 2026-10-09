@@ -1,2 +1,4 @@
+# Allow sharing services to read public page metadata and images.
+# Search indexing remains deferred via each page's noindex meta tag.
 User-agent: *
-Disallow: /
+Allow: /

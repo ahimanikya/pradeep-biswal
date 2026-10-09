@@ -1,21 +1,23 @@
 # Pradeep Biswal — literary website
 
-Standalone source repository for https://pb.kabitawithoutborders.org/.
+Live website: https://pb.kabitawithoutborders.org/
 
-## Development
+## Edit and publish
 
-The maintained static HTML, CSS, JavaScript and local assets are in `dist/`. This directory is source, not disposable build output. Preview with `python3 -m http.server 4173 --directory dist`.
+This independent repository is the source of truth. The maintained HTML, CSS, JavaScript and local assets are in `dist/`; this directory is source, not disposable build output. Push to `main` to publish through GitHub Actions and GitHub Pages. No ChatGPT Sites account or deployment is needed.
 
-The site includes 41 separately shareable memories, books, poetry, galleries, awards and testimonials. Contact, likes and comments are interfaces only; their backend is deferred.
+Run `python3 tools/build_pages.py` to validate sharing metadata and build `_site/`. Preview with `python3 -m http.server 4173 --directory _site`. The build preserves `.html` links and creates complete HTML aliases for existing extensionless URLs, so crawlers can read the page and preview without JavaScript.
 
-## Publication
+The `pb` DNS CNAME points to `ahimanikya.github.io`. The custom domain is configured in this repository's Pages settings. The root domain and other subdomains are independent.
 
-Production is hosted with Sites. `.openai/hosting.json` identifies the existing site. Publishing uses the Sites source workflow, then saves and deploys the exact artifact; keep its audience public. GitHub push alone does not trigger a Sites deployment. Do not create a second hosted site or redirect DNS to GitHub Pages without an explicit hosting migration.
+## Sharing images
 
-The GitHub repository is independent of Kabita Live and Singhasan. The source snapshot contains the current public website only. Research archives and private Facebook captures are maintained separately.
+All 58 source pages have static Open Graph and Twitter card metadata, canonical URLs, and a local JPEG preview. Memory articles use their own existing banner; section pages use relevant existing artwork or the poet's portrait. `tools/sharing-images.json` records each association. The website's visible images and authored text are unchanged.
 
-## Content and assets
+To refresh previews after changing artwork, install `beautifulsoup4` and `Pillow`, then run `python3 tools/prepare_sharing.py`. The regular publish build uses only the Python standard library.
 
-Preserve the poet’s wording and reviewed attributions. Local font licenses are in `dist/assets/fonts/`. Article content, photographs and artwork retain their respective rights; publication of this repository does not grant a blanket reuse license.
+## Content and deferred features
 
-Search-engine indexing remains deferred in the existing robots directives pending launch review.
+Preserve the poet's wording and reviewed attributions. Contact, likes and comments are interfaces only; their backend is deferred. Search-engine indexing remains deferred with page-level noindex directives. Social preview crawlers may fetch public pages and images.
+
+This repository is independent of Kabita Live and Singhasan. Private research and Facebook capture archives are excluded. Font licenses are in `dist/assets/fonts/`. Content, photographs and artwork retain their respective rights; a public repository does not grant blanket reuse rights.
