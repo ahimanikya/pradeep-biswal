@@ -1,0 +1,1072 @@
+{
+  "reviewed": "2026-10-10",
+  "basis": "Editorial display order based on visual review of every image: relevance to the poet, clarity, composition and variety. Repeated shots, less legible scans and peripheral material appear later. Multi-page interview sequences stay together. Rank 1 appears first; ranks are not a measure of award or institutional prestige.",
+  "collections": {
+    "gallery": [
+      {
+        "rank": 1,
+        "source": "img/m23.jpg",
+        "original_position": 59,
+        "tier": "featured"
+      },
+      {
+        "rank": 2,
+        "source": "img/m16.jpg",
+        "original_position": 53,
+        "tier": "featured"
+      },
+      {
+        "rank": 3,
+        "source": "img/m15.jpg",
+        "original_position": 52,
+        "tier": "featured"
+      },
+      {
+        "rank": 4,
+        "source": "img/b33.jpg",
+        "original_position": 60,
+        "tier": "featured"
+      },
+      {
+        "rank": 5,
+        "source": "img/b48.jpg",
+        "original_position": 64,
+        "tier": "featured"
+      },
+      {
+        "rank": 6,
+        "source": "img/m8.jpg",
+        "original_position": 45,
+        "tier": "featured"
+      },
+      {
+        "rank": 7,
+        "source": "img/b27.jpg",
+        "original_position": 82,
+        "tier": "featured"
+      },
+      {
+        "rank": 8,
+        "source": "img/b31.jpg",
+        "original_position": 78,
+        "tier": "featured"
+      },
+      {
+        "rank": 9,
+        "source": "img/j1.jpg",
+        "original_position": 23,
+        "tier": "featured"
+      },
+      {
+        "rank": 10,
+        "source": "img1/t99.png",
+        "original_position": 3,
+        "tier": "featured"
+      },
+      {
+        "rank": 11,
+        "source": "img1/t100.png",
+        "original_position": 2,
+        "tier": "featured"
+      },
+      {
+        "rank": 12,
+        "source": "img/b19.jpg",
+        "original_position": 90,
+        "tier": "featured"
+      },
+      {
+        "rank": 13,
+        "source": "img/m2.jpg",
+        "original_position": 39,
+        "tier": "featured"
+      },
+      {
+        "rank": 14,
+        "source": "img/m10.jpg",
+        "original_position": 47,
+        "tier": "featured"
+      },
+      {
+        "rank": 15,
+        "source": "img/b9.jpg",
+        "original_position": 100,
+        "tier": "featured"
+      },
+      {
+        "rank": 16,
+        "source": "img/b16.jpg",
+        "original_position": 93,
+        "tier": "featured"
+      },
+      {
+        "rank": 17,
+        "source": "img/b20.jpg",
+        "original_position": 89,
+        "tier": "featured"
+      },
+      {
+        "rank": 18,
+        "source": "img/m7.jpg",
+        "original_position": 44,
+        "tier": "featured"
+      },
+      {
+        "rank": 19,
+        "source": "img/b43.jpg",
+        "original_position": 69,
+        "tier": "featured"
+      },
+      {
+        "rank": 20,
+        "source": "img/m19.jpg",
+        "original_position": 55,
+        "tier": "featured"
+      },
+      {
+        "rank": 21,
+        "source": "img/jm4.jpg",
+        "original_position": 18,
+        "tier": "featured"
+      },
+      {
+        "rank": 22,
+        "source": "img/b44.jpg",
+        "original_position": 68,
+        "tier": "featured"
+      },
+      {
+        "rank": 23,
+        "source": "img/k8.jpg",
+        "original_position": 30,
+        "tier": "featured"
+      },
+      {
+        "rank": 24,
+        "source": "img/1.jpg",
+        "original_position": 110,
+        "tier": "featured"
+      },
+      {
+        "rank": 25,
+        "source": "img/k9.jpg",
+        "original_position": 29,
+        "tier": "featured"
+      },
+      {
+        "rank": 26,
+        "source": "img/p60.jpg",
+        "original_position": 131,
+        "tier": "featured"
+      },
+      {
+        "rank": 27,
+        "source": "img/b14.jpg",
+        "original_position": 95,
+        "tier": "featured"
+      },
+      {
+        "rank": 28,
+        "source": "img/b1.jpg",
+        "original_position": 108,
+        "tier": "featured"
+      },
+      {
+        "rank": 29,
+        "source": "img/p41.jpg",
+        "original_position": 120,
+        "tier": "featured"
+      },
+      {
+        "rank": 30,
+        "source": "img/p42.jpg",
+        "original_position": 121,
+        "tier": "featured"
+      },
+      {
+        "rank": 31,
+        "source": "img1/t81.png",
+        "original_position": 4,
+        "tier": "collection"
+      },
+      {
+        "rank": 32,
+        "source": "img1/t82.png",
+        "original_position": 5,
+        "tier": "collection"
+      },
+      {
+        "rank": 33,
+        "source": "img1/t83.png",
+        "original_position": 6,
+        "tier": "collection"
+      },
+      {
+        "rank": 34,
+        "source": "img1/t84.png",
+        "original_position": 7,
+        "tier": "collection"
+      },
+      {
+        "rank": 35,
+        "source": "img1/t85.png",
+        "original_position": 8,
+        "tier": "collection"
+      },
+      {
+        "rank": 36,
+        "source": "img1/t86.png",
+        "original_position": 9,
+        "tier": "collection"
+      },
+      {
+        "rank": 37,
+        "source": "img1/t87.png",
+        "original_position": 10,
+        "tier": "collection"
+      },
+      {
+        "rank": 38,
+        "source": "img1/t88.png",
+        "original_position": 11,
+        "tier": "collection"
+      },
+      {
+        "rank": 39,
+        "source": "img1/t89.png",
+        "original_position": 12,
+        "tier": "collection"
+      },
+      {
+        "rank": 40,
+        "source": "img1/t90.png",
+        "original_position": 13,
+        "tier": "collection"
+      },
+      {
+        "rank": 41,
+        "source": "img1/t91.png",
+        "original_position": 14,
+        "tier": "collection"
+      },
+      {
+        "rank": 42,
+        "source": "img/jm.jpg",
+        "original_position": 15,
+        "tier": "collection"
+      },
+      {
+        "rank": 43,
+        "source": "img/jm2.jpg",
+        "original_position": 16,
+        "tier": "collection"
+      },
+      {
+        "rank": 44,
+        "source": "img/jm3.jpg",
+        "original_position": 17,
+        "tier": "collection"
+      },
+      {
+        "rank": 45,
+        "source": "img/k18.jpg",
+        "original_position": 21,
+        "tier": "collection"
+      },
+      {
+        "rank": 46,
+        "source": "img/j2.jpg",
+        "original_position": 24,
+        "tier": "collection"
+      },
+      {
+        "rank": 47,
+        "source": "img/k14.jpg",
+        "original_position": 25,
+        "tier": "collection"
+      },
+      {
+        "rank": 48,
+        "source": "img/k13.jpg",
+        "original_position": 26,
+        "tier": "collection"
+      },
+      {
+        "rank": 49,
+        "source": "img/k11.jpg",
+        "original_position": 27,
+        "tier": "collection"
+      },
+      {
+        "rank": 50,
+        "source": "img/k5.jpg",
+        "original_position": 33,
+        "tier": "collection"
+      },
+      {
+        "rank": 51,
+        "source": "img/k2.jpg",
+        "original_position": 36,
+        "tier": "collection"
+      },
+      {
+        "rank": 52,
+        "source": "img/m1.jpg",
+        "original_position": 38,
+        "tier": "collection"
+      },
+      {
+        "rank": 53,
+        "source": "img/m3.jpg",
+        "original_position": 40,
+        "tier": "collection"
+      },
+      {
+        "rank": 54,
+        "source": "img/m4.jpg",
+        "original_position": 41,
+        "tier": "collection"
+      },
+      {
+        "rank": 55,
+        "source": "img/m5.jpg",
+        "original_position": 42,
+        "tier": "collection"
+      },
+      {
+        "rank": 56,
+        "source": "img/m9.jpg",
+        "original_position": 46,
+        "tier": "collection"
+      },
+      {
+        "rank": 57,
+        "source": "img/m11.jpg",
+        "original_position": 48,
+        "tier": "collection"
+      },
+      {
+        "rank": 58,
+        "source": "img/m12.jpg",
+        "original_position": 49,
+        "tier": "collection"
+      },
+      {
+        "rank": 59,
+        "source": "img/m13.jpg",
+        "original_position": 50,
+        "tier": "collection"
+      },
+      {
+        "rank": 60,
+        "source": "img/m14.jpg",
+        "original_position": 51,
+        "tier": "collection"
+      },
+      {
+        "rank": 61,
+        "source": "img/m20.jpg",
+        "original_position": 56,
+        "tier": "collection"
+      },
+      {
+        "rank": 62,
+        "source": "img/m21.jpg",
+        "original_position": 57,
+        "tier": "collection"
+      },
+      {
+        "rank": 63,
+        "source": "img/m22.jpg",
+        "original_position": 58,
+        "tier": "collection"
+      },
+      {
+        "rank": 64,
+        "source": "img/b50.jpg",
+        "original_position": 62,
+        "tier": "collection"
+      },
+      {
+        "rank": 65,
+        "source": "img/b49.jpg",
+        "original_position": 63,
+        "tier": "collection"
+      },
+      {
+        "rank": 66,
+        "source": "img/b47.jpg",
+        "original_position": 65,
+        "tier": "collection"
+      },
+      {
+        "rank": 67,
+        "source": "img/b46.jpg",
+        "original_position": 66,
+        "tier": "collection"
+      },
+      {
+        "rank": 68,
+        "source": "img/b45.jpg",
+        "original_position": 67,
+        "tier": "collection"
+      },
+      {
+        "rank": 69,
+        "source": "img/b42.jpg",
+        "original_position": 70,
+        "tier": "collection"
+      },
+      {
+        "rank": 70,
+        "source": "img/b41.jpg",
+        "original_position": 71,
+        "tier": "collection"
+      },
+      {
+        "rank": 71,
+        "source": "img/b40.jpg",
+        "original_position": 72,
+        "tier": "collection"
+      },
+      {
+        "rank": 72,
+        "source": "img/b39.jpg",
+        "original_position": 73,
+        "tier": "collection"
+      },
+      {
+        "rank": 73,
+        "source": "img/b36.jpg",
+        "original_position": 76,
+        "tier": "collection"
+      },
+      {
+        "rank": 74,
+        "source": "img/b32.jpg",
+        "original_position": 77,
+        "tier": "collection"
+      },
+      {
+        "rank": 75,
+        "source": "img/b30.jpg",
+        "original_position": 79,
+        "tier": "collection"
+      },
+      {
+        "rank": 76,
+        "source": "img/b28.jpg",
+        "original_position": 81,
+        "tier": "collection"
+      },
+      {
+        "rank": 77,
+        "source": "img/b25.jpg",
+        "original_position": 84,
+        "tier": "collection"
+      },
+      {
+        "rank": 78,
+        "source": "img/b22.jpg",
+        "original_position": 87,
+        "tier": "collection"
+      },
+      {
+        "rank": 79,
+        "source": "img/b21.jpg",
+        "original_position": 88,
+        "tier": "collection"
+      },
+      {
+        "rank": 80,
+        "source": "img/b17.jpg",
+        "original_position": 92,
+        "tier": "collection"
+      },
+      {
+        "rank": 81,
+        "source": "img/b15.jpg",
+        "original_position": 94,
+        "tier": "collection"
+      },
+      {
+        "rank": 82,
+        "source": "img/b12.jpg",
+        "original_position": 97,
+        "tier": "collection"
+      },
+      {
+        "rank": 83,
+        "source": "img/b11.jpg",
+        "original_position": 98,
+        "tier": "collection"
+      },
+      {
+        "rank": 84,
+        "source": "img/b8.jpg",
+        "original_position": 101,
+        "tier": "collection"
+      },
+      {
+        "rank": 85,
+        "source": "img/b6.jpg",
+        "original_position": 103,
+        "tier": "collection"
+      },
+      {
+        "rank": 86,
+        "source": "img/b5.jpg",
+        "original_position": 104,
+        "tier": "collection"
+      },
+      {
+        "rank": 87,
+        "source": "img/p1.jpg",
+        "original_position": 109,
+        "tier": "collection"
+      },
+      {
+        "rank": 88,
+        "source": "img/p20.jpg",
+        "original_position": 111,
+        "tier": "collection"
+      },
+      {
+        "rank": 89,
+        "source": "img/p21.jpg",
+        "original_position": 112,
+        "tier": "collection"
+      },
+      {
+        "rank": 90,
+        "source": "img/p23.jpg",
+        "original_position": 114,
+        "tier": "collection"
+      },
+      {
+        "rank": 91,
+        "source": "img/p30.jpg",
+        "original_position": 116,
+        "tier": "collection"
+      },
+      {
+        "rank": 92,
+        "source": "img/p29.jpg",
+        "original_position": 117,
+        "tier": "collection"
+      },
+      {
+        "rank": 93,
+        "source": "img/p32.jpg",
+        "original_position": 118,
+        "tier": "collection"
+      },
+      {
+        "rank": 94,
+        "source": "img/p39.jpg",
+        "original_position": 119,
+        "tier": "collection"
+      },
+      {
+        "rank": 95,
+        "source": "img/p56.jpg",
+        "original_position": 122,
+        "tier": "collection"
+      },
+      {
+        "rank": 96,
+        "source": "img/p59.jpg",
+        "original_position": 125,
+        "tier": "collection"
+      },
+      {
+        "rank": 97,
+        "source": "img/p19.jpg",
+        "original_position": 127,
+        "tier": "collection"
+      },
+      {
+        "rank": 98,
+        "source": "img/p27.jpg",
+        "original_position": 128,
+        "tier": "collection"
+      },
+      {
+        "rank": 99,
+        "source": "img/p77.jpg",
+        "original_position": 130,
+        "tier": "collection"
+      },
+      {
+        "rank": 100,
+        "source": "img1/t101.png",
+        "original_position": 1,
+        "tier": "collection"
+      },
+      {
+        "rank": 101,
+        "source": "img/b51.jpg",
+        "original_position": 61,
+        "tier": "collection"
+      },
+      {
+        "rank": 102,
+        "source": "img/b10.jpg",
+        "original_position": 99,
+        "tier": "collection"
+      },
+      {
+        "rank": 103,
+        "source": "img/b4.jpg",
+        "original_position": 105,
+        "tier": "collection"
+      },
+      {
+        "rank": 104,
+        "source": "img/b2.jpg",
+        "original_position": 107,
+        "tier": "collection"
+      },
+      {
+        "rank": 105,
+        "source": "img/k20.jpg",
+        "original_position": 19,
+        "tier": "collection"
+      },
+      {
+        "rank": 106,
+        "source": "img/k19.jpg",
+        "original_position": 20,
+        "tier": "collection"
+      },
+      {
+        "rank": 107,
+        "source": "img/k17.jpg",
+        "original_position": 22,
+        "tier": "collection"
+      },
+      {
+        "rank": 108,
+        "source": "img/k10.jpg",
+        "original_position": 28,
+        "tier": "collection"
+      },
+      {
+        "rank": 109,
+        "source": "img/k7.jpg",
+        "original_position": 31,
+        "tier": "collection"
+      },
+      {
+        "rank": 110,
+        "source": "img/k6.jpg",
+        "original_position": 32,
+        "tier": "collection"
+      },
+      {
+        "rank": 111,
+        "source": "img/k4.jpg",
+        "original_position": 34,
+        "tier": "collection"
+      },
+      {
+        "rank": 112,
+        "source": "img/k3.jpg",
+        "original_position": 35,
+        "tier": "collection"
+      },
+      {
+        "rank": 113,
+        "source": "img/k1.jpg",
+        "original_position": 37,
+        "tier": "collection"
+      },
+      {
+        "rank": 114,
+        "source": "img/m6.jpg",
+        "original_position": 43,
+        "tier": "collection"
+      },
+      {
+        "rank": 115,
+        "source": "img/m18.jpg",
+        "original_position": 54,
+        "tier": "collection"
+      },
+      {
+        "rank": 116,
+        "source": "img/b38.jpg",
+        "original_position": 74,
+        "tier": "collection"
+      },
+      {
+        "rank": 117,
+        "source": "img/b37.jpg",
+        "original_position": 75,
+        "tier": "collection"
+      },
+      {
+        "rank": 118,
+        "source": "img/b29.jpg",
+        "original_position": 80,
+        "tier": "collection"
+      },
+      {
+        "rank": 119,
+        "source": "img/b26.jpg",
+        "original_position": 83,
+        "tier": "collection"
+      },
+      {
+        "rank": 120,
+        "source": "img/b24.jpg",
+        "original_position": 85,
+        "tier": "collection"
+      },
+      {
+        "rank": 121,
+        "source": "img/b23.jpg",
+        "original_position": 86,
+        "tier": "collection"
+      },
+      {
+        "rank": 122,
+        "source": "img/b18.jpg",
+        "original_position": 91,
+        "tier": "collection"
+      },
+      {
+        "rank": 123,
+        "source": "img/b13.jpg",
+        "original_position": 96,
+        "tier": "collection"
+      },
+      {
+        "rank": 124,
+        "source": "img/b7.jpg",
+        "original_position": 102,
+        "tier": "collection"
+      },
+      {
+        "rank": 125,
+        "source": "img/b3.jpg",
+        "original_position": 106,
+        "tier": "collection"
+      },
+      {
+        "rank": 126,
+        "source": "img/p22.jpg",
+        "original_position": 113,
+        "tier": "collection"
+      },
+      {
+        "rank": 127,
+        "source": "img/p24.jpg",
+        "original_position": 115,
+        "tier": "collection"
+      },
+      {
+        "rank": 128,
+        "source": "img/p47.jpg",
+        "original_position": 123,
+        "tier": "collection"
+      },
+      {
+        "rank": 129,
+        "source": "img/p49.jpg",
+        "original_position": 124,
+        "tier": "collection"
+      },
+      {
+        "rank": 130,
+        "source": "img/p62.jpg",
+        "original_position": 126,
+        "tier": "collection"
+      },
+      {
+        "rank": 131,
+        "source": "img/p35.jpg",
+        "original_position": 129,
+        "tier": "collection"
+      },
+      {
+        "rank": 132,
+        "source": "img/p54.jpg",
+        "original_position": 132,
+        "tier": "collection"
+      },
+      {
+        "rank": 133,
+        "source": "img/p44.jpg",
+        "original_position": 133,
+        "tier": "collection"
+      }
+    ],
+    "interviews": [
+      {
+        "rank": 1,
+        "source": "img/b4.jpg",
+        "original_position": 36,
+        "tier": "featured"
+      },
+      {
+        "rank": 2,
+        "source": "img/k9.jpg",
+        "original_position": 35,
+        "tier": "featured"
+      },
+      {
+        "rank": 3,
+        "source": "img/p60.jpg",
+        "original_position": 40,
+        "tier": "featured"
+      },
+      {
+        "rank": 4,
+        "source": "img1/t93.png",
+        "original_position": 6,
+        "tier": "featured"
+      },
+      {
+        "rank": 5,
+        "source": "img/p22.jpg",
+        "original_position": 37,
+        "tier": "featured"
+      },
+      {
+        "rank": 6,
+        "source": "img/p24.jpg",
+        "original_position": 38,
+        "tier": "featured"
+      },
+      {
+        "rank": 7,
+        "source": "img/p47.jpg",
+        "original_position": 39,
+        "tier": "collection"
+      },
+      {
+        "rank": 8,
+        "source": "img1/t53.png",
+        "original_position": 30,
+        "tier": "collection"
+      },
+      {
+        "rank": 9,
+        "source": "img1/t67.png",
+        "original_position": 41,
+        "tier": "collection"
+      },
+      {
+        "rank": 10,
+        "source": "img1/t68.png",
+        "original_position": 42,
+        "tier": "collection"
+      },
+      {
+        "rank": 11,
+        "source": "img1/t69.png",
+        "original_position": 43,
+        "tier": "collection"
+      },
+      {
+        "rank": 12,
+        "source": "img1/t52.png",
+        "original_position": 31,
+        "tier": "collection"
+      },
+      {
+        "rank": 13,
+        "source": "img1/t77.png",
+        "original_position": 7,
+        "tier": "collection"
+      },
+      {
+        "rank": 14,
+        "source": "img1/t78.png",
+        "original_position": 8,
+        "tier": "collection"
+      },
+      {
+        "rank": 15,
+        "source": "img1/t79.png",
+        "original_position": 9,
+        "tier": "collection"
+      },
+      {
+        "rank": 16,
+        "source": "img1/t80.png",
+        "original_position": 10,
+        "tier": "collection"
+      },
+      {
+        "rank": 17,
+        "source": "img1/t98.png",
+        "original_position": 1,
+        "tier": "collection"
+      },
+      {
+        "rank": 18,
+        "source": "img1/t61.png",
+        "original_position": 22,
+        "tier": "collection"
+      },
+      {
+        "rank": 19,
+        "source": "img1/t58.png",
+        "original_position": 23,
+        "tier": "collection"
+      },
+      {
+        "rank": 20,
+        "source": "img1/t59.png",
+        "original_position": 24,
+        "tier": "collection"
+      },
+      {
+        "rank": 21,
+        "source": "img1/t60.png",
+        "original_position": 25,
+        "tier": "collection"
+      },
+      {
+        "rank": 22,
+        "source": "img1/t51.png",
+        "original_position": 32,
+        "tier": "collection"
+      },
+      {
+        "rank": 23,
+        "source": "img1/t50.png",
+        "original_position": 33,
+        "tier": "collection"
+      },
+      {
+        "rank": 24,
+        "source": "img1/t62.png",
+        "original_position": 17,
+        "tier": "collection"
+      },
+      {
+        "rank": 25,
+        "source": "img1/t63.png",
+        "original_position": 18,
+        "tier": "collection"
+      },
+      {
+        "rank": 26,
+        "source": "img1/t64.png",
+        "original_position": 19,
+        "tier": "collection"
+      },
+      {
+        "rank": 27,
+        "source": "img1/t65.png",
+        "original_position": 20,
+        "tier": "collection"
+      },
+      {
+        "rank": 28,
+        "source": "img1/t66.png",
+        "original_position": 21,
+        "tier": "collection"
+      },
+      {
+        "rank": 29,
+        "source": "img1/t94.png",
+        "original_position": 2,
+        "tier": "collection"
+      },
+      {
+        "rank": 30,
+        "source": "img1/t95.png",
+        "original_position": 3,
+        "tier": "collection"
+      },
+      {
+        "rank": 31,
+        "source": "img1/t96.png",
+        "original_position": 4,
+        "tier": "collection"
+      },
+      {
+        "rank": 32,
+        "source": "img1/t97.png",
+        "original_position": 5,
+        "tier": "collection"
+      },
+      {
+        "rank": 33,
+        "source": "img1/t70.png",
+        "original_position": 44,
+        "tier": "collection"
+      },
+      {
+        "rank": 34,
+        "source": "img1/t71.png",
+        "original_position": 13,
+        "tier": "collection"
+      },
+      {
+        "rank": 35,
+        "source": "img1/t72.png",
+        "original_position": 14,
+        "tier": "collection"
+      },
+      {
+        "rank": 36,
+        "source": "img1/t73.png",
+        "original_position": 15,
+        "tier": "collection"
+      },
+      {
+        "rank": 37,
+        "source": "img1/t74.png",
+        "original_position": 16,
+        "tier": "collection"
+      },
+      {
+        "rank": 38,
+        "source": "img1/t57.png",
+        "original_position": 26,
+        "tier": "collection"
+      },
+      {
+        "rank": 39,
+        "source": "img1/t56.png",
+        "original_position": 27,
+        "tier": "collection"
+      },
+      {
+        "rank": 40,
+        "source": "img1/t55.png",
+        "original_position": 28,
+        "tier": "collection"
+      },
+      {
+        "rank": 41,
+        "source": "img1/t54.png",
+        "original_position": 29,
+        "tier": "collection"
+      },
+      {
+        "rank": 42,
+        "source": "img1/t75.png",
+        "original_position": 11,
+        "tier": "collection"
+      },
+      {
+        "rank": 43,
+        "source": "img1/t76.png",
+        "original_position": 12,
+        "tier": "collection"
+      },
+      {
+        "rank": 44,
+        "source": "img1/t49.png",
+        "original_position": 34,
+        "tier": "collection"
+      }
+    ]
+  }
+}
