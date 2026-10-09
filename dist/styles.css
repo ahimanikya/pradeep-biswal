@@ -360,3 +360,11 @@ body .book-volume>img{display:block;width:100%!important;height:100%!important;m
 @media(max-width:1000px){.article-track > .memory-card{flex-basis:calc((100% - 24px)/2)}}
 @media(max-width:640px){.article-track > .memory-card{flex-basis:86%}}
 @media print{.memory-category .carousel-actions{display:none}.memory-category .article-track{display:grid;overflow:visible}}
+
+/* Four books remain visible on desktop; arrows reveal the rest of the shelf. */
+.home-overview .books-intro .carousel-actions{margin-left:auto;width:auto}
+.home-overview .books-intro .carousel-actions .button{margin:0 12px 0 0}
+.home-overview .book-layout .books-track{display:flex;gap:28px;max-width:1000px;width:auto}
+.home-overview .books-track>.book-stage{flex:0 0 calc((100% - 84px)/4);height:auto;box-sizing:border-box}
+@media(max-width:760px){.home-overview .book-layout .books-track{gap:18px}.home-overview .books-track>.book-stage{flex-basis:calc((100% - 18px)/2)}.home-overview .books-intro .carousel-actions{flex-wrap:wrap;gap:8px}}
+@media print{.books-intro .carousel-actions button{display:none}.home-overview .book-layout .books-track{display:grid;overflow:visible}}
