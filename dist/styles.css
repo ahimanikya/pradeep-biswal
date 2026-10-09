@@ -57,7 +57,7 @@ h1,h2{font-weight:500}.hero-composition{display:grid;grid-template-columns:minma
 .more-grid h2{font-size:36px}.more-grid .text-link{display:table;margin-top:18px}
 .home-overview .featured-quote{padding:26px 0 5px;margin:0;border:0;max-width:900px}
 .home-overview .featured-quote blockquote{font-size:25px;line-height:1.6}
-.home-overview .footer{padding-top:50px}.home-overview .footer h2{font-size:42px}
+
 @media(max-width:900px){.poetry-preview{gap:40px}.home-overview .book-layout{grid-template-columns:1fr}.home-overview .book-layout .books img{height:240px}.home-paths a{font-size:21px;padding-inline:10px}.more-grid{gap:20px}.more-grid>article+article{padding-left:20px}.story-grid{gap:20px}}
 @media(max-width:600px){.home-overview .hero-composition{grid-template-columns:1fr 120px;gap:6px}.home-overview .hero h1{font-size:42px}.home-overview .poet-portrait{width:120px}.home-overview .hero-top{margin-bottom:20px}.home-overview .hero-bottom{display:block}.home-overview .hero-bottom p{font-size:17px}.home-overview .hero-bottom .text-link{margin-top:15px}.home-paths{grid-template-columns:1fr 1fr}.home-paths a{font-size:23px;padding:18px 8px}.home-paths a:nth-child(2){border-right:0}.home-paths a:nth-child(-n+2){border-bottom:1px solid var(--line)}.home-section{padding-block:40px}.poetry-preview{grid-template-columns:1fr;gap:30px}.poem-lines{font-size:23px}.branch-art{display:none}.poetry-aside>a:not(.text-link){font-size:24px}.overview-heading{align-items:flex-start;flex-direction:column;gap:8px}.story-grid,.more-grid{grid-template-columns:1fr;gap:35px}.story-card img{height:210px}.more-grid>article+article{border-left:0;border-top:1px solid var(--line);padding:30px 0 0}.home-overview .book-layout .books{grid-template-columns:repeat(2,1fr)}.home-overview .book-layout .books img{height:210px}.gallery-strip{gap:8px}.gallery-strip img{height:105px}.home-overview .featured-quote blockquote{font-size:22px}.home-overview .hero{padding-top:25px}}
 
@@ -92,7 +92,7 @@ h1,h2{font-weight:500}.hero-composition{display:grid;grid-template-columns:minma
 .page-book .online-books>p{font:34px var(--serif)}
 .page-book .book-purchase{padding:20px;background:#eeeadc}.page-book .book-purchase img{height:270px}.retailer-url{font-size:12px!important}
 .about-reading{display:grid;grid-template-columns:300px minmax(0,760px);gap:65px;align-items:start}.about-portrait{margin:0}.about-portrait img{width:100%;height:auto}.about-reading .source-prose{margin:0;min-width:0}
-.inner-refined .footer{padding-top:55px}.inner-refined .footer h2{font-size:44px}
+
 .viewer-controls{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:13px;border-top:1px solid var(--line);padding-top:10px}
 .viewer-controls button,.viewer-download{min-height:44px;display:inline-flex;align-items:center}.viewer-controls button{border:1px solid var(--line);background:transparent;color:var(--ink);padding:6px 12px}.viewer-controls button:disabled{opacity:.4;cursor:default}
 #viewer-caption{margin:0 80px 12px 0;font-size:14px;max-width:650px}#image-viewer>img{max-height:61vh}.viewer-original{margin-bottom:4px}
@@ -262,7 +262,7 @@ body .book-volume>img{display:block;width:100%!important;height:100%!important;m
 .media-grid.photos .collection-figure .media-item:not(.award-frame){position:relative;overflow:hidden;min-height:0}
 .media-grid.photos .collection-figure .media-item:not(.award-frame) img{position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:contain}
 
-/* A quiet book-and-river coda to the homepage. */
+/* Shared book-and-river closing on every page. */
 .literary-closing{position:relative;padding-top:62px;background:linear-gradient(180deg,#f5efdf 0%,#ecebde 65%,#e9ecdf 100%)}
 .closing-composition{text-align:center;padding-bottom:44px}
 .closing-art{display:block;width:min(600px,100%);height:auto;margin:0 auto 22px;color:#697969}
@@ -339,3 +339,12 @@ body .book-volume>img{display:block;width:100%!important;height:100%!important;m
 
 /* Homepage memories share the gallery navigation and responsive scroll behavior. */
 .memories-track>.story-card{flex:0 0 calc((100% - 48px)/3);min-width:0;scroll-snap-align:start;display:flex;flex-direction:column}.memories-track>.story-card>.text-link{margin-top:auto}.memories-track>.story-card>p{margin-bottom:20px}@media(max-width:900px){.memories-track>.story-card{flex-basis:calc((100% - 24px)/2)}}@media(max-width:600px){.memories-track>.story-card{flex-basis:86%}}
+
+
+/* Guest reader responses share the site's paper, ink and spacious typography. */
+.reader-load,.reader-more,.reader-admin button{min-height:44px;padding:10px 18px;border:1px solid var(--ink);border-radius:4px;background:var(--paper);color:var(--ink);margin:8px 12px 8px 0}
+.reader-load:hover,.reader-admin button:hover{background:#e9ecdf}
+.reader-status:empty{display:none}.reader-status{margin:18px 0;color:var(--muted)}
+.reader-comment{padding:24px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.reader-comment h3{font:600 18px var(--sans);margin-bottom:12px}.reader-comment p{font:18px/1.75 var(--reading)}
+.reader-comment time{font-size:13px;color:var(--muted)}.reader-admin{display:block;padding-top:40px;padding-bottom:60px}

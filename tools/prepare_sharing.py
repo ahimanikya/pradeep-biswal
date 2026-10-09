@@ -14,7 +14,7 @@ radio = ('assets/radio-memory-960.webp', 'A family listening together to an old 
 reading = ('assets/reading-table-960.webp', 'Watercolor of an open book on a wooden table')
 choices = {
  'index': portrait, 'about': portrait, 'contact': portrait, 'credits': portrait,
- 'testimonials': portrait, 'video': portrait, 'interviewvideo': portrait, '404': portrait,
+ 'moderation': portrait, 'testimonials': portrait, 'video': portrait, 'interviewvideo': portrait, '404': portrait,
  'memory': radio, 'book': reading, 'review': reading, 'poetry': reading,
  'note': portrait,
  'gallery': ('assets/source-thumbs/034bbbebd1d64829.webp', 'Audience at a literary gathering in a bookshop'),

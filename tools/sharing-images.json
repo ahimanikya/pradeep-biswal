@@ -371,6 +371,13 @@
     "height": 640
   },
   {
+    "page": "moderation.html",
+    "image": "assets/sharing/pradeep-biswal-800.jpg",
+    "source": "assets/pradeep-biswal-800.webp",
+    "width": 800,
+    "height": 800
+  },
+  {
     "page": "note.html",
     "image": "assets/sharing/pradeep-biswal-800.jpg",
     "source": "assets/pradeep-biswal-800.webp",

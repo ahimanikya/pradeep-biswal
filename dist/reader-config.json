@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "firebase": {
+    "projectId": "pradeep-biswal",
+    "appId": "1:698241623854:web:65035d82c5e491f036fcbf",
+    "storageBucket": "pradeep-biswal.firebasestorage.app",
+    "apiKey": "AIzaSyBhuS9kOZgdhZahoEQiACZCTSzrxK23fXM",
+    "authDomain": "pradeep-biswal.firebaseapp.com",
+    "messagingSenderId": "698241623854",
+    "projectNumber": "698241623854",
+    "version": "2"
+  },
+  "recaptchaSiteKey": ""
+}

@@ -70,7 +70,6 @@ if (memoryStory) {
       catch (error) { if (error.name !== 'AbortError') fallback(); }
     });
   }
-  document.querySelector('.memory-comment-form').addEventListener('submit', event => event.preventDefault());
 }
 // Progressive enhancement: without JavaScript every archived image remains visible.
 const collection = document.querySelector('[data-collection]');

@@ -12,12 +12,12 @@ The `pb` DNS CNAME points to `ahimanikya.github.io`. The custom domain is config
 
 ## Sharing images
 
-All 58 source pages have static Open Graph and Twitter card metadata, canonical URLs, and a local JPEG preview. Memory articles use their own existing banner; section pages use relevant existing artwork or the poet's portrait. `tools/sharing-images.json` records each association. The website's visible images and authored text are unchanged.
+All 59 source pages have static Open Graph and Twitter card metadata, canonical URLs, and a local JPEG preview. Memory articles use their own existing banner; section pages use relevant existing artwork or the poet's portrait. `tools/sharing-images.json` records each association. The website's visible images and authored text are unchanged.
 
 To refresh previews after changing artwork, install `beautifulsoup4` and `Pillow`, then run `python3 tools/prepare_sharing.py`. The regular publish build uses only the Python standard library.
 
 ## Content and deferred features
 
-Preserve the poet's wording and reviewed attributions. Contact, likes and comments are interfaces only; their backend is deferred. Search-engine indexing remains deferred with page-level noindex directives. Social preview crawlers may fetch public pages and images.
+Preserve the poet's wording and reviewed attributions. Guest likes and moderated comments use Firebase; readers need no account. Owner moderation is at `/moderation.html`. See `backend/README.md`. The contact form backend remains deferred. Search-engine indexing remains deferred with page-level noindex directives. Social preview crawlers may fetch public pages and images.
 
 This repository is independent of Kabita Live and Singhasan. Private research and Facebook capture archives are excluded. Font licenses are in `dist/assets/fonts/`. Content, photographs and artwork retain their respective rights; a public repository does not grant blanket reuse rights.
