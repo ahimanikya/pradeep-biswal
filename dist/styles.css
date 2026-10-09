@@ -389,6 +389,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .interview-preview .overview-heading{align-items:center;gap:20px}
 .interview-preview .overview-heading h2{margin:0}
 .interview-preview .carousel-actions{width:auto;flex-shrink:0}
-.interview-preview .interviews-track>.media-item{flex:0 0 100%;height:320px;margin:0;display:flex}
+.interview-preview .interviews-track>.media-item{flex:0 0 calc((100% - 48px)/3);height:320px;margin:0;display:flex}
 .interview-preview .interviews-track>.media-item>img{width:100%;height:100%;object-fit:contain}
-@media(max-width:760px){.interview-preview .overview-heading{flex-direction:row;align-items:center}.interview-preview .interviews-track>.media-item{height:280px}}
+@media(max-width:760px){.interview-preview .overview-heading{flex-direction:row;align-items:center}.interview-preview .interviews-track>.media-item{flex-basis:86%;height:280px}}

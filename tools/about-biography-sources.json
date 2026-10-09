@@ -1,0 +1,19 @@
+{
+  "updated": "2026-10-10",
+  "source_project": "Kabita Live",
+  "source_files": [
+    "projects/site/editor-pradeep.html",
+    "projects/site/editor-profiles.json"
+  ],
+  "supporting_sources": [
+    "https://kabitalive.com/",
+    "https://www.setumag.com/2020/04/Author-Pradeep-Biswal.html",
+    "https://www.boloji.com/articles/51025/pradeep-biswals-a-house-within",
+    "https://pradeepbiswal.in/"
+  ],
+  "changes": [
+    "Adapted the existing editor biography with book names and attributed review observations.",
+    "Removed stale present-role claim and fixed book counts.",
+    "Kept a short homepage introduction and removed the repeated lower biography."
+  ]
+}
