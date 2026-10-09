@@ -1,0 +1,126 @@
+{
+  "basis": "Visual inspection of existing source images. Badges describe the field or occasion, not prestige, competitive status, geographic reach or proven social impact.",
+  "reviewed": "2026-10-10",
+  "items": {
+    "jm4": {
+      "badge": "Professional Forums",
+      "caption": "Felicitation at an ICSI RERA seminar",
+      "evidence": "The event banner identifies ICSI Bhubaneswar and a seminar on RERA.",
+      "source": "img/jm4.jpg"
+    },
+    "b33": {
+      "badge": "Literature",
+      "caption": "Felicitation at Indian Poetic Confluence",
+      "evidence": "The event banner identifies Indian Poetic Confluence.",
+      "source": "img/b33.jpg"
+    },
+    "b38": {
+      "badge": "Education",
+      "caption": "Felicitation at Utkal University",
+      "evidence": "The lectern identifies Utkal University; the exact honour is not legible.",
+      "source": "img/b38.jpg"
+    },
+    "b44": {
+      "badge": "Felicitation",
+      "caption": "Presentation of a framed artwork",
+      "evidence": "No event or institution can be identified from this photograph.",
+      "source": "img/b44.jpg"
+    },
+    "b50": {
+      "badge": "Literature",
+      "caption": "Literary felicitation ceremony",
+      "evidence": "The banner identifies a Sahitya Samaj; the precise title is not transcribed.",
+      "source": "img/b50.jpg"
+    },
+    "b14": {
+      "badge": "Literature",
+      "caption": "Presentation at a literary gathering",
+      "evidence": "The banner identifies a Sahitya Sansad; the recipient is not established, so this is not labelled an award won by the poet.",
+      "source": "img/b14.jpg"
+    },
+    "p5": {
+      "badge": "Education",
+      "caption": "Silver jubilee guest memento from Saraswati Shishu Vidya Mandir",
+      "evidence": "School name and chief guest inscription on the memento.",
+      "source": "img/p5.jpg"
+    },
+    "p6": {
+      "badge": "Literature",
+      "caption": "Makar Samman — Sukinda Sahitya Samaj",
+      "evidence": "Literary society and Makar Samman inscriptions on the plaque.",
+      "source": "img/p6.jpg"
+    },
+    "p7": {
+      "badge": "Literature",
+      "caption": "Shilalipi literary award",
+      "evidence": "Shilalipi Sahitya Sanskruti Mancha and award inscription on the plaque.",
+      "source": "img/p7.jpg"
+    },
+    "p8": {
+      "badge": "Community",
+      "caption": "Kalinga Shree — Kalinganagar Press Forum",
+      "evidence": "The plaque identifies Kalinganagar Press Forum and Kalinga Shree; this is contextual classification, not a verified measure of impact.",
+      "source": "img/p8.jpg"
+    },
+    "p9": {
+      "badge": "Community",
+      "caption": "Rotary token of appreciation",
+      "evidence": "The inscription explicitly says token of love, appreciation and gratitude.",
+      "source": "img/p9.jpg"
+    },
+    "p10": {
+      "badge": "Culture & Heritage",
+      "caption": "Memento from Odisha History Congress",
+      "evidence": "The inscription identifies Odisha History Congress and conveys regards and compliments.",
+      "source": "img/p10.jpg"
+    },
+    "p11": {
+      "badge": "Literature",
+      "caption": "Memento from Korai Mandal Sahitya Sansad",
+      "evidence": "The inscription identifies the literary organisation and Korai Mahotsav.",
+      "source": "img/p11.jpg"
+    },
+    "p12": {
+      "badge": "Culture & Heritage",
+      "caption": "Bonth Mahotsav chief guest memento",
+      "evidence": "Chief Guest and the festival name appear on the plaque.",
+      "source": "img/p12.jpg"
+    },
+    "p13": {
+      "badge": "Community",
+      "caption": "Memento from Odisha State Bharat Scouts and Guides",
+      "evidence": "Organisation name is legible; the specific reason for the presentation is not stated.",
+      "source": "img/p13.jpg"
+    },
+    "cr1": {
+      "badge": "Literature",
+      "caption": "Literary honour from Fakir Mohan Sahitya Parishad",
+      "evidence": "The citation names the literary organisation and discusses his poetry.",
+      "source": "img/cr1.jpg"
+    },
+    "cr2": {
+      "badge": "Literature",
+      "caption": "Literary felicitation citation",
+      "evidence": "The citation identifies a language and literature publication and recognises his writing.",
+      "source": "img/cr2.jpg"
+    },
+    "cr3": {
+      "badge": "Literature",
+      "caption": "Citation from Jajpur District Writers’ Conference",
+      "evidence": "Organisation name and recognition of literary work appear in the citation.",
+      "source": "img/cr3.jpg"
+    },
+    "cr4": {
+      "badge": "Literature",
+      "caption": "Literary award from Gokarnika Sahitya Samaj",
+      "evidence": "The citation identifies the literary society and discusses his poetry.",
+      "source": "img/cr4.jpg"
+    },
+    "cr5": {
+      "badge": "Literature",
+      "caption": "Literary honour from Korai Mandal Sahitya Sansad",
+      "evidence": "The citation identifies the literary organisation and recognises his writing.",
+      "source": "img/cr5.jpg"
+    }
+  }
+}

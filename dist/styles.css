@@ -392,3 +392,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .interview-preview .interviews-track>.media-item{flex:0 0 calc((100% - 48px)/3);height:320px;margin:0;display:flex}
 .interview-preview .interviews-track>.media-item>img{width:100%;height:100%;object-fit:contain}
 @media(max-width:760px){.interview-preview .overview-heading{flex-direction:row;align-items:center}.interview-preview .interviews-track>.media-item{flex-basis:86%;height:280px}}
+
+/* Award badges describe context, without ranking prestige. */
+.awards-gallery .award-frame{padding-bottom:62px}
+.award-badge{position:absolute;z-index:2;bottom:25px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:6px;max-width:calc(100% - 54px);padding:5px 10px;border:1px solid #b7b29a;border-radius:20px;background:var(--paper);color:var(--ink);font:500 12px/1.3 var(--sans);white-space:nowrap}
+.award-badge svg{width:17px;height:17px;flex-shrink:0}
+.awards-intro{max-width:700px;color:var(--muted)}
