@@ -30,7 +30,7 @@ for page in source.rglob('*.html'):
   # Every alias is one directory below its maintained source HTML.
   # Crawlers receive complete metadata; browsers use the maintained .html URL.
   # Carry query/hash across so legacy article anchors keep working.
-  target='../'+page.name
+  target='/'+page.relative_to(source).as_posix()
   redirect='<script>location.replace('+json.dumps(target)+'+location.search+location.hash)</script>'
   alias.write_text(text.replace('<head>','<head><base href="../"/>'+redirect,1))
  count+=1
