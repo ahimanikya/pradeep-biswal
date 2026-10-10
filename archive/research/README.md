@@ -32,4 +32,4 @@ No additional distinct interview or standalone book review was verified in this 
 
 ## Author readings
 
-Three ABC Diaries recordings were supplied by the owner and identified as readings by the poet on 10 October 2026. YouTube oEmbed confirms the titles and channel; the publisher labels Mallika as an Odia story and the other two as poetry. Upload dates are unverified and omitted. The Poetry page offers these under In the Poet’s Voice; the archive keeps a separate Author readings category. Playback remains on YouTube with local preview images.
+Three ABC Diaries recordings were supplied by the owner and identified as readings by the poet on 10 October 2026. YouTube oEmbed confirms the titles and channel; the publisher labels Mallika as an Odia story, but the owner subsequently confirmed that all three are poetry. All three are classified as poetry readings; original publisher titles remain preserved. Upload dates are unverified and omitted. The Poetry page offers these under In the Poet’s Voice; the archive keeps a separate Author readings category. Playback remains on YouTube with local preview images.

@@ -73,7 +73,7 @@ print('Built archive of',len(rows),'records; interviews and reviews pages popula
 
 p=D/'poetry.html';s=p.read_text()
 s=re.sub(r'<section class="poet-voice".*?</section>','',s,flags=re.S)
-voice='<section class="poet-voice" id="poet-voice"><h2>In the Poet’s Voice</h2><p>Poetry and a story, read by Pradeep Biswal. From ABC Diaries’ Aliva Smruti series.</p><div class="archive-grid">'+''.join(card(r) for r in rows if r['category']=='Author readings')+'</div></section>'
+voice='<section class="poet-voice" id="poet-voice"><h2>In the Poet’s Voice</h2><p>Poems read by Pradeep Biswal. From ABC Diaries’ Aliva Smruti series.</p><div class="archive-grid">'+''.join(card(r) for r in rows if r['category']=='Author readings')+'</div></section>'
 s=s.replace('</main>',voice+'</main>')
 if 'src="episode-player.js' not in s:s=s.replace('</body>','<script src="episode-player.js?v=20261010" defer></script></body>')
 if 'href="literary-archive.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261010-readings"/></head>')

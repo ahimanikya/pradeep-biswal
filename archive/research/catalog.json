@@ -728,7 +728,7 @@
       "format": "Poetry reading",
       "language": "Odia",
       "checked": "2026-10-10",
-      "evidence": "User identifies the reader as the poet; YouTube oEmbed confirms title and publisher. Full recording not independently reviewed.",
+      "evidence": "User confirms all three are poetry recited by the poet. YouTube oEmbed confirms original titles and publisher.",
       "rights": "Embedded from the original publisher; no audio or video copy hosted."
     },
     {
@@ -745,7 +745,7 @@
       "format": "Poetry reading",
       "language": "Odia",
       "checked": "2026-10-10",
-      "evidence": "User identifies the reader as the poet; YouTube oEmbed confirms title and publisher. Full recording not independently reviewed.",
+      "evidence": "User confirms all three are poetry recited by the poet. YouTube oEmbed confirms original titles and publisher.",
       "rights": "Embedded from the original publisher; no audio or video copy hosted."
     },
     {
@@ -758,12 +758,13 @@
       "credit": "Read by Pradeep Biswal",
       "date": "",
       "date_note": "Publication date not verified; omitted from display.",
-      "note": "From the Aliva Smruti series. The publisher identifies this recording as an Odia story.",
-      "format": "Story reading",
+      "note": "From the Aliva Smruti series.",
+      "format": "Poetry reading",
       "language": "Odia",
       "checked": "2026-10-10",
-      "evidence": "User identifies the reader as the poet; YouTube oEmbed confirms title and publisher. Full recording not independently reviewed.",
-      "rights": "Embedded from the original publisher; no audio or video copy hosted."
+      "evidence": "User confirms all three are poetry recited by the poet. YouTube oEmbed confirms original titles and publisher.",
+      "rights": "Embedded from the original publisher; no audio or video copy hosted.",
+      "classification_note": "Owner corrected the publisher’s Odia Story label to poetry on 10 October 2026; original publisher title retained."
     }
   ],
   "leads": [
