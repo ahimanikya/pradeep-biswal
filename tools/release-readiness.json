@@ -20,7 +20,8 @@
     "Six external links returned HTTP 200; this does not verify stock availability or third-party content accuracy",
     "54 public pages indexable; 41 Article schemas; live sitemap, robots.txt and llms.txt verified",
     "Production App Check browser verification and temporary like/unlike passed; test like removed",
-    "App Check enforcement readback confirmed ENFORCED; unverified read returned HTTP 403; live browser comment reads and like/unlike passed after enforcement"
+    "App Check enforcement readback confirmed ENFORCED; unverified read returned HTTP 403; live browser comment reads and like/unlike passed after enforcement",
+    "2026-10-10 post-enforcement: guest contact delivery, owner Google sign-in, inbox receipt and mark-read/archive, guest comment submission and owner rejection passed"
   ],
   "refinements": [
     "Removed the rigid line below the portrait",
@@ -32,8 +33,7 @@
     "Corrected the old audit record which incorrectly described contact delivery as disabled"
   ],
   "before_broad_promotion": [
-    "Obtain poet approval for biography, testimony attributions, award descriptions and image use",
-    "Assign responsibility for checking the moderation/contact inbox; automatic email notifications are absent"
+    "Obtain poet approval for biography, testimony attributions, award descriptions and image use"
   ],
   "nonblocking_editorial_gaps": [
     "Interview Videos currently has no entries and points readers to Video Gallery",
@@ -45,7 +45,11 @@
     "Network speed and WhatsApp preview caching vary; local assets, lazy image loading and deferred Firebase loading remain in place",
     "No test comments or contact messages created during this rollout; temporary like removed",
     "Earlier browser session had intermittent connection errors; fresh-session comment reads and like/unlike passed",
-    "Search indexing and AI inclusion are not guaranteed; Firestore enforcement enabled with user approval",
-    "Contact delivery and owner moderation not re-tested end to end after enforcement; both use the shared App Check setup."
-  ]
+    "Search indexing and AI inclusion are not guaranteed; Firestore enforcement enabled with user approval"
+  ],
+  "operations": {
+    "inbox_owner": "Ahimanikya",
+    "search_submission": "Deferred by user until domain change; nothing submitted",
+    "test_records": "Two contact tests archived; one moderation test rejected, never published"
+  }
 }

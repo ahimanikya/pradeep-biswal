@@ -9,5 +9,5 @@
   "live_browser_comment_reads": "passed",
   "live_browser_like_and_unlike": "passed; temporary like removed",
   "billing_enabled": false,
-  "contact_delivery_and_owner_moderation": "not re-tested end to end after enforcement"
+  "contact_delivery_and_owner_moderation": "Passed live guest contact submission, owner Google sign-in and inbox receipt, mark read/archive, guest comment submission and owner rejection on 2026-10-10"
 }
