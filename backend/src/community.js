@@ -32,10 +32,9 @@ async function startArticle(){
   const snap=await getDocs(query(collection(db,'articles',slug,'comments'),...rules));
   if(!cursor)list.replaceChildren();
   for(const item of snap.docs){const d=item.data(),el=document.createElement('article');el.className='reader-comment';el.append(paragraph(d.author,'h3'));const body=paragraph(d.body);body.style.whiteSpace='pre-wrap';el.append(body);if(d.createdAt){const date=paragraph(d.createdAt.toDate().toLocaleDateString(),'time');date.dateTime=d.createdAt.toDate().toISOString();el.append(date);}list.append(el);}
-  if(!snap.size&&!cursor)list.append(paragraph('No comments yet. Be the first to leave a thought.'));
   cursor=snap.docs.at(-1)||cursor;more.hidden=snap.size<20;
  }
- load.addEventListener('click',async()=>{if(busy)return;busy=true;load.disabled=true;tell('Loading reader responses…');try{await setup();await Promise.all([counts(),comments()]);like.disabled=false;form.querySelector('fieldset').disabled=false;load.hidden=true;tell('');if(section.dataset.likeRequested){delete section.dataset.likeRequested;like.click();}}catch(e){tell(errorMessage(e));load.disabled=false;}finally{busy=false;}});
+ load.addEventListener('click',async()=>{if(busy)return;busy=true;load.disabled=true;tell('Loading reader responses…');try{await setup();await Promise.all([counts(),comments()]);like.disabled=false;form.querySelector('fieldset').disabled=false;load.hidden=true;tell('');if(section.dataset.likeRequested){delete section.dataset.likeRequested;like.click();}}catch(e){tell(errorMessage(e));load.disabled=false;load.hidden=false;load.textContent='Retry loading comments';}finally{busy=false;}});
  like.addEventListener('click',async()=>{like.disabled=true;try{const u=await guest(),ref=doc(db,'articles',slug,'likes',u.uid);if(liked)await deleteDoc(ref);else if(!(await getDoc(ref)).exists())await setDoc(ref,{createdAt:serverTimestamp()});await counts();}catch(e){tell(errorMessage(e));}finally{like.disabled=false;}});
  more.addEventListener('click',async()=>{more.disabled=true;try{await comments();}catch(e){tell(errorMessage(e));}finally{more.disabled=false;}});
  let submission=null;

@@ -528,3 +528,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .page-contact .contact-privacy{font:13px/1.6 var(--sans);color:var(--muted);margin:14px 0 0}
 .page-contact .contact-status:empty{display:none}
 .page-contact .send-message{margin-top:18px}
+
+/* Comments use the same quiet, compact form treatment as contact. */
+.memory-community{margin-top:36px;padding-top:26px}
+.memory-community>p{font-size:14px}
+.memory-community .reader-status:empty{display:none}
+.memory-comment-form fieldset{margin-top:16px}
+.memory-comment-form label{font-size:14px;margin:16px 0 8px}
+.memory-comment-form input,.memory-comment-form textarea{font:17px/1.6 var(--reading);background:#fffcf5;border-color:#9ba695}
+.memory-comment-form button{background:var(--ink);color:var(--paper);padding:12px 22px;border:0}
+.reader-load[hidden]{display:none}
