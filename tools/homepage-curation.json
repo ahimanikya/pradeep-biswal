@@ -1,37 +1,11 @@
 {
-  "policy": "Homepage highlights only; full collections remain on dedicated pages. Replace a highlight instead of appending indefinitely.",
-  "limits": {
-    "home-books": 4,
-    "home-memories": 4,
-    "home-photos": 6,
-    "home-awards": 4,
-    "home-interviews": 3
-  },
-  "changes": [
-    {
-      "collection": "home-books",
-      "before": 12,
-      "after": 4
-    },
-    {
-      "collection": "home-memories",
-      "before": 41,
-      "after": 4
-    },
-    {
-      "collection": "home-photos",
-      "before": 133,
-      "after": 6
-    },
-    {
-      "collection": "home-awards",
-      "before": 20,
-      "after": 4
-    },
-    {
-      "collection": "home-interviews",
-      "before": 47,
-      "after": 3
-    }
+  "policy": "Full homepage sliders for books, memories, awards and interviews; photography shows ten ranked images followed by a link to the full gallery. Keep native scrolling, lazy images and no autoplay.",
+  "photo_limit": 10,
+  "photo_final_card": "gallery.html",
+  "full_sliders": [
+    "home-books",
+    "home-memories",
+    "home-awards",
+    "home-interviews"
   ]
 }
