@@ -10,5 +10,6 @@
     "projectNumber": "698241623854",
     "version": "2"
   },
-  "recaptchaSiteKey": ""
+  "recaptchaSiteKey": "6LetWectAAAAAFOhBSdJK83r6trOY_mcaO036J1p",
+  "appCheckProvider": "recaptchaEnterprise"
 }

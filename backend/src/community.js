@@ -1,23 +1,28 @@
 import { initializeApp } from 'firebase/app';
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+import { initializeAppCheck, ReCaptchaEnterpriseProvider, getToken } from 'firebase/app-check';
 import { getAuth, signInAnonymously, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { getFirestore, collection, doc, getDoc, getDocs, query, orderBy, limit, startAfter, where, getCountFromServer, writeBatch, setDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 const section=document.querySelector('[data-reader-article]');
 const adminPage=document.querySelector('[data-reader-admin]');
 const status=document.querySelector('.reader-status');
 const tell=message=>{if(status)status.textContent=message;};
-let db,auth;
+let db,auth,appCheck;
 async function setup(){
- if(db&&auth){await auth.authStateReady();return;}
- const config=await fetch('/reader-config.json',{cache:'no-store'}).then(r=>r.json());
- if(!config.enabled||!config.firebase)throw Error('not-configured');
- const app=initializeApp(config.firebase);
- if(config.recaptchaSiteKey)initializeAppCheck(app,{provider:new ReCaptchaV3Provider(config.recaptchaSiteKey),isTokenAutoRefreshEnabled:true});
- db=getFirestore(app);auth=getAuth(app);await auth.authStateReady();
+ if(!db||!auth){
+  const config=await fetch('/reader-config.json',{cache:'no-store'}).then(r=>r.json());
+  if(!config.enabled||!config.firebase)throw Error('not-configured');
+  const app=initializeApp(config.firebase);
+  if(config.recaptchaSiteKey)appCheck=initializeAppCheck(app,{provider:new ReCaptchaEnterpriseProvider(config.recaptchaSiteKey),isTokenAutoRefreshEnabled:true});
+  db=getFirestore(app);auth=getAuth(app);
+ }
+ // Confirm browser attestation before enabling submissions; cached tokens are reused.
+ if(appCheck)await getToken(appCheck);
+ await auth.authStateReady();
 }
 function paragraph(text,tag='p'){const el=document.createElement(tag);el.textContent=text;return el;}
 async function guest(){if(!auth.currentUser)await signInAnonymously(auth);return auth.currentUser;}
 function errorMessage(error){
+ if(error.code?.startsWith('appCheck/'))return 'Verification could not finish. Please refresh and try again.';
  if(error.message==='not-configured')return 'Reader responses will open soon.';
  if(error.code==='permission-denied')return 'Please wait a minute before posting again. If this continues, try refreshing the page.';
  return 'Unable to connect right now. Please try again shortly.';
@@ -38,7 +43,7 @@ async function startArticle(){
  like.addEventListener('click',async()=>{like.disabled=true;try{const u=await guest(),ref=doc(db,'articles',slug,'likes',u.uid);if(liked)await deleteDoc(ref);else if(!(await getDoc(ref)).exists())await setDoc(ref,{createdAt:serverTimestamp()});await counts();}catch(e){tell(errorMessage(e));}finally{like.disabled=false;}});
  more.addEventListener('click',async()=>{more.disabled=true;try{await comments();}catch(e){tell(errorMessage(e));}finally{more.disabled=false;}});
  let submission=null;
- form.addEventListener('submit',async event=>{event.preventDefault();if(!form.reportValidity())return;const button=form.querySelector('button[type=submit]');button.disabled=true;tell('Sending your comment…');try{
+ form.addEventListener('submit',async event=>{event.preventDefault();if(!form.reportValidity())return;if(form.elements.website?.value){tell('Unable to send. Please refresh and try again.');return;}const button=form.querySelector('button[type=submit]');button.disabled=true;tell('Sending your comment…');try{
   const u=await guest(),author=form.elements.name.value.trim(),body=form.elements.comment.value.trim();if(!author||!body)throw Error('empty');
   const content=JSON.stringify([author,body]);if(!submission||submission.content!==content)submission={ref:doc(collection(db,'submissions')),content};
   // A stable submission ID makes retry after a lost response safe.
