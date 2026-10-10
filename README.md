@@ -25,3 +25,9 @@ This repository is independent of Kabita Live and Singhasan. Private research an
 ## Owner guide
 
 See [Caring for the website](docs/OWNER-GUIDE.md) for inbox handling, moderation, updates and deferred work.
+
+## Homepage curation
+
+Keep the homepage as a small introduction: four books, four memories, six gallery images, four awards and three featured conversations. The limits are recorded in `tools/homepage-curation.json`. Replace a highlight when featuring new work; add the complete record to its dedicated collection. Keep the existing links to full collections and the compact In the Poet’s Voice link.
+
+Do not add a new homepage section for each publication, recording or announcement. Preserve the existing typography, spacing, image treatment and restrained line art. Avoid autoplay, rotating promotional banners, extra badges and new decorative imagery without a specific reason.
