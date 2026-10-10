@@ -38,6 +38,6 @@ For a website regression, the maintainer can revert the relevant Git commit and 
 
 ## Deferred work
 
-The poet should approve the proposed reading selection, timeline, new biography wording and personal note. Audio readings await recordings and approval. Search submission remains deferred until the final domain is chosen.
+The poet should approve the proposed reading selection, timeline, new biography wording and personal note. Three supplied poetry recitations are live; the poet should check their titles and credits. Additional recordings are optional. The current pending checklist is on the unlisted [poet review page](https://pb.kabitawithoutborders.org/review-drafts.html), including homepage highlight choices and article-image decisions. Search submission remains deferred until the final domain is chosen.
 
 A domain change must also update Firebase sign-in and App Check settings, social previews, canonical URLs, sitemap and discovery files, followed by live checks of contact delivery, comments and owner sign-in. Change these together to avoid interrupting submissions.
