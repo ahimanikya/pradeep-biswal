@@ -1,0 +1,13 @@
+.published-work-link{margin-left:24px}
+.book-review-link{margin:14px 0 0;grid-column:1/-1}
+.featured-conversation{position:relative;display:flex!important;flex-direction:column;text-decoration:none;color:inherit;background:var(--paper,#f5efdf)}
+.interviews-track .featured-conversation img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.conversation-caption{display:flex;flex-direction:column;gap:6px;padding:14px 8px}
+.conversation-caption small{font-size:.8rem;letter-spacing:.04em}
+.conversation-caption strong{font-size:1.15rem;font-weight:500}
+.conversation-caption>span{font-size:.9rem}
+.featured-conversation:focus-visible,.book-review-link:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+@media(min-width:801px) and (max-width:1150px){.desktop-nav{gap:10px}.desktop-nav a{font-size:.82rem}.desktop-nav .site-line-icon{display:none}}
+@media(max-width:600px){.published-work-link{margin-left:0;display:flex;width:fit-content;margin-top:16px}}
+.interview-preview .interviews-track>.featured-conversation{height:auto;justify-content:flex-start;align-items:stretch;overflow:hidden}
+.interview-preview .interviews-track>.featured-conversation>img{height:auto;width:100%;aspect-ratio:16/9;object-fit:cover;max-height:none;flex-shrink:0}

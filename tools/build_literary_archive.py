@@ -27,6 +27,8 @@ def group(cat):
  return '<section class="literary-section" id="'+cat.lower().replace(' ','-')+'"><h2>'+e(cat)+'</h2><div class="archive-grid">'+''.join(map(card,items))+'</div></section>'
 def page(file,title,intro,body):
  s=(D/'review.html').read_text().replace(' aria-current="page"','');s=re.sub(r'<main\b.*?</main>','<main class="wrap inner-page literary-archive" id="main" tabindex="-1"><div class="breadcrumb"><a href="index.html">Home</a> / '+e(title)+'</div><h1>'+e(title)+'</h1><p class="archive-intro">'+e(intro)+'</p>'+nav+body+'</main>',s,flags=re.S)
+ if file=='literary-archive.html':
+  s=re.sub(r'(<nav\b[^>]*aria-label="Main navigation".*?)(<a href="literary-archive.html")',r'\1<a aria-current="page" href="literary-archive.html"',s,count=1,flags=re.S)
  s=re.sub(r'<title>.*?</title>','<title>'+e(title)+' · Pradeep Biswal</title>',s)
  for name,value in [('description',intro),('og:title',title+' · Pradeep Biswal'),('og:description',intro),('og:url','https://pb.kabitawithoutborders.org/'+file),('twitter:title',title+' · Pradeep Biswal'),('twitter:description',intro)]:
   s=re.sub(r'<meta\b(?=[^>]*(?:name|property)="'+re.escape(name)+r'")[^>]*>',lambda _,n=name,v=value:'<meta '+('property' if n.startswith('og:') else 'name')+'="'+n+'" content="'+e(v,quote=True)+'"/>',s)
@@ -46,7 +48,14 @@ def topic_group(topic):
  return '<section class="literary-section" id="'+slug+'"><h2>'+e(topic)+'</h2><div class="archive-grid">'+''.join(map(card,items))+'</div></section>'
 page('interviewvideo.html','Podcasts & Interviews','Conversations on literature, finance, tourism and public life. Choose a subject and listen at your own pace.',
  '<nav class="archive-jump" aria-label="Browse conversations by topic">'+''.join('<a href="#'+t.lower().replace(' & ','-').replace(' ','-')+'">'+e(t)+'</a>' for t in topics)+'</nav>'+''.join(topic_group(t) for t in topics)+group('Print interviews')+group('Conversation reports')+'<p class="archive-note">Play an episode here, or open it on the publisher’s channel. <a href="interviewphoto.html">Interview photographs</a> · <a href="video.html">Video gallery</a></p>')
-page('review.html','Book Reviews','Readings of the poet’s books, with each reviewer’s voice and original publication credited.',group('Book reviews'))
+def reviews_by_book():
+ books=[('Rendezvous with Dreams','rendezvous-with-dreams','rendezvous-with-dreams'),('A House Within','a-house-within','book-5'),('Pilgrimage to Ayodhya','pilgrimage-to-ayodhya','book-3')]
+ out='<nav class="archive-jump" aria-label="Reviews by book">'+''.join('<a href="#'+slug+'">'+title+'</a>' for title,slug,_ in books)+'</nav>'
+ for title,slug,book_id in books:
+  items=[r for r in rows if r['category']=='Book reviews' and title in r.get('book','')]
+  out+='<section class="literary-section" id="'+slug+'"><h2>'+title+'</h2><a class="text-link" href="book.html#'+book_id+'">View book &amp; buying options '+arrow+'</a><div class="archive-grid">'+''.join(map(card,sorted(items,key=lambda r:r['date'],reverse=True)))+'</div></section>'
+ return out
+page('review.html','Book Reviews','Readings of the poet’s books, with each reviewer’s voice and original publication credited.',reviews_by_book())
 (D/'data').mkdir(exist_ok=True);shutil.copyfile(R/'archive/research/catalog.csv',D/'data/literary-archive.csv')
 # Related links keep the archive reachable without crowding the main navigation.
 for name in ['memory.html','interviewphoto.html','video.html','about.html']:
@@ -57,7 +66,7 @@ for name in ['memory.html','interviewphoto.html','video.html','about.html']:
 # All full indexes get the same archive link; compact article menus remain consistent.
 for p in D.rglob('*.html'):
  s=p.read_text(); marker='<nav aria-label="Complete website index">'
- if marker in s and '>Literary archive</a>' not in s:
-  s=s.replace(marker,marker+'<a href="'+('../' if p.parent.name=='memories' else '')+'literary-archive.html">Literary archive</a>',1)
+ if marker in s and '>Published Work</a>' not in s:
+  s=s.replace(marker,marker+'<a href="'+('../' if p.parent.name=='memories' else '')+'literary-archive.html">Published Work</a>',1)
  p.write_text(s)
 print('Built archive of',len(rows),'records; interviews and reviews pages populated.')
