@@ -1,0 +1,50 @@
+name: Find poet updates
+on:
+  schedule:
+    # Monday 09:00 Asia/Kolkata (03:30 UTC); GitHub may delay scheduled runs.
+    - cron: '30 3 * * 1'
+  workflow_dispatch:
+  push:
+    paths: ['tools/watch_poet_updates.py', 'tools/tests/test_poet_watch.py', 'archive/research/watch-sources.json', '.github/workflows/poet-updates.yml']
+  pull_request:
+    paths: ['tools/watch_poet_updates.py', 'tools/tests/test_poet_watch.py', 'archive/research/watch-sources.json', '.github/workflows/poet-updates.yml']
+permissions:
+  contents: read
+concurrency:
+  group: poet-updates-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tools/tests -p 'test_poet_watch.py' -v
+  discover:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect sources and flag unseen candidates
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/watch_poet_updates.py --publish --output "$RUNNER_TEMP/poet-watch"
+      - name: Preserve the scan and coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: poet-update-review
+          path: ${{ runner.temp }}/poet-watch/
+          retention-days: 30
+          if-no-files-found: warn

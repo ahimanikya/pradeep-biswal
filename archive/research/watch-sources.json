@@ -1,0 +1,76 @@
+{
+  "aliases": [
+    "Pradeep Biswal",
+    "Pradeep Kumar Biswal",
+    "Pradip Biswal",
+    "ପ୍ରଦୀପ ବିଶ୍ୱାଳ",
+    "ପ୍ରଦୀପ ବିଶ୍ବାଳ",
+    "ପ୍ରଦୀପ ବିଶ୍ୱାଲ"
+  ],
+  "context_terms": [
+    "poet",
+    "poetry",
+    "poem",
+    "literature",
+    "literary",
+    "writer",
+    "author",
+    "book",
+    "review",
+    "interview",
+    "podcast",
+    "finance",
+    "budget",
+    "tourism",
+    "travel",
+    "rera",
+    "orera",
+    "bureaucrat",
+    "ias",
+    "କବି",
+    "କବିତା",
+    "ସାହିତ୍ୟ"
+  ],
+  "max_candidates": 25,
+  "sources": [
+    {
+      "name": "Google News · English",
+      "url": "https://news.google.com/rss/search?q=%22Pradeep+Biswal%22+OR+%22Pradeep+Kumar+Biswal%22+when%3A90d&hl=en-IN&gl=IN&ceid=IN%3Aen",
+      "require_context": true
+    },
+    {
+      "name": "Google News · Odia",
+      "url": "https://news.google.com/rss/search?q=%22ପ୍ରଦୀପ+ବିଶ୍ୱାଳ%22+when%3A90d&hl=en-IN&gl=IN&ceid=IN%3Aen",
+      "require_context": true
+    },
+    {
+      "name": "Setu",
+      "url": "https://www.setumag.com/feeds/posts/default?alt=rss&q=Pradeep%20Biswal&max-results=50"
+    },
+    {
+      "name": "Odisha Sambad",
+      "url": "https://odishasambad.in/feed/?s=Pradeep+Biswal",
+      "require_context": true
+    },
+    {
+      "name": "Cultural Reverence",
+      "url": "https://theculturalreverence.wordpress.com/feed/"
+    },
+    {
+      "name": "Digital Reporter Odisha",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCt5ZJLs7u2MFX2sQ8HeSs4A"
+    },
+    {
+      "name": "Dil Se Dil Tak · Pradeep Pramanik",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrr9mJxCmHxt8Dtd4IhddVw"
+    },
+    {
+      "name": "ABC Diaries",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6pRVRaPNgEINQw7sRebpog"
+    }
+  ],
+  "ignore_title_patterns": [
+    "^Setu, [A-Za-z]+ [0-9]{4}$",
+    "^Setu Authors A-Z"
+  ]
+}

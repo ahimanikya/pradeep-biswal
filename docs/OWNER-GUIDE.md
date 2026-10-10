@@ -45,3 +45,7 @@ A domain change must also update Firebase sign-in and App Check settings, social
 ## Permanent domain
 
 The permanent address is pradeepbiswal.in. Follow [the coordinated cutover checklist](DOMAIN-CUTOVER.md); changing DNS alone will not migrate reader submissions or search/share metadata safely. The temporary domain remains active until then.
+
+## Review newly discovered work
+
+A [weekly research monitor](RESEARCH-WATCH.md) checks public feeds every Monday at 9 a.m. IST. Review its GitHub issues, verify each source, and approve additions through the usual site update process. Nothing is added to the website automatically. Its first run can surface older items not yet catalogued.
