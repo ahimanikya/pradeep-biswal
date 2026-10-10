@@ -13,7 +13,7 @@ def video_player(r):
  match=re.fullmatch(r'https://www\.youtube\.com/watch\?v=([A-Za-z0-9_-]{11})',r['url'])
  if not match:return ''
  title=e(r.get('display_title',r['title']),quote=True)
- return '<div class="episode-player" data-video-id="'+match[1]+'" data-video-title="'+title+'" hidden><button class="episode-play" type="button" aria-label="Play '+title+'"><svg aria-hidden="true" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="32" r="28"/><path d="m26 20 19 12-19 12Z"/></svg><span>Play episode</span><small>Watch here · YouTube</small></button></div>'
+ return '<div class="episode-player" data-video-id="'+match[1]+'" data-video-title="'+title+'" hidden><button class="episode-play" type="button" aria-label="Play '+title+'"><img class="episode-thumbnail" src="assets/video-previews/'+match[1]+'.webp" alt="" width="480" height="360" loading="lazy" decoding="async"/><svg aria-hidden="true" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="32" r="28"/><path d="m26 20 19 12-19 12Z"/></svg><span>Play episode</span><small>Watch here · YouTube</small></button></div>'
 def card(r):
  label=('Watch podcast' if r.get('format')=='Podcast' else 'Watch interview') if r['category']=='Video interviews' else 'Read report' if r['category']=='Conversation reports' else 'Read at source'
  from datetime import datetime
@@ -36,7 +36,7 @@ def page(file,title,intro,body):
  s=re.sub(r'<link[^>]*href="literary-archive.css[^>]*>','',s)
  s=re.sub(r'<script[^>]*src="episode-player.js[^>]*></script>','',s)
  if 'data-video-id=' in body:s=s.replace('</body>','<script src="episode-player.js?v=20261010" defer></script></body>')
- s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261010-video"/></head>')
+ s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261010-previews"/></head>')
  (D/file).write_text(s)
 page('literary-archive.html','Words in the World','Interviews, essays, poems and readings of Pradeep Biswal’s books, gathered from their original publishers.', '<nav class="archive-jump" aria-label="Browse by form">'+''.join('<a href="#'+c.lower().replace(' ','-')+'">'+e(c)+'</a>' for c in cats)+'</nav>'+''.join(group(c) for c in cats)+'<p class="archive-note">A growing bibliography, researched 10 October 2026. Videos play here; source links open the original publication. Dates refer to publication or issue dates; the Aakhar report uses its upload month. <a href="data/literary-archive.csv" download>Download the catalogue</a>.</p>')
 topics=['Literature','Finance','Tourism','Education & Governance']
