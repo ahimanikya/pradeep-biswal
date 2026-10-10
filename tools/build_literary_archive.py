@@ -5,7 +5,7 @@ import json,re,shutil,csv
 R=Path(__file__).resolve().parents[1];D=R/'dist'
 data=json.loads((R/'archive/research/catalog.json').read_text());rows=data['records']
 with (R/'archive/research/catalog.csv').open('w') as f:
- w=csv.DictWriter(f,fieldnames=['id','category','title','publisher','credit','date','url','note','topic','format','evidence'],extrasaction='ignore');w.writeheader();w.writerows(rows)
+ w=csv.DictWriter(f,fieldnames=['id','category','title','publisher','credit','date','url','note','topic','format','evidence'],extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(rows)
 arrow='<span aria-hidden="true">↗</span>'
 nav='<nav class="collection-links" aria-label="Archive collections"><a href="literary-archive.html">All publications</a><a href="interviewvideo.html">Podcasts &amp; interviews</a><a href="review.html">Book reviews</a><a href="memory.html">Missing Memories</a></nav>'
 def card(r):
