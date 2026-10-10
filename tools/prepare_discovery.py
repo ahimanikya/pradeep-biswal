@@ -6,7 +6,7 @@ from urllib.parse import urlsplit
 import json,re,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'dist';ORIGIN='https://pb.kabitawithoutborders.org'
-EXCLUDE={'moderation.html','404.html','note.html','credits.html'}
+EXCLUDE={'moderation.html','404.html','note.html','credits.html','review-drafts.html'}
 class Extract(HTMLParser):
  def __init__(self,text):
   super().__init__(convert_charrefs=True);self.meta={};self.canonical='';self.title=[];self.in_h1=False;self.feed(text)

@@ -411,5 +411,12 @@
     "source": "assets/pradeep-biswal-800.webp",
     "width": 800,
     "height": 800
+  },
+  {
+    "page": "review-drafts.html",
+    "image": "assets/sharing/pradeep-biswal-800.jpg",
+    "source": "assets/pradeep-biswal-800.webp",
+    "width": 800,
+    "height": 800
   }
 ]
