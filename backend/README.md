@@ -10,11 +10,13 @@ Open https://pb.kabitawithoutborders.org/moderation.html and sign in with the ow
 
 ## Development
 
-Use modern Node.js (22+) and Java 11 for the pinned emulator tooling.
+Use Node.js 22 or newer and Java 21 or newer for Firebase CLI 15.33.0. Set JAVA_HOME to the Java 21 installation when older Java versions are also installed. The upgrade was tested locally with a checksum-verified Temurin 21 runtime without changing system Java. See https://firebase.google.com/docs/emulator-suite/connect_firestore for the Java requirement.
 
 ```
 cd backend
-npm ci
+npm ci --ignore-scripts
+npm audit --audit-level=low
+npm run test:tools
 npm run build
 _JAVA_OPTIONS='-Xms128m -Xmx1g' npm test
 npx firebase deploy --only firestore --project pradeep-biswal
@@ -57,6 +59,10 @@ Ahimanikya is responsible for the private contact inbox and comment moderation, 
 
 All 12 emulator security tests pass after overriding the Firebase Node dependency `@grpc/grpc-js` to patched version 1.14.5. The browser bundle is unchanged; `npm audit --omit=dev` reports no vulnerabilities. The override addresses GHSA-m9gg-hp2v-232j and GHSA-f596-whhp-79r4. Remove it only after the upstream Firebase dependency is patched and audited.
 
-The pinned Firebase CLI 13.35.1 development dependency still has 19 audit findings (including one critical). It is not published in `dist/` and is not a website runtime. Upgrade it as a coordinated maintenance task with a compatible Java emulator runtime and revalidation of the scripts importing Firebase CLI internal APIs. Do not use `npm audit fix --force`, downgrade Firebase, or treat a clean production-only audit as a clean toolchain audit.
+The development-toolchain findings from the follow-up audit are resolved. Firebase CLI is pinned to 15.33.0; the full dependency audit (including development tools) now reports zero vulnerabilities. All 12 security-rule tests and four toolchain compatibility tests pass. The authenticated read-only App Check audit also passed with the existing CLI-internal APIs. No production mutation/setup scripts were run.
+
+Scoped CLI overrides address dependencies still vulnerable in the upstream release: Chokidar 4.0.3 removes the unpatched braces path; PubSub 6.2.0 brings patched OpenTelemetry; uuid 11.1.1 patches the gaxios dependency; basic-ftp 6.2.3 patches the proxy dependency. These are scoped under firebase-tools, separate from the Firebase SDK gRPC override. Chokidar 4 removes glob support: this project watches a concrete Firestore rules file, verified by a file-change test. Compatibility validation covers this project’s Firestore emulator/admin workflow, not every Firebase CLI feature. Re-evaluate the overrides on the next CLI update instead of blindly removing or broadening them.
+
+The Backend security checks workflow installs the lockfile on Node 22 / Temurin 21, runs the full audit, compatibility tests, security-rule tests and browser build, and checks that the generated browser bundle matches Git. It requires no production credentials. Audit results are a point-in-time dependency check, not a guarantee against all vulnerabilities.
 
 Before broad launch, establish a private backup/restore procedure for Firestore submissions and the moderation role. GitHub backups do not include this data. Never put private inbox exports in this public repository.

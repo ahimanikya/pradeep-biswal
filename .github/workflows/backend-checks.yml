@@ -1,0 +1,38 @@
+name: Backend security checks
+on:
+  push:
+    branches: [main]
+    paths: ['backend/**', '.github/workflows/backend-checks.yml']
+  pull_request:
+    paths: ['backend/**', '.github/workflows/backend-checks.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      _JAVA_OPTIONS: '-Xms128m -Xmx1g'
+      CI: 'true'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: npm ci --ignore-scripts
+      - run: npm audit --audit-level=low
+      - run: npm run test:tools
+      - run: npm test
+      - run: npm run build
+      - name: Verify the committed browser bundle
+        run: git diff --exit-code -- ../dist/community.js

@@ -4,19 +4,33 @@
   "type": "module",
   "scripts": {
     "build": "esbuild src/community.js --bundle --minify --format=esm --outfile=../dist/community.js",
-    "test": "firebase emulators:exec --only firestore --project demo-pradeep-biswal \"node --test test/rules.test.js\""
+    "test": "firebase emulators:exec --only firestore --project demo-pradeep-biswal \"node --test test/rules.test.js\"",
+    "test:tools": "node --test test/toolchain.test.js"
   },
   "dependencies": {
     "firebase": "^12.0.0"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0",
     "@firebase/rules-unit-testing": "^5.0.0",
-    "firebase-tools": "13.35.1"
+    "esbuild": "^0.25.0",
+    "firebase-tools": "15.33.0"
   },
   "overrides": {
     "@firebase/firestore": {
       "@grpc/grpc-js": "1.14.5"
+    },
+    "firebase-tools": {
+      "chokidar": "4.0.3",
+      "@google-cloud/pubsub": "6.2.0",
+      "gaxios": {
+        "uuid": "11.1.1"
+      },
+      "proxy-agent": {
+        "basic-ftp": "6.2.3"
+      }
     }
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

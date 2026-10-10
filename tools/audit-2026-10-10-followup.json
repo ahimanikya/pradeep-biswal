@@ -1,7 +1,7 @@
 {
   "date": "2026-10-10",
   "scope": "Follow-up release and permanent-domain readiness audit",
-  "verdict": "Current temporary-domain site passes structural checks; permanent-domain launch requires coordinated cutover and poet approval. Development-toolchain maintenance remains open.",
+  "verdict": "Current temporary-domain site passes structural checks; permanent-domain launch requires coordinated cutover and poet approval. Development-toolchain advisories resolved by the follow-up upgrade.",
   "checks": {
     "source_pages": 61,
     "generated_pages": 120,
@@ -43,7 +43,6 @@
     "Add permanent root and www domains to Firebase Auth and reCAPTCHA allowed domains before cutover",
     "Update all maintained absolute URLs and discovery outputs, verify original URL aliases, arrange temporary-domain redirects",
     "Recheck guest contact, comments, likes and owner sign-in on the permanent domain",
-    "Upgrade the pinned Firebase development CLI/emulator toolchain: full npm audit still reports 19 development-only findings, including one critical; requires compatible Java runtime and validation of CLI-internal setup scripts",
     "Define a private Firebase data backup and restore procedure; Git contains website source, not reader submissions",
     "Search submission remains deferred; inbox monitoring remains manual"
   ],
@@ -56,5 +55,14 @@
   "sources": [
     "https://github.com/advisories/GHSA-m9gg-hp2v-232j",
     "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"
-  ]
+  ],
+  "resolved_toolchain_followup": {
+    "firebase_cli": "15.33.0",
+    "full_dependency_audit": "0 vulnerabilities including development dependencies",
+    "security_tests": 12,
+    "compatibility_tests": 4,
+    "java": "21",
+    "production_changes": "none",
+    "ci": ".github/workflows/backend-checks.yml"
+  }
 }
