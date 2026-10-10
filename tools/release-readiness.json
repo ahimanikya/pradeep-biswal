@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "verdict": "Ready for a reviewed public launch; editorial sign-off and search indexing remain deferred.",
+  "verdict": "Public search discovery published; App Check browser verification deployed; production enforcement awaiting explicit approval.",
   "scope": {
     "source_pages": 59,
     "built_pages": 116,
@@ -17,7 +17,9 @@
     "Copy link works; article tooltips dismiss with Escape",
     "Contact form enables correctly; real delivery was verified in the earlier contact implementation",
     "12 Firebase emulator security tests passed; private contact records and comment moderation rules covered",
-    "Six external links returned HTTP 200; this does not verify stock availability or third-party content accuracy"
+    "Six external links returned HTTP 200; this does not verify stock availability or third-party content accuracy",
+    "54 public pages indexable; 41 Article schemas; live sitemap, robots.txt and llms.txt verified",
+    "Production App Check browser verification and temporary like/unlike passed; test like removed"
   ],
   "refinements": [
     "Removed the rigid line below the portrait",
@@ -30,9 +32,8 @@
   ],
   "before_broad_promotion": [
     "Obtain poet approval for biography, testimony attributions, award descriptions and image use",
-    "Enable search indexing only after editorial approval; current noindex is intentional",
     "Assign responsibility for checking the moderation/contact inbox; automatic email notifications are absent",
-    "Configure and enforce Firebase App Check for stronger bot resistance; existing identity-based cooldowns are not full abuse prevention"
+    "Approve production Firestore App Check enforcement, then verify moderation and reader submissions with enforcement active."
   ],
   "nonblocking_editorial_gaps": [
     "Interview Videos currently has no entries and points readers to Video Gallery",
@@ -42,6 +43,8 @@
   "limits": [
     "Not a penetration test or a real-device cross-browser lab test",
     "Network speed and WhatsApp preview caching vary; local assets, lazy image loading and deferred Firebase loading remain in place",
-    "No production comments, likes or contact messages were created during this review"
+    "No test comments or contact messages created during this rollout; temporary like removed",
+    "Earlier browser session had intermittent connection errors; fresh-session comment reads and like/unlike passed",
+    "Search indexing and AI inclusion are not guaranteed; Firestore enforcement remains off pending approval"
   ]
 }

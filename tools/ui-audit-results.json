@@ -29,8 +29,8 @@
     "desktop_books": "1020px scroll advances four 227px cards with 28px gaps"
   },
   "deferred": [
-    "App Check bot protection not configured",
-    "Poet review and search-engine indexing remain deferred",
+    "Production Firestore App Check enforcement awaiting explicit approval",
+    "Poet editorial review remains pending; search indexing enabled at user request",
     "Automatic contact email notifications not configured; private inbox must be checked"
   ]
 }
