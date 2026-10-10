@@ -1,0 +1,335 @@
+{
+  "checked": "2026-10-10",
+  "books": [
+    {
+      "title": "ତାରୁଣ୍ୟର ସ୍ୱର",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0H2VWPL3M",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Resplendent Rainbow",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B09FGX9YF5",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Pilgrimage to Ayodhya",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0859JCGFN",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "ସଚିତ୍ର ସମୟ",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=154",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "A House Within",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=369",
+          "type": "product"
+        },
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/9387281833",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "लौटते रास्ते में",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Search Amazon",
+          "url": "https://www.amazon.in/s?k=Lautte+Raste+Mein+Pradeep+Biswal",
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "title": "ଫେରିବା ବାଟରେ",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Search Amazon",
+          "url": "https://www.amazon.in/s?k=Pheriba+Batare+Pradeep+Biswal",
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "title": "ପ୍ରେମକବିତା",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Search Amazon",
+          "url": "https://www.amazon.in/s?k=Prema+Kabita+Pradeep+Biswal",
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "title": "ଶେଷଲୋକ",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Search Amazon",
+          "url": "https://www.amazon.in/s?k=Sesha+Loka+Pradeep+Biswal",
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "title": "जल दर्पण",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Search Amazon",
+          "url": "https://www.amazon.in/s?k=Jal+Darpan+Pradeep+Biswal",
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "title": "ଭୂମିସ୍ପର୍ଶ",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Search Amazon",
+          "url": "https://www.amazon.in/s?k=Bhumi+Sparsha+Pradeep+Biswal",
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "title": "ଧୂସର ଧ୍ରୁପଦୀ",
+      "existing_book": true,
+      "links": [
+        {
+          "retailer": "Search Amazon",
+          "url": "https://www.amazon.in/s?k=Dhusara+Dhrupadi+Pradeep+Biswal",
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "title": "Kabita Satak",
+      "credit": "Odia · Poetry",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0HG5S2Q44",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Anupapadya",
+      "credit": "Odia · Poetry",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=669",
+          "type": "product"
+        },
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0H94C87YY",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Jiban Jemiti",
+      "credit": "Odia · Poetry",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=370",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Rendezvous with Dreams",
+      "credit": "English · Poetry",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0G2CBRS5B",
+          "type": "product"
+        },
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=492",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Life As It Is",
+      "credit": "English translation · Namita Rani Panda",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0HK5FVQFV",
+          "type": "product"
+        },
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=674",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Aatmaganam",
+      "credit": "Telugu · Poetry in translation",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=414",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Cha Khedi Khedi",
+      "credit": "Assamese translation · Dr. Ranjit Dutta",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0DHLKKMPG",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Reforms in Indirect Taxes in Odisha",
+      "credit": "Co-authored with Dr. Satya Priya Rath",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0DVY3VQDZ",
+          "type": "product"
+        },
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=482",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Toshali Anthology of Poetry 2023",
+      "credit": "Edited anthology · English",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=368",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Toshali Anthology of Poetry 2024",
+      "credit": "Edited anthology · English",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0D4D1XD5F",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Toshali Anthology of Poetry 2025",
+      "credit": "Co-edited anthology · English",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0DVYJ1HKM",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Toshali Anthology of Poetry 2026",
+      "credit": "Co-edited anthology · English",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0GMVGNQHQ",
+          "type": "product"
+        },
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=483",
+          "type": "product"
+        }
+      ]
+    },
+    {
+      "title": "Toshali Anthology of Love Poems 2026",
+      "credit": "Co-edited anthology · English",
+      "existing_book": false,
+      "links": [
+        {
+          "retailer": "Amazon",
+          "url": "https://www.amazon.in/dp/B0H4BNF918",
+          "type": "product"
+        },
+        {
+          "retailer": "Shalandi",
+          "url": "https://www.shalandi.in/description.php?ID=654",
+          "type": "product"
+        },
+        {
+          "retailer": "Flipkart",
+          "url": "https://www.flipkart.com/toshali-anthology-love-poems-2026/p/itm9ef2f1dd9d3f7",
+          "type": "product"
+        }
+      ]
+    }
+  ],
+  "evidence": "Amazon visible product listings and direct Pilgrimage page; Shalandi author catalogue and individual product pages. Amazon automated requests return503; browser verification used.",
+  "limits": "Seven original titles have search links, not confirmed product matches. Retailer prices, page counts and edition dates vary and are not copied to the site. Unrelated playwright and physical-education books excluded."
+}
