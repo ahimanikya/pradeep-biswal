@@ -10,7 +10,7 @@ Open https://pb.kabitawithoutborders.org/moderation.html and sign in with the ow
 
 ## Development
 
-Use Node.js 22 or newer and Java 21 or newer for Firebase CLI 15.33.0. Set JAVA_HOME to the Java 21 installation when older Java versions are also installed. The upgrade was tested locally with a checksum-verified Temurin 21 runtime without changing system Java. See https://firebase.google.com/docs/emulator-suite/connect_firestore for the Java requirement.
+Use Node.js 24 or newer, npm 11.13.0 or newer, and Java 21 or newer for Firebase CLI 15.33.0. npm 10 does not reliably apply the nested override lockfile; use the pinned npm version in packageManager and CI. Set JAVA_HOME to the Java 21 installation when older Java versions are also installed. The upgrade was tested locally with a checksum-verified Temurin 21 runtime without changing system Java. See https://firebase.google.com/docs/emulator-suite/connect_firestore for the Java requirement.
 
 ```
 cd backend
@@ -63,6 +63,6 @@ The development-toolchain findings from the follow-up audit are resolved. Fireba
 
 Scoped CLI overrides address dependencies still vulnerable in the upstream release: Chokidar 4.0.3 removes the unpatched braces path; PubSub 6.2.0 brings patched OpenTelemetry; uuid 11.1.1 patches the gaxios dependency; basic-ftp 6.2.3 patches the proxy dependency. These are scoped under firebase-tools, separate from the Firebase SDK gRPC override. Chokidar 4 removes glob support: this project watches a concrete Firestore rules file, verified by a file-change test. Compatibility validation covers this project’s Firestore emulator/admin workflow, not every Firebase CLI feature. Re-evaluate the overrides on the next CLI update instead of blindly removing or broadening them.
 
-The Backend security checks workflow installs the lockfile on Node 22 / Temurin 21, runs the full audit, compatibility tests, security-rule tests and browser build, and checks that the generated browser bundle matches Git. It requires no production credentials. Audit results are a point-in-time dependency check, not a guarantee against all vulnerabilities.
+The Backend security checks workflow installs the lockfile on Node 24 / npm 11.13.0 / Temurin 21, runs the full audit, compatibility tests, security-rule tests and browser build, and checks that the generated browser bundle matches Git. It requires no production credentials. Audit results are a point-in-time dependency check, not a guarantee against all vulnerabilities.
 
 Before broad launch, establish a private backup/restore procedure for Firestore submissions and the moderation role. GitHub backups do not include this data. Never put private inbox exports in this public repository.
