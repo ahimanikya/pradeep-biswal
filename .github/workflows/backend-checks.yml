@@ -2,9 +2,9 @@ name: Backend security checks
 on:
   push:
     branches: [main]
-    paths: ['backend/**', '.github/workflows/backend-checks.yml']
+    paths: ['backend/**', 'dist/community.js', '.github/workflows/backend-checks.yml']
   pull_request:
-    paths: ['backend/**', '.github/workflows/backend-checks.yml']
+    paths: ['backend/**', 'dist/community.js', '.github/workflows/backend-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
