@@ -519,3 +519,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media print{.reading-tool[open]{position:static;height:auto;overflow:visible}.reading-tool-toolbar,.reading-tool-end{display:none}body:has(.reading-tool[open])> :not(.reading-tool){display:none}}
 .reading-tool h2:focus{outline:none}
 @media(max-width:480px){.reading-tool-label{display:none}.reading-tool-toolbar{flex-wrap:nowrap}}
+
+/* Contact is a simple, single-column invitation. */
+.page-contact .inner-page{max-width:680px}
+.page-contact .inner-page>h1{font-size:clamp(40px,6vw,58px);margin-bottom:16px}
+.page-contact .contact-form-layout{display:block;margin:0 0 32px}
+.page-contact .contact-intro p{font:17px/1.6 var(--sans);max-width:none;margin-bottom:20px;color:var(--muted)}
+.page-contact .contact-privacy{font:13px/1.6 var(--sans);color:var(--muted);margin:14px 0 0}
+.page-contact .contact-status:empty{display:none}
+.page-contact .send-message{margin-top:18px}

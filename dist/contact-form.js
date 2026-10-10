@@ -2,7 +2,7 @@ const contactForm=document.querySelector('#contact-form');
 if(contactForm){
  const status=document.querySelector('#contact-status'),button=contactForm.querySelector('button[type=submit]');let pending=null,busy=false;
  contactForm.querySelector('fieldset').disabled=false;
- status.textContent='Your message will go to a private inbox. No account is needed.';
+ status.textContent='';
  contactForm.addEventListener('submit',async event=>{
   event.preventDefault();if(busy||!contactForm.reportValidity())return;
   if(contactForm.elements.website.value){status.textContent='Unable to send. Please reload the page and try again.';return;}
