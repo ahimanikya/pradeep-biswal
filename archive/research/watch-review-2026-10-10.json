@@ -1,0 +1,103 @@
+{
+  "reviewed_on": "2026-10-10",
+  "issue": "https://github.com/ahimanikya/pradeep-biswal/issues/1",
+  "status": "Six items approved by owner for incorporation; five retained as supporting research.",
+  "records": [
+    {
+      "item": 1,
+      "title": "Voices Within 2023 — guest editorial",
+      "decision": "Keep as supporting evidence",
+      "reason": "Contributor list only; the poet’s 2023 poetry feature is already catalogued.",
+      "placement": "Research archive",
+      "url": "https://www.setumag.com/2023/11/guest-editors-note-setu-special.html"
+    },
+    {
+      "item": 2,
+      "title": "Toshali Literature Festival — report by Bijayalaxmi Rath",
+      "decision": "Approved for incorporation",
+      "reason": "Reports the 28–29 January 2023 festival and explicitly credits Pradeep Biswal’s guidance. Publication issue: March 2023; event date is distinct.",
+      "placement": "Literary archive: festival report",
+      "url": "https://www.setumag.com/2023/03/toshali-literature-festival-brief.html",
+      "catalog_id": "PBW-80e78895c4"
+    },
+    {
+      "item": 3,
+      "title": "Review of Toshali 2023 — Gopa Nayak",
+      "decision": "Approved for incorporation",
+      "reason": "Review of an anthology co-edited by Pradeep Biswal; includes praise and criticism. Present as an anthology review, not a review of a solo collection or a personal testimonial.",
+      "placement": "Book reviews; link from Toshali 2023 book entry",
+      "url": "https://www.setumag.com/2023/03/review-of-toshali-2023-anthology-of.html",
+      "catalog_id": "PBW-54486e2344"
+    },
+    {
+      "item": 4,
+      "title": "Voices Within: Pradeep Biswal — February 2022",
+      "decision": "Approved for incorporation",
+      "reason": "Poetry feature with A Nightmare, Sea and She, and It’s not all the same. Missing from current catalogue. Link to original; do not reuse dated biography as current. Feed timestamp is March 1 but publisher issue is February 2022.",
+      "placement": "Published poetry",
+      "url": "https://www.setumag.com/2022/02/voices-within-pradeep-biswal.html",
+      "catalog_id": "PBW-8bbd2aa8b2"
+    },
+    {
+      "item": 5,
+      "title": "Voices Within 2022 — guest editorial",
+      "decision": "Keep as supporting evidence",
+      "reason": "Contributor list; redundant alongside the direct 2022 poetry feature.",
+      "placement": "Research archive",
+      "url": "https://www.setumag.com/2022/02/guest-editors-note-setu-special.html"
+    },
+    {
+      "item": 6,
+      "title": "Voices Within 2021 — guest editorial",
+      "decision": "Keep as supporting evidence",
+      "reason": "Contributor list only; direct 2021 feature already catalogued.",
+      "placement": "Research archive",
+      "url": "https://www.setumag.com/2021/01/guest-editors-note-setu-special.html"
+    },
+    {
+      "item": 7,
+      "title": "Pilgrimage to Ayodhya, A Journey Beyond — Snehaprava Das",
+      "decision": "Approved for incorporation",
+      "reason": "Substantial review of the poet’s collection in Setu, August 2020. Current review page has only an indirect Eduindex discussion of this book.",
+      "placement": "Book reviews; link from Pilgrimage to Ayodhya",
+      "url": "https://www.setumag.com/2020/08/pilgrimage-to-ayodhya-journey-beyond.html",
+      "catalog_id": "PBW-cb1a8107a5"
+    },
+    {
+      "item": 8,
+      "title": "Bridging the gaps — Sutanuka Ghosh Roy",
+      "decision": "Archive as a secondary mention",
+      "reason": "Review of Bridging Continents, edited by Sharmila Ray and Gopal Lahiri. Briefly discusses Biswal with other contributors; not his own book or sole praise of him.",
+      "placement": "Research archive / anthology contributions",
+      "url": "https://www.setumag.com/2020/02/Bridging-the-gaps-Sharmila-Ray-Gopal-Lahiri.html"
+    },
+    {
+      "item": 9,
+      "title": "Voices Within 2020 — guest editorial",
+      "decision": "Keep as supporting evidence",
+      "reason": "Contributor list only; direct 2020 poetry feature already catalogued.",
+      "placement": "Research archive",
+      "url": "https://www.setumag.com/2020/02/Gopal-Lahiri-poetry-voices-within.html"
+    },
+    {
+      "item": 10,
+      "title": "DMF funds — Digital Reporter Odisha, 10 October 2026",
+      "decision": "Approved for incorporation",
+      "reason": "YouTube oEmbed confirms publisher, title and Pradeep Biswal identified as retired IAS. Publication date from channel feed. Playback and site embed verified; full discussion not watched; use neutral description of discussion, not the headline allegation as established fact.",
+      "placement": "Interviews: finance and governance",
+      "url": "https://www.youtube.com/watch?v=Q2dD_z9GpIE",
+      "catalog_id": "PBW-4e83341c34",
+      "playback_check": "YouTube watch page and localhost privacy-enhanced embed play; starting second video removes first iframe."
+    },
+    {
+      "item": 11,
+      "title": "Industry and unemployment in Odisha — Digital Reporter Odisha, 2 October 2026",
+      "decision": "Approved for incorporation",
+      "reason": "YouTube oEmbed confirms publisher, title and Pradeep Biswal identified as retired IAS. Date from channel feed. Playback and site embed verified; full discussion not watched; avoid asserting the headline’s economic claim as verified.",
+      "placement": "Interviews: economy and governance",
+      "url": "https://www.youtube.com/watch?v=HhDV5GN7UV4",
+      "catalog_id": "PBW-3aa9c657a9",
+      "playback_check": "YouTube watch page and localhost privacy-enhanced embed play; starting second video removes first iframe."
+    }
+  ]
+}

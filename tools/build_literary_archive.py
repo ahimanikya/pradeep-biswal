@@ -50,7 +50,7 @@ def topic_group(topic):
 page('interviewvideo.html','Podcasts & Interviews','Conversations on literature, finance, tourism and public life. Choose a subject and listen at your own pace.',
  '<nav class="archive-jump" aria-label="Browse conversations by topic">'+''.join('<a href="#'+t.lower().replace(' & ','-').replace(' ','-')+'">'+e(t)+'</a>' for t in topics)+'</nav>'+''.join(topic_group(t) for t in topics)+group('Print interviews')+group('Conversation reports')+'<p class="archive-note">Play an episode here, or open it on the publisher’s channel. <a href="interviewphoto.html">Interview photographs</a> · <a href="video.html">Video gallery</a></p>')
 def reviews_by_book():
- books=[('Rendezvous with Dreams','rendezvous-with-dreams','rendezvous-with-dreams'),('A House Within','a-house-within','book-5'),('Pilgrimage to Ayodhya','pilgrimage-to-ayodhya','book-3')]
+ books=[('Rendezvous with Dreams','rendezvous-with-dreams','rendezvous-with-dreams'),('A House Within','a-house-within','book-5'),('Pilgrimage to Ayodhya','pilgrimage-to-ayodhya','book-3'),('Toshali Anthology of Poetry 2023','toshali-2023','toshali-2023')]
  out='<nav class="archive-jump" aria-label="Reviews by book">'+''.join('<a href="#'+slug+'">'+title+'</a>' for title,slug,_ in books)+'</nav>'
  for title,slug,book_id in books:
   items=[r for r in rows if r['category']=='Book reviews' and title in r.get('book','')]

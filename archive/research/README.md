@@ -1,6 +1,6 @@
 # Literary research archive
 
-Research date: 10 October 2026. This catalogue contains 48 records: three author readings, seven podcasts/video interviews, two print interviews, one conversation report, five book reviews, sixteen articles and fourteen poetry records. Thirty URLs were absent from the earlier 7 October research catalogue; that means newly catalogued, not necessarily newly published or never referenced elsewhere on the website.
+Research date: 10 October 2026. This catalogue contains 54 records: three author readings, nine podcasts/video interviews, two print interviews, two event/conversation reports, seven book reviews, sixteen articles and fifteen poetry records. Thirty URLs were absent from the earlier 7 October research catalogue; that means newly catalogued, not necessarily newly published or never referenced elsewhere on the website.
 
 The public directory at `/literary-archive.html`, plus `/interviewvideo.html` and `/review.html`, contains bibliographic records and links to original publishers. No third-party full text or video has been republished. Local preservation copies and a checksum manifest are in the project workspace under `kb/research-2026-10-10/preservation`; those files are not part of this public repository.
 
@@ -33,3 +33,5 @@ No additional distinct interview or standalone book review was verified in this 
 ## Author readings
 
 Three ABC Diaries recordings were supplied by the owner and identified as readings by the poet on 10 October 2026. YouTube oEmbed confirms the titles and channel; the publisher labels Mallika as an Odia story, but the owner subsequently confirmed that all three are poetry. All three are classified as poetry readings; original publisher titles remain preserved. Upload dates are unverified and omitted. The Poetry page offers these under In the Poet’s Voice; the archive keeps a separate Author readings category. Playback remains on YouTube with local preview images.
+
+Six reviewed discoveries were incorporated on 10 October 2026 after owner approval. Decisions for all eleven signals are recorded in watch-review-2026-10-10.json. The four contributor-list editorials and one brief anthology mention remain supporting research.
