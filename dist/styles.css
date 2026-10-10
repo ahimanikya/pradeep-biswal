@@ -498,3 +498,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 ::selection{background:#e3ccb0;color:#263e36}
 .memory-actions.tooltips-dismissed .memory-action-tip{opacity:0!important}
 @media(max-width:600px){.poetry-preview>div:first-child{padding-left:18px}}
+
+/* Quiet reading keeps the original writing, with a comfortable paper column. */
+.reading-tool{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--paper);color:var(--ink);overflow-y:auto;overscroll-behavior:contain;scroll-behavior:auto}
+.reading-tool::backdrop{background:#263e36e6}
+.reading-tool-toolbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(20px,calc((100% - 1000px)/2));border-bottom:1px solid var(--line);background:var(--paper);font:14px var(--sans)}
+.reading-tool-label{font-family:var(--serif);font-size:23px}
+.reading-tool-settings{display:flex;align-items:center;gap:8px}
+.reading-tool button{min-width:44px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--ink);font:14px var(--sans)}
+.reading-tool button:hover:not(:disabled){background:#263e360a}
+.reading-tool button:disabled{opacity:.4;cursor:default}
+.reading-tool output{min-width:42px;text-align:center;font-variant-numeric:tabular-nums}
+.reading-tool-page{max-width:760px;margin:auto;padding:40px 24px 64px}
+.reading-tool h2{font-size:clamp(32px,5vw,52px);line-height:1.12;text-wrap:balance;margin-bottom:16px}
+.reading-tool-byline{font:14px/1.6 var(--sans);color:var(--muted);margin-bottom:32px}
+.reading-tool-copy{line-height:1.85;max-width:65ch}
+.reading-tool-copy p{text-wrap:pretty}
+.reading-tool-end{margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:480px){.reading-tool-toolbar{gap:6px;padding:8px 12px;flex-wrap:wrap}.reading-tool-label{font-size:20px}.reading-tool-settings{gap:2px}.reading-tool button{padding:8px}.reading-tool-page{padding:28px 20px 44px}}
+@media print{.reading-tool[open]{position:static;height:auto;overflow:visible}.reading-tool-toolbar,.reading-tool-end{display:none}body:has(.reading-tool[open])> :not(.reading-tool){display:none}}
+.reading-tool h2:focus{outline:none}
+@media(max-width:480px){.reading-tool-label{display:none}.reading-tool-toolbar{flex-wrap:nowrap}}
