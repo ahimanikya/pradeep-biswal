@@ -9,19 +9,19 @@ with (R/'archive/research/catalog.csv').open('w') as f:
 arrow='<span aria-hidden="true">↗</span>'
 nav='<nav class="collection-links" aria-label="Archive collections"><a href="literary-archive.html">All publications</a><a href="interviewvideo.html">Podcasts &amp; interviews</a><a href="review.html">Book reviews</a><a href="memory.html">Missing Memories</a></nav>'
 def video_player(r):
- if r['category']!='Video interviews':return ''
+ if r['category'] not in ['Video interviews','Author readings']:return ''
  match=re.fullmatch(r'https://www\.youtube\.com/watch\?v=([A-Za-z0-9_-]{11})',r['url'])
  if not match:return ''
  title=e(r.get('display_title',r['title']),quote=True)
- return '<div class="episode-player" data-video-id="'+match[1]+'" data-video-title="'+title+'" hidden><button class="episode-play" type="button" aria-label="Play '+title+'"><img class="episode-thumbnail" src="assets/video-previews/'+match[1]+'.webp" alt="" width="480" height="360" loading="lazy" decoding="async"/><svg aria-hidden="true" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="32" r="28"/><path d="m26 20 19 12-19 12Z"/></svg><span>Play episode</span><small>Watch here · YouTube</small></button></div>'
+ return '<div class="episode-player" data-video-id="'+match[1]+'" data-video-title="'+title+'" hidden><button class="episode-play" type="button" aria-label="Play '+title+'"><img class="episode-thumbnail" src="assets/video-previews/'+match[1]+'.webp" alt="" width="480" height="360" loading="lazy" decoding="async"/><svg aria-hidden="true" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="32" r="28"/><path d="m26 20 19 12-19 12Z"/></svg><span>'+('Play reading' if r['category']=='Author readings' else 'Play episode')+'</span><small>Watch here · YouTube</small></button></div>'
 def card(r):
- label=('Watch podcast' if r.get('format')=='Podcast' else 'Watch interview') if r['category']=='Video interviews' else 'Read report' if r['category']=='Conversation reports' else 'Read at source'
+ label='Watch reading' if r['category']=='Author readings' else ('Watch podcast' if r.get('format')=='Podcast' else 'Watch interview') if r['category']=='Video interviews' else 'Read report' if r['category']=='Conversation reports' else 'Read at source'
  from datetime import datetime
- date=datetime.strptime(r['date'],'%Y-%m-%d').strftime('%d %b %Y').lstrip('0') if len(r['date'])==10 else datetime.strptime(r['date'],'%Y-%m').strftime('%b %Y')
+ date=datetime.strptime(r['date'],'%Y-%m-%d').strftime('%d %b %Y').lstrip('0') if len(r['date'])==10 else datetime.strptime(r['date'],'%Y-%m').strftime('%b %Y') if r['date'] else ''
  meta=' · '.join(x for x in [r.get('display_publisher',r['publisher']),date,r.get('duration',''),r.get('format','')] if x)
  alt=''.join('<a class="archive-alternate" href="'+e(u,quote=True)+'" rel="noopener" target="_blank">Also published in '+('Words &amp; Worlds' if 'wordsandworlds' in u else 'Literary Vibes')+' '+arrow+'</a>' for u in r.get('alternate_urls',[]) if 'shalandi.in' not in u)
  return '<article class="archive-entry" id="'+e(r['id'],quote=True)+'">'+video_player(r)+'<p class="archive-meta">'+e(meta)+'</p><h3><a href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+e(r.get('display_title',r['title']))+'</a></h3><p class="archive-credit">'+e(r['credit'])+'</p><p>'+e(r['note'])+'</p><a class="text-link" href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+label+' '+arrow+'</a>'+alt+'</article>'
-cats=['Video interviews','Print interviews','Conversation reports','Book reviews','Published articles','Published poetry']
+cats=['Author readings','Video interviews','Print interviews','Conversation reports','Book reviews','Published articles','Published poetry']
 def group(cat):
  items=sorted([x for x in rows if x['category']==cat],key=lambda x:x['date'],reverse=True)
  return '<section class="literary-section" id="'+cat.lower().replace(' ','-')+'"><h2>'+e(cat)+'</h2><div class="archive-grid">'+''.join(map(card,items))+'</div></section>'
@@ -70,3 +70,12 @@ for p in D.rglob('*.html'):
   s=s.replace(marker,marker+'<a href="'+('../' if p.parent.name=='memories' else '')+'literary-archive.html">Published Work</a>',1)
  p.write_text(s)
 print('Built archive of',len(rows),'records; interviews and reviews pages populated.')
+
+p=D/'poetry.html';s=p.read_text()
+s=re.sub(r'<section class="poet-voice".*?</section>','',s,flags=re.S)
+voice='<section class="poet-voice" id="poet-voice"><h2>In the Poet’s Voice</h2><p>Poetry and a story, read by Pradeep Biswal. From ABC Diaries’ Aliva Smruti series.</p><div class="archive-grid">'+''.join(card(r) for r in rows if r['category']=='Author readings')+'</div></section>'
+s=s.replace('</main>',voice+'</main>')
+if 'src="episode-player.js' not in s:s=s.replace('</body>','<script src="episode-player.js?v=20261010" defer></script></body>')
+if 'href="literary-archive.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261010-readings"/></head>')
+if 'href="#poet-voice"' not in s:s=re.sub(r'(</h1>)',r'\1<p><a class="text-link" href="#poet-voice">Listen to the poet <span aria-hidden="true">↓</span></a></p>',s,count=1)
+p.write_text(s)
