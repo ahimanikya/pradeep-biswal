@@ -28,6 +28,6 @@ See [Caring for the website](docs/OWNER-GUIDE.md) for inbox handling, moderation
 
 ## Homepage curation
 
-Keep the full books, memories, awards and interviews collections browsable in homepage sliders. Limit photographs to ten ranked images followed by a View all photographs card. The policy is recorded in `tools/homepage-curation.json`. Preserve lazy image loading, a small visible selection and no autoplay. Keep links to dedicated collections and the compact In the Poet’s Voice link.
+Keep all twelve books in the homepage slider and leave testimonials unchanged. Show ten photographs, six interviews, eight memories and six awards, each followed by a card linking to the complete collection. The policy is recorded in `tools/homepage-curation.json`. Preserve lazy image loading, native scrolling and no autoplay. Keep the compact In the Poet’s Voice link.
 
 Do not add a new homepage section for each publication, recording or announcement. Preserve the existing typography, spacing, image treatment and restrained line art. Avoid autoplay, rotating promotional banners, extra badges and new decorative imagery without a specific reason.

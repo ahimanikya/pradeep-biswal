@@ -1,11 +1,19 @@
 {
-  "policy": "Full homepage sliders for books, memories, awards and interviews; photography shows ten ranked images followed by a link to the full gallery. Keep native scrolling, lazy images and no autoplay.",
-  "photo_limit": 10,
-  "photo_final_card": "gallery.html",
+  "policy": "Curated homepage sliders end with a link to their full collection. Keep all books and existing testimonials.",
+  "limits": {
+    "home-photos": 10,
+    "home-interviews": 6,
+    "home-memories": 8,
+    "home-awards": 6
+  },
+  "final_cards": {
+    "home-photos": "gallery.html",
+    "home-interviews": "interviewvideo.html",
+    "home-memories": "memory.html",
+    "home-awards": "achive.html"
+  },
   "full_sliders": [
-    "home-books",
-    "home-memories",
-    "home-awards",
-    "home-interviews"
-  ]
+    "home-books"
+  ],
+  "testimonials": "unchanged"
 }
