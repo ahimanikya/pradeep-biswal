@@ -3,6 +3,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 import json,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]/'dist'
+ORIGIN='https://'+(ROOT/'CNAME').read_text().strip()
 class Page(HTMLParser):
  def __init__(self,text):super().__init__();self.canonical='';self.robots='';self.capture=False;self.schema='';self.feed(text)
  def handle_starttag(self,tag,attrs):
@@ -17,6 +18,7 @@ class Page(HTMLParser):
 public=[];articles=0
 for p in ROOT.rglob('*.html'):
  d=Page(p.read_text())
+ assert d.canonical.startswith(ORIGIN+'/'),f'Wrong canonical domain: {p}'
  if 'noindex' in d.robots:continue
  assert 'index' in d.robots,p
  data=json.loads(d.schema);assert data['@context']=='https://schema.org'
@@ -28,5 +30,5 @@ urls=[x.text for x in ET.parse(ROOT/'sitemap.xml').findall('.//{http://www.sitem
 assert len(urls)==len(set(urls)) and set(urls)==set(public)
 assert len(public)==56 and articles==41
 assert all(url in (ROOT/'llms.txt').read_text() for url in public)
-assert 'Sitemap: https://pb.kabitawithoutborders.org/sitemap.xml' in (ROOT/'robots.txt').read_text()
+assert 'Sitemap: '+ORIGIN+'/sitemap.xml' in (ROOT/'robots.txt').read_text()
 print(f'Discovery validated: {len(public)} canonical pages, {articles} attributed articles.')

@@ -3,6 +3,7 @@ from pathlib import Path
 from html import escape as e
 import json,re,shutil,csv
 R=Path(__file__).resolve().parents[1];D=R/'dist'
+ORIGIN='https://'+(D/'CNAME').read_text().strip()
 data=json.loads((R/'archive/research/catalog.json').read_text());rows=data['records']
 with (R/'archive/research/catalog.csv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=['id','category','title','publisher','credit','date','url','note','topic','format','evidence'],extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(rows)
@@ -30,9 +31,9 @@ def page(file,title,intro,body):
  if file=='literary-archive.html':
   s=re.sub(r'(<nav\b[^>]*aria-label="Main navigation".*?)(<a href="literary-archive.html")',r'\1<a aria-current="page" href="literary-archive.html"',s,count=1,flags=re.S)
  s=re.sub(r'<title>.*?</title>','<title>'+e(title)+' · Pradeep Biswal</title>',s)
- for name,value in [('description',intro),('og:title',title+' · Pradeep Biswal'),('og:description',intro),('og:url','https://pb.kabitawithoutborders.org/'+file),('twitter:title',title+' · Pradeep Biswal'),('twitter:description',intro)]:
+ for name,value in [('description',intro),('og:title',title+' · Pradeep Biswal'),('og:description',intro),('og:url',ORIGIN+'/'+file),('twitter:title',title+' · Pradeep Biswal'),('twitter:description',intro)]:
   s=re.sub(r'<meta\b(?=[^>]*(?:name|property)="'+re.escape(name)+r'")[^>]*>',lambda _,n=name,v=value:'<meta '+('property' if n.startswith('og:') else 'name')+'="'+n+'" content="'+e(v,quote=True)+'"/>',s)
- s=re.sub(r'<link\b(?=[^>]*rel="canonical")[^>]*>','<link rel="canonical" href="https://pb.kabitawithoutborders.org/'+file+'"/>',s)
+ s=re.sub(r'<link\b(?=[^>]*rel="canonical")[^>]*>','<link rel="canonical" href="'+ORIGIN+'/'+file+'"/>',s)
  s=re.sub(r'<script\b[^>]*id="discovery-schema"[^>]*>.*?</script>','',s,flags=re.S)
  s=s.replace('aria-current="page" href="review.html"','href="review.html"')
  s=re.sub(r'<link[^>]*href="literary-archive.css[^>]*>','',s)

@@ -8,7 +8,7 @@ import json, re
 from bs4 import BeautifulSoup
 from PIL import Image
 ROOT = Path('dist')
-ORIGIN = 'https://pb.kabitawithoutborders.org'
+ORIGIN = 'https://' + (ROOT / 'CNAME').read_text().strip()
 portrait = ('assets/pradeep-biswal-800.webp', 'Watercolor portrait of Pradeep Biswal')
 radio = ('assets/radio-memory-960.webp', 'A family listening together to an old wooden radio')
 reading = ('assets/reading-table-960.webp', 'Watercolor of an open book on a wooden table')

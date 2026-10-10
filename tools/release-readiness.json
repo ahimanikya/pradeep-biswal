@@ -51,5 +51,7 @@
     "inbox_owner": "Ahimanikya",
     "search_submission": "Deferred by user until domain change; nothing submitted",
     "test_records": "Two contact tests archived; one moderation test rejected, never published"
-  }
+  },
+  "historical_record": true,
+  "superseded_by": "tools/audit-2026-10-10-followup.json"
 }

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-10",
+  "scope": "Follow-up release and permanent-domain readiness audit",
+  "verdict": "Current temporary-domain site passes structural checks; permanent-domain launch requires coordinated cutover and poet approval. Development-toolchain maintenance remains open.",
+  "checks": {
+    "source_pages": 61,
+    "generated_pages": 120,
+    "local_links": 2221,
+    "image_references": 370,
+    "indexable_pages": 56,
+    "article_pages": 41,
+    "backend_security_tests_passed": 12,
+    "mobile_page_types_at_390px": 12,
+    "desktop_page_types_at_1440px": 8,
+    "horizontal_overflow": false,
+    "consistent_primary_navigation_pages": 61,
+    "app_check": "ENFORCED; current allowed domain pb.kabitawithoutborders.org only",
+    "github_https_enforced": true,
+    "live_comment_form": "Loaded and enabled; no submission made",
+    "quiet_reading": "Open, resize, close passed; original size restored",
+    "video_gallery": "Zero initial YouTube frames; one requested player at a time; source links work without JavaScript",
+    "live_http_200_pages": 61,
+    "live_http_errors": [],
+    "production_dependency_advisories": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  },
+  "fixed": [
+    "Video Gallery uses the shared click-to-play component and privacy-enhanced YouTube embeds",
+    "Publishing tools derive the origin from dist/CNAME; discovery audit rejects mismatching canonical hosts",
+    "Added a release guard against initial YouTube iframes",
+    "Pinned the Firebase Node gRPC dependency to patched 1.14.5; production npm audit now clean",
+    "Marked the older release record historical and documented coordinated domain cutover"
+  ],
+  "pending": [
+    "Poet editorial approval and missing archive captions/dates",
+    "Coordinate old IPv4/IPv6 and www records, preserve Hostinger mail, verify ownership and HTTPS",
+    "Add permanent root and www domains to Firebase Auth and reCAPTCHA allowed domains before cutover",
+    "Update all maintained absolute URLs and discovery outputs, verify original URL aliases, arrange temporary-domain redirects",
+    "Recheck guest contact, comments, likes and owner sign-in on the permanent domain",
+    "Upgrade the pinned Firebase development CLI/emulator toolchain: full npm audit still reports 19 development-only findings, including one critical; requires compatible Java runtime and validation of CLI-internal setup scripts",
+    "Define a private Firebase data backup and restore procedure; Git contains website source, not reader submissions",
+    "Search submission remains deferred; inbox monitoring remains manual"
+  ],
+  "limits": [
+    "No production comments/contact messages were submitted in this audit; security behavior tested in emulator and prior live delivery evidence retained",
+    "Responsive tests use browser emulation, not a real-device laboratory",
+    "No new content attribution research or exhaustive third-party link verification performed",
+    "No DNS, custom-domain or Firebase authorization settings changed"
+  ],
+  "sources": [
+    "https://github.com/advisories/GHSA-m9gg-hp2v-232j",
+    "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"
+  ]
+}

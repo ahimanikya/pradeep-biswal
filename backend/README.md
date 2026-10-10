@@ -52,3 +52,11 @@ Local previews do not qualify for production-domain attestation. Use the Firebas
 ## Operating ownership and domain migration
 
 Ahimanikya is responsible for the private contact inbox and comment moderation, confirmed 2026-10-10. Check `/moderation.html` regularly; automatic email notifications are not enabled. Search Console and Bing submission are deferred at the owner's request until the final domain is selected; no submission was made. Before changing domains, update GitHub Pages/DNS, Firebase authorized domains, the App Check allowed domain, canonical/social URLs, sitemap and llms.txt, then re-test guest submissions and owner sign-in.
+
+## Follow-up audit (10 October 2026)
+
+All 12 emulator security tests pass after overriding the Firebase Node dependency `@grpc/grpc-js` to patched version 1.14.5. The browser bundle is unchanged; `npm audit --omit=dev` reports no vulnerabilities. The override addresses GHSA-m9gg-hp2v-232j and GHSA-f596-whhp-79r4. Remove it only after the upstream Firebase dependency is patched and audited.
+
+The pinned Firebase CLI 13.35.1 development dependency still has 19 audit findings (including one critical). It is not published in `dist/` and is not a website runtime. Upgrade it as a coordinated maintenance task with a compatible Java emulator runtime and revalidation of the scripts importing Firebase CLI internal APIs. Do not use `npm audit fix --force`, downgrade Firebase, or treat a clean production-only audit as a clean toolchain audit.
+
+Before broad launch, establish a private backup/restore procedure for Firestore submissions and the moderation role. GitHub backups do not include this data. Never put private inbox exports in this public repository.

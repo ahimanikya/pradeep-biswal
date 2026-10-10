@@ -12,6 +12,7 @@ class Page(HTMLParser):
   a=dict(attrs)
   if 'id' in a:self.ids.append(a['id'])
   if tag=='h1':self.h1+=1
+  if tag=='iframe' and 'youtube' in a.get('src',''):raise ValueError('Use the click-to-play YouTube component')
   if tag=='img':self.images.append(a)
   key='href' if tag in ['a','link'] else 'src' if tag in ['img','script'] else None
   if key and a.get(key):self.refs.append((tag,a[key]))
