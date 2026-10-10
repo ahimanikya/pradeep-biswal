@@ -47,7 +47,7 @@ Local previews do not qualify for production-domain attestation. Use the Firebas
 
 ## Search and AI discovery
 
-54 finished public pages are indexable, with canonical URLs, matching structured data, a sitemap, and crawlable HTML article text. Moderation, error and unfinished/retired pages remain excluded from indexing. `tools/prepare_discovery.py` regenerates the head metadata, sitemap and `llms.txt`; `tools/audit_discovery.py` validates the output in the publishing workflow. `llms.txt` is an optional reading directory, not a guarantee of search or AI inclusion. Search Console submission and actual indexing have not been verified.
+56 finished public pages are indexable, with canonical URLs, matching structured data, a sitemap, and crawlable HTML article text. Moderation, error and unfinished/retired pages remain excluded from indexing. `tools/prepare_discovery.py` regenerates the head metadata, sitemap and `llms.txt`; `tools/audit_discovery.py` validates the output in the publishing workflow. `llms.txt` is an optional reading directory, not a guarantee of search or AI inclusion. Search Console submission and actual indexing have not been verified.
 
 ## Operating ownership and domain migration
 

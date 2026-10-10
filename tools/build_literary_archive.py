@@ -20,7 +20,7 @@ def card(r):
  date=datetime.strptime(r['date'],'%Y-%m-%d').strftime('%d %b %Y').lstrip('0') if len(r['date'])==10 else datetime.strptime(r['date'],'%Y-%m').strftime('%b %Y')
  meta=' · '.join(x for x in [r.get('display_publisher',r['publisher']),date,r.get('duration',''),r.get('format','')] if x)
  alt=''.join('<a class="archive-alternate" href="'+e(u,quote=True)+'" rel="noopener" target="_blank">Also published in '+('Words &amp; Worlds' if 'wordsandworlds' in u else 'Literary Vibes')+' '+arrow+'</a>' for u in r.get('alternate_urls',[]) if 'shalandi.in' not in u)
- return '<article class="archive-entry">'+video_player(r)+'<p class="archive-meta">'+e(meta)+'</p><h3><a href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+e(r.get('display_title',r['title']))+'</a></h3><p class="archive-credit">'+e(r['credit'])+'</p><p>'+e(r['note'])+'</p><a class="text-link" href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+label+' '+arrow+'</a>'+alt+'</article>'
+ return '<article class="archive-entry" id="'+e(r['id'],quote=True)+'">'+video_player(r)+'<p class="archive-meta">'+e(meta)+'</p><h3><a href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+e(r.get('display_title',r['title']))+'</a></h3><p class="archive-credit">'+e(r['credit'])+'</p><p>'+e(r['note'])+'</p><a class="text-link" href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+label+' '+arrow+'</a>'+alt+'</article>'
 cats=['Video interviews','Print interviews','Conversation reports','Book reviews','Published articles','Published poetry']
 def group(cat):
  items=sorted([x for x in rows if x['category']==cat],key=lambda x:x['date'],reverse=True)
@@ -53,7 +53,7 @@ def reviews_by_book():
  out='<nav class="archive-jump" aria-label="Reviews by book">'+''.join('<a href="#'+slug+'">'+title+'</a>' for title,slug,_ in books)+'</nav>'
  for title,slug,book_id in books:
   items=[r for r in rows if r['category']=='Book reviews' and title in r.get('book','')]
-  out+='<section class="literary-section" id="'+slug+'"><h2>'+title+'</h2><a class="text-link" href="book.html#'+book_id+'">View book &amp; buying options '+arrow+'</a><div class="archive-grid">'+''.join(map(card,sorted(items,key=lambda r:r['date'],reverse=True)))+'</div></section>'
+  out+='<section class="literary-section" id="'+slug+'"><h2>'+title+'</h2><a class="text-link" href="book.html#'+book_id+'">View book &amp; buying options '+arrow+'</a><div class="archive-grid">'+''.join(card(r).replace('id="'+r['id']+'"','id="'+r['id']+'-'+slug+'"') for r in sorted(items,key=lambda r:r['date'],reverse=True))+'</div></section>'
  return out
 page('review.html','Book Reviews','Readings of the poet’s books, with each reviewer’s voice and original publication credited.',reviews_by_book())
 (D/'data').mkdir(exist_ok=True);shutil.copyfile(R/'archive/research/catalog.csv',D/'data/literary-archive.csv')

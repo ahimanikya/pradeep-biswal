@@ -1,0 +1,106 @@
+{
+  "reviewed": "2026-10-10",
+  "basis": "Editorial connections based on the existing article texts and verified catalogue; no article wording changed.",
+  "links": {
+    "life-in-an-idyllic-village": [
+      [
+        "my-romance-with-radio",
+        "My Romance with Radio"
+      ],
+      [
+        "newspapers-my-first-love",
+        "Newspapers: My First Love"
+      ]
+    ],
+    "my-romance-with-radio": [
+      [
+        "the-radio-veterans",
+        "The Radio Veterans"
+      ],
+      [
+        "life-in-an-idyllic-village",
+        "Life in an idyllic village"
+      ]
+    ],
+    "the-radio-veterans": [
+      [
+        "my-romance-with-radio",
+        "My Romance with Radio"
+      ],
+      [
+        "newspapers-my-first-love",
+        "Newspapers: My First Love"
+      ]
+    ],
+    "newspapers-my-first-love": [
+      [
+        "my-romance-with-radio",
+        "My Romance with Radio"
+      ],
+      [
+        "life-in-an-idyllic-village",
+        "Life in an idyllic village"
+      ]
+    ],
+    "learning-the-lessons-of-finance": [
+      [
+        "vat-and-value-addition",
+        "VAT and Value Addition"
+      ],
+      [
+        "../interviewvideo.html#finance",
+        "Conversations on finance"
+      ]
+    ],
+    "vat-and-value-addition": [
+      [
+        "learning-the-lessons-of-finance",
+        "Learning the Lessons of Finance"
+      ],
+      [
+        "../book.html#reforms-in-indirect-taxes",
+        "Reforms in Indirect Taxes in Odisha"
+      ]
+    ],
+    "revisiting-real-estate-regulation-act-rera": [
+      [
+        "twin-tower-demolition-key-takeaways",
+        "Twin Tower Demolition: Key Takeaways"
+      ],
+      [
+        "../interviewvideo.html#finance",
+        "Interviews on finance and home buying"
+      ]
+    ],
+    "twin-tower-demolition-key-takeaways": [
+      [
+        "revisiting-real-estate-regulation-act-rera",
+        "Revisiting Real Estate Regulation Act (RERA)"
+      ],
+      [
+        "../interviewvideo.html#finance",
+        "Interviews on finance and home buying"
+      ]
+    ],
+    "jayant-mahapatra-the-doyen-of-poetry": [
+      [
+        "the-sky-unlimited",
+        "The Sky Unlimited"
+      ],
+      [
+        "../literary-archive.html#PBW-b00c33a819",
+        "Jayanta Mahapatra: Connecting the Disconnects in Life & Poetry"
+      ]
+    ],
+    "the-sky-unlimited": [
+      [
+        "jayant-mahapatra-the-doyen-of-poetry",
+        "Jayant Mahapatra: The Doyen of Poetry"
+      ],
+      [
+        "../interviewvideo.html#literature",
+        "Conversations on literature"
+      ]
+    ]
+  }
+}

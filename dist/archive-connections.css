@@ -11,3 +11,9 @@
 @media(max-width:600px){.published-work-link{margin-left:0;display:flex;width:fit-content;margin-top:16px}}
 .interview-preview .interviews-track>.featured-conversation{height:auto;justify-content:flex-start;align-items:stretch;overflow:hidden}
 .interview-preview .interviews-track>.featured-conversation>img{height:auto;width:100%;aspect-ratio:16/9;object-fit:cover;max-height:none;flex-shrink:0}
+.related-work{margin:32px 0;padding:22px 0;border-top:1px solid #cbd0c3}
+.related-work h2{font-size:1.35rem;margin:0 0 12px}
+.related-work ul{padding-left:20px;margin:0;display:grid;gap:10px}
+.related-work a{text-underline-offset:4px}
+.related-work a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.archive-entry[id]{scroll-margin-top:100px}
