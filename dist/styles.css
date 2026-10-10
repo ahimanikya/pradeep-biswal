@@ -538,3 +538,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .memory-comment-form input,.memory-comment-form textarea{font:17px/1.6 var(--reading);background:#fffcf5;border-color:#9ba695}
 .memory-comment-form button{background:var(--ink);color:var(--paper);padding:12px 22px;border:0}
 .reader-load[hidden]{display:none}
+
+/* Quiet credit alongside the copyright on every page. */
+.colophon a.footer-credit,.article-copyright a.footer-credit{display:inline-block;margin:0 0 0 .8em;padding:8px 0;font-size:inherit;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.footer-credit:hover{color:var(--ink)}
+.footer-credit:focus-visible{outline:2px solid var(--ink);outline-offset:4px}

@@ -20,7 +20,7 @@ for page in source.rglob('*.html'):
  text=page.read_text();p=Metadata();p.feed(text)
  prefix='../' if page.parent.name=='memories' else ''
  page_footer=(ROOT/'templates/article-footer.html').read_text().strip() if page.parent.name=='memories' else footer_template
- expected_footer=page_footer.replace('href="contact.html','href="'+prefix+'contact.html').replace('href="index.html','href="'+prefix+'index.html').replace('href="memory.html','href="'+prefix+'memory.html')
+ expected_footer=page_footer.replace('href="credits.html','href="'+prefix+'credits.html').replace('href="contact.html','href="'+prefix+'contact.html').replace('href="index.html','href="'+prefix+'index.html').replace('href="memory.html','href="'+prefix+'memory.html')
  assert expected_footer in text, f'Footer differs from the shared template: {page}'
  required=['og:title','og:description','og:url','og:image','og:image:alt','og:image:width','og:image:height','twitter:card','twitter:image']
  assert all(p.meta.get(k) for k in required),f'Missing sharing metadata: {page}'
