@@ -513,7 +513,9 @@
       "checked": "2026-10-10",
       "duration": "31 min",
       "new_to_previous_archive": true,
-      "rights": "Bibliographic record and source link; republication rights not established."
+      "rights": "Bibliographic record and source link; republication rights not established.",
+      "topic": "Literature",
+      "format": "Video interview"
     },
     {
       "id": "PBW-a5c4ca5c4d",
@@ -529,7 +531,9 @@
       "duration": "36 min",
       "language": "Odia",
       "new_to_previous_archive": true,
-      "rights": "Bibliographic record and source link; republication rights not established."
+      "rights": "Bibliographic record and source link; republication rights not established.",
+      "topic": "Finance",
+      "format": "Video interview"
     },
     {
       "id": "PBW-08b281a466",
@@ -545,16 +549,89 @@
       "duration": "57 min",
       "date_note": "YouTube detail panel displayed Nov 2; search result displayed Nov 3, possibly timezone difference.",
       "new_to_previous_archive": true,
-      "rights": "Bibliographic record and source link; republication rights not established."
+      "rights": "Bibliographic record and source link; republication rights not established.",
+      "topic": "Literature",
+      "format": "Podcast"
+    },
+    {
+      "id": "PBW-7d144bb956",
+      "category": "Video interviews",
+      "title": "Odisha , India's next travel destination..",
+      "url": "https://www.youtube.com/watch?v=n74JzFnR8U0",
+      "publisher": "CAREER MANTRAS BY PRADEEP PRAMANIK DIL SE DIL TAK",
+      "credit": "Conversation with Pradeep Pramanik",
+      "date": "2026-08-09",
+      "duration": "33 min 41 sec",
+      "note": "Odisha’s tourism potential, hospitality and the obstacles to developing its visitor economy.",
+      "topic": "Tourism",
+      "format": "Podcast",
+      "evidence": "Publisher video metadata and player inspected; guest introduction checked in auto-generated transcript.",
+      "checked": "2026-10-10",
+      "rights": "Bibliographic record and source link; video remains on publisher channel.",
+      "new_to_previous_archive": true,
+      "source_publish_timestamp": "2026-08-08T19:06:54-07:00",
+      "display_publisher": "Dil Se Dil Tak with Pradeep"
+    },
+    {
+      "id": "PBW-2551d2ccdf",
+      "category": "Video interviews",
+      "title": "3 August 2026",
+      "url": "https://www.youtube.com/watch?v=99_q12iyIcw",
+      "publisher": "CAREER MANTRAS BY PRADEEP PRAMANIK DIL SE DIL TAK",
+      "credit": "Conversation with Pradeep Pramanik",
+      "date": "2026-08-03",
+      "duration": "17 min 35 sec",
+      "note": "A conversation on improving education, from primary schools to universities. The publisher titled this episode “3 August 2026”.",
+      "topic": "Education & Governance",
+      "format": "Podcast",
+      "evidence": "Publisher video metadata and player inspected; guest introduction checked in auto-generated transcript.",
+      "checked": "2026-10-10",
+      "rights": "Bibliographic record and source link; video remains on publisher channel.",
+      "new_to_previous_archive": true,
+      "source_publish_timestamp": "2026-08-02T12:13:49-07:00",
+      "display_title": "Rethinking India’s education system",
+      "display_title_note": "Editorial topic label based on guest introduction; original publisher title retained in title and note.",
+      "display_publisher": "Dil Se Dil Tak with Pradeep"
+    },
+    {
+      "id": "PBW-8b2efab376",
+      "category": "Video interviews",
+      "title": "Missing links of Governance -Fixing accountability Open talk with Sri Pradeep Biswal IAS Rtd",
+      "url": "https://www.youtube.com/watch?v=xMboWmi6C0Q",
+      "publisher": "CAREER MANTRAS BY PRADEEP PRAMANIK DIL SE DIL TAK",
+      "credit": "Conversation with Pradeep Pramanik",
+      "date": "2026-10-02",
+      "duration": "32 min 08 sec",
+      "note": "A conversation about accountability in governance.",
+      "topic": "Education & Governance",
+      "format": "Podcast",
+      "evidence": "Publisher video metadata and player inspected; guest introduction checked in auto-generated transcript.",
+      "checked": "2026-10-10",
+      "rights": "Bibliographic record and source link; video remains on publisher channel.",
+      "new_to_previous_archive": true,
+      "source_publish_timestamp": "2026-10-02T04:25:49-07:00",
+      "display_publisher": "Dil Se Dil Tak with Pradeep"
+    },
+    {
+      "id": "PBW-bddb52c0e7",
+      "category": "Video interviews",
+      "title": "ଜମି ଓ ଘର କିଣିବା ଆଗରୁ ଜାଣନ୍ତୁ ଏହି ୫ଟି କଥା, ନହେଲେ ପଡ଼ିବେ ଠକାମିରେ | Pradeep Biswal | Ex Member ORERA",
+      "url": "https://www.youtube.com/watch?v=6wLwfnL6s-M",
+      "publisher": "Digital Reporter Odisha",
+      "credit": "Pradeep Biswal",
+      "date": "2026-07-09",
+      "duration": "15 min 02 sec",
+      "note": "An Odia interview on buying land and homes, safeguards for buyers and real-estate regulation.",
+      "topic": "Finance",
+      "format": "Video interview",
+      "evidence": "Publisher title, description and player inspected; link also shared by the poet.",
+      "checked": "2026-10-10",
+      "rights": "Bibliographic record and source link; video remains on publisher channel.",
+      "new_to_previous_archive": true,
+      "source_publish_timestamp": "2026-07-09T00:30:06-07:00"
     }
   ],
   "leads": [
-    {
-      "category": "Video interview",
-      "title": "Missing links of Governance — Fixing accountability",
-      "url": "https://www.facebook.com/pradeep.pramanik.18/posts/dear-friends-once-again-i-am-uploading-the-video-of-our-podcast-missing-links-of/4534023653482998/",
-      "status": "Search listing only; original recording and date need review."
-    },
     {
       "category": "Video interview",
       "title": "Industry and unemployment — Pradeep Biswal, Retd IAS",
@@ -581,5 +658,16 @@
     }
   ],
   "scope": "Literary work, interviews, reviews and attributed public-life essays. Not an exhaustive bibliography.",
-  "excluded": "Namesakes, unrelated writers, unverified allegations, and previously removed Facenfacts link excluded. OdishaPlus records retained in the earlier research archive but not reintroduced on the public site, respecting the earlier removal request."
+  "excluded": "Namesakes, unrelated writers, unverified allegations, and previously removed Facenfacts link excluded. OdishaPlus records retained in the earlier research archive but not reintroduced on the public site, respecting the earlier removal request.",
+  "podcast_research_notes": {
+    "checked": "2026-10-10",
+    "excluded": {
+      "c7C14cTXaf0": "Host’s solo travel talk, not a verified Biswal appearance.",
+      "dbANLpYcTxo": "Guest introduction identifies Dr Arun Rath.",
+      "SJF7_RNNA9s": "Guest identity not yet verified.",
+      "c6Z0RkQ-3pA": "Generic date title; topic and guest not verified.",
+      "XT8iluhGBDM": "Metadata unavailable."
+    },
+    "dates": "New episode publication timestamps converted to Asia/Kolkata; older catalogue dates retained."
+  }
 }
