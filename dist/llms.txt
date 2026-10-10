@@ -14,9 +14,11 @@ The linked HTML pages are the canonical sources. Article text is available witho
 - [Photo Gallery](https://pb.kabitawithoutborders.org/gallery.html)
 - [Pradeep Kumar Biswal](https://pb.kabitawithoutborders.org/)
 - [Interview Photos](https://pb.kabitawithoutborders.org/interviewphoto.html)
+- [In Conversation](https://pb.kabitawithoutborders.org/interviewvideo.html)
+- [Words in the World](https://pb.kabitawithoutborders.org/literary-archive.html)
 - [Missing Memories](https://pb.kabitawithoutborders.org/memory.html)
 - [Poetry](https://pb.kabitawithoutborders.org/poetry.html)
-- [Book Review](https://pb.kabitawithoutborders.org/review.html)
+- [Book Reviews](https://pb.kabitawithoutborders.org/review.html)
 - [What People Say](https://pb.kabitawithoutborders.org/testimonials.html)
 - [Video Gallery](https://pb.kabitawithoutborders.org/video.html)
 

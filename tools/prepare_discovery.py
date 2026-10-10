@@ -6,7 +6,7 @@ from urllib.parse import urlsplit
 import json,re,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'dist';ORIGIN='https://pb.kabitawithoutborders.org'
-EXCLUDE={'moderation.html','404.html','note.html','credits.html','interviewvideo.html'}
+EXCLUDE={'moderation.html','404.html','note.html','credits.html'}
 class Extract(HTMLParser):
  def __init__(self,text):
   super().__init__(convert_charrefs=True);self.meta={};self.canonical='';self.title=[];self.in_h1=False;self.feed(text)
@@ -32,7 +32,7 @@ for p in sorted(SOURCE.rglob('*.html')):
  raw=re.sub(r'<meta\b(?=[^>]*\bname="robots")[^>]*>',lambda _:f'<meta name="robots" content="{robots}"/>',raw)
  raw=re.sub(r'<script\b[^>]*id="discovery-schema"[^>]*>.*?</script>','',raw,flags=re.S)
  if public:
-  kind='ProfilePage' if p.name=='about.html' else 'CollectionPage' if p.name in ['memory.html','book.html','poetry.html','gallery.html','achive.html','testimonials.html','interviewphoto.html','family.html'] else 'WebPage'
+  kind='ProfilePage' if p.name=='about.html' else 'CollectionPage' if p.name in ['memory.html','book.html','poetry.html','gallery.html','achive.html','testimonials.html','interviewphoto.html','family.html','literary-archive.html','review.html','interviewvideo.html'] else 'WebPage'
   page={'@type':kind,'@id':url+'#webpage','url':url,'name':title,'description':d.meta['description'],'inLanguage':'en','isPartOf':{'@id':website['@id']},'about':{'@id':person['@id']},'primaryImageOfPage':{'@type':'ImageObject','url':d.meta['og:image']}}
   graph=[website,person,page]
   if p.name=='about.html':page['mainEntity']={'@id':person['@id']}
