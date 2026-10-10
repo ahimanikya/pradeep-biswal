@@ -629,6 +629,90 @@
       "rights": "Bibliographic record and source link; video remains on publisher channel.",
       "new_to_previous_archive": true,
       "source_publish_timestamp": "2026-07-09T00:30:06-07:00"
+    },
+    {
+      "id": "PBW-a933b0ed2e",
+      "category": "Published poetry",
+      "title": "Pradeep Biswal — Voices Within 2020",
+      "url": "https://www.setumag.com/2020/02/pradeep-biswal-voices-within.html",
+      "publisher": "Setu",
+      "credit": "Pradeep Biswal",
+      "date": "2020-02",
+      "note": "Three poems: Words Today, Sunflower and Last Night.",
+      "evidence": "Publisher page and author biography inspected; issue month confirmed.",
+      "checked": "2026-10-10",
+      "research_pass": 2,
+      "rights": "Bibliographic record and source link; full text remains with the original publisher."
+    },
+    {
+      "id": "PBW-52606a8dd6",
+      "category": "Published poetry",
+      "title": "The Lost Photos",
+      "url": "https://www.innsaeijournal.com/wp-content/uploads/2023/05/Innsaei-MARCH-ISSUE-2021.pdf#page=73",
+      "publisher": "INNSÆI Journal",
+      "credit": "Pradeep Biswal",
+      "date": "2021-03",
+      "note": "A poem in Volume II, Issue 3, printed pages 64–65; author introduction on page 63.",
+      "evidence": "Publisher PDF cover, contents, author biography and poem inspected. PDF page 73 begins the poem; issue date is March 2021, not the 2023 upload path.",
+      "checked": "2026-10-10",
+      "research_pass": 2,
+      "rights": "Bibliographic record and source link; full text remains with the original publisher."
+    },
+    {
+      "id": "PBW-8efe34858d",
+      "category": "Published poetry",
+      "title": "When a Leaf Falls",
+      "url": "https://positivevibes.today/article/newsview/628",
+      "publisher": "Literary Vibes",
+      "credit": "Pradeep Biswal",
+      "date": "2026-02-27",
+      "note": "A poem in the February 2026 issue.",
+      "evidence": "Publisher issue date, poem byline and matching author biography inspected.",
+      "checked": "2026-10-10",
+      "research_pass": 2,
+      "rights": "Bibliographic record and source link; full text remains with the original publisher."
+    },
+    {
+      "id": "PBW-d162195c2f",
+      "category": "Published poetry",
+      "title": "War",
+      "url": "https://positivevibes.today/article/newsview/631",
+      "publisher": "Literary Vibes",
+      "credit": "Pradeep Biswal",
+      "date": "2026-03-27",
+      "note": "A poem reflecting on poetry’s limits in the face of war.",
+      "evidence": "Publisher issue date and poem byline inspected; distinguished from Abani Udgata’s poem with the same title in this issue.",
+      "checked": "2026-10-10",
+      "research_pass": 2,
+      "rights": "Bibliographic record and source link; full text remains with the original publisher."
+    },
+    {
+      "id": "PBW-d2ac98e610",
+      "category": "Published poetry",
+      "title": "The Rival; Goutami",
+      "url": "https://positivevibes.today/article/newsview/640",
+      "publisher": "Literary Vibes",
+      "credit": "Pradeep Biswal",
+      "date": "2026-06-26",
+      "note": "Two poems in the June 2026 issue. Goutami is translated from Odia by Sarita Prusty.",
+      "evidence": "Publisher issue date, both poem titles, byline, translator credit and matching author biography inspected.",
+      "checked": "2026-10-10",
+      "research_pass": 2,
+      "rights": "Bibliographic record and source link; full text remains with the original publisher."
+    },
+    {
+      "id": "PBW-6f7ed77eb0",
+      "category": "Published poetry",
+      "title": "A Poem on Umbrella",
+      "url": "https://positivevibes.today/article/newsview/643",
+      "publisher": "Literary Vibes",
+      "credit": "Pradeep Biswal",
+      "date": "2026-07-31",
+      "note": "A poem in the July 2026 issue.",
+      "evidence": "Publisher issue date, poem byline and matching author biography inspected.",
+      "checked": "2026-10-10",
+      "research_pass": 2,
+      "rights": "Bibliographic record and source link; full text remains with the original publisher."
     }
   ],
   "leads": [
@@ -655,6 +739,12 @@
       "title": "Reviews of Pilgrimage to Ayodhya by Madhur Singh Pradhan and Snehaprava Das",
       "url": "https://www.pyssumliteraria.org/post/review-of-rendezvous-with-dreams-a-poetic-exploration-of-life-loss-and-resilience",
       "status": "Named in another review; original standalone publication not located."
+    },
+    {
+      "category": "Published poetry",
+      "title": "The Blessed Morning; The Beauty’s Soliloquy",
+      "url": "https://afflatuscreations.com/index.php/current-issue/",
+      "status": "Search index names the poet, but the current page has changed. Locate dated issue and permanent article links before adding."
     }
   ],
   "scope": "Literary work, interviews, reviews and attributed public-life essays. Not an exhaustive bibliography.",
@@ -669,5 +759,24 @@
       "XT8iluhGBDM": "Metadata unavailable."
     },
     "dates": "New episode publication timestamps converted to Asia/Kolkata; older catalogue dates retained."
+  },
+  "second_pass": {
+    "checked": "2026-10-10",
+    "added_ids": [
+      "PBW-a933b0ed2e",
+      "PBW-52606a8dd6",
+      "PBW-8efe34858d",
+      "PBW-d162195c2f",
+      "PBW-d2ac98e610",
+      "PBW-6f7ed77eb0"
+    ],
+    "notes": [
+      "Six additional publication records covering nine poems, checked against the previous catalogue.",
+      "English and Odia interview searches returned existing interviews and namesakes; no distinct new interview verified.",
+      "Two existing YouTube excerpt leads could not be retrieved through the research tool; retained as unverified leads.",
+      "The college-hosted Sitakant PDF could not be retrieved; not added.",
+      "The Pyssum review indicates the two Pilgrimage reviews are included in Rendezvous with Dreams; independent online originals remain unlocated.",
+      "Afflatus search index and current page disagree; retained as a lead."
+    ]
   }
 }
