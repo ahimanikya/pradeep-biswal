@@ -12,7 +12,7 @@ The `pb` DNS CNAME points to `ahimanikya.github.io`. The custom domain is config
 
 ## Sharing images
 
-All 60 source pages have static Open Graph and Twitter card metadata, canonical URLs, and a local JPEG preview. Memory articles use their own existing banner; section pages use relevant existing artwork or the poet's portrait. `tools/sharing-images.json` records each association. The website's visible images and authored text are unchanged.
+All 61 source pages have static Open Graph and Twitter card metadata, canonical URLs, and a local JPEG preview. Memory articles use their own existing banner; section pages use relevant existing artwork or the poet's portrait. `tools/sharing-images.json` records each association. The website's visible images and authored text are unchanged.
 
 To refresh previews after changing artwork, install `beautifulsoup4` and `Pillow`, then run `python3 tools/prepare_sharing.py`. The regular publish build uses only the Python standard library.
 
@@ -31,3 +31,7 @@ See [Caring for the website](docs/OWNER-GUIDE.md) for inbox handling, moderation
 Keep all twelve books in the homepage slider and leave testimonials unchanged. Show ten photographs, six interviews, eight memories and six awards, each followed by a card linking to the complete collection. The policy is recorded in `tools/homepage-curation.json`. Preserve lazy image loading, native scrolling and no autoplay. Keep the compact In the Poet’s Voice link.
 
 Do not add a new homepage section for each publication, recording or announcement. Preserve the existing typography, spacing, image treatment and restrained line art. Avoid autoplay, rotating promotional banners, extra badges and new decorative imagery without a specific reason.
+
+## Workspace housekeeping
+
+Generated `_site/`, Python caches and emulator debug logs are disposable and ignored by Git. Keep build screenshots and temporary review exports outside this repository. The current audit is `tools/audit-2026-10-10-end-of-day.json`; superseded audit snapshots have been removed. Preserve the source/research records and the unlisted `dist/review-drafts.html` page until the poet completes his review.
