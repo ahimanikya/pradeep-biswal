@@ -45,6 +45,18 @@ class ArticleParser(HTMLParser):
     def handle_data(self,data):
         if self.active and self.stack and not self.stack[-1][1]:self.parts.append(escape(data))
 
+def parse_odishaplus(raw):
+    """Use the visible author byline, not the publisher CMS account metadata."""
+    from lxml import html
+    root=html.fromstring(raw)
+    content=root.xpath('//div[contains(concat(" ",normalize-space(@class)," ")," td-post-content ")]')[0]
+    assert 'Pradeep Kumar Biswal' in content.xpath('./h3')[0].text_content()
+    paragraphs=content.xpath('./p')
+    assert paragraphs[0].text_content().startswith('In contemporary Odia poetry')
+    assert paragraphs[-1].text_content().startswith('(Pradeep Kumar Biswal,')
+    return ''.join('<p>'+escape(p.text_content().strip())+'</p>' for p in paragraphs)
+
+
 def fetch(url):
     with urlopen(Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=45) as response:return response.read()
 
@@ -54,14 +66,25 @@ def main():
     images=DIST/'assets/published-articles';images.mkdir(exist_ok=True)
     copies=DIST/'reader-text';copies.mkdir(exist_ok=True)
     for r in records:
+        if r['group']=='Author manuscripts':
+            (copies/(r['id']+'.json')).write_text(json.dumps({'html':r['html']},ensure_ascii=False)+'\n')
+            continue
         if r['group']=='Memories':
             source=(DIST/r['url']).read_text()
             banner=re.search(r'<img[^>]+class="memory-banner"[^>]*>',source).group()
             r['image']=re.search(r' src="([^"]+)"',banner).group(1).removeprefix('../')
             r['alt']=unescape(re.search(r' alt="([^"]*)"',banner).group(1))
+            if r['id']=='the-golden-days':
+                r['image']='img1/t24.png'
+                r['alt']='Vyasanagar College, where Pradeep Biswal studied — original photograph.'
             continue
         raw=ARCHIVE/(r['id']+'.html')
         if not raw.exists():raw.write_bytes(fetch(r['url']))
+        if r.get('publisher')=='OdishaPlus':
+            body=parse_odishaplus(raw.read_text())
+            (copies/(r['id']+'.json')).write_text(json.dumps({'html':body},ensure_ascii=False)+'\n')
+            assert re.sub(r'\s+','',unescape(re.sub('<[^>]+>',' ',body)))==re.sub(r'\s+','',r['text'])
+            continue
         p=ArticleParser(r['url']);p.feed(raw.read_text())
         body=''.join(p.parts).strip()
         plain=unescape(re.sub('<[^>]+>',' ',body))
@@ -81,11 +104,26 @@ def main():
             r['image']=image.relative_to(DIST).as_posix()
             r['alt']='Publisher illustration for '+r['title']
         print(r['id'],len(plain.split()),'words',flush=True)
-    assert len(records)==57
+    assert len(records)==61
     hashes=[hashlib.sha256(re.sub(r'\s+',' ',r['text']).strip().encode()).hexdigest() for r in records]
     assert len(hashes)==len(set(hashes)),'Exact duplicate article found'
     (ARCHIVE/'entries.json').write_text(json.dumps(records,ensure_ascii=False,indent=2)+'\n')
-    public=[{k:v for k,v in r.items() if k not in {'html','text','rights','sourceSha256'}} for r in records]
+    public=[{k:v for k,v in r.items() if k not in {'html','text','rights','sourceSha256','extractionNote'}} for r in records]
+    lookup={r['id']:r for r in public};public=[]
+    for part in json.loads((ARCHIVE/'book-structure.json').read_text()):
+        for id in part['ids']:
+            item=lookup.pop(id);item['theme']=part['theme'];public.append(item)
+    assert not lookup
     (DIST/'collection-reader.json').write_text(json.dumps(public,ensure_ascii=False,indent=2)+'\n')
+    (DIST/'collection-reader-text.json').write_text(json.dumps({r['id']:r['html'] for r in records},ensure_ascii=False,separators=(',',':'))+'\n')
+    # Keep the no-script index and preview count in step with the interactive book.
+    from html import escape
+    page=DIST/'reading-room.html'
+    markup=page.read_text()
+    items=''.join('<li id="'+escape(r['id'],quote=True)+'"><a href="'+escape(r['url'],quote=True)+'">'+escape(r['title'])+'</a></li>' for r in public)
+    markup=re.sub(r'<ol>.*?</ol>','<ol>'+items+'</ol>',markup,count=1,flags=re.S)
+    markup=re.sub(r'Reader preview · \d+ articles','Reader preview · '+str(len(public))+' articles',markup)
+    page.write_text(markup)
+
 
 if __name__=='__main__':main()

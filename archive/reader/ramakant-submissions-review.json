@@ -1,0 +1,23 @@
+{
+  "received": "2026-10-14",
+  "collectionCount": 60,
+  "newArticle": {
+    "id": "ramakants-sriradha-love-death-and-immortality",
+    "issues": [
+      "Verify all seven quoted passages against the Odia original or a named English translation; record translator, edition and page numbers.",
+      "Confirm whether the closing author biography should appear once in book back matter instead of at the end of this essay."
+    ],
+    "artwork": "Added interpretive Radha courtyard illustration for author review."
+  },
+  "alternateDraft": {
+    "file": "ramakant-rath-expanded-author-draft.txt",
+    "existingId": "ramakant-rath-the-poet-laureate",
+    "status": "Expanded draft selected for book and reader on 2026-10-14; original archived; copyediting pending.",
+    "issues": [
+      "Confirm the original journal and writing/publication date; source says Written last year for a journal.",
+      "Review time-sensitive age 90, still active, and lifetime wording against the intended historical date.",
+      "Expanded draft adds the Akademi younger-writer initiative and Kansa preface discussion; retain for author selection.",
+      "Check dias (dais) and award-name spelling during author-approved copyediting."
+    ]
+  }
+}
