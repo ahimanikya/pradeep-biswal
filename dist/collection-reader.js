@@ -192,10 +192,14 @@ async function step(direction){
  turn(spread+direction,true);
 }
 
+$('#page-prev').setAttribute('aria-keyshortcuts','ArrowLeft');
+$('#page-prev').title='Previous page (←)';
+$('#page-next').setAttribute('aria-keyshortcuts','ArrowRight');
+$('#page-next').title='Next page (→)';
 $('#page-prev').addEventListener('click',()=>step(-1));
 $('#page-next').addEventListener('click',()=>step(1));
 document.addEventListener('keydown',event=>{
- if(!isBook()||dialog.open||event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.target.closest('input,select,textarea,button,a')||!panel.hidden)return;
+ if(!isBook()||!current||restoring||dialog.open||event.defaultPrevented||event.isComposing||event.repeat||event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.target.isContentEditable||event.target.closest('input,select,textarea,[role=slider],[role=spinbutton]')||!panel.hidden)return;
  if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();step(event.key==='ArrowRight'?1:-1);}
 });
 window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>paginate(),150);});
