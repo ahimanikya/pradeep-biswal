@@ -155,3 +155,8 @@
 #page-position{font-size:.8rem;border:0;text-decoration:underline;text-underline-offset:4px}
 #page-position:disabled{text-decoration:none;cursor:default;opacity:1}
 .collection-reader.book-view #page-position{position:static;width:auto;min-width:160px;height:44px;padding:8px;margin:0;overflow:visible;clip-path:none;white-space:nowrap}
+
+/* Reserve the cover and status space before the reader index arrives. */
+.cover-view #reader-status{min-height:1.2em;margin-block:.5em}
+.cover-view .reader-sheet .book-cover-button img{width:min(420px,calc(100vw - 112px),calc((100dvh - 210px)*2/3));height:auto;aspect-ratio:2/3}
+.cover-view.book-view .reader-sheet .book-cover-button img{width:min(420px,calc((100dvh - 195px)*2/3))}

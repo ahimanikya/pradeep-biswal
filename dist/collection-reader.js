@@ -304,7 +304,7 @@ async function loadBook(){
    const heading=document.createElement('header');heading.className='chapter-heading';
    const group=document.createElement('p');group.className='chapter-theme';group.textContent=entry.theme||entry.group;
    const h=document.createElement('h2');h.textContent=entry.title;h.tabIndex=-1;heading.append(group,h);section.append(heading);
-   if(entry.image){const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt||'';img.width=1536;img.height=960;img.loading='lazy';img.decoding='async';
+   if(entry.image){const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt||'';img.width=1536;img.height=960;img.loading='lazy';img.decoding='async';img.srcset=`${entry.image.replace('.webp','-384.webp')} 384w, ${entry.image.replace('.webp','-640.webp')} 640w, ${entry.image} 1024w`;img.sizes='(max-width:600px) calc(100vw - 112px), 420px';img.src=entry.image.replace('.webp','-640.webp');img.fetchPriority='high';
     if(entry.id==='the-golden-days')img.classList.add('reader-documentary-image');
     if(['pratibha-satpathy-myth-magic-memory-poetry','PBW-b00c33a819'].includes(entry.id))img.classList.add('reader-author-portrait');
     section.append(img);
@@ -323,7 +323,7 @@ async function display(id,restore=false){
  try{
   if(entry.cover)body.replaceChildren();
   if(entry.cover){
-   const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt;img.width=1024;img.height=1536;img.decoding='async';
+   const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt;img.width=1024;img.height=1536;img.decoding='async';img.srcset=`${entry.image.replace('.webp','-384.webp')} 384w, ${entry.image.replace('.webp','-640.webp')} 640w, ${entry.image} 1024w`;img.sizes='(max-width:600px) calc(100vw - 112px), 420px';img.src=entry.image.replace('.webp','-640.webp');img.fetchPriority='high';
    const button=document.createElement('button');button.type='button';button.className='book-cover-button'+(entry.id==='back-cover'?' book-back-cover':'');button.setAttribute('aria-label',entry.id==='front-cover'?'Open A Life Among People':'Return to the front cover');const face=document.createElement('span');face.className='book-cover-face';face.append(img);button.append(face);
    button.addEventListener('click',()=>{pageRustle();location.hash=entry.id==='front-cover'?entries[1].id:'front-cover';});body.append(button);
    if(entry.id==='back-cover'){const copy=document.createElement('div');copy.className='cover-description';copy.textContent='A family radio, a bicycle, a conversation with a poet, a pension letter on an office desk. Pradeep Biswal returns to the people and encounters that have shaped his life. Moving from an Odisha village to literary gatherings and the working world of public service, these recollections and essays bring personal memory into conversation with public responsibility. These pieces trace a life among family, teachers, writers and colleagues, before turning to the questions of livelihoods, institutions and the common good. Pradeep Biswal: Poet, writer and former civil servant.';body.append(copy);}
@@ -356,4 +356,4 @@ try{
  await display(hash||'front-cover');
  if(!hash||hash==='front-cover'||hash===place?.id)offerResume(place);
  window.addEventListener('hashchange',()=>{const id=decodeURIComponent(location.hash.slice(1));if(entries.some(r=>r.id===id))display(id);});
-}catch{status.textContent='The reader is unavailable. You can still open every article from the list below.';}
+}catch{document.body.classList.remove('cover-view','continuous-reading','book-view');body.replaceChildren($('#reader-fallback').content.cloneNode(true));status.textContent='The reader is unavailable. You can still open every article from the list below.';}
