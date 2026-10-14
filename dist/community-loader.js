@@ -22,14 +22,13 @@ async function start(event){
 }
 triggers.forEach(b=>{b.disabled=false;b.addEventListener('click',start);});
 
-// Load responses only as the reader approaches them; no extra opening step.
+// Reader responses are requested explicitly, never just by scrolling past them.
 const commentsSection=document.querySelector('[data-reader-article]');
 const commentsLoad=document.querySelector('.reader-load');
-if(commentsSection&&commentsLoad){
- if('IntersectionObserver' in window){
-  const observer=new IntersectionObserver(entries=>{
-   if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();start({currentTarget:commentsLoad});}
-  },{rootMargin:'200px'});
-  observer.observe(commentsSection);
- }else commentsLoad.hidden=false;
-}
+const disclosure=commentsSection?.querySelector('.reader-response-disclosure');
+if(disclosure&&commentsLoad){
+ disclosure.addEventListener('toggle',()=>{if(disclosure.open)start({currentTarget:commentsLoad});});
+ const reveal=()=>{if(location.hash==='#comments'){disclosure.open=true;}};
+ document.querySelectorAll('a[href="#comments"]').forEach(link=>link.addEventListener('click',()=>{disclosure.open=true;}));
+ window.addEventListener('hashchange',reveal);reveal();
+}else if(commentsLoad){commentsLoad.hidden=false;}
