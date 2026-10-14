@@ -140,3 +140,7 @@
 /* Narrow screens retain a manageable single-article scrolling view. */
 .continuous-reading:not(.book-view) .book-chapter{display:none}
 .continuous-reading:not(.book-view) .book-chapter[data-current]{display:block;padding-top:0}
+
+/* The introduction closes the opening pages; the collection starts afresh. */
+.book-view .book-chapter[data-article="introduction"] + .book-chapter{break-before:column;padding-top:0}
+@media print{.book-chapter[data-article="introduction"] + .book-chapter{break-before:page;page-break-before:always;padding-top:0}}
