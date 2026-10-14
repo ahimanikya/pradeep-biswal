@@ -153,6 +153,7 @@ function turn(to,animate=false,entryHint=null){
  leftFolio.textContent=current?.cover?'':String(spread*2+1);
  rightFolio.textContent=current?.cover||spread*2+2>pageCount?'':String(spread*2+2);
  if(current?.cover)$('#page-position').textContent=current.group;
+ $('#page-position').disabled=!!current?.cover;
  bookmarkState();
  if(paper)paperTurn(direction,paper);
  if(animate&&direction&&isBook())pageRustle();
@@ -178,6 +179,7 @@ function paginate(reset=false){
  const pitch=(width+64)/2;
  chapterStarts=[...body.querySelectorAll('.book-chapter')].map(section=>({id:section.dataset.article,page:Math.max(0,Math.round((section.querySelector('h2').getBoundingClientRect().left-frame.getBoundingClientRect().left+frame.scrollLeft)/pitch))}));
  endMarker.style.left=(spreadCount*(width+64)-65)+'px';
+ updateContentsPages();
  turn(reset?0:Math.round(progress*(spreadCount-1)),false,reset?context:null);
 }
 layout.addEventListener('click',()=>{const id=current?.id;bookPreferred=!bookPreferred;save('pb-collection-book',bookPreferred);if(id)display(id);else paginate();});
@@ -199,7 +201,7 @@ $('#page-next').title='Next page (→)';
 $('#page-prev').addEventListener('click',()=>step(-1));
 $('#page-next').addEventListener('click',()=>step(1));
 document.addEventListener('keydown',event=>{
- if(!isBook()||!current||restoring||dialog.open||event.defaultPrevented||event.isComposing||event.repeat||event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.target.isContentEditable||event.target.closest('input,select,textarea,[role=slider],[role=spinbutton]')||!panel.hidden)return;
+ if(!isBook()||!current||restoring||document.querySelector('dialog[open]')||event.defaultPrevented||event.isComposing||event.repeat||event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.target.isContentEditable||event.target.closest('input,select,textarea,[role=slider],[role=spinbutton]')||!panel.hidden)return;
  if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();step(event.key==='ArrowRight'?1:-1);}
 });
 window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>paginate(),150);});
@@ -216,10 +218,10 @@ size.value=String(read('pb-collection-size',21));if(!sizes.includes(size.value))
 function settings(){document.documentElement.style.setProperty('--reader-size',size.value+'px');art.setAttribute('aria-pressed',String(illustrations));body.querySelectorAll('img').forEach(img=>img.hidden=!illustrations&&!current?.cover);}
 size.addEventListener('change',()=>{settings();save('pb-collection-size',Number(size.value));paginate();});
 art.addEventListener('click',()=>{illustrations=!illustrations;settings();save('pb-collection-art',illustrations);paginate();});
-function remember(){if(current&&!restoring)save('pb-collection-place',{id:current.id,y:window.scrollY,spread});}
+function remember(){if(current&&!current.cover&&!restoring)save('pb-collection-place',{id:current.id,y:window.scrollY,spread,book:isBook(),width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations});}
 let timer;window.addEventListener('scroll',()=>{clearTimeout(timer);timer=setTimeout(remember,160);},{passive:true});
 window.addEventListener('pagehide',remember);
-$('#contents-open').addEventListener('click',()=>dialog.showModal());
+$('#contents-open').addEventListener('click',()=>{updateContentsPages();dialog.showModal();});
 $('#contents-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target.closest('a'))dialog.close();});
 $('#reader-share').addEventListener('click',async()=>{
@@ -248,6 +250,41 @@ function setEntryContext(entry){
  }
  dialog.querySelectorAll('a').forEach(a=>{a.removeAttribute('aria-current');if(a.hash==='#'+entry.id)a.setAttribute('aria-current','page');});
 }
+
+function updateContentsPages(){
+ for(const a of dialog.querySelectorAll('a')){
+  a.querySelector('.contents-page')?.remove();
+  const chapter=chapterStarts.find(c=>a.hash==='#'+c.id);
+  if(chapter&&isBook()&&!current?.cover){const number=document.createElement('span');number.className='contents-page';number.textContent='p. '+(chapter.page+1);a.append(number);}
+ }
+}
+const jump=$('#reader-page-jump'),jumpInput=$('#page-jump-input');
+$('#page-position').addEventListener('click',()=>{
+ if(current?.cover||!isBook())return;
+ jumpInput.max=String(pageCount);jumpInput.value=String(spread*2+1);
+ $('#page-jump-help').textContent='Enter a page from 1 to '+pageCount+'. Page numbers follow your current text size.';
+ jump.showModal();jumpInput.focus();jumpInput.select();
+});
+$('#page-jump-cancel').addEventListener('click',()=>jump.close());
+$('#page-jump-form').addEventListener('submit',event=>{
+ event.preventDefault();const page=Number(jumpInput.value);
+ if(!Number.isInteger(page)||page<1||page>pageCount){jumpInput.reportValidity();return;}
+ jump.close();turn(Math.floor((page-1)/2),true);frame.focus({preventScroll:true});
+});
+function offerResume(place){
+ const entry=entries.find(e=>e.id===place?.id&&!e.cover);if(!entry)return;
+ const resume=$('#reader-resume');$('#resume-description').textContent=entry.title;
+ $('#resume-start').onclick=()=>{resume.close();save('pb-collection-place',null);};
+ $('#resume-reading').onclick=async()=>{
+  resume.close();await display(entry.id);
+  if(current?.id!==entry.id)return;
+  if(isBook()&&place.book&&place.width===frame.clientWidth&&place.height===frame.clientHeight&&place.size===size.value&&place.illustrations===illustrations&&Number.isInteger(place.spread))turn(place.spread);
+  else if(!isBook()&&place.book===false&&Number.isFinite(place.y))window.scrollTo({top:place.y,behavior:'instant'});
+  remember();
+ };
+ resume.showModal();
+}
+
 function entryForPage(page){
  const start=[...chapterStarts].reverse().find(chapter=>chapter.page<=page)||chapterStarts[0];
  return entries.find(entry=>entry.id===start?.id)||entries[1];
@@ -315,5 +352,6 @@ try{
  $('#contents-open').hidden=false;$('.reader-turn').hidden=false;
  const hash=decodeURIComponent(location.hash.slice(1)),place=read('pb-collection-place',{});
  await display(hash||'front-cover');
+ if(!hash||hash==='front-cover')offerResume(place);
  window.addEventListener('hashchange',()=>{const id=decodeURIComponent(location.hash.slice(1));if(entries.some(r=>r.id===id))display(id);});
 }catch{status.textContent='The reader is unavailable. You can still open every article from the list below.';}
