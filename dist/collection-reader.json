@@ -1,0 +1,522 @@
+[
+  {
+    "id": "plant-a-tree-not-a-man",
+    "title": "Plant A Tree : Not A Man",
+    "group": "Memories",
+    "url": "memories/plant-a-tree-not-a-man.html",
+    "image": "assets/memory-banners/entry-18.webp",
+    "alt": "Recreated banner for “Plant A Tree : Not A Man”"
+  },
+  {
+    "id": "the-golden-days",
+    "title": "The Golden Days",
+    "group": "Memories",
+    "url": "memories/the-golden-days.html",
+    "image": "assets/memory-banners/entry-24.webp",
+    "alt": "Recreated banner for “The Golden Days”"
+  },
+  {
+    "id": "fast-pedaling-to-the-future",
+    "title": "Fast Pedaling to the Future",
+    "group": "Memories",
+    "url": "memories/fast-pedaling-to-the-future.html",
+    "image": "assets/memory-banners/entry-25.webp",
+    "alt": "Recreated banner for “Fast Pedaling to the Future”"
+  },
+  {
+    "id": "life-in-an-idyllic-village",
+    "title": "Life in an idyllic village",
+    "group": "Memories",
+    "url": "memories/life-in-an-idyllic-village.html",
+    "image": "assets/memory-banners/entry-26.webp",
+    "alt": "Recreated banner for “Life in an idyllic village”"
+  },
+  {
+    "id": "sukinda-gandhi-a-forgotten-hero",
+    "title": "Sukinda Gandhi: A Forgotten Hero",
+    "group": "Memories",
+    "url": "memories/sukinda-gandhi-a-forgotten-hero.html",
+    "image": "assets/memory-banners/entry-37.webp",
+    "alt": "Recreated banner for “Sukinda Gandhi: A Forgotten Hero”"
+  },
+  {
+    "id": "tarunkanti-the-master-story-teller",
+    "title": "Tarunkanti – The Master Story Teller",
+    "group": "Memories",
+    "url": "memories/tarunkanti-the-master-story-teller.html",
+    "image": "assets/memory-banners/entry-2.webp",
+    "alt": "Recreated banner for “Tarunkanti – The Master Story Teller”"
+  },
+  {
+    "id": "jp-the-gem-of-odia-literature",
+    "title": "JP – The Gem of Odia Literature",
+    "group": "Memories",
+    "url": "memories/jp-the-gem-of-odia-literature.html",
+    "image": "assets/memory-banners/entry-3.webp",
+    "alt": "Recreated banner for “JP – The Gem of Odia Literature”"
+  },
+  {
+    "id": "the-sky-unlimited",
+    "title": "The Sky Unlimited",
+    "group": "Memories",
+    "url": "memories/the-sky-unlimited.html",
+    "image": "assets/memory-banners/entry-5.webp",
+    "alt": "Recreated banner for “The Sky Unlimited”"
+  },
+  {
+    "id": "dasia-aja-the-lighthouse",
+    "title": "Dasia Aja: The Lighthouse",
+    "group": "Memories",
+    "url": "memories/dasia-aja-the-lighthouse.html",
+    "image": "assets/memory-banners/entry-6.webp",
+    "alt": "Recreated banner for “Dasia Aja: The Lighthouse”"
+  },
+  {
+    "id": "shantanu-acharya-a-shining-star",
+    "title": "Shantanu Acharya: A Shining Star",
+    "group": "Memories",
+    "url": "memories/shantanu-acharya-a-shining-star.html",
+    "image": "assets/memory-banners/entry-7.webp",
+    "alt": "Recreated banner for “Shantanu Acharya: A Shining Star”"
+  },
+  {
+    "id": "ramakant-rath-the-poet-laureate",
+    "title": "Ramakant Rath: The Poet Laureate",
+    "group": "Memories",
+    "url": "memories/ramakant-rath-the-poet-laureate.html",
+    "image": "assets/memory-banners/entry-8.webp",
+    "alt": "Recreated banner for “Ramakant Rath: The Poet Laureate”"
+  },
+  {
+    "id": "phani-mohanty-prince-of-puspadhanu",
+    "title": "Phani Mohanty: ‘Prince of Puspadhanu’",
+    "group": "Memories",
+    "url": "memories/phani-mohanty-prince-of-puspadhanu.html",
+    "image": "assets/memory-banners/entry-9.webp",
+    "alt": "Recreated banner for “Phani Mohanty: ‘Prince of Puspadhanu’”"
+  },
+  {
+    "id": "jayant-mahapatra-the-doyen-of-poetry",
+    "title": "Jayant Mahapatra: The Doyen of Poetry",
+    "group": "Memories",
+    "url": "memories/jayant-mahapatra-the-doyen-of-poetry.html",
+    "image": "assets/memory-banners/entry-10.webp",
+    "alt": "Recreated banner for “Jayant Mahapatra: The Doyen of Poetry”"
+  },
+  {
+    "id": "hara-prasad-the-philosopher-poet",
+    "title": "Hara Prasad: The Philosopher Poet",
+    "group": "Memories",
+    "url": "memories/hara-prasad-the-philosopher-poet.html",
+    "image": "assets/memory-banners/entry-15.webp",
+    "alt": "Recreated banner for “Hara Prasad: The Philosopher Poet”"
+  },
+  {
+    "id": "the-dreamer-and-his-dreams",
+    "title": "The Dreamer and His Dreams",
+    "group": "Memories",
+    "url": "memories/the-dreamer-and-his-dreams.html",
+    "image": "assets/memory-banners/entry-30.webp",
+    "alt": "Recreated banner for “The Dreamer and His Dreams”"
+  },
+  {
+    "id": "patasani-the-poet-turned-politician",
+    "title": "Patasani : The Poet turned Politician",
+    "group": "Memories",
+    "url": "memories/patasani-the-poet-turned-politician.html",
+    "image": "assets/memory-banners/entry-40.webp",
+    "alt": "Recreated banner for “Patasani : The Poet turned Politician”"
+  },
+  {
+    "id": "ashok-meena-my-mentor",
+    "title": "Ashok Meena: My Mentor",
+    "group": "Memories",
+    "url": "memories/ashok-meena-my-mentor.html",
+    "image": "assets/memory-banners/entry-11.webp",
+    "alt": "Recreated banner for “Ashok Meena: My Mentor”"
+  },
+  {
+    "id": "a-tireless-bureaucrat",
+    "title": "A Tireless Bureaucrat",
+    "group": "Memories",
+    "url": "memories/a-tireless-bureaucrat.html",
+    "image": "assets/memory-banners/entry-13.webp",
+    "alt": "Recreated banner for “A Tireless Bureaucrat”"
+  },
+  {
+    "id": "sarat-chandran-the-savior",
+    "title": "Sarat Chandran : The Savior",
+    "group": "Memories",
+    "url": "memories/sarat-chandran-the-savior.html",
+    "image": "assets/memory-banners/entry-14.webp",
+    "alt": "Recreated banner for “Sarat Chandran : The Savior”"
+  },
+  {
+    "id": "r-balakrishnan-the-visionary",
+    "title": "R. Balakrishnan: The Visionary",
+    "group": "Memories",
+    "url": "memories/r-balakrishnan-the-visionary.html",
+    "image": "assets/memory-banners/entry-16.webp",
+    "alt": "Recreated banner for “R. Balakrishnan: The Visionary”"
+  },
+  {
+    "id": "a-p-padhi-mr-cool",
+    "title": "A. P. Padhi : Mr Cool",
+    "group": "Memories",
+    "url": "memories/a-p-padhi-mr-cool.html",
+    "image": "assets/memory-banners/entry-17.webp",
+    "alt": "Recreated banner for “A. P. Padhi : Mr Cool”"
+  },
+  {
+    "id": "vat-and-value-addition",
+    "title": "VAT and Value Addition",
+    "group": "Memories",
+    "url": "memories/vat-and-value-addition.html",
+    "image": "assets/memory-banners/entry-19.webp",
+    "alt": "Recreated banner for “VAT and Value Addition”"
+  },
+  {
+    "id": "subroto-bagchi-man-of-ideas",
+    "title": "Subroto Bagchi: Man of Ideas",
+    "group": "Memories",
+    "url": "memories/subroto-bagchi-man-of-ideas.html",
+    "image": "assets/memory-banners/entry-20.webp",
+    "alt": "Recreated banner for “Subroto Bagchi: Man of Ideas”"
+  },
+  {
+    "id": "servant-of-the-people",
+    "title": "Servant of the People",
+    "group": "Memories",
+    "url": "memories/servant-of-the-people.html",
+    "image": "assets/memory-banners/entry-21.webp",
+    "alt": "Recreated banner for “Servant of the People”"
+  },
+  {
+    "id": "gc-pati-the-game-changer",
+    "title": "GC Pati : The Game Changer",
+    "group": "Memories",
+    "url": "memories/gc-pati-the-game-changer.html",
+    "image": "assets/memory-banners/entry-28.webp",
+    "alt": "Recreated banner for “GC Pati : The Game Changer”"
+  },
+  {
+    "id": "my-best-ccrs-made-public",
+    "title": "My Best CCRs Made Public",
+    "group": "Memories",
+    "url": "memories/my-best-ccrs-made-public.html",
+    "image": "assets/memory-banners/entry-33.webp",
+    "alt": "Recreated banner for “My Best CCRs Made Public”"
+  },
+  {
+    "id": "jk-the-jewel",
+    "title": "JK : The Jewel",
+    "group": "Memories",
+    "url": "memories/jk-the-jewel.html",
+    "image": "assets/memory-banners/entry-34.webp",
+    "alt": "Recreated banner for “JK : The Jewel”"
+  },
+  {
+    "id": "dr-taradatt-the-terror-and-the-targets",
+    "title": "Dr. Taradatt : The Terror and the Targets",
+    "group": "Memories",
+    "url": "memories/dr-taradatt-the-terror-and-the-targets.html",
+    "image": "assets/memory-banners/entry-35.webp",
+    "alt": "Recreated banner for “Dr. Taradatt : The Terror and the Targets”"
+  },
+  {
+    "id": "learning-the-lessons-of-finance",
+    "title": "Learning the Lessons of Finance",
+    "group": "Memories",
+    "url": "memories/learning-the-lessons-of-finance.html",
+    "image": "assets/memory-banners/entry-36.webp",
+    "alt": "Recreated banner for “Learning the Lessons of Finance”"
+  },
+  {
+    "id": "civility-of-a-civil-servant",
+    "title": "Civility of a Civil Servant",
+    "group": "Memories",
+    "url": "memories/civility-of-a-civil-servant.html",
+    "image": "assets/memory-banners/entry-39.webp",
+    "alt": "Recreated banner for “Civility of a Civil Servant”"
+  },
+  {
+    "id": "the-radio-veterans",
+    "title": "The Radio Veterans",
+    "group": "Memories",
+    "url": "memories/the-radio-veterans.html",
+    "image": "assets/radio-memory-960.webp",
+    "alt": "A family listening together to an old wooden radio"
+  },
+  {
+    "id": "newspapers-my-first-love",
+    "title": "Newspapers: My First Love",
+    "group": "Memories",
+    "url": "memories/newspapers-my-first-love.html",
+    "image": "assets/memory-banners/entry-12.webp",
+    "alt": "Recreated banner for “Newspapers: My First Love”"
+  },
+  {
+    "id": "neighbors-envy-owners-pride",
+    "title": "Neighbor’s Envy, Owner’s Pride",
+    "group": "Memories",
+    "url": "memories/neighbors-envy-owners-pride.html",
+    "image": "assets/memory-banners/entry-22.webp",
+    "alt": "Recreated banner for “Neighbor’s Envy, Owner’s Pride”"
+  },
+  {
+    "id": "when-media-turns-yellow",
+    "title": "When Media Turns Yellow",
+    "group": "Memories",
+    "url": "memories/when-media-turns-yellow.html",
+    "image": "assets/memory-banners/entry-32.webp",
+    "alt": "Recreated banner for “When Media Turns Yellow”"
+  },
+  {
+    "id": "my-romance-with-radio",
+    "title": "My Romance with Radio",
+    "group": "Memories",
+    "url": "memories/my-romance-with-radio.html",
+    "image": "assets/memory-banners/entry-41.webp",
+    "alt": "Recreated banner for “My Romance with Radio”"
+  },
+  {
+    "id": "twin-tower-demolition-key-takeaways",
+    "title": "Twin Tower Demolition: Key Takeaways",
+    "group": "Memories",
+    "url": "memories/twin-tower-demolition-key-takeaways.html",
+    "image": "assets/memory-banners/entry-4.webp",
+    "alt": "Recreated banner for “Twin Tower Demolition: Key Takeaways”"
+  },
+  {
+    "id": "sri-lanka-the-present-and-the-past",
+    "title": "Sri Lanka: The Present and The Past",
+    "group": "Memories",
+    "url": "memories/sri-lanka-the-present-and-the-past.html",
+    "image": "assets/memory-banners/entry-23.webp",
+    "alt": "Recreated banner for “Sri Lanka: The Present and The Past”"
+  },
+  {
+    "id": "pitfalls-of-politics",
+    "title": "Pitfalls of Politics",
+    "group": "Memories",
+    "url": "memories/pitfalls-of-politics.html",
+    "image": "assets/memory-banners/entry-27-v2.webp",
+    "alt": "Recreated banner for “Pitfalls of Politics”"
+  },
+  {
+    "id": "revisiting-real-estate-regulation-act-rera",
+    "title": "Revisiting Real Estate Regulation Act (RERA)",
+    "group": "Memories",
+    "url": "memories/revisiting-real-estate-regulation-act-rera.html",
+    "image": "assets/memory-banners/entry-29.webp",
+    "alt": "Recreated banner for “Revisiting Real Estate Regulation Act (RERA)”"
+  },
+  {
+    "id": "observing-elections-exciting-experience",
+    "title": "Observing Elections : Exciting experience",
+    "group": "Memories",
+    "url": "memories/observing-elections-exciting-experience.html",
+    "image": "assets/memory-banners/entry-31.webp",
+    "alt": "Recreated banner for “Observing Elections : Exciting experience”"
+  },
+  {
+    "id": "the-tall-man",
+    "title": "The Tall Man",
+    "group": "Memories",
+    "url": "memories/the-tall-man.html",
+    "image": "assets/memory-banners/entry-38.webp",
+    "alt": "Recreated banner for “The Tall Man”"
+  },
+  {
+    "id": "PBW-b00c33a819",
+    "title": "Jayanta Mahapatra: Connecting The Disconnects In Life & Poetry",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/jayanta-mahapatra-connecting-the-disconnects-in-life-poetry/",
+    "publisher": "OdishaBytes",
+    "date": "2023-09-11",
+    "textUrl": "reader-text/PBW-b00c33a819.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2021/06/Jayanta-1.jpeg",
+    "image": "assets/published-articles/PBW-b00c33a819.jpeg",
+    "alt": "Publisher illustration for Jayanta Mahapatra: Connecting The Disconnects In Life & Poetry"
+  },
+  {
+    "id": "PBW-052d7130a5",
+    "title": "State Planning Board In Odisha Needs To Be Revamped In Line With Niti Aayog",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/state-planning-board-in-odisha-needs-to-be-revamped-in-line-with-niti-aayog/",
+    "publisher": "OdishaBytes",
+    "date": "2024-07-17",
+    "textUrl": "reader-text/PBW-052d7130a5.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2024/06/Screenshot-2024-06-15-164617-e1719070659313.png",
+    "image": "assets/published-articles/PBW-052d7130a5.png",
+    "alt": "Publisher illustration for State Planning Board In Odisha Needs To Be Revamped In Line With Niti Aayog"
+  },
+  {
+    "id": "PBW-05f85247fa",
+    "title": "Odisha’s Revenue Base Under Strain: A Multifaceted Challenge",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/odishas-revenue-base-under-strain-a-multifaceted-challenge/",
+    "publisher": "OdishaBytes",
+    "date": "2025-05-30",
+    "textUrl": "reader-text/PBW-05f85247fa.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2024/03/Lok-Seva-Bhawan-e1710576765337.jpeg",
+    "image": "assets/published-articles/PBW-05f85247fa.jpeg",
+    "alt": "Publisher illustration for Odisha’s Revenue Base Under Strain: A Multifaceted Challenge"
+  },
+  {
+    "id": "PBW-051599b255",
+    "title": "Relevance Of Nehruvian Economic Policy In Contemporary India",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/relevance-of-nehruvian-economic-policy-in-contemporary-india/",
+    "publisher": "OdishaBytes",
+    "date": "2025-06-03",
+    "textUrl": "reader-text/PBW-051599b255.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/06/Screenshot-2025-06-03-191221-e1748958240558.png",
+    "image": "assets/published-articles/PBW-051599b255.png",
+    "alt": "Publisher illustration for Relevance Of Nehruvian Economic Policy In Contemporary India"
+  },
+  {
+    "id": "PBW-7c1a2ac022",
+    "title": "Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/",
+    "publisher": "OdishaBytes",
+    "date": "2025-06-15",
+    "textUrl": "reader-text/PBW-7c1a2ac022.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp",
+    "image": "assets/published-articles/PBW-7c1a2ac022.webp",
+    "alt": "Publisher illustration for Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?"
+  },
+  {
+    "id": "PBW-6f0854748e",
+    "title": "Abysmal Performance Of Banks In Odisha With Credit Deposit Ratio At 48%",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/abysmal-performance-of-banks-in-odisha-with-credit-deposit-ratio-at-48/",
+    "publisher": "OdishaBytes",
+    "date": "2025-07-04",
+    "textUrl": "reader-text/PBW-6f0854748e.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/07/LOANS.jpg",
+    "image": "assets/published-articles/PBW-6f0854748e.jpg",
+    "alt": "Publisher illustration for Abysmal Performance Of Banks In Odisha With Credit Deposit Ratio At 48%"
+  },
+  {
+    "id": "PBW-0952cae227",
+    "title": "Power Sector In Odisha: Issues & Challenges",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/power-sector-in-odisha-issues-challenges/",
+    "publisher": "OdishaBytes",
+    "date": "2025-07-10",
+    "textUrl": "reader-text/PBW-0952cae227.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2024/12/Screenshot-2024-12-11-184457-e1733923525911.png",
+    "image": "assets/published-articles/PBW-0952cae227.png",
+    "alt": "Publisher illustration for Power Sector In Odisha: Issues & Challenges"
+  },
+  {
+    "id": "PBW-48f8cf7688",
+    "title": "Jajpur Road-Dhamra Rail Link: A Milestone In Odisha’s Economic Progress",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/jajpur-road-dhamra-rail-link-a-milestone-in-odishas-economic-progress/",
+    "publisher": "OdishaBytes",
+    "date": "2025-07-14",
+    "textUrl": "reader-text/PBW-48f8cf7688.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2021/07/Talcher-Bimlagarh-link.jpg",
+    "image": "assets/published-articles/PBW-48f8cf7688.jpg",
+    "alt": "Publisher illustration for Jajpur Road-Dhamra Rail Link: A Milestone In Odisha’s Economic Progress"
+  },
+  {
+    "id": "PBW-d6a176888b",
+    "title": "Making Odisha Handloom A Global Brand",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/making-odisha-handloom-a-global-brand/",
+    "publisher": "OdishaBytes",
+    "date": "2025-08-07",
+    "textUrl": "reader-text/PBW-d6a176888b.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/08/Screenshot-2025-08-07-221649-e1754585261524.png",
+    "image": "assets/published-articles/PBW-d6a176888b.png",
+    "alt": "Publisher illustration for Making Odisha Handloom A Global Brand"
+  },
+  {
+    "id": "PBW-634bd8bb12",
+    "title": "The New Income Tax Legislation; What It Means For Taxpayers",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/the-new-income-tax-legislation-what-it-means-for-taxpayers/",
+    "publisher": "OdishaBytes",
+    "date": "2025-08-12",
+    "textUrl": "reader-text/PBW-634bd8bb12.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/08/INCOME-TAX-e1754997860678.jpeg",
+    "image": "assets/published-articles/PBW-634bd8bb12.jpeg",
+    "alt": "Publisher illustration for The New Income Tax Legislation; What It Means For Taxpayers"
+  },
+  {
+    "id": "PBW-35071e55c9",
+    "title": "Climate Change Action Plan: Odisha Will Benefit From Multidimensional Approach",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/climate-change-action-plan-odisha-will-benefit-from-multidimensional-approach/",
+    "publisher": "OdishaBytes",
+    "date": "2025-08-20",
+    "textUrl": "reader-text/PBW-35071e55c9.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2022/10/global-climate-change.jpg",
+    "image": "assets/published-articles/PBW-35071e55c9.jpg",
+    "alt": "Publisher illustration for Climate Change Action Plan: Odisha Will Benefit From Multidimensional Approach"
+  },
+  {
+    "id": "PBW-d915c73d85",
+    "title": "Need Of The Hour: Convergence In Planning, The Odisha Way",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/need-of-the-hour-convergence-in-planning-the-odisha-way/",
+    "publisher": "OdishaBytes",
+    "date": "2025-09-01",
+    "textUrl": "reader-text/PBW-d915c73d85.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/09/Odisha-Planning-_-Convergence-Department.jpg",
+    "image": "assets/published-articles/PBW-d915c73d85.jpg",
+    "alt": "Publisher illustration for Need Of The Hour: Convergence In Planning, The Odisha Way"
+  },
+  {
+    "id": "PBW-bc897aa318",
+    "title": "Odisha Eyes Global Semiconductor Hub Status",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/odisha-eyes-global-semiconductor-hub-status/",
+    "publisher": "OdishaBytes",
+    "date": "2025-09-04",
+    "textUrl": "reader-text/PBW-bc897aa318.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/09/MixCollage-04-Sep-2025-06-18-PM-5492.webp",
+    "image": "assets/published-articles/PBW-bc897aa318.webp",
+    "alt": "Publisher illustration for Odisha Eyes Global Semiconductor Hub Status"
+  },
+  {
+    "id": "PBW-ee645a0aad",
+    "title": "Can Odisha Replicate Andhra’s ‘P4 Model’ For Poverty Eradication?",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/can-odisha-replicate-andhras-p4-model-for-poverty-eradication/",
+    "publisher": "OdishaBytes",
+    "date": "2025-09-14",
+    "textUrl": "reader-text/PBW-ee645a0aad.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2025/09/india-4864259_640.webp",
+    "image": "assets/published-articles/PBW-ee645a0aad.webp",
+    "alt": "Publisher illustration for Can Odisha Replicate Andhra’s ‘P4 Model’ For Poverty Eradication?"
+  },
+  {
+    "id": "PBW-13150ddd60",
+    "title": "16th Finance Commission Recommendations: Odisha Disadvantaged",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/16th-finance-commission-recommendations-odisha-disadvantaged/",
+    "publisher": "OdishaBytes",
+    "date": "2026-02-02",
+    "textUrl": "reader-text/PBW-13150ddd60.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2026/02/16th-Finance-Commission-Odisha-impact-e1770036469286.avif",
+    "image": "assets/published-articles/PBW-13150ddd60.avif",
+    "alt": "Publisher illustration for 16th Finance Commission Recommendations: Odisha Disadvantaged"
+  },
+  {
+    "id": "PBW-0c5f5a285d",
+    "title": "From Rigid Fiscal Leash To Flexible Debt Glide Path, Is FRBM Act Losing Relevance?",
+    "group": "Published articles",
+    "url": "https://odishabytes.com/from-rigid-fiscal-leash-to-flexible-debt-glide-path-is-frbm-act-losing-relevance/",
+    "publisher": "OdishaBytes",
+    "date": "2026-02-10",
+    "textUrl": "reader-text/PBW-0c5f5a285d.json",
+    "sourceImage": "https://assets.odishabytes.com/wp-content/uploads/2026/02/Screenshot-2025-09-17-185514-Photoroom-e1770699657985.webp",
+    "image": "assets/published-articles/PBW-0c5f5a285d.webp",
+    "alt": "Publisher illustration for From Rigid Fiscal Leash To Flexible Debt Glide Path, Is FRBM Act Losing Relevance?"
+  }
+]

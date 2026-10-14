@@ -1,0 +1,1472 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en-US"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js lt-ie10" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=yes' />
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="pingback" href="https://odishabytes.com/xmlrpc.php" />
+	<script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+	<script>
+	  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+		basicSubscriptions.init({
+		  type: "NewsArticle",
+		  isPartOfType: ["Product"],
+		  isPartOfProductId: "CAoiEEiR2JsTF352izYBe3RJnFU:openaccess",
+		  clientOptions: { theme: "light", lang: "en" },
+		});
+	  });
+	</script>
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+		<script id="ltal-inline-loader">
+	(function(){
+		try {
+			if (typeof window === 'undefined' || typeof document === 'undefined') return;
+			if (window.__LTAL_INLINE_LOADER_DONE) return;
+			window.__LTAL_INLINE_LOADER_DONE = true;
+
+			var cfg = {
+				anymind: 'https://anymind360.com/js/10860/ats.js',
+				gpt: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+				idleTimeout: 1500,
+				intersectionRootMargin: '400px 0px'
+			};
+
+			function injectScript(src, attrs) {
+				if (!src) return null;
+				try {
+					var s = document.createElement('script');
+					if (attrs && attrs.type) s.type = attrs.type;
+					if (attrs && attrs.defer) s.defer = true;
+					s.async = !!(attrs && attrs.async);
+					s.src = src;
+					s.setAttribute('data-ltal', '1');
+					(document.body || document.head || document.documentElement).appendChild(s);
+					return s;
+				} catch(e) { return null; }
+			}
+
+			function loadGPT(){
+				if (window.googletag && window.googletag.apiReady) return;
+				window.googletag = window.googletag || { cmd: [] };
+				try {
+					window.googletag.cmd.push(function(){
+						try {
+							if (window.googletag.pubads) {
+								try { window.googletag.pubads().enableSingleRequest && window.googletag.pubads().enableSingleRequest(); } catch(e){}
+								try { window.googletag.pubads().enableLazyLoad && window.googletag.pubads().enableLazyLoad({fetchMarginPercent:200, renderMarginPercent:50, mobileScaling:2}); } catch(e){}
+							}
+						} catch(e){}
+					});
+				} catch(e){}
+				injectScript(cfg.gpt, { async: true });
+			}
+
+			var thirdPartyLoaded = false;
+			function loadThirdParties(force){
+				if (thirdPartyLoaded && !force) return;
+				thirdPartyLoaded = true;
+				try { sessionStorage.setItem('ltal_third_party_injected','1'); } catch(e){}
+				injectScript(cfg.anymind, { async: true });
+				loadGPT();
+				window.__LTAL_THIRD_PARTY_INJECTED = true;
+			}
+
+			function onIdleLoad(){
+				if (window.__FORCE_LOAD_THIRD_PARTY) { loadThirdParties(true); return; }
+				if ('requestIdleCallback' in window) {
+					try { requestIdleCallback(loadThirdParties, { timeout: cfg.idleTimeout }); } catch(e){ setTimeout(loadThirdParties, cfg.idleTimeout); }
+				} else {
+					setTimeout(loadThirdParties, cfg.idleTimeout);
+				}
+			}
+
+			var onFirstInteraction = function(){
+				loadThirdParties();
+				removeInteractionListeners();
+			};
+
+			function removeInteractionListeners(){
+				document.removeEventListener('click', onFirstInteraction, true);
+				document.removeEventListener('scroll', onFirstInteraction, true);
+				document.removeEventListener('keydown', onFirstInteraction, true);
+				document.removeEventListener('touchstart', onFirstInteraction, true);
+			}
+
+			document.addEventListener('click', onFirstInteraction, { once:true, passive:true, capture:true });
+			document.addEventListener('scroll', onFirstInteraction, { once:true, passive:true, capture:true });
+			document.addEventListener('keydown', onFirstInteraction, { once:true, passive:true, capture:true });
+			document.addEventListener('touchstart', onFirstInteraction, { once:true, passive:true, capture:true });
+
+			// Intersection observer: load when an ad slot becomes near viewport
+			var adSelector = '.ad-slot, .adsbygoogle, #taboolabox, #taboolabox2';
+			var adNode = document.querySelector(adSelector);
+			if (adNode && 'IntersectionObserver' in window) {
+				try {
+					var io = new IntersectionObserver(function(entries){
+						for (var i=0;i<entries.length;i++){
+							if (entries[i].isIntersecting) {
+								loadThirdParties();
+								try { io.disconnect(); } catch(e){}
+								return;
+							}
+						}
+					}, { rootMargin: cfg.intersectionRootMargin });
+					io.observe(adNode);
+				} catch(e){}
+			}
+
+			// short-circuit if already injected this session
+			try {
+				if (sessionStorage && sessionStorage.getItem('ltal_third_party_injected') === '1') {
+					thirdPartyLoaded = true;
+					window.__LTAL_THIRD_PARTY_INJECTED = true;
+				}
+			} catch(e){}
+
+			if (document.readyState === 'complete' || document.readyState === 'interactive') {
+				onIdleLoad();
+			} else {
+				document.addEventListener('DOMContentLoaded', onIdleLoad);
+			}
+
+			window.LTAL = window.LTAL || {};
+			window.LTAL.loadNow = function(){ loadThirdParties(true); };
+			window.LTAL.isLoaded = function(){ return thirdPartyLoaded; };
+
+		} catch(e){ /* swallow */ }
+	})();
+	</script>
+	<meta property="og:type" content="article">
+<meta property="og:title" content="Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?">
+<meta property="og:site_name" content="OdishaBytes">
+<meta property="og:description" content="Two recent decisions of the Mohan Majhi government made me ponder whether they serve any public good. Good governance always">
+<meta property="og:url" content="https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp">
+<meta property="og:image:height" content="315">
+<meta property="og:image:width" content="550">
+<meta property="article:published_time" content="2025-06-15T19:25:46+05:30">
+<meta property="article:modified_time" content="2025-06-15T19:25:46+05:30">
+<meta property="article:section" content="OB Special">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?">
+<meta name="twitter:description" content="Two recent decisions of the Mohan Majhi government made me ponder whether they serve any public good. Good governance always">
+<meta name="twitter:url" content="https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/">
+<meta name="twitter:site" content="">
+<meta name="twitter:image" content="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp">
+<meta name="twitter:image:width" content="550">
+<meta name="twitter:image:height" content="315">
+			<script type="text/javascript">
+			  var jnews_ajax_url = '/?ajax-request=jnews'
+			</script>
+			<script type="text/javascript">;window.jnews=window.jnews||{},window.jnews.library=window.jnews.library||{},window.jnews.library=function(){"use strict";var e=this;e.win=window,e.doc=document,e.noop=function(){},e.globalBody=e.doc.getElementsByTagName("body")[0],e.globalBody=e.globalBody?e.globalBody:e.doc,e.win.jnewsDataStorage=e.win.jnewsDataStorage||{_storage:new WeakMap,put:function(e,t,n){this._storage.has(e)||this._storage.set(e,new Map),this._storage.get(e).set(t,n)},get:function(e,t){return this._storage.get(e).get(t)},has:function(e,t){return this._storage.has(e)&&this._storage.get(e).has(t)},remove:function(e,t){var n=this._storage.get(e).delete(t);return 0===!this._storage.get(e).size&&this._storage.delete(e),n}},e.windowWidth=function(){return e.win.innerWidth||e.docEl.clientWidth||e.globalBody.clientWidth},e.windowHeight=function(){return e.win.innerHeight||e.docEl.clientHeight||e.globalBody.clientHeight},e.requestAnimationFrame=e.win.requestAnimationFrame||e.win.webkitRequestAnimationFrame||e.win.mozRequestAnimationFrame||e.win.msRequestAnimationFrame||window.oRequestAnimationFrame||function(e){return setTimeout(e,1e3/60)},e.cancelAnimationFrame=e.win.cancelAnimationFrame||e.win.webkitCancelAnimationFrame||e.win.webkitCancelRequestAnimationFrame||e.win.mozCancelAnimationFrame||e.win.msCancelRequestAnimationFrame||e.win.oCancelRequestAnimationFrame||function(e){clearTimeout(e)},e.classListSupport="classList"in document.createElement("_"),e.hasClass=e.classListSupport?function(e,t){return e.classList.contains(t)}:function(e,t){return e.className.indexOf(t)>=0},e.addClass=e.classListSupport?function(t,n){e.hasClass(t,n)||t.classList.add(n)}:function(t,n){e.hasClass(t,n)||(t.className+=" "+n)},e.removeClass=e.classListSupport?function(t,n){e.hasClass(t,n)&&t.classList.remove(n)}:function(t,n){e.hasClass(t,n)&&(t.className=t.className.replace(n,""))},e.objKeys=function(e){var t=[];for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&t.push(n);return t},e.isObjectSame=function(e,t){var n=!0;return JSON.stringify(e)!==JSON.stringify(t)&&(n=!1),n},e.extend=function(){for(var e,t,n,o=arguments[0]||{},i=1,a=arguments.length;i<a;i++)if(null!==(e=arguments[i]))for(t in e)o!==(n=e[t])&&void 0!==n&&(o[t]=n);return o},e.dataStorage=e.win.jnewsDataStorage,e.isVisible=function(e){return 0!==e.offsetWidth&&0!==e.offsetHeight||e.getBoundingClientRect().length},e.getHeight=function(e){return e.offsetHeight||e.clientHeight||e.getBoundingClientRect().height},e.getWidth=function(e){return e.offsetWidth||e.clientWidth||e.getBoundingClientRect().width},e.supportsPassive=!1;try{var t=Object.defineProperty({},"passive",{get:function(){e.supportsPassive=!0}});"createEvent"in e.doc?e.win.addEventListener("test",null,t):"fireEvent"in e.doc&&e.win.attachEvent("test",null)}catch(e){}e.passiveOption=!!e.supportsPassive&&{passive:!0},e.setStorage=function(e,t){e="jnews-"+e;var n={expired:Math.floor(((new Date).getTime()+432e5)/1e3)};t=Object.assign(n,t);localStorage.setItem(e,JSON.stringify(t))},e.getStorage=function(e){e="jnews-"+e;var t=localStorage.getItem(e);return null!==t&&0<t.length?JSON.parse(localStorage.getItem(e)):{}},e.expiredStorage=function(){var t,n="jnews-";for(var o in localStorage)o.indexOf(n)>-1&&"undefined"!==(t=e.getStorage(o.replace(n,""))).expired&&t.expired<Math.floor((new Date).getTime()/1e3)&&localStorage.removeItem(o)},e.addEvents=function(t,n,o){for(var i in n){var a=["touchstart","touchmove"].indexOf(i)>=0&&!o&&e.passiveOption;"createEvent"in e.doc?t.addEventListener(i,n[i],a):"fireEvent"in e.doc&&t.attachEvent("on"+i,n[i])}},e.removeEvents=function(t,n){for(var o in n)"createEvent"in e.doc?t.removeEventListener(o,n[o]):"fireEvent"in e.doc&&t.detachEvent("on"+o,n[o])},e.triggerEvents=function(t,n,o){var i;o=o||{detail:null};return"createEvent"in e.doc?(!(i=e.doc.createEvent("CustomEvent")||new CustomEvent(n)).initCustomEvent||i.initCustomEvent(n,!0,!1,o),void t.dispatchEvent(i)):"fireEvent"in e.doc?((i=e.doc.createEventObject()).eventType=n,void t.fireEvent("on"+i.eventType,i)):void 0},e.getParents=function(t,n){void 0===n&&(n=e.doc);for(var o=[],i=t.parentNode,a=!1;!a;)if(i){var r=i;r.querySelectorAll(n).length?a=!0:(o.push(r),i=r.parentNode)}else o=[],a=!0;return o},e.forEach=function(e,t,n){for(var o=0,i=e.length;o<i;o++)t.call(n,e[o],o)},e.getText=function(e){return e.innerText||e.textContent},e.setText=function(e,t){var n="object"==typeof t?t.innerText||t.textContent:t;e.innerText&&(e.innerText=n),e.textContent&&(e.textContent=n)},e.httpBuildQuery=function(t){return e.objKeys(t).reduce(function t(n){var o=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null;return function(i,a){var r=n[a];a=encodeURIComponent(a);var s=o?"".concat(o,"[").concat(a,"]"):a;return null==r||"function"==typeof r?(i.push("".concat(s,"=")),i):["number","boolean","string"].includes(typeof r)?(i.push("".concat(s,"=").concat(encodeURIComponent(r))),i):(i.push(e.objKeys(r).reduce(t(r,s),[]).join("&")),i)}}(t),[]).join("&")},e.get=function(t,n,o,i){return o="function"==typeof o?o:e.noop,e.ajax("GET",t,n,o,i)},e.post=function(t,n,o,i){return o="function"==typeof o?o:e.noop,e.ajax("POST",t,n,o,i)},e.ajax=function(t,n,o,i,a){var r=new XMLHttpRequest,s=n,c=e.httpBuildQuery(o);if(t=-1!=["GET","POST"].indexOf(t)?t:"GET",r.open(t,s+("GET"==t?"?"+c:""),!0),"POST"==t&&r.setRequestHeader("Content-type","application/x-www-form-urlencoded"),r.setRequestHeader("X-Requested-With","XMLHttpRequest"),r.onreadystatechange=function(){4===r.readyState&&200<=r.status&&300>r.status&&"function"==typeof i&&i.call(void 0,r.response)},void 0!==a&&!a){return{xhr:r,send:function(){r.send("POST"==t?c:null)}}}return r.send("POST"==t?c:null),{xhr:r}},e.scrollTo=function(t,n,o){function i(e,t,n){this.start=this.position(),this.change=e-this.start,this.currentTime=0,this.increment=20,this.duration=void 0===n?500:n,this.callback=t,this.finish=!1,this.animateScroll()}return Math.easeInOutQuad=function(e,t,n,o){return(e/=o/2)<1?n/2*e*e+t:-n/2*(--e*(e-2)-1)+t},i.prototype.stop=function(){this.finish=!0},i.prototype.move=function(t){e.doc.documentElement.scrollTop=t,e.globalBody.parentNode.scrollTop=t,e.globalBody.scrollTop=t},i.prototype.position=function(){return e.doc.documentElement.scrollTop||e.globalBody.parentNode.scrollTop||e.globalBody.scrollTop},i.prototype.animateScroll=function(){this.currentTime+=this.increment;var t=Math.easeInOutQuad(this.currentTime,this.start,this.change,this.duration);this.move(t),this.currentTime<this.duration&&!this.finish?e.requestAnimationFrame.call(e.win,this.animateScroll.bind(this)):this.callback&&"function"==typeof this.callback&&this.callback()},new i(t,n,o)},e.unwrap=function(t){var n,o=t;e.forEach(t,(function(e,t){n?n+=e:n=e})),o.replaceWith(n)},e.performance={start:function(e){performance.mark(e+"Start")},stop:function(e){performance.mark(e+"End"),performance.measure(e,e+"Start",e+"End")}},e.fps=function(){var t=0,n=0,o=0;!function(){var i=t=0,a=0,r=0,s=document.getElementById("fpsTable"),c=function(t){void 0===document.getElementsByTagName("body")[0]?e.requestAnimationFrame.call(e.win,(function(){c(t)})):document.getElementsByTagName("body")[0].appendChild(t)};null===s&&((s=document.createElement("div")).style.position="fixed",s.style.top="120px",s.style.left="10px",s.style.width="100px",s.style.height="20px",s.style.border="1px solid black",s.style.fontSize="11px",s.style.zIndex="100000",s.style.backgroundColor="white",s.id="fpsTable",c(s));var l=function(){o++,n=Date.now(),(a=(o/(r=(n-t)/1e3)).toPrecision(2))!=i&&(i=a,s.innerHTML=i+"fps"),1<r&&(t=n,o=0),e.requestAnimationFrame.call(e.win,l)};l()}()},e.instr=function(e,t){for(var n=0;n<t.length;n++)if(-1!==e.toLowerCase().indexOf(t[n].toLowerCase()))return!0},e.winLoad=function(t,n){function o(o){if("complete"===e.doc.readyState||"interactive"===e.doc.readyState)return!o||n?setTimeout(t,n||1):t(o),1}o()||e.addEvents(e.win,{load:o})},e.docReady=function(t,n){function o(o){if("complete"===e.doc.readyState||"interactive"===e.doc.readyState)return!o||n?setTimeout(t,n||1):t(o),1}o()||e.addEvents(e.doc,{DOMContentLoaded:o})},e.fireOnce=function(){e.docReady((function(){e.assets=e.assets||[],e.assets.length&&(e.boot(),e.load_assets())}),50)},e.boot=function(){e.length&&e.doc.querySelectorAll("style[media]").forEach((function(e){"not all"==e.getAttribute("media")&&e.removeAttribute("media")}))},e.create_js=function(t,n){var o=e.doc.createElement("script");switch(o.setAttribute("src",t),n){case"defer":o.setAttribute("defer",!0);break;case"async":o.setAttribute("async",!0);break;case"deferasync":o.setAttribute("defer",!0),o.setAttribute("async",!0)}e.globalBody.appendChild(o)},e.load_assets=function(){"object"==typeof e.assets&&e.forEach(e.assets.slice(0),(function(t,n){var o="";t.defer&&(o+="defer"),t.async&&(o+="async"),e.create_js(t.url,o);var i=e.assets.indexOf(t);i>-1&&e.assets.splice(i,1)})),e.assets=jnewsoption.au_scripts=window.jnewsads=[]},e.setCookie=function(e,t,n){var o="";if(n){var i=new Date;i.setTime(i.getTime()+24*n*60*60*1e3),o="; expires="+i.toUTCString()}document.cookie=e+"="+(t||"")+o+"; path=/"},e.getCookie=function(e){for(var t=e+"=",n=document.cookie.split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1,i.length);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return null},e.eraseCookie=function(e){document.cookie=e+"=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;"},e.docReady((function(){e.globalBody=e.globalBody==e.doc?e.doc.getElementsByTagName("body")[0]:e.globalBody,e.globalBody=e.globalBody?e.globalBody:e.doc})),e.winLoad((function(){e.winLoad((function(){var t=!1;if(void 0!==window.jnewsadmin)if(void 0!==window.file_version_checker){var n=e.objKeys(window.file_version_checker);n.length?n.forEach((function(e){t||"10.0.4"===window.file_version_checker[e]||(t=!0)})):t=!0}else t=!0;t&&(window.jnewsHelper.getMessage(),window.jnewsHelper.getNotice())}),2500)}))},window.jnews.library=new window.jnews.library;</script>
+	<!-- This site is optimized with the Yoast SEO plugin v25.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building? | OdishaBytes</title>
+	<link rel="canonical" href="https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/" />
+	<meta name="author" content="Pradeep Biswal" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Pradeep Biswal" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="5 minutes" />
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//pagead2.googlesyndication.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//cdn.onesignal.com' />
+<link rel='dns-prefetch' href='//platform.twitter.com' />
+<link rel='dns-prefetch' href='//instagram.com' />
+<link rel='dns-prefetch' href='//s3.ap-south-1.amazonaws.com' />
+<link rel='dns-prefetch' href='//googleads.g.doubleclick.net' />
+<link rel='dns-prefetch' href='//cdn.taboola.com' />
+<link rel='dns-prefetch' href='//anymind360.com' />
+<link rel='preconnect' href='https://assets.odishabytes.com' />
+<link rel='preconnect' href='https://securepubads.g.doubleclick.net' />
+<link rel='preconnect' href='https://googleads.g.doubleclick.net' />
+<link rel='preconnect' href='https://anymind360.com' />
+<link rel='preconnect' href='https://cdn.taboola.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' />
+<link rel="alternate" type="application/rss+xml" title="OdishaBytes &raquo; Feed" href="https://odishabytes.com/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/odishabytes.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.2"}};
+/*! This file is auto-generated */
+!function(s,n){var o,i,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),a=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===a[t]})}function u(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);for(var n=e.getImageData(16,16,1,1),a=0;a<n.data.length;a++)if(0!==n.data[a])return!1;return!0}function f(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\udedf")}return!1}function g(e,t,n,a){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):s.createElement("canvas"),o=r.getContext("2d",{willReadFrequently:!0}),i=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(function(e){i[e]=t(o,e,n,a)}),i}function t(e){var t=s.createElement("script");t.src=e,t.defer=!0,s.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",i=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){s.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+g.toString()+"("+[JSON.stringify(i),f.toString(),p.toString(),u.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"}),r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=function(e){c(n=e.data),r.terminate(),t(n)})}catch(e){}c(n=g(i,f,p,u))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='preload' href='https://assets.odishabytes.com/wp-includes/css/dist/block-library/style.min.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-includes/css/dist/block-library/style.min.css' media='all'></noscript><style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='preload' href='https://assets.odishabytes.com/wp-content/plugins/elementor/assets/css/frontend.min.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/plugins/elementor/assets/css/frontend.min.css' media='all'></noscript><link rel='preload' href='//fonts.googleapis.com/css?family=Roboto%3Aregular%2C500%2C700%2C700%2C500&#038;display=swap&#038;ver=1.3.0' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto%3Aregular%2C500%2C700%2C700%2C500&#038;display=swap&#038;ver=1.3.0' media='all'></noscript><style id='nfr-hero-ph-inline-css' type='text/css'>
+.nfr-hero{display:block;width:100%;height:auto;opacity:1;transition:opacity .25s ease}
+.nfr-hero.is-upgrading{opacity:.6}
+.nfr-hero.is-sharp{opacity:1}
+</style>
+<link rel='preload' href='https://assets.odishabytes.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/fonts/jegicon/jegicon.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/fonts/jegicon/jegicon.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/jquery.jscrollpane.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/jquery.jscrollpane.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/okayNav.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/okayNav.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/magnific-popup.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/magnific-popup.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/chosen/chosen.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/chosen/chosen.css' media='all'></noscript><link rel='stylesheet' id='jnews-main-css' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/main.css' type='text/css' media='all' />
+<link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/pages.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/pages.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/sidefeed.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/sidefeed.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/single.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/single.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/responsive.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/responsive.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/pb-temp.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/pb-temp.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/elementor-frontend.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/elementor-frontend.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/style.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/style.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/darkmode.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/themes/jnews/assets/css/darkmode.css' media='all'></noscript><link rel='preload' href='https://assets.odishabytes.com/wp-content/plugins/jnews-social-share/assets/css/plugin.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/plugins/jnews-social-share/assets/css/plugin.css' media='all'></noscript><script type="text/javascript" src="https://assets.odishabytes.com/wp-content/uploads/jnews/gtag/gtag.js" id="jnews-google-tag-manager-js" defer></script>
+<script type="text/javascript" id="jnews-google-tag-manager-js-after">
+/* <![CDATA[ */
+				window.addEventListener('DOMContentLoaded', function() {
+					(function() {
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-F6TLMPXBXW');
+					})();
+				});
+				
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<link rel="preload" as="image" href="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp" fetchpriority="high">
+<link rel="https://api.w.org/" href="https://odishabytes.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://odishabytes.com/wp-json/wp/v2/posts/552432" /><link rel='shortlink' href='https://odishabytes.com/?p=552432' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://odishabytes.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://odishabytes.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F&#038;format=xml" />
+<meta name="generator" content="Elementor 3.31.2; features: e_font_icon_svg, additional_custom_breakpoints, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<link rel="amphtml" href="https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/amp/"><script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"NewsMediaOrganization","@id":"https:\/\/odishabytes.com\/#organization","url":"https:\/\/odishabytes.com\/","name":"OdishaBytes","logo":{"@type":"ImageObject","url":"https:\/\/odishabytes.com\/wp-content\/uploads\/2024\/11\/Odisha-Byyes-Logo150-min.png"},"sameAs":["https:\/\/www.facebook.com\/odishabytes\/","https:\/\/x.com\/BytesOdisha","https:\/\/www.youtube.com\/channel\/UCZzaxCAclS9UoMtl51XuXkQ","https:\/\/odishabytes.com\/feed\/","https:\/\/news.google.com\/publications\/CAAqKggKIiRDQklTRlFnTWFoRUtEMjlrYVhOb1lXSjVkR1Z6TG1OdmJTZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"]}</script>
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"https:\/\/odishabytes.com\/#website","url":"https:\/\/odishabytes.com\/","name":"OdishaBytes","potentialAction":{"@type":"SearchAction","target":"https:\/\/odishabytes.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="icon" href="https://assets.odishabytes.com/wp-content/uploads/2024/12/obfav-min-75x75.jpg" sizes="32x32" />
+<link rel="icon" href="https://assets.odishabytes.com/wp-content/uploads/2024/12/obfav-min-300x300.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://assets.odishabytes.com/wp-content/uploads/2024/12/obfav-min-300x300.jpg" />
+<meta name="msapplication-TileImage" content="https://assets.odishabytes.com/wp-content/uploads/2024/12/obfav-min-300x300.jpg" />
+		<style type="text/css" id="wp-custom-css">
+			#breadcrumbs .breadcrumb_last_link a {
+    color: #000000 !important;
+}
+
+
+.entry-header .jeg_post_meta {
+    font-size: 13px;
+    color: #000000 !important;
+    text-transform: none;
+    display: block;
+}
+
+.jeg_share_stats .sharetext {
+    font-size: 11px;
+    color: #000000 !important;
+}
+
+.ads-text {
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: 4px;
+    padding: 10px 0 5px;
+    font-family: Arial, "Times New Roman", "Bitstream Charter", Times, serif;
+    color: #000000 !important;
+}
+
+.jeg_post_meta
+ {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #000000 !important;
+}
+
+.jeg_footer .jeg_footer_heading h3, .jeg_footer .widget h2 {
+    color: #000000 !important;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 20px;
+}		</style>
+		</head>
+<body class="wp-singular post-template-default single single-post postid-552432 single-format-standard wp-embed-responsive wp-theme-jnews jeg_toggle_light jeg_single_tpl_2 jnews jeg_boxed jeg_sidecontent jeg_sidecontent_left jsc_normal elementor-default elementor-kit-507150">
+
+    
+    	<div id="jeg_sidecontent">
+						<div class="jeg_side_heading">
+					<ul class="jeg_side_tabs">
+					<li data-tab-content="tab1" data-sort='latest' class="active">Latest</li><li data-tab-content="tab2" data-sort='popular_post_day' class=""><i class="fa fa-fire"></i> Trending</li>					</ul>
+					<div class="jeg_side_feed_cat_wrapper">
+					<div class="jeg_cat_dropdown"><button type="button" class="jeg_filter_button">Filter</button>
+             <ul class="jeg_filter_menu">
+                <li><a href="#" class='active'>All</a></li>
+                <li><a class="" href="https://odishabytes.com/category/sport/" data-id="6">Sport</a></li><li><a class="" href="https://odishabytes.com/category/sport/cricket/" data-id="7">Cricket</a></li><li><a class="" href="https://odishabytes.com/category/odisha/" data-id="12">Odisha</a></li>
+             </ul></div>					</div>
+				<script> var side_feed = {"paged":1,"post_type":"post","exclude_post":552432,"include_category":"","sort_by":"latest","post_offset":0,"pagination_number_post":12,"number_post":12,"pagination_mode":"loadmore"}; </script>				</div>
+				
+		<div class="sidecontent_postwrapper">
+			<div class="jeg_sidefeed ">
+				<div id="feed_item_6acf438f70537" class="jeg_post jeg_pl_md_box active " data-id="552432" data-sequence="0">
+                        <div class="overlay_container">
+                            <div class="jeg_thumb">
+                                
+                                <a class="ajax" href="https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/"><div class="thumbnail-container  size-500 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img class="nfr-hero nfr-placeholder nfr-priority" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="550" height="315" alt="Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?" decoding="async" fetchpriority="high"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="550" height="315" src="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp" alt="Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?" /></noscript></span></div></a>
+                            </div>
+                            <div class="jeg_postblock_content">
+                                <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/">Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?</a></h2>
+                                <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 1 year ago</div></div>
+                            </div>
+                        </div>
+                    </div><div id="feed_item_6acf438f70f42" class="jeg_post jeg_pl_xs_3  " data-id="659220" data-sequence="1">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/arson-near-kochi-synagogue-police-arrest-man-within-hours-examine-suspected-foreign-links/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="627" height="295" alt="Arson Near Kochi Synagogue: Police Arrest Man Within Hours, Examine Suspected Foreign Links" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Kochi-fire.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Kochi-fire.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="627" height="295" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Kochi-fire.webp" alt="Arson Near Kochi Synagogue: Police Arrest Man Within Hours, Examine Suspected Foreign Links" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/arson-near-kochi-synagogue-police-arrest-man-within-hours-examine-suspected-foreign-links/">Arson Near Kochi Synagogue: Police Arrest Man Within Hours, Examine Suspected Foreign Links</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 27 minutes ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f71737" class="jeg_post jeg_pl_xs_3  " data-id="659213" data-sequence="2">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/odisha-cm-mohan-majhi-launches-46-projects-worth-rs-39383-cr-with-42500-job-potential/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="289" alt="Odisha CM Mohan Majhi Launches 46 Projects Worth Rs 39,383 Cr With 42500 Job Potential" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-132333-768x346.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-132333-1200x541.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="289" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-132333-768x346.webp" alt="Odisha CM Mohan Majhi Launches 46 Projects Worth Rs 39,383 Cr With 42500 Job Potential" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/odisha-cm-mohan-majhi-launches-46-projects-worth-rs-39383-cr-with-42500-job-potential/">Odisha CM Mohan Majhi Launches 46 Projects Worth Rs 39,383 Cr With 42500 Job Potential</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 47 minutes ago</div></div>
+                        </div>
+                    </div><div class="jeg_ad jnews_sidefeed_ads"><div class='ads-wrapper jeg_ad_sidecontent '><div class="ads_google_ads">
+                            <style type='text/css' scoped>
+                                .adsslot_PFLBNQuOAM{ width:300px !important; height:250px !important; }
+@media (max-width:1199px) { .adsslot_PFLBNQuOAM{ width:250px !important; height:250px !important; } }
+@media (max-width:767px) { .adsslot_PFLBNQuOAM{ width:250px !important; height:250px !important; } }
+
+                            </style>
+                            <ins class="adsbygoogle adsslot_PFLBNQuOAM" style="display:inline-block;" data-ad-client="ca-pub-8634475617921196" data-ad-slot="7315893322"></ins>
+                            <script async defer src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        </div></div></div><div id="feed_item_6acf438f71fc8" class="jeg_post jeg_pl_xs_3  " data-id="659207" data-sequence="3">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/rahul-backs-cjp-for-first-time-calls-jailing-of-youth-over-tricolour-protest-cowardice/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="635" height="345" alt="Rahul Backs CJP For First Time, Calls Jailing Of Youth Over Tricolour Protest ‘Cowardice’" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Rahul-backs-CJP.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Rahul-backs-CJP.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="635" height="345" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Rahul-backs-CJP.webp" alt="Rahul Backs CJP For First Time, Calls Jailing Of Youth Over Tricolour Protest ‘Cowardice’" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/rahul-backs-cjp-for-first-time-calls-jailing-of-youth-over-tricolour-protest-cowardice/">Rahul Backs CJP For First Time, Calls Jailing Of Youth Over Tricolour Protest ‘Cowardice’</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 1 hour ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f7294f" class="jeg_post jeg_pl_xs_3  " data-id="659205" data-sequence="4">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/2-student-groups-clash-at-utkal-university-in-bhubaneswar-ahead-of-campus-polls/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="357" alt="2 Student Groups Clash At Utkal University In Bhubaneswar Ahead Of Campus Polls" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-124344-768x428.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-124344-e1791962861497.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="357" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-124344-768x428.webp" alt="2 Student Groups Clash At Utkal University In Bhubaneswar Ahead Of Campus Polls" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/2-student-groups-clash-at-utkal-university-in-bhubaneswar-ahead-of-campus-polls/">2 Student Groups Clash At Utkal University In Bhubaneswar Ahead Of Campus Polls</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 1 hour ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f7312b" class="jeg_post jeg_pl_xs_3  " data-id="659198" data-sequence="5">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/death-threat-to-college-principal-ahead-of-student-union-polls-in-odisha/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="453" alt="Death Threat To College Principal Ahead Of Student Union Polls In Odisha" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-120549-768x544.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-120549-e1791961297143.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="453" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-120549-768x544.webp" alt="Death Threat To College Principal Ahead Of Student Union Polls In Odisha" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/death-threat-to-college-principal-ahead-of-student-union-polls-in-odisha/">Death Threat To College Principal Ahead Of Student Union Polls In Odisha</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 2 hours ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f738ff" class="jeg_post jeg_pl_xs_3  " data-id="659190" data-sequence="6">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/frankfurt-delhi-air-india-flight-makes-emergency-landing-in-jaipur-after-security-alert/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="627" height="347" alt="Frankfurt-Delhi Air India Flight Makes Emergency Landing In Jaipur After Security Alert" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/AI-diverted.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/AI-diverted.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="627" height="347" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/AI-diverted.webp" alt="Frankfurt-Delhi Air India Flight Makes Emergency Landing In Jaipur After Security Alert" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/frankfurt-delhi-air-india-flight-makes-emergency-landing-in-jaipur-after-security-alert/">Frankfurt-Delhi Air India Flight Makes Emergency Landing In Jaipur After Security Alert</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 2 hours ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f740a9" class="jeg_post jeg_pl_xs_3  " data-id="659186" data-sequence="7">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/odisha-cabinet-clears-rs-450-cr-skill-development-plan-for-youth-employability/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="900" height="756" alt="Odisha Cabinet Clears Rs 450 Cr Skill Development Plan For Youth Employability" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Anu-Garg-e1791960055129-768x645.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Anu-Garg-e1791960055129-804x675.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="900" height="756" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Anu-Garg-e1791960055129-768x645.webp" alt="Odisha Cabinet Clears Rs 450 Cr Skill Development Plan For Youth Employability" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/odisha-cabinet-clears-rs-450-cr-skill-development-plan-for-youth-employability/">Odisha Cabinet Clears Rs 450 Cr Skill Development Plan For Youth Employability</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 2 hours ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f74936" class="jeg_post jeg_pl_xs_3  " data-id="659184" data-sequence="8">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/odishas-nandankanan-zoo-welcomes-lion-cub-as-lioness-shreya-gives-birth/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="367" alt="Odisha&#8217;s Nandankanan Zoo Welcomes Lion Cub As Lioness Shreya Gives Birth" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/01/Screenshot-2026-01-22-220129-768x440.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/01/Screenshot-2026-01-22-220129-e1769099557525.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="367" src="https://assets.odishabytes.com/wp-content/uploads/2026/01/Screenshot-2026-01-22-220129-768x440.webp" alt="Odisha&#8217;s Nandankanan Zoo Welcomes Lion Cub As Lioness Shreya Gives Birth" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/odishas-nandankanan-zoo-welcomes-lion-cub-as-lioness-shreya-gives-birth/">Odisha&#8217;s Nandankanan Zoo Welcomes Lion Cub As Lioness Shreya Gives Birth</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 3 hours ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f75139" class="jeg_post jeg_pl_xs_3  " data-id="659177" data-sequence="9">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/centre-approves-rs-2100-cr-for-expansion-of-jharsuguda-airport-in-odisha-mp/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="324" alt="Centre Approves Rs 2,100 Cr For Expansion Of Jharsuguda Airport In Odisha: MP" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-112214-768x389.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-112214-1200x608.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="324" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-112214-768x389.webp" alt="Centre Approves Rs 2,100 Cr For Expansion Of Jharsuguda Airport In Odisha: MP" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/centre-approves-rs-2100-cr-for-expansion-of-jharsuguda-airport-in-odisha-mp/">Centre Approves Rs 2,100 Cr For Expansion Of Jharsuguda Airport In Odisha: MP</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 3 hours ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f759b2" class="jeg_post jeg_pl_xs_3  " data-id="659176" data-sequence="10">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/resistance-will-continue-rahul-puts-india-bloc-on-24-hour-alert-for-fresh-mobilisation/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="635" height="292" alt="‘Resistance Will Continue’: Rahul Puts INDIA Bloc On 24-Hour Alert For Fresh Mobilisation" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/INDIA-bloc.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/INDIA-bloc.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="635" height="292" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/INDIA-bloc.webp" alt="‘Resistance Will Continue’: Rahul Puts INDIA Bloc On 24-Hour Alert For Fresh Mobilisation" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/resistance-will-continue-rahul-puts-india-bloc-on-24-hour-alert-for-fresh-mobilisation/">‘Resistance Will Continue’: Rahul Puts INDIA Bloc On 24-Hour Alert For Fresh Mobilisation</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 3 hours ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f7615c" class="jeg_post jeg_pl_xs_3  " data-id="659168" data-sequence="11">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/drunk-driving-horror-rerun-on-bhubaneswar-road-one-killed/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="690" height="388" alt="‘Drunk Driving’ Horror Rerun On Bhubaneswar Road, One Killed" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/accident.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/accident.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="690" height="388" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/accident.webp" alt="‘Drunk Driving’ Horror Rerun On Bhubaneswar Road, One Killed" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/drunk-driving-horror-rerun-on-bhubaneswar-road-one-killed/">‘Drunk Driving’ Horror Rerun On Bhubaneswar Road, One Killed</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 3 hours ago</div></div>
+                        </div>
+                    </div><div id="feed_item_6acf438f76916" class="jeg_post jeg_pl_xs_3  " data-id="659171" data-sequence="12">
+                        <div class="jeg_thumb">
+                            
+                            <a class="ajax" href="https://odishabytes.com/latest-odisha-breaking-news-updates-wednesday-14-october-2026/"><div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="500" height="500" alt="Latest Odisha Breaking News Updates | Wednesday, 14 October 2026" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px.webp" data-srcset-lg="https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px.webp 500w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-300x300.webp 300w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-150x150.webp 150w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-75x75.webp 75w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-350x350.webp 350w" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="500" height="500" src="https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px.webp" alt="Latest Odisha Breaking News Updates | Wednesday, 14 October 2026" srcset="https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px.webp 500w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-300x300.webp 300w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-150x150.webp 150w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-75x75.webp 75w, https://assets.odishabytes.com/wp-content/uploads/2025/01/Modern-Breaking-News-Facebook-Post-500-x-500-px-350x350.webp 350w" sizes="(max-width: 768px) 100vw, 1200px" /></noscript></span></div></a>
+                        </div>
+                        <div class="jeg_postblock_content">
+                            <h2 class="jeg_post_title"><a class="ajax" href="https://odishabytes.com/latest-odisha-breaking-news-updates-wednesday-14-october-2026/">Latest Odisha Breaking News Updates | Wednesday, 14 October 2026</a></h2>
+                            <div class="jeg_post_meta"><div class="jeg_meta_date"><i class="fa fa-clock-o"></i> 3 hours ago</div></div>
+                        </div>
+                    </div>			</div>
+								<div class="sidefeed_loadmore">
+											<button class="btn "
+								data-end="End of Content"
+								data-loading="Loading..."
+								data-loadmore="Load More">
+						Load More						</button>
+					</div>
+							</div>
+		<div class="jeg_sidefeed_overlay">
+			<div class='preloader_type preloader_dot'>
+				<div class="sidefeed-preloader jeg_preloader dot">
+					<span></span><span></span><span></span>
+				</div>
+				<div class="sidefeed-preloader jeg_preloader circle">
+					<div class="jnews_preloader_circle_outer">
+						<div class="jnews_preloader_circle_inner"></div>
+					</div>
+				</div>
+				<div class="sidefeed-preloader jeg_preloader square">
+					<div class="jeg_square">
+						<div class="jeg_square_inner"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+    <div class="jeg_ad jeg_ad_top jnews_header_top_ads">
+        <div class='ads-wrapper  '></div>    </div>
+
+    <!-- The Main Wrapper
+    ============================================= -->
+    <div class="jeg_viewport">
+
+        
+        <div class="jeg_header_wrapper">
+            <div class="jeg_header_instagram_wrapper">
+    </div>
+
+<!-- HEADER -->
+<div class="jeg_header full">
+    <div class="jeg_topbar jeg_container jeg_navbar_wrapper dark">
+    <div class="container">
+        <div class="jeg_nav_row">
+            
+                <div class="jeg_nav_col jeg_nav_left  jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_alignleft">
+                        <div class="jeg_nav_item">
+	<ul class="jeg_menu jeg_top_menu"><li id="menu-item-103097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-103097"><a href="https://odishabytes.com/">Home</a></li>
+<li id="menu-item-103098" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103098"><a href="https://odishabytes.com/about-us/">About us</a></li>
+<li id="menu-item-348933" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-348933"><a href="https://odishabytes.com/career/">Career</a></li>
+<li id="menu-item-103099" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103099"><a href="https://odishabytes.com/contact/">Contact</a></li>
+<li id="menu-item-103102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103102"><a href="https://odishabytes.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-570704" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-570704"><a href="https://odishabytes.com/terms-of-usage/">Terms of Usage</a></li>
+</ul></div>                    </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_center  jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_aligncenter">
+                        <div class="jeg_nav_item jeg_top_date">
+    Wednesday, October 14, 2026</div>			<div
+				class="jeg_nav_item socials_widget jeg_social_icon_block circle">
+				<a href="https://www.facebook.com/odishabytes/" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Facebook" class="jeg_facebook"><i class="fa fa-facebook"></i> </a><a href="https://x.com/BytesOdisha" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Twitter" class="jeg_twitter"><i class="fa fa-twitter"><span class="jeg-icon icon-twitter"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></span></i> </a><a href="https://www.youtube.com/channel/UCZzaxCAclS9UoMtl51XuXkQ" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Youtube" class="jeg_youtube"><i class="fa fa-youtube-play"></i> </a><a href="https://odishabytes.com/feed/" target='_blank' rel='external noopener nofollow'  aria-label="Find us on RSS" class="jeg_rss"><i class="fa fa-rss"></i> </a><a href="https://news.google.com/publications/CAAqKggKIiRDQklTRlFnTWFoRUtEMjlrYVhOb1lXSjVkR1Z6TG1OdmJTZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Reddit" class="jeg_reddit"><i class="fa fa-reddit"></i> </a>			</div>
+			                    </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_right  jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                        <div class="jeg_separator separator2"></div><!-- Search Icon -->
+<div class="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
+    <a href="#" class="jeg_search_toggle" aria-label="Search Button"><i class="fa fa-search"></i></a>
+    <form action="https://odishabytes.com/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="Search..." type="text" value="" autocomplete="off">
+	<button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        No Result    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> View All Result    </div>
+</div></div>                    </div>
+                </div>
+
+                        </div>
+    </div>
+</div><!-- /.jeg_container --><div class="jeg_bottombar jeg_navbar jeg_container jeg_navbar_wrapper  jeg_navbar_normal">
+    <div class="container">
+        <div class="jeg_nav_row">
+            
+                <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_alignleft">
+                        <div class="jeg_nav_item jeg_logo jeg_desktop_logo">
+			<div class="site-title">
+			<a href="https://odishabytes.com/" aria-label="Visit Homepage" style="padding: 0px 0px 0px 0px;">
+				<img class='jeg_logo_img' src="https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo.png" srcset="https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo.png 1x, https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo-retina.png 2x" alt="OdishaBytes"data-light-src="https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo.png" data-light-srcset="https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo.png 1x, https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo-retina.png 2x" data-dark-src="" data-dark-srcset=" 1x,  2x"width="300" height="57">			</a>
+		</div>
+	</div>
+<div class="jeg_nav_item jeg_main_menu_wrapper">
+<div class="jeg_mainmenu_wrap"><ul class="jeg_menu jeg_main_menu jeg_menu_style_2" data-animation="animate"><li id="menu-item-507387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-507387 bgnav jeg_menu_icon_enable" data-item-row="default" ><a href="https://odishabytes.com/"><i style='color: #000000' class='jeg_font_menu fa fa-home'></i>Home</a></li>
+<li id="menu-item-115" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-115 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/odisha/">Odisha</a>
+<ul class="sub-menu">
+	<li id="menu-item-118" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-118 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/policy-politics/">Policy &amp; Politics</a></li>
+	<li id="menu-item-116" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-116 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/city/">City</a></li>
+</ul>
+</li>
+<li id="menu-item-5734" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5734 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/india/">India</a></li>
+<li id="menu-item-121" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-121 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/">Sport</a>
+<ul class="sub-menu">
+	<li id="menu-item-122" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-122 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/cricket/">Cricket</a></li>
+	<li id="menu-item-123" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-123 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/football/">Football</a></li>
+	<li id="menu-item-124" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-124 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/hockey/">Hockey</a></li>
+	<li id="menu-item-125" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-125 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/ipl/">IPL</a></li>
+</ul>
+</li>
+<li id="menu-item-102" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-102 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/">Entertainment</a>
+<ul class="sub-menu">
+	<li id="menu-item-106" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-106 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/music/">Music</a></li>
+	<li id="menu-item-105" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-105 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/movie-review/">Movie Review</a></li>
+	<li id="menu-item-108" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-108 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/television/">Television</a></li>
+	<li id="menu-item-103" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-103 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/bollywood/">Bollywood</a></li>
+	<li id="menu-item-104" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-104 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/hollywood/">Hollywood</a></li>
+	<li id="menu-item-107" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-107 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/ollywood/">Ollywood</a></li>
+</ul>
+</li>
+<li id="menu-item-507825" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-507825 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/business/">Business</a></li>
+<li id="menu-item-109" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-109 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/">Lifestyle</a>
+<ul class="sub-menu">
+	<li id="menu-item-114" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-114 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/travel/">Travel</a></li>
+	<li id="menu-item-111" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-111 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/food/">Food</a></li>
+	<li id="menu-item-112" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-112 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/health/">Health</a></li>
+	<li id="menu-item-110" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-110 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/fashion/">fashion</a></li>
+</ul>
+</li>
+<li id="menu-item-134" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-134 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/world/">World</a></li>
+<li id="menu-item-8736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8736 bgnav" data-item-row="default" ><a href="#">More</a>
+<ul class="sub-menu">
+	<li id="menu-item-4697" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4697 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/news-you-can-use/">News You Can Use</a></li>
+	<li id="menu-item-4698" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4698 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/good-news/">Good News</a></li>
+	<li id="menu-item-133" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-133 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/viral-videos/">Viral Videos</a></li>
+	<li id="menu-item-127" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-127 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/">Tech</a>
+	<ul class="sub-menu">
+		<li id="menu-item-128" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-128 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/cars-bikes/">Cars &amp; Bikes</a></li>
+		<li id="menu-item-129" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-129 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/mobile-gadgets/">Mobile &amp; Gadgets</a></li>
+		<li id="menu-item-131" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/review/">Review</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div></div>
+                    </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_aligncenter">
+                                            </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                                            </div>
+                </div>
+
+                        </div>
+    </div>
+</div></div><!-- /.jeg_header -->        </div>
+
+        <div class="jeg_header_sticky">
+            <div class="sticky_blankspace"></div>
+<div class="jeg_header normal">
+    <div class="jeg_container">
+        <div data-mode="scroll" class="jeg_stickybar jeg_navbar jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_normal">
+            <div class="container">
+    <div class="jeg_nav_row">
+        
+            <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                <div class="item_wrap jeg_nav_alignleft">
+                    <div class="jeg_nav_item jeg_main_menu_wrapper">
+<div class="jeg_mainmenu_wrap"><ul class="jeg_menu jeg_main_menu jeg_menu_style_2" data-animation="animate"><li id="menu-item-507387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-507387 bgnav jeg_menu_icon_enable" data-item-row="default" ><a href="https://odishabytes.com/"><i style='color: #000000' class='jeg_font_menu fa fa-home'></i>Home</a></li>
+<li id="menu-item-115" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-115 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/odisha/">Odisha</a>
+<ul class="sub-menu">
+	<li id="menu-item-118" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-118 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/policy-politics/">Policy &amp; Politics</a></li>
+	<li id="menu-item-116" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-116 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/city/">City</a></li>
+</ul>
+</li>
+<li id="menu-item-5734" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5734 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/india/">India</a></li>
+<li id="menu-item-121" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-121 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/">Sport</a>
+<ul class="sub-menu">
+	<li id="menu-item-122" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-122 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/cricket/">Cricket</a></li>
+	<li id="menu-item-123" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-123 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/football/">Football</a></li>
+	<li id="menu-item-124" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-124 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/hockey/">Hockey</a></li>
+	<li id="menu-item-125" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-125 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/sport/ipl/">IPL</a></li>
+</ul>
+</li>
+<li id="menu-item-102" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-102 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/">Entertainment</a>
+<ul class="sub-menu">
+	<li id="menu-item-106" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-106 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/music/">Music</a></li>
+	<li id="menu-item-105" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-105 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/movie-review/">Movie Review</a></li>
+	<li id="menu-item-108" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-108 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/television/">Television</a></li>
+	<li id="menu-item-103" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-103 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/bollywood/">Bollywood</a></li>
+	<li id="menu-item-104" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-104 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/hollywood/">Hollywood</a></li>
+	<li id="menu-item-107" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-107 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/entertainment/ollywood/">Ollywood</a></li>
+</ul>
+</li>
+<li id="menu-item-507825" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-507825 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/business/">Business</a></li>
+<li id="menu-item-109" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-109 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/">Lifestyle</a>
+<ul class="sub-menu">
+	<li id="menu-item-114" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-114 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/travel/">Travel</a></li>
+	<li id="menu-item-111" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-111 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/food/">Food</a></li>
+	<li id="menu-item-112" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-112 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/health/">Health</a></li>
+	<li id="menu-item-110" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-110 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/lifestyle/fashion/">fashion</a></li>
+</ul>
+</li>
+<li id="menu-item-134" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-134 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/world/">World</a></li>
+<li id="menu-item-8736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8736 bgnav" data-item-row="default" ><a href="#">More</a>
+<ul class="sub-menu">
+	<li id="menu-item-4697" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4697 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/news-you-can-use/">News You Can Use</a></li>
+	<li id="menu-item-4698" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4698 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/good-news/">Good News</a></li>
+	<li id="menu-item-133" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-133 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/viral-videos/">Viral Videos</a></li>
+	<li id="menu-item-127" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-127 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/">Tech</a>
+	<ul class="sub-menu">
+		<li id="menu-item-128" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-128 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/cars-bikes/">Cars &amp; Bikes</a></li>
+		<li id="menu-item-129" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-129 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/mobile-gadgets/">Mobile &amp; Gadgets</a></li>
+		<li id="menu-item-131" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131 bgnav" data-item-row="default" ><a href="https://odishabytes.com/category/tech/review/">Review</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div></div>
+                </div>
+            </div>
+
+            
+            <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                <div class="item_wrap jeg_nav_aligncenter">
+                                    </div>
+            </div>
+
+            
+            <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                <div class="item_wrap jeg_nav_alignright">
+                    <!-- Search Icon -->
+<div class="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
+    <a href="#" class="jeg_search_toggle" aria-label="Search Button"><i class="fa fa-search"></i></a>
+    <form action="https://odishabytes.com/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="Search..." type="text" value="" autocomplete="off">
+	<button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        No Result    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> View All Result    </div>
+</div></div>                </div>
+            </div>
+
+                </div>
+</div>        </div>
+    </div>
+</div>
+        </div>
+
+        <div class="jeg_navbar_mobile_wrapper">
+            <div class="jeg_navbar_mobile" data-mode="scroll">
+    <div class="jeg_mobile_bottombar jeg_mobile_midbar jeg_container dark">
+    <div class="container">
+        <div class="jeg_nav_row">
+            
+                <div class="jeg_nav_col jeg_nav_left jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignleft">
+                        <div class="jeg_nav_item jeg_mobile_logo">
+			<div class="site-title">
+			<a href="https://odishabytes.com/" aria-label="Visit Homepage">
+				<img class='jeg_logo_img' src="https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo.png"  alt="OdishaBytes"data-light-src="https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo.png" data-light-srcset="https://assets.odishabytes.com/wp-content/uploads/2024/12/Odisha-Byyes-Logo.png 1x,  2x" data-dark-src="" data-dark-srcset=" 1x,  2x"width="300" height="57">			</a>
+		</div>
+	</div>                    </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_center jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_aligncenter">
+                                            </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                        <div class="jeg_nav_item">
+    <a href="#" aria-label="Show Menu" class="toggle_btn jeg_mobile_toggle"><i class="fa fa-bars"></i></a>
+</div><div class="jeg_nav_item jeg_search_wrapper jeg_search_popup_expand">
+    <a href="#" aria-label="Search Button" class="jeg_search_toggle"><i class="fa fa-search"></i></a>
+	<form action="https://odishabytes.com/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="Search..." type="text" value="" autocomplete="off">
+	<button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        No Result    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> View All Result    </div>
+</div></div>                    </div>
+                </div>
+
+                        </div>
+    </div>
+</div></div>
+<div class="sticky_blankspace" style="height: 60px;"></div>        </div>
+
+        <div class="jeg_ad jeg_ad_top jnews_header_bottom_ads">
+            <div class='ads-wrapper  '></div>        </div>
+
+            <div class="post-wrapper">
+
+        <div class="post-wrap" >
+
+            
+            <div class="jeg_main ">
+                <div class="jeg_container">
+                    <div class="jeg_content jeg_singlepage">
+	<div class="container">
+
+		<div class="jeg_ad jeg_article_top jnews_article_top_ads">
+			<div class='ads-wrapper  '></div>		</div>
+
+		
+						<div class="jeg_breadcrumbs jeg_breadcrumb_container">
+				<div id="breadcrumbs"><span class="">
+                <a href="https://odishabytes.com">Home</a>
+            </span><i class="fa fa-angle-right"></i><span class="breadcrumb_last_link">
+                <a href="https://odishabytes.com/category/ob-special/">OB Special</a>
+            </span></div>			</div>
+			
+			<div class="entry-header">
+				
+				<h1 class="jeg_post_title">Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?</h1>
+
+				
+				<div class="jeg_meta_container"><div class="jeg_post_meta jeg_post_meta_2">
+    <div class="meta_left">
+                                    <div class="jeg_meta_author">
+                                        <span class="meta_text">by</span>
+                    <a href="https://odishabytes.com/author/pradeep/">Pradeep Biswal</a>                </div>
+                    
+                    <div class="jeg_meta_date">
+                <a href="https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/">June 15, 2025</a>
+            </div>
+        
+                    <div class="jeg_meta_category">
+                <span><span class="meta_text">in</span>
+                    <a href="https://odishabytes.com/category/ob-special/" rel="category tag">OB Special</a><span class="category-separator">, </span><a href="https://odishabytes.com/category/odisha/" rel="category tag">Odisha</a><span class="category-separator">, </span><a href="https://odishabytes.com/category/guest-column/opinion-guest-column/" rel="category tag">OPINION</a><span class="category-separator">, </span><a href="https://odishabytes.com/category/top-headlines/" rel="category tag">Top Headlines</a>                </span>
+            </div>
+        
+        <div class="jeg_meta_reading_time">
+			            <span>
+			            	Reading Time: 4 mins read
+			            </span>
+			        </div>    </div>
+
+	<div class="meta_right">
+					</div>
+</div>
+</div>
+			</div>
+
+			<div class="row">
+				<div class="jeg_main_content col-md-8">
+
+					<div class="jeg_inner_content">
+						<div  class="jeg_featured featured_image "><div class="thumbnail-container" style="padding-bottom:50%"><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="550" height="315" alt="Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="550" height="315" src="https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp" alt="Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?" /></noscript></span></div></div>
+						<div class="jeg_share_top_container"><div class="jeg_share_button clearfix">
+                <div class="jeg_share_stats">
+                    <div class="jeg_share_count">
+                        <div class="counts">491</div>
+                        <span class="sharetext">SHARES</span>
+                    </div>
+                    <div class="jeg_views_count">
+                    <div class="counts">1.4k</div>
+                    <span class="sharetext">VIEWS</span>
+                </div>
+                </div>
+                <div class="jeg_sharelist">
+                    <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F" rel='nofollow' aria-label='Share on Facebook' class="jeg_btn-facebook expanded"><i class="fa fa-facebook-official"></i><span>Share on Facebook</span></a><a href="https://twitter.com/intent/tweet?text=Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F&url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F" rel='nofollow' aria-label='Share on Twitter' class="jeg_btn-twitter expanded"><i class="fa fa-twitter"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></i><span>Share on Twitter</span></a>
+                    <div class="share-secondary">
+                    <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F&title=Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F" rel='nofollow' aria-label='Share on Linkedin' class="jeg_btn-linkedin "><i class="fa fa-linkedin"></i></a><a href="https://www.pinterest.com/pin/create/bookmarklet/?pinFave=1&url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F&media=https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp&description=Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F" rel='nofollow' aria-label='Share on Pinterest' class="jeg_btn-pinterest "><i class="fa fa-pinterest"></i></a>
+                </div>
+                <a href="#" class="jeg_btn-toggle" aria-label="Share on another social media platform"><i class="fa fa-share"></i></a>
+                </div>
+            </div></div>
+						<div class="jeg_ad jeg_article jnews_content_top_ads "><div class='ads-wrapper  '></div></div>
+						<div class="entry-content no-share">
+							<div class="jeg_share_button share-float jeg_sticky_share clearfix share-monocrhome">
+								<div class="jeg_share_float_container"></div>							</div>
+
+							<div class="content-inner ">
+								<p>Two recent decisions of the Mohan Majhi government made me ponder whether they serve any public good. Good governance always means that any decision by the government should be in the larger interests of the public.</p><div class="jeg_ad jeg_ad_article jnews_content_inline_2_ads  "><div class='ads-wrapper align-center '><div class="ads_google_ads">
+                            <style type='text/css' scoped>
+                                .adsslot_ZIJ5qKChv4{ width:728px !important; height:90px !important; }
+@media (max-width:1199px) { .adsslot_ZIJ5qKChv4{ width:468px !important; height:60px !important; } }
+@media (max-width:767px) { .adsslot_ZIJ5qKChv4{ width:320px !important; height:50px !important; } }
+
+                            </style>
+                            <ins class="adsbygoogle adsslot_ZIJ5qKChv4" style="display:inline-block;" data-ad-client="ca-pub-8634475617921196" data-ad-slot="7745016856"></ins>
+                            <script async defer src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        </div></div></div>
+<p>It’s amazing to see the first announcement of the state government to go for another secretariat building and assembly building in Bhubaneswar along with an auditorium with seating capacity for 10,000 people.</p><div class="jeg_ad jeg_ad_article jnews_content_inline_ads  "><div class='ads-wrapper align-center '><div class='ads_code'><div id="taboolabox"></div></div><div class='ads-text'>ADVERTISEMENT</div></div></div>
+<p>Earlier Rajiv Bhavan was constructed and major departments like Water Resources, Agriculture were shifted to the new building. Few years back Krushi Bhavan was constructed which houses the Agriculture Department and all the directorates under it. Again very recently Kharavela Bhawan has been constructed behind the old secretariat building as an annexe and some departments have been working there. Now there’s no dearth of space in Lok Seva Bhawan , the oldest and the main secretariat building.</p>
+<p>In a recent visit I observed a huge space provided for the office of Advocate General in Lok Seva Bhawan . I wonder whether it’s appropriate or not when AG has a huge establishment on the premises of the Orissa High Court in Cuttack. Similarly, a large hall has been constructed behind the Assembly building to accommodate ceremonial functions.</p><div class="jeg_ad jeg_ad_article jnews_content_inline_3_ads  "><div class='ads-wrapper align-center '><div class="ads_google_ads">
+                            <style type='text/css' scoped>
+                                .adsslot_aowPIpb7rn{ width:728px !important; height:90px !important; }
+@media (max-width:1199px) { .adsslot_aowPIpb7rn{ width:468px !important; height:60px !important; } }
+@media (max-width:767px) { .adsslot_aowPIpb7rn{ width:320px !important; height:50px !important; } }
+
+                            </style>
+                            <ins class="adsbygoogle adsslot_aowPIpb7rn" style="display:inline-block;" data-ad-client="ca-pub-8634475617921196" data-ad-slot="1446824514"></ins>
+                            <script async defer src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        </div></div></div>
+<p>There’s absolutely no need for another Assembly building in the state. Shall we blindly follow the example of a new parliament building in Delhi?</p>
+<p>We should not forget that these buildings are iconic heritage buildings bearing historic significance. When Bhubaneswar was made the capital of the state, foundations were laid for these buildings. They are now part of our heritage and the so-called &#8216;Odia Asmita&#8217;, Sardar Patel Hall in front of Lok Seva Bhawan, which was earlier used as Assembly Hall is now in a dilapidated state and requires renovation and preservation as a heritage building.</p>
+<p>I also don’t find any logic for a huge auditorium in Bhubaneswar when we have a state of the convention centre in Lok Seva Bhawan which no other state boasts of.  The Kala Mandal complex near Sainik School could not be completed in decades. It could very well serve the purpose with multiple halls of different sizes.</p>
+<p>Do we have any meeting in Bhubaneswar with participation of ten thousand people except political rallies?</p>
+<p>The construction and upkeep of such a large auditorium would be too expensive and prove an avoidable luxury. When I solicited the opinion of some retired Chief Secretaries and their counterparts all of them unequivocally rejected these ideas.</p>
+<p>According to them, the government should focus more on social and economic infrastructures instead of undertaking such projects at the cost of the public money.</p>
+<p>Each day the state government is making some sorts of announcements without proper homework and planning. One such is to construct 30 guest houses in Bhubaneswar for thirty districts with one hundred capacity each. When the Odisha Bhawans in Delhi and other states, State Guest House in Bhubaneswar and the Circuit Houses in the districts are poorly managed, who will manage these thirty guest houses?</p>
+<p>As I understand in spite of huge funds pumped in for the Odisha Bhawan in Bengaluru it is yet to be completed after so many years. Who will fix it? From my own experience I have seen how the Odisha Bhawan in New Mumbai is mismanaged. A few years back during my visit, the VIP rooms were found with torn door screens.There was no hand wash or mosquito liquid for the guests. It was explained that the Home Department does not provide adequate funds for this. This is the precarious situation of our guest houses.</p>
+<p>In such a situation is it necessary at all to go for construction of 30 guest houses in Bhubaneswar for the people of thirty districts? It’s in the analogy of having a guest house of each state in the union capital at Delhi. I don’t think it is applicable here. This will be a waste of government money and the land resources. I am afraid ultimately these will be misused by the politicians in power and their cronies. Someday it may catch the headlines in the newspapers for wrong reasons. It may not be required to elaborate further.</p>
+<p>Needless to say successive governments are found to be eager to go for mindless construction work simply because it serves the vested interests of many including engineers, contractors, bureaucrats and politicians.</p>
+<p>However, it costs the state exchequer and the taxpayers of the state dearly.  Are these ideas coming from some enterprising engineer- contractor lobby blessed by some equally ambitious bureaucrats and politicians in power? What public good will it serve? When we have thousands of villages without motorable roads, drinking water, electricity, primary education and healthcare facilities even after seventy five years of independence do we justify ourselves in going for such luxuries? The Chief Minister is heading the Finance Department himself. How’s it he agrees to such proposals when the state resources show an alarming downward trend?</p>
+<p>A good finance secretary should be able to say a stern &#8220;no&#8221; to unproductive and wasteful expenditures. We have to use the resources in a most productive and sustainable manner so that the state is able to continue its economic growth and development agenda in core sectors.</p>
+<p>I must end this article with the wisdom of Dr U Saratchandran, one of the architects of Odisha’s financial reforms as Finance Secretary twenty years ago. ‘This is a totally unthoughtful, irrational and unwise use of scarce resources. These funds should be productively used in the areas of agriculture, education, health, rural infrastructure etc. Hope the finance department examines it using a cost benefit analysis of alternative use of the resources for the good of the economy. These are ways by which states get into financial distress. Good that as someone actively involved in the state&#8217;s finances you have brought it to the attention of people and decision makers.’</p>
+<p><em>(Views expressed in the article are solely those of the author and do not necessarily reflect the views, policies, or positions of Odisha Bytes)</em></p>
+								
+								
+															</div>
+
+
+						</div>
+						<div class="jeg_share_bottom_container"><div class="jeg_share_button share-bottom clearfix">
+                <div class="jeg_sharelist">
+                    <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F" rel='nofollow' class="jeg_btn-facebook expanded"><i class="fa fa-facebook-official"></i><span>Share<span class="count">196</span></span></a><a href="https://twitter.com/intent/tweet?text=Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F&url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F" rel='nofollow' class="jeg_btn-twitter expanded"><i class="fa fa-twitter"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></i><span>Tweet<span class="count">123</span></span></a>
+                    <div class="share-secondary">
+                    <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F&title=Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F" rel='nofollow' aria-label='Share on Linkedin' class="jeg_btn-linkedin "><i class="fa fa-linkedin"></i></a><a href="https://www.pinterest.com/pin/create/bookmarklet/?pinFave=1&url=https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F&media=https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp&description=Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F" rel='nofollow' aria-label='Share on Pinterest' class="jeg_btn-pinterest "><i class="fa fa-pinterest"></i></a>
+                </div>
+                <a href="#" class="jeg_btn-toggle" aria-label="Share on another social media platform"><i class="fa fa-share"></i></a>
+                </div>
+            </div></div>
+												<div class="jeg_ad jeg_article jnews_content_bottom_ads "><div class='ads-wrapper  '><div class="ads_google_ads">
+                            <style type='text/css' scoped>
+                                .adsslot_j5SoPhCzT7{ width:728px !important; height:90px !important; }
+@media (max-width:1199px) { .adsslot_j5SoPhCzT7{ width:468px !important; height:60px !important; } }
+@media (max-width:767px) { .adsslot_j5SoPhCzT7{ width:320px !important; height:50px !important; } }
+
+                            </style>
+                            <ins class="adsbygoogle adsslot_j5SoPhCzT7" style="display:inline-block;" data-ad-client="ca-pub-8634475617921196" data-ad-slot="1715565366"></ins>
+                            <script async defer src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        </div><div class='ads-text'>ADVERTISEMENT</div></div></div><div class="jnews_prev_next_container"><div class="jeg_prevnext_post">
+            <a href="https://odishabytes.com/is-kantara-chapter-1-jinxed-another-setback-as-boat-carrying-rishab-shetty-crew-members-capsizes-during-shoot/" class="post prev-post">
+            <span class="caption">Previous Post</span>
+            <h3 class="post-title">Is ‘Kantara Chapter 1’ Jinxed? Another Setback As Boat Carrying Rishab Shetty &#038; Crew Members Capsizes During Shoot</h3>
+        </a>
+    
+            <a href="https://odishabytes.com/as-iran-israel-conflict-escalates-indian-embassies-issue-fresh-advisories-for-citizens/" class="post next-post">
+            <span class="caption">Next Post</span>
+            <h3 class="post-title">As Iran-Israel Conflict Escalates, Indian Embassies Issue Fresh Advisories For Citizens</h3>
+        </a>
+    </div></div><div class="jnews_author_box_container ">
+	<div class="jeg_authorbox">
+		<div class="jeg_author_image">
+			<img alt='Pradeep Biswal' src='https://assets.odishabytes.com/wp-content/uploads/2025/06/IMG-20250603-WA0043-150x150.jpg' srcset='https://assets.odishabytes.com/wp-content/uploads/2025/06/IMG-20250603-WA0043-150x150.jpg 2x' class='avatar avatar-80 photo' height='80' width='80' />		</div>
+		<div class="jeg_author_content">
+			<h3 class="jeg_author_name">
+				<a href="https://odishabytes.com/author/pradeep/">
+					Pradeep Biswal				</a>
+			</h3>
+			<p class="jeg_author_desc">
+				Former Bureaucrat &amp; Author			</p>
+
+							<div class="jeg_author_socials">
+									</div>
+			
+		</div>
+	</div>
+</div><div class="jnews_related_post_container"><div  class="jeg_postblock_3 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_2o3 jnews_module_552432_0_6acf438f83631   " data-unique="jnews_module_552432_0_6acf438f83631">
+					<div class="jeg_block_heading jeg_block_heading_8 jeg_subcat_right">
+                     <h3 class="jeg_block_title"><span>Related<strong> Posts</strong></span></h3>
+                     
+                 </div>
+					<div class="jeg_posts jeg_block_container">
+                
+                <div class="jeg_posts jeg_load_more_flag">
+                <article class="jeg_post jeg_pl_md_2 format-standard">
+                <div class="jeg_thumb">
+                    
+                    <a href="https://odishabytes.com/odisha-cm-mohan-majhi-launches-46-projects-worth-rs-39383-cr-with-42500-job-potential/" aria-label="Read article: Odisha CM Mohan Majhi Launches 46 Projects Worth Rs 39,383 Cr With 42500 Job Potential"><div class="thumbnail-container  size-715 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="289" alt="Odisha CM Mohan Majhi Launches 46 Projects Worth Rs 39,383 Cr With 42500 Job Potential" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-132333-768x346.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-132333-1200x541.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="289" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-132333-768x346.webp" alt="Odisha CM Mohan Majhi Launches 46 Projects Worth Rs 39,383 Cr With 42500 Job Potential" /></noscript></span></div></a>
+                </div>
+                <div class="jeg_postblock_content">
+                    <h3 class="jeg_post_title">
+                        <a href="https://odishabytes.com/odisha-cm-mohan-majhi-launches-46-projects-worth-rs-39383-cr-with-42500-job-potential/">Odisha CM Mohan Majhi Launches 46 Projects Worth Rs 39,383 Cr With 42500 Job Potential</a>
+                    </h3>
+                    <div class="jeg_post_meta"><div class="jeg_meta_author"><span class="by">by</span> <a href="https://odishabytes.com/author/bureauob/">OB Bureau</a></div><div class="jeg_meta_date"><a href="https://odishabytes.com/odisha-cm-mohan-majhi-launches-46-projects-worth-rs-39383-cr-with-42500-job-potential/"><i class="fa fa-clock-o"></i> October 14, 2026</a></div></div>
+                    <div class="jeg_post_excerpt">
+                        <p>Jajpur: Odisha Chief Minister Mohan Charan Majhi inaugurated and laid the foundation stones for 46 industrial projects worth Rs 39,383...</p>
+                    </div>
+                </div>
+            </article><article class="jeg_post jeg_pl_md_2 format-standard">
+                <div class="jeg_thumb">
+                    
+                    <a href="https://odishabytes.com/death-threat-to-college-principal-ahead-of-student-union-polls-in-odisha/" aria-label="Read article: Death Threat To College Principal Ahead Of Student Union Polls In Odisha"><div class="thumbnail-container  size-715 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="453" alt="Death Threat To College Principal Ahead Of Student Union Polls In Odisha" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-120549-768x544.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-120549-e1791961297143.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="453" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-120549-768x544.webp" alt="Death Threat To College Principal Ahead Of Student Union Polls In Odisha" /></noscript></span></div></a>
+                </div>
+                <div class="jeg_postblock_content">
+                    <h3 class="jeg_post_title">
+                        <a href="https://odishabytes.com/death-threat-to-college-principal-ahead-of-student-union-polls-in-odisha/">Death Threat To College Principal Ahead Of Student Union Polls In Odisha</a>
+                    </h3>
+                    <div class="jeg_post_meta"><div class="jeg_meta_author"><span class="by">by</span> <a href="https://odishabytes.com/author/bureauob/">OB Bureau</a></div><div class="jeg_meta_date"><a href="https://odishabytes.com/death-threat-to-college-principal-ahead-of-student-union-polls-in-odisha/"><i class="fa fa-clock-o"></i> October 14, 2026</a></div></div>
+                    <div class="jeg_post_excerpt">
+                        <p>Sonpur: The principal of Siddhartha Degree College at Binika in Odisha’s Subarnapur district reportedly received a death threat on Wednesday...</p>
+                    </div>
+                </div>
+            </article><article class="jeg_post jeg_pl_md_2 format-standard">
+                <div class="jeg_thumb">
+                    
+                    <a href="https://odishabytes.com/odisha-cabinet-clears-rs-450-cr-skill-development-plan-for-youth-employability/" aria-label="Read article: Odisha Cabinet Clears Rs 450 Cr Skill Development Plan For Youth Employability"><div class="thumbnail-container  size-715 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="900" height="756" alt="Odisha Cabinet Clears Rs 450 Cr Skill Development Plan For Youth Employability" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Anu-Garg-e1791960055129-768x645.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Anu-Garg-e1791960055129-804x675.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="900" height="756" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Anu-Garg-e1791960055129-768x645.webp" alt="Odisha Cabinet Clears Rs 450 Cr Skill Development Plan For Youth Employability" /></noscript></span></div></a>
+                </div>
+                <div class="jeg_postblock_content">
+                    <h3 class="jeg_post_title">
+                        <a href="https://odishabytes.com/odisha-cabinet-clears-rs-450-cr-skill-development-plan-for-youth-employability/">Odisha Cabinet Clears Rs 450 Cr Skill Development Plan For Youth Employability</a>
+                    </h3>
+                    <div class="jeg_post_meta"><div class="jeg_meta_author"><span class="by">by</span> <a href="https://odishabytes.com/author/bureauob/">OB Bureau</a></div><div class="jeg_meta_date"><a href="https://odishabytes.com/odisha-cabinet-clears-rs-450-cr-skill-development-plan-for-youth-employability/"><i class="fa fa-clock-o"></i> October 14, 2026</a></div></div>
+                    <div class="jeg_post_excerpt">
+                        <p>Bhubaneswar: Around 4.2 lakh youths in Odisha are set to benefit from a major skill development drive, Dakshyata Vikas Yojana,...</p>
+                    </div>
+                </div>
+            </article><article class="jeg_post jeg_pl_md_2 format-standard">
+                <div class="jeg_thumb">
+                    
+                    <a href="https://odishabytes.com/centre-approves-rs-2100-cr-for-expansion-of-jharsuguda-airport-in-odisha-mp/" aria-label="Read article: Centre Approves Rs 2,100 Cr For Expansion Of Jharsuguda Airport In Odisha: MP"><div class="thumbnail-container  size-715 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="640" height="324" alt="Centre Approves Rs 2,100 Cr For Expansion Of Jharsuguda Airport In Odisha: MP" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-112214-768x389.webp" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-112214-1200x608.webp" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="640" height="324" src="https://assets.odishabytes.com/wp-content/uploads/2026/10/Screenshot-2026-10-14-112214-768x389.webp" alt="Centre Approves Rs 2,100 Cr For Expansion Of Jharsuguda Airport In Odisha: MP" /></noscript></span></div></a>
+                </div>
+                <div class="jeg_postblock_content">
+                    <h3 class="jeg_post_title">
+                        <a href="https://odishabytes.com/centre-approves-rs-2100-cr-for-expansion-of-jharsuguda-airport-in-odisha-mp/">Centre Approves Rs 2,100 Cr For Expansion Of Jharsuguda Airport In Odisha: MP</a>
+                    </h3>
+                    <div class="jeg_post_meta"><div class="jeg_meta_author"><span class="by">by</span> <a href="https://odishabytes.com/author/bureauob/">OB Bureau</a></div><div class="jeg_meta_date"><a href="https://odishabytes.com/centre-approves-rs-2100-cr-for-expansion-of-jharsuguda-airport-in-odisha-mp/"><i class="fa fa-clock-o"></i> October 14, 2026</a></div></div>
+                    <div class="jeg_post_excerpt">
+                        <p>Bhubaneswar: The Centre has approved Rs 2,100 crore for further expansion and development of Veer Surendra Sai Airport in Odisha's...</p>
+                    </div>
+                </div>
+            </article>
+            </div>
+                <div class='module-overlay'>
+				    <div class='preloader_type preloader_dot'>
+				        <div class="module-preloader jeg_preloader dot">
+				            <span></span><span></span><span></span>
+				        </div>
+				        <div class="module-preloader jeg_preloader circle">
+				            <div class="jnews_preloader_circle_outer">
+				                <div class="jnews_preloader_circle_inner"></div>
+				            </div>
+				        </div>
+				        <div class="module-preloader jeg_preloader square">
+				            <div class="jeg_square">
+				                <div class="jeg_square_inner"></div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+            </div>
+            <div class="jeg_block_navigation">
+                <div class='navigation_overlay'><div class='module-preloader jeg_preloader'><span></span><span></span><span></span></div></div>
+                
+                
+            </div>
+					
+					<script>var jnews_module_552432_0_6acf438f83631 = {"header_icon":"","first_title":"Related","second_title":" Posts","url":"","header_type":"heading_8","header_background":"","header_secondary_background":"","header_text_color":"","header_line_color":"","header_accent_color":"","header_filter_category":"","header_filter_author":"","header_filter_tag":"","header_filter_text":"All","sticky_post":false,"post_type":"post","content_type":"all","sponsor":false,"number_post":"4","post_offset":0,"unique_content":"disable","include_post":"","included_only":false,"exclude_post":552432,"include_category":"6941,17458,17692,17505,18767,42834,27485,25608,23678,32205,25609,25585,18012,17739,50439,12,17268,53452,17265,17258,17262,17259,17274,17251,17264,17267,17272,17271,17252,17254,17263,17275,17273,17253,17269,17256,17277,17280,17260,17279,17257,17276,17255,17278,17261,17266,17270,12303,52701","exclude_category":"","include_author":"","include_tag":"","exclude_tag":"","sort_by":"latest","date_format":"default","date_format_custom":"Y\/m\/d","excerpt_length":20,"excerpt_ellipsis":"...","force_normal_image_load":"","main_custom_image_size":"default","pagination_mode":"disable","pagination_nextprev_showtext":"","pagination_number_post":"4","pagination_scroll_limit":3,"ads_type":"disable","ads_position":1,"ads_random":"","ads_image":"","ads_image_tablet":"","ads_image_phone":"","ads_image_link":"","ads_image_alt":"","ads_image_new_tab":"","google_publisher_id":"","google_slot_id":"","google_desktop":"auto","google_tab":"auto","google_phone":"auto","content":"","ads_bottom_text":"","boxed":"","boxed_shadow":"","el_id":"","el_class":"","scheme":"","column_width":"auto","title_color":"","accent_color":"","alt_color":"","excerpt_color":"","css":"","paged":1,"column_class":"jeg_col_2o3","class":"jnews_block_3"};</script>
+				</div></div><div class="jnews_popup_post_container">    <section class="jeg_popup_post">
+        <span class="caption">Next Post</span>
+
+                    <div class="jeg_popup_content">
+                <div class="jeg_thumb">
+                                        <a href="https://odishabytes.com/as-iran-israel-conflict-escalates-indian-embassies-issue-fresh-advisories-for-citizens/">
+                        <div class="thumbnail-container  size-1000 "><span class="nfr-hero-wrap" style="position:relative;display:block;overflow:hidden;"><img fetchpriority="high" decoding="sync" importance="high" class="nfr-hero nfr-placeholder" src="https://assets.odishabytes.com/wp-content/uploads/odishabytes-logo-25.svg" width="960" height="1280" alt="Iran Israel conflict" decoding="async"  data-src-med="https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-768x1024.jpeg" data-src-lg="https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-506x675.jpeg" data-srcset-lg="https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-506x675.jpeg 506w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-225x300.jpeg 225w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-768x1024.jpeg 768w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-750x1000.jpeg 750w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel.jpeg 960w" data-sizes="(max-width: 768px) 100vw, 1200px" /><noscript><img width="960" height="1280" src="https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-768x1024.jpeg" alt="Iran Israel conflict" srcset="https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-506x675.jpeg 506w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-225x300.jpeg 225w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-768x1024.jpeg 768w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel-750x1000.jpeg 750w, https://assets.odishabytes.com/wp-content/uploads/2025/06/Iran-vs-Israel.jpeg 960w" sizes="(max-width: 768px) 100vw, 1200px" /></noscript></span></div>                    </a>
+                </div>
+                <h3 class="post-title">
+                    <a href="https://odishabytes.com/as-iran-israel-conflict-escalates-indian-embassies-issue-fresh-advisories-for-citizens/">
+                        As Iran-Israel Conflict Escalates, Indian Embassies Issue Fresh Advisories For Citizens                    </a>
+                </h3>
+            </div>
+                
+        <a href="#" class="jeg_popup_close"><i class="fa fa-close"></i></a>
+    </section>
+</div><div class="jnews_comment_container"></div>					</div>
+
+				</div>
+				
+<div class="jeg_sidebar  jeg_sticky_sidebar col-md-4">
+    <div class="jegStickyHolder"><div class="theiaStickySidebar"><div class="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-13"><div  class='jeg_ad jeg_ad_module jnews_module_552432_1_6acf438fb9c7a   '><div class='ads-wrapper'><a href='https://www.tpwesternodisha.com/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image '>
+								<img width="780" height="452" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/09/TPWODL.webp' alt='TPWODL-Sep' data-pin-no-hover="true">
+							</a><a href='https://www.tpwesternodisha.com/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image_tablet '>
+								<img width="780" height="452" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/09/TPWODL.webp' alt='TPWODL-Sep' data-pin-no-hover="true">
+							</a><a href='https://www.tpwesternodisha.com/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image_phone '>
+								<img width="780" height="452" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/09/TPWODL.webp' alt='TPWODL-Sep' data-pin-no-hover="true">
+							</a></div></div></div><div class="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-7"><div  class='jeg_ad jeg_ad_module jnews_module_552432_2_6acf438fba0d9   '><div class='ads-wrapper'><a href='' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image '>
+								<img width="243" height="237" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/04/Metro-Ad.webp' alt='' data-pin-no-hover="true">
+							</a></div></div></div><div class="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-11"><div  class='jeg_ad jeg_ad_module jnews_module_552432_3_6acf438fba3a9   '><div class='ads-wrapper'><a href='https://omcltd.in/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image '>
+								<img width="326" height="246" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/05/OMC-Ad.webp' alt='OMC-Ad' data-pin-no-hover="true">
+							</a><a href='https://omcltd.in/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image_tablet '>
+								<img width="326" height="246" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/05/OMC-Ad.webp' alt='OMC-Ad' data-pin-no-hover="true">
+							</a><a href='https://omcltd.in/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image_phone '>
+								<img width="326" height="246" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/05/OMC-Ad.webp' alt='OMC-Ad' data-pin-no-hover="true">
+							</a></div></div></div><div class="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-6"><div  class='jeg_ad jeg_ad_module jnews_module_552432_4_6acf438fba74a   '><div class='ads-wrapper'><a href='https://www.saiinternational.edu.in/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image '>
+								<img width="642" height="637" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/04/SAI-Ad-3rd-April-26.webp' alt='SAI International School' data-pin-no-hover="true">
+							</a><a href='https://www.saiinternational.edu.in/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image_tablet '>
+								<img width="642" height="637" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/04/SAI-Ad-3rd-April-26.webp' alt='SAI International School' data-pin-no-hover="true">
+							</a><a href='https://www.saiinternational.edu.in/' aria-label="Visit advertisement link" target='_self' rel="noopener" class='adlink ads_image_phone '>
+								<img width="642" height="637" src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' class='lazyload' data-src='https://assets.odishabytes.com/wp-content/uploads/2026/04/SAI-Ad-3rd-April-26.webp' alt='SAI International School' data-pin-no-hover="true">
+							</a></div></div></div><div class="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-4"><div  class='jeg_ad jeg_ad_module jnews_module_552432_5_6acf438fbaade   '><div class='ads-wrapper'><div class=''><div id="taboolabox"></div></div></div></div></div></div></div></div>			</div>
+
+		
+		<div class="jeg_ad jeg_article jnews_article_bottom_ads">
+			<div class='ads-wrapper  '></div>		</div>
+
+	</div>
+
+</div>
+                </div>
+            </div>
+
+            <div id="post-body-class" class="wp-singular post-template-default single single-post postid-552432 single-format-standard wp-embed-responsive wp-theme-jnews jeg_toggle_light jeg_single_tpl_2 jnews jeg_boxed jeg_sidecontent jeg_sidecontent_left jsc_normal elementor-default elementor-kit-507150"></div>
+
+            
+        </div>
+
+        <div class="post-ajax-overlay">
+    <div class="preloader_type preloader_dot">
+        <div class="newsfeed_preloader jeg_preloader dot">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="newsfeed_preloader jeg_preloader circle">
+            <div class="jnews_preloader_circle_outer">
+                <div class="jnews_preloader_circle_inner"></div>
+            </div>
+        </div>
+        <div class="newsfeed_preloader jeg_preloader square">
+            <div class="jeg_square"><div class="jeg_square_inner"></div></div>
+        </div>
+    </div>
+</div>
+    </div>
+		<div class="footer-holder" id="footer" data-id="footer">
+			<div class="jeg_footer jeg_footer_sidecontent normal">
+    <div class="jeg_footer_container jeg_container">
+        <div class="jeg_footer_content">
+            <div class="container">
+                <div class="row">
+                    <div class="jeg_footer_primary clearfix">
+                        <div class="col-md-2 footer_column">
+                            <div class="footer_widget widget_about">
+                                <div class="jeg_about">
+                                    <a href="https://odishabytes.com/" class="footer_logo">
+                                        <img class='jeg_logo_img' src="https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo150-min.png" srcset="https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo150-min.png 1x, https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo150-min.png 2x" alt="OdishaBytes"data-light-src="https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo150-min.png" data-light-srcset="https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo150-min.png 1x, https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo150-min.png 2x" data-dark-src="https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo.png" data-dark-srcset="https://assets.odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo.png 1x,  2x"width="200" height="38">                                    </a>
+                                    <p class="copyright"> Copyright © 2026 Frontier Media </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-8 footer_column">
+                            <div class="footer_widget widget_nav_menu">
+                                <div class="jeg_footer_heading jeg_footer_heading_2">
+                                    <h3 class="jeg_footer_title menu-title"><span>Navigate Site</span></h3>
+                                </div>
+                                <ul class="jeg_menu_footer"><li id="menu-item-507220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-507220"><a href="https://odishabytes.com/about-us/">About</a></li>
+<li id="menu-item-507221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-507221"><a href="#">Advertise</a></li>
+<li id="menu-item-507222" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-507222"><a href="https://odishabytes.com/privacy-policy/">Privacy &#038; Policy</a></li>
+<li id="menu-item-507223" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-507223"><a href="https://odishabytes.com/contact/">Contact</a></li>
+<li id="menu-item-563677" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-563677"><a href="https://odishabytes.com/feed/">News Feed</a></li>
+</ul>                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-4 footer_column">
+                            <div class="jeg_footer_heading jeg_footer_heading_2">
+                                    <h3 class="jeg_footer_title social-title"><span>Follow Us</span></h3>
+                            </div>
+
+                            			<div class="socials_widget nobg">
+				<a href="https://www.facebook.com/odishabytes/" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Facebook" class="jeg_facebook"><i class="fa fa-facebook"></i> </a><a href="https://x.com/BytesOdisha" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Twitter" class="jeg_twitter"><i class="fa fa-twitter"><span class="jeg-icon icon-twitter"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></span></i> </a><a href="https://www.youtube.com/channel/UCZzaxCAclS9UoMtl51XuXkQ" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Youtube" class="jeg_youtube"><i class="fa fa-youtube-play"></i> </a><a href="https://odishabytes.com/feed/" target='_blank' rel='external noopener nofollow'  aria-label="Find us on RSS" class="jeg_rss"><i class="fa fa-rss"></i> </a><a href="https://news.google.com/publications/CAAqKggKIiRDQklTRlFnTWFoRUtEMjlrYVhOb1lXSjVkR1Z6TG1OdmJTZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Reddit" class="jeg_reddit"><i class="fa fa-reddit"></i> </a>			</div>
+			                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.footer -->
+		</div>
+					<div class="jscroll-to-top desktop mobile">
+				<a href="#back-to-top" class="jscroll-to-top_link"><i class="fa fa-angle-up"></i></a>
+			</div>
+			</div>
+
+	<script type="text/javascript">var jfla = []</script><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/jnews\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div id="selectShareContainer">
+                        <div class="selectShare-inner">
+                            <div class="select_share jeg_share_button">              
+                                <button class="select-share-button jeg_btn-facebook" data-url="http://www.facebook.com/sharer.php?u=[url]&quote=[selected_text]" data-post-url="https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F" data-image-url="" data-title="Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F" ><i class="fa fa-facebook-official"></i></a><button class="select-share-button jeg_btn-twitter" data-url="https://twitter.com/intent/tweet?text=[selected_text]&url=[url]" data-post-url="https%3A%2F%2Fodishabytes.com%2Fpublic-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building%2F" data-image-url="" data-title="Public%20Good%20Vs%20Wasteful%20Spend%3A%20Does%20Odisha%20Need%20A%20New%20Secretariat%20Building%3F" ><i class="fa fa-twitter"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></i></a>
+                            </div>
+                            <div class="selectShare-arrowClip">
+                                <div class="selectShare-arrow"></div>      
+                            </div> 
+                        </div>      
+                      </div><!-- Mobile Navigation
+    ============================================= -->
+<div id="jeg_off_canvas" class="normal">
+    <a href="#" class="jeg_menu_close"><i class="jegicon-cross"></i></a>
+    <div class="jeg_bg_overlay"></div>
+    <div class="jeg_mobile_wrapper">
+        <div class="nav_wrap">
+    <div class="item_main">
+        <!-- Search Form -->
+<div class="jeg_aside_item jeg_search_wrapper jeg_search_no_expand round">
+    <a href="#" aria-label="Search Button" class="jeg_search_toggle"><i class="fa fa-search"></i></a>
+    <form action="https://odishabytes.com/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="Search..." type="text" value="" autocomplete="off">
+	<button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        No Result    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> View All Result    </div>
+</div></div><div class="jeg_aside_item">
+    <ul class="jeg_mobile_menu sf-js-hover"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-507387"><a href="https://odishabytes.com/">Home</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-115"><a href="https://odishabytes.com/category/odisha/">Odisha</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-118"><a href="https://odishabytes.com/category/policy-politics/">Policy &amp; Politics</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-116"><a href="https://odishabytes.com/category/city/">City</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5734"><a href="https://odishabytes.com/category/india/">India</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-121"><a href="https://odishabytes.com/category/sport/">Sport</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-122"><a href="https://odishabytes.com/category/sport/cricket/">Cricket</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-123"><a href="https://odishabytes.com/category/sport/football/">Football</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-124"><a href="https://odishabytes.com/category/sport/hockey/">Hockey</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-125"><a href="https://odishabytes.com/category/sport/ipl/">IPL</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-102"><a href="https://odishabytes.com/category/entertainment/">Entertainment</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-106"><a href="https://odishabytes.com/category/entertainment/music/">Music</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-105"><a href="https://odishabytes.com/category/entertainment/movie-review/">Movie Review</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-108"><a href="https://odishabytes.com/category/entertainment/television/">Television</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-103"><a href="https://odishabytes.com/category/entertainment/bollywood/">Bollywood</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-104"><a href="https://odishabytes.com/category/entertainment/hollywood/">Hollywood</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-107"><a href="https://odishabytes.com/category/entertainment/ollywood/">Ollywood</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-507825"><a href="https://odishabytes.com/category/business/">Business</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-109"><a href="https://odishabytes.com/category/lifestyle/">Lifestyle</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-114"><a href="https://odishabytes.com/category/lifestyle/travel/">Travel</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-111"><a href="https://odishabytes.com/category/lifestyle/food/">Food</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-112"><a href="https://odishabytes.com/category/lifestyle/health/">Health</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-110"><a href="https://odishabytes.com/category/lifestyle/fashion/">fashion</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-134"><a href="https://odishabytes.com/category/world/">World</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8736"><a href="#">More</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4697"><a href="https://odishabytes.com/category/news-you-can-use/">News You Can Use</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4698"><a href="https://odishabytes.com/category/good-news/">Good News</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-133"><a href="https://odishabytes.com/category/viral-videos/">Viral Videos</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-127"><a href="https://odishabytes.com/category/tech/">Tech</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-128"><a href="https://odishabytes.com/category/tech/cars-bikes/">Cars &amp; Bikes</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-129"><a href="https://odishabytes.com/category/tech/mobile-gadgets/">Mobile &amp; Gadgets</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131"><a href="https://odishabytes.com/category/tech/review/">Review</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div>    </div>
+    <div class="item_bottom">
+        <div class="jeg_aside_item socials_widget circle">
+    <a href="https://www.facebook.com/odishabytes/" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Facebook" class="jeg_facebook"><i class="fa fa-facebook"></i> </a><a href="https://x.com/BytesOdisha" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Twitter" class="jeg_twitter"><i class="fa fa-twitter"><span class="jeg-icon icon-twitter"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></span></i> </a><a href="https://www.youtube.com/channel/UCZzaxCAclS9UoMtl51XuXkQ" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Youtube" class="jeg_youtube"><i class="fa fa-youtube-play"></i> </a><a href="https://odishabytes.com/feed/" target='_blank' rel='external noopener nofollow'  aria-label="Find us on RSS" class="jeg_rss"><i class="fa fa-rss"></i> </a><a href="https://news.google.com/publications/CAAqKggKIiRDQklTRlFnTWFoRUtEMjlrYVhOb1lXSjVkR1Z6TG1OdmJTZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen" target='_blank' rel='external noopener nofollow'  aria-label="Find us on Reddit" class="jeg_reddit"><i class="fa fa-reddit"></i> </a></div><div class="jeg_aside_item jeg_aside_copyright">
+	<p>Copyright © 2026 Frontier Media</p>
+</div>    </div>
+</div>    </div>
+</div><div class="jeg_read_progress_wrapper"><div class="jeg_progress_container top"><span class="progress-bar"></span></div></div><link rel='preload' href='https://assets.odishabytes.com/wp-content/uploads/jnews/scheme.css' as='style' onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel='stylesheet' href='https://assets.odishabytes.com/wp-content/uploads/jnews/scheme.css' media='all'></noscript><script type="text/javascript" src="https://assets.odishabytes.com/wp-includes/js/hoverIntent.min.js" id="hoverIntent-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-includes/js/imagesloaded.min.js" id="imagesloaded-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/isotope.js" id="isotope-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/lazysizes.js" id="lazysizes-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/ls.bgset.js" id="bgset-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/superfish.js" id="superfish-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/theia-sticky-sidebar.js" id="theia-sticky-sidebar-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.waypoints.js" id="waypoint-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.scrollTo.js" id="scrollto-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.parallax.js" id="parallax-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.okayNav.js" id="okaynav-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.mousewheel.js" id="mousewheel-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/modernizr-custom.js" id="modernizr-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.smartresize.js" id="smartresize-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/chosen.jquery.js" id="chosen-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.magnific-popup.js" id="magnific-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.jnewsgif.js" id="jnews-gif-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.jsticky.js" id="jnews-sticky-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.transit.min.js" id="jquery-transit-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.module.js" id="jnews-landing-module-js"></script>
+<script type="text/javascript" id="jnews-main-js-extra">
+/* <![CDATA[ */
+var jnewsoption = {"login_reload":"https:\/\/odishabytes.com\/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building","popup_script":"disable","single_gallery":"","ismobile":"","isie":"","sidefeed_ajax":"1","language":"en_US","module_prefix":"jnews_module_ajax_","live_search":"","postid":"552432","isblog":"1","admin_bar":"0","follow_video":"","follow_position":"top_right","rtl":"0","gif":"","lang":{"invalid_recaptcha":"Invalid Recaptcha!","empty_username":"Please enter your username!","empty_email":"Please enter your email!","empty_password":"Please enter your password!"},"recaptcha":"0","site_slug":"\/","site_domain":"odishabytes.com","zoom_button":"0","dm_cookie_time":"1","custom_login":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/main.js" id="jnews-main-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/zoom-button.js" id="jnews-zoom-button-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/popup-post.js" id="jnews-popup-post-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/jquery.jscrollpane.js" id="jscrollpane-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/sidefeed.js" id="jnews-sidefeed-js"></script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/darkmode.js" id="jnews-darkmode-js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/themes/jnews/assets/js/html5shiv.min.js" id="html5shiv-js"></script>
+<![endif]-->
+<script type="text/javascript" id="nfr-hero-ph-js-after">
+/* <![CDATA[ */
+(function(){
+    var OBSERVER_ROOT_MARGIN = '300px';
+    var processed = new WeakSet();
+    function pickSize(){
+        try{
+            var c = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+            if(c && (c.saveData || /(^|\b)(slow-2g|2g)\b/i.test(c.effectiveType||''))) return 'med';
+        }catch(e){}
+        return 'lg';
+    }
+    function upgrade(img){
+        if (processed.has(img)) return;
+        processed.add(img);
+        img.classList.add('is-upgrading');
+        var choice   = pickSize();
+        var target   = (choice === 'med') ? img.getAttribute('data-src-med') : img.getAttribute('data-src-lg');
+        var targetSet= (choice === 'med') ? '' : (img.getAttribute('data-srcset-lg') || '');
+        var sizes    = img.getAttribute('data-sizes') || '100vw';
+        if(!target){ img.classList.remove('is-upgrading'); return; }
+        var hi = new Image();
+        hi.decoding = 'async';
+        if(targetSet){ hi.srcset = targetSet; hi.sizes = sizes; }
+        hi.src = target;
+        var reveal = function(){
+            requestAnimationFrame(function(){
+                if(targetSet){ img.srcset = targetSet; img.sizes = sizes; }
+                img.src = target;
+                img.classList.remove('nfr-placeholder','is-upgrading');
+                img.classList.add('is-sharp');
+            });
+        };
+        if(typeof hi.decode === 'function'){
+            hi.decode().then(reveal).catch(function(){ hi.onload = reveal; });
+        } else { hi.onload = reveal; }
+    }
+    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+            if(entry.isIntersecting){ upgrade(entry.target); io.unobserve(entry.target); }
+        });
+    }, { rootMargin: OBSERVER_ROOT_MARGIN }) : null;
+    function observePlaceholders(root){
+        var list = (root || document).querySelectorAll('img.nfr-placeholder');
+        for (var i=0;i<list.length;i++){
+            var img = list[i];
+            if (io) { io.observe(img); } else { upgrade(img); }
+        }
+    }
+    if ('MutationObserver' in window) {
+        var mo = new MutationObserver(function(muts){
+            for (var i=0;i<muts.length;i++){
+                var m = muts[i];
+                for (var j=0;j<m.addedNodes.length;j++){
+                    var node = m.addedNodes[j];
+                    if (!node) continue;
+                    if (node.nodeType === 1) {
+                        if (node.matches && node.matches('img.nfr-placeholder')) {
+                            if (io) io.observe(node); else upgrade(node);
+                        } else { observePlaceholders(node); }
+                    }
+                }
+            }
+        });
+        mo.observe(document.documentElement || document.body, {childList:true, subtree:true});
+    }
+    window.addEventListener('jnews:afterLoad', function(){ observePlaceholders(document); }, {passive:true});
+    document.addEventListener('DOMContentLoaded', function(){ observePlaceholders(document); });
+    if (document.readyState !== 'loading') observePlaceholders(document);
+})();
+/* ]]> */
+</script>
+<script type="text/javascript" id="jnews-select-share-js-extra">
+/* <![CDATA[ */
+var jnews_select_share = {"is_customize_preview":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://assets.odishabytes.com/wp-content/plugins/jnews-social-share/assets/js/plugin.js" id="jnews-select-share-js"></script>
+	<script type="text/javascript">
+	(function(){
+		try {
+			if ( typeof window === 'undefined' || typeof document === 'undefined' ) return;
+
+			if (!window.__LTAL_TABOOLA_INJECTED) {
+				var s = document.createElement('script');
+				s.async = true;
+				s.src = 'https://cdn.taboola.com/libtrc/thefrontiermedia-odishabytes/loader.js';
+				s.setAttribute('data-ltal','taboola');
+				var ref = document.getElementsByTagName('script')[0] || document.head || document.body;
+				if (ref && ref.parentNode) {
+					ref.parentNode.insertBefore(s, ref);
+				} else {
+					(document.body || document.head || document.documentElement).appendChild(s);
+				}
+				window.__LTAL_TABOOLA_INJECTED = true;
+			}
+
+			// SPA Taboola container updater (light-weight)
+			var lastUrl = location.href;
+			var seenUrls = [ lastUrl ];
+			window.page_counter = window.page_counter || 1;
+
+			function updateTaboolaContainers(){
+				try {
+					window.page_counter = (window.page_counter || 1) + 1;
+					var taboola_container_id  = 'taboola-mid-article-thumbnails' + window.page_counter;
+					var taboola_container_id2 = 'taboola-right-rail-thumbnails' + window.page_counter;
+
+					window._taboola = window._taboola || [];
+					try {
+						_taboola.push({ mode: 'thumbnails-mid-article', container: taboola_container_id, placement: 'Mid Article Thumbnails', target_type: 'mix' });
+						_taboola.push({ mode: 'thumbnails-right-article', container: taboola_container_id2, placement: 'Right Rail Thumbnails', target_type: 'mix' });
+						_taboola.push({ article: 'auto', url: location.href });
+					} catch(e){}
+
+					var tb = document.getElementById('taboolabox');
+					var tb2 = document.getElementById('taboolabox2');
+					if (tb) tb.id = taboola_container_id;
+					if (tb2) tb2.id = taboola_container_id2;
+				} catch(e){}
+			}
+
+			function onUrlChangeIfNeeded(){
+				var url = location.href;
+				if (url !== lastUrl && seenUrls.indexOf(url) === -1) {
+					seenUrls.push(url);
+					lastUrl = url;
+					try { updateTaboolaContainers(); } catch(e){}
+				}
+			}
+
+			if ( typeof MutationObserver !== 'undefined' && document.body ) {
+				var mo = new MutationObserver(function(m){
+					if ( location.href !== lastUrl ) onUrlChangeIfNeeded();
+				});
+				mo.observe(document.body, { subtree: true, childList: true });
+				window.__LTAL_TABOOLA_MO = mo;
+			}
+
+			if ( document.readyState === 'loading' ) {
+				document.addEventListener('DOMContentLoaded', updateTaboolaContainers);
+			} else {
+				setTimeout(updateTaboolaContainers, 0);
+			}
+
+			window.LTAL = window.LTAL || {};
+			window.LTAL.updateTaboola = updateTaboolaContainers;
+		} catch(e){}
+	})();
+	</script>
+	<script type="module">;/*! instant.page v5.1.1 - (C) 2019-2020 Alexandre Dieulot - https://instant.page/license */
+let t,e;const n=new Set,o=document.createElement("link"),i=o.relList&&o.relList.supports&&o.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype,s="instantAllowQueryString"in document.body.dataset,a="instantAllowExternalLinks"in document.body.dataset,r="instantWhitelist"in document.body.dataset,c="instantMousedownShortcut"in document.body.dataset,d=1111;let l=65,u=!1,f=!1,m=!1;if("instantIntensity"in document.body.dataset){const t=document.body.dataset.instantIntensity;if("mousedown"==t.substr(0,9))u=!0,"mousedown-only"==t&&(f=!0);else if("viewport"==t.substr(0,8))navigator.connection&&(navigator.connection.saveData||navigator.connection.effectiveType&&navigator.connection.effectiveType.includes("2g"))||("viewport"==t?document.documentElement.clientWidth*document.documentElement.clientHeight<45e4&&(m=!0):"viewport-all"==t&&(m=!0));else{const e=parseInt(t);isNaN(e)||(l=e)}}if(i){const n={capture:!0,passive:!0};if(f||document.addEventListener("touchstart",(function(t){e=performance.now();const n=t.target.closest("a");h(n)&&v(n.href)}),n),u?c||document.addEventListener("mousedown",(function(t){const e=t.target.closest("a");h(e)&&v(e.href)}),n):document.addEventListener("mouseover",(function(n){if(performance.now()-e<d)return;if(!("closest"in n.target))return;const o=n.target.closest("a");h(o)&&(o.addEventListener("mouseout",p,{passive:!0}),t=setTimeout((()=>{v(o.href),t=void 0}),l))}),n),c&&document.addEventListener("mousedown",(function(t){if(performance.now()-e<d)return;const n=t.target.closest("a");if(t.which>1||t.metaKey||t.ctrlKey)return;if(!n)return;n.addEventListener("click",(function(t){1337!=t.detail&&t.preventDefault()}),{capture:!0,passive:!1,once:!0});const o=new MouseEvent("click",{view:window,bubbles:!0,cancelable:!1,detail:1337});n.dispatchEvent(o)}),n),m){let t;(t=window.requestIdleCallback?t=>{requestIdleCallback(t,{timeout:1500})}:t=>{t()})((()=>{const t=new IntersectionObserver((e=>{e.forEach((e=>{if(e.isIntersecting){const n=e.target;t.unobserve(n),v(n.href)}}))}));document.querySelectorAll("a").forEach((e=>{h(e)&&t.observe(e)}))}))}}function p(e){e.relatedTarget&&e.target.closest("a")==e.relatedTarget.closest("a")||t&&(clearTimeout(t),t=void 0)}function h(t){if(t&&t.href&&(!r||"instant"in t.dataset)&&(a||t.origin==location.origin||"instant"in t.dataset)&&["http:","https:"].includes(t.protocol)&&("http:"!=t.protocol||"https:"!=location.protocol)&&(s||!t.search||"instant"in t.dataset)&&!(t.hash&&t.pathname+t.search==location.pathname+location.search||"noInstant"in t.dataset))return!0}function v(t){if(n.has(t))return;const e=document.createElement("link");e.rel="prefetch",e.href=t,document.head.appendChild(e),n.add(t)}</script><div class="jeg_ad jnews_mobile_sticky_ads "></div><script type='application/ld+json'>{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":"https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/"},"datePublished":"2025-06-15T19:25:46+05:30","dateModified":"2025-06-15T19:25:46+05:30","dateCreated":"2025-06-15T19:25:46+05:30","url":"https://odishabytes.com/public-good-vs-wasteful-spend-does-odisha-need-a-new-secretariat-building/","headline":"Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?","name":"Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?","articleBody":"Two recent decisions of the Mohan Majhi government made me ponder whether they serve any public good. Good governance always means that any decision by the government should be in the larger interests of the public. It’s amazing to see the first announcement of the state government to go for another secretariat building and assembly building in Bhubaneswar along with an auditorium with seating capacity for 10,000 people. Earlier Rajiv Bhavan was constructed and major departments like Water Resources, Agriculture were shifted to the new building. Few years back Krushi Bhavan was constructed which houses the Agriculture Department and all the directorates under it. Again very recently Kharavela Bhawan has been constructed behind the old secretariat building as an annexe and some departments have been working there. Now there’s no dearth of space in Lok Seva Bhawan , the oldest and the main secretariat building. In a recent visit I observed a huge space provided for the office of Advocate General in Lok Seva Bhawan . I wonder whether it’s appropriate or not when AG has a huge establishment on the premises of the Orissa High Court in Cuttack. Similarly, a large hall has been constructed behind the Assembly building to accommodate ceremonial functions. There’s absolutely no need for another Assembly building in the state. Shall we blindly follow the example of a new parliament building in Delhi? We should not forget that these buildings are iconic heritage buildings bearing historic significance. When Bhubaneswar was made the capital of the state, foundations were laid for these buildings. They are now part of our heritage and the so-called \u0027Odia Asmita\u0027, Sardar Patel Hall in front of Lok Seva Bhawan, which was earlier used as Assembly Hall is now in a dilapidated state and requires renovation and preservation as a heritage building. I also don’t find any logic for a huge auditorium in Bhubaneswar when we have a state of the convention centre in Lok Seva Bhawan which no other state boasts of. The Kala Mandal complex near Sainik School could not be completed in decades. It could very well serve the purpose with multiple halls of different sizes. Do we have any meeting in Bhubaneswar with participation of ten thousand people except political rallies? The construction and upkeep of such a large auditorium would be too expensive and prove an avoidable luxury. When I solicited the opinion of some retired Chief Secretaries and their counterparts all of them unequivocally rejected these ideas. According to them, the government should focus more on social and economic infrastructures instead of undertaking such projects at the cost of the public money. Each day the state government is making some sorts of announcements without proper homework and planning. One such is to construct 30 guest houses in Bhubaneswar for thirty districts with one hundred capacity each. When the Odisha Bhawans in Delhi and other states, State Guest House in Bhubaneswar and the Circuit Houses in the districts are poorly managed, who will manage these thirty guest houses? As I understand in spite of huge funds pumped in for the Odisha Bhawan in Bengaluru it is yet to be completed after so many years. Who will fix it? From my own experience I have seen how the Odisha Bhawan in New Mumbai is mismanaged. A few years back during my visit, the VIP rooms were found with torn door screens.There was no hand wash or mosquito liquid for the guests. It was explained that the Home Department does not provide adequate funds for this. This is the precarious situation of our guest houses. In such a situation is it necessary at all to go for construction of 30 guest houses in Bhubaneswar for the people of thirty districts? It’s in the analogy of having a guest house of each state in the union capital at Delhi. I don’t think it is applicable here. This will be a waste of government money and the land resources. I am afraid ultimately these will be misused by the politicians in power and their cronies. Someday it may catch the headlines in the newspapers for wrong reasons. It may not be required to elaborate further. Needless to say successive governments are found to be eager to go for mindless construction work simply because it serves the vested interests of many including engineers, contractors, bureaucrats and politicians. However, it costs the state exchequer and the taxpayers of the state dearly. Are these ideas coming from some enterprising engineer- contractor lobby blessed by some equally ambitious bureaucrats and politicians in power? What public good will it serve? When we have thousands of villages without motorable roads, drinking water, electricity, primary education and healthcare facilities even after seventy five years of independence do we justify ourselves in going for such luxuries? The Chief Minister is heading the Finance Department himself. How’s it he agrees to such proposals when the state resources show an alarming downward trend? A go…","author":{"@type":"Person","name":"Pradeep Biswal","url":"https://odishabytes.com/author/pradeep/"},"articleSection":["OB Special","Odisha","OPINION","Top Headlines"],"image":{"@type":"ImageObject","url":"https://assets.odishabytes.com/wp-content/uploads/2025/06/LOK-SEVA-BHAwAN-e1749995375240.webp","width":550,"height":315},"publisher":{"@type":"NewsMediaOrganization","name":"OdishaBytes","url":"https://odishabytes.com","logo":{"@type":"ImageObject","url":"https://odishabytes.com/wp-content/uploads/2024/11/Odisha-Byyes-Logo150-min.png"},"sameAs":["https://www.facebook.com/odishabytes/","https://x.com/BytesOdisha","https://www.youtube.com/channel/UCZzaxCAclS9UoMtl51XuXkQ","https://odishabytes.com/feed/","https://news.google.com/publications/CAAqKggKIiRDQklTRlFnTWFoRUtEMjlrYVhOb1lXSjVkR1Z6TG1OdmJTZ0FQAQ?hl=en-IN\u0026gl=IN\u0026ceid=IN%3Aen"]},"isAccessibleForFree":true}</script>
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"hentry","entry-title":"Public Good Vs Wasteful Spend: Does Odisha Need A New Secretariat Building?","published":"2025-06-15 19:25:46","updated":"2025-06-15 13:55:46"}</script>
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/odishabytes.com"},{"@type":"ListItem","position":2,"name":"OB Special","item":"https:\/\/odishabytes.com\/category\/ob-special\/"}]}</script>
+<style id="jeg_dynamic_css" type="text/css" data-type="jeg_custom-css">body { --j-body-color : #323232; --j-accent-color : #c91212; --j-alt-color : #1476b7; --j-heading-color : #111111; } body,.jeg_newsfeed_list .tns-outer .tns-controls button,.jeg_filter_button,.owl-carousel .owl-nav div,.jeg_readmore,.jeg_hero_style_7 .jeg_post_meta a,.widget_calendar thead th,.widget_calendar tfoot a,.jeg_socialcounter a,.entry-header .jeg_meta_like a,.entry-header .jeg_meta_comment a,.entry-header .jeg_meta_donation a,.entry-header .jeg_meta_bookmark a,.entry-content tbody tr:hover,.entry-content th,.jeg_splitpost_nav li:hover a,#breadcrumbs a,.jeg_author_socials a:hover,.jeg_footer_content a,.jeg_footer_bottom a,.jeg_cartcontent,.woocommerce .woocommerce-breadcrumb a { color : #323232; } a, .jeg_menu_style_5>li>a:hover, .jeg_menu_style_5>li.sfHover>a, .jeg_menu_style_5>li.current-menu-item>a, .jeg_menu_style_5>li.current-menu-ancestor>a, .jeg_navbar .jeg_menu:not(.jeg_main_menu)>li>a:hover, .jeg_midbar .jeg_menu:not(.jeg_main_menu)>li>a:hover, .jeg_side_tabs li.active, .jeg_block_heading_5 strong, .jeg_block_heading_6 strong, .jeg_block_heading_7 strong, .jeg_block_heading_8 strong, .jeg_subcat_list li a:hover, .jeg_subcat_list li button:hover, .jeg_pl_lg_7 .jeg_thumb .jeg_post_category a, .jeg_pl_xs_2:before, .jeg_pl_xs_4 .jeg_postblock_content:before, .jeg_postblock .jeg_post_title a:hover, .jeg_hero_style_6 .jeg_post_title a:hover, .jeg_sidefeed .jeg_pl_xs_3 .jeg_post_title a:hover, .widget_jnews_popular .jeg_post_title a:hover, .jeg_meta_author a, .widget_archive li a:hover, .widget_pages li a:hover, .widget_meta li a:hover, .widget_recent_entries li a:hover, .widget_rss li a:hover, .widget_rss cite, .widget_categories li a:hover, .widget_categories li.current-cat>a, #breadcrumbs a:hover, .jeg_share_count .counts, .commentlist .bypostauthor>.comment-body>.comment-author>.fn, span.required, .jeg_review_title, .bestprice .price, .authorlink a:hover, .jeg_vertical_playlist .jeg_video_playlist_play_icon, .jeg_vertical_playlist .jeg_video_playlist_item.active .jeg_video_playlist_thumbnail:before, .jeg_horizontal_playlist .jeg_video_playlist_play, .woocommerce li.product .pricegroup .button, .widget_display_forums li a:hover, .widget_display_topics li:before, .widget_display_replies li:before, .widget_display_views li:before, .bbp-breadcrumb a:hover, .jeg_mobile_menu li.sfHover>a, .jeg_mobile_menu li a:hover, .split-template-6 .pagenum, .jeg_mobile_menu_style_5>li>a:hover, .jeg_mobile_menu_style_5>li.sfHover>a, .jeg_mobile_menu_style_5>li.current-menu-item>a, .jeg_mobile_menu_style_5>li.current-menu-ancestor>a, .jeg_mobile_menu.jeg_menu_dropdown li.open > div > a ,.jeg_menu_dropdown.language-swicher .sub-menu li a:hover { color : #c91212; } .jeg_menu_style_1>li>a:before, .jeg_menu_style_2>li>a:before, .jeg_menu_style_3>li>a:before, .jeg_side_toggle, .jeg_slide_caption .jeg_post_category a, .jeg_slider_type_1_wrapper .tns-controls button.tns-next, .jeg_block_heading_1 .jeg_block_title span, .jeg_block_heading_2 .jeg_block_title span, .jeg_block_heading_3, .jeg_block_heading_4 .jeg_block_title span, .jeg_block_heading_6:after, .jeg_pl_lg_box .jeg_post_category a, .jeg_pl_md_box .jeg_post_category a, .jeg_readmore:hover, .jeg_thumb .jeg_post_category a, .jeg_block_loadmore a:hover, .jeg_postblock.alt .jeg_block_loadmore a:hover, .jeg_block_loadmore a.active, .jeg_postblock_carousel_2 .jeg_post_category a, .jeg_heroblock .jeg_post_category a, .jeg_pagenav_1 .page_number.active, .jeg_pagenav_1 .page_number.active:hover, input[type="submit"], .btn, .button, .widget_tag_cloud a:hover, .popularpost_item:hover .jeg_post_title a:before, .jeg_splitpost_4 .page_nav, .jeg_splitpost_5 .page_nav, .jeg_post_via a:hover, .jeg_post_source a:hover, .jeg_post_tags a:hover, .comment-reply-title small a:before, .comment-reply-title small a:after, .jeg_storelist .productlink, .authorlink li.active a:before, .jeg_footer.dark .socials_widget:not(.nobg) a:hover .fa,.jeg_footer.dark .socials_widget:not(.nobg) a:hover span.jeg-icon, div.jeg_breakingnews_title, .jeg_overlay_slider_bottom_wrapper .tns-controls button, .jeg_overlay_slider_bottom_wrapper .tns-controls button:hover, .jeg_vertical_playlist .jeg_video_playlist_current, .woocommerce span.onsale, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .jeg_popup_post .caption, .jeg_footer.dark input[type="submit"], .jeg_footer.dark .btn, .jeg_footer.dark .button, .footer_widget.widget_tag_cloud a:hover, .jeg_inner_content .content-inner .jeg_post_category a:hover, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .generic-button button, #buddypress .comment-reply-link, #buddypress a.bp-title-button, #buddypress.buddypress-wrap .members-list li .user-update .activity-read-more a, div#buddypress .standard-form button:hover, div#buddypress a.button:hover, div#buddypress input[type="submit"]:hover, div#buddypress input[type="button"]:hover, div#buddypress input[type="reset"]:hover, div#buddypress ul.button-nav li a:hover, div#buddypress .generic-button a:hover, div#buddypress .generic-button button:hover, div#buddypress .comment-reply-link:hover, div#buddypress a.bp-title-button:hover, div#buddypress.buddypress-wrap .members-list li .user-update .activity-read-more a:hover, #buddypress #item-nav .item-list-tabs ul li a:before, .jeg_inner_content .jeg_meta_container .follow-wrapper a { background-color : #c91212; } .jeg_block_heading_7 .jeg_block_title span, .jeg_readmore:hover, .jeg_block_loadmore a:hover, .jeg_block_loadmore a.active, .jeg_pagenav_1 .page_number.active, .jeg_pagenav_1 .page_number.active:hover, .jeg_pagenav_3 .page_number:hover, .jeg_prevnext_post a:hover h3, .jeg_overlay_slider .jeg_post_category, .jeg_sidefeed .jeg_post.active, .jeg_vertical_playlist.jeg_vertical_playlist .jeg_video_playlist_item.active .jeg_video_playlist_thumbnail img, .jeg_horizontal_playlist .jeg_video_playlist_item.active { border-color : #c91212; } .jeg_tabpost_nav li.active, .woocommerce div.product .woocommerce-tabs ul.tabs li.active, .jeg_mobile_menu_style_1>li.current-menu-item a, .jeg_mobile_menu_style_1>li.current-menu-ancestor a, .jeg_mobile_menu_style_2>li.current-menu-item::after, .jeg_mobile_menu_style_2>li.current-menu-ancestor::after, .jeg_mobile_menu_style_3>li.current-menu-item::before, .jeg_mobile_menu_style_3>li.current-menu-ancestor::before { border-bottom-color : #c91212; } .jeg_post_share .jeg-icon svg { fill : #c91212; } .jeg_post_meta .fa, .jeg_post_meta .jpwt-icon, .entry-header .jeg_post_meta .fa, .jeg_review_stars, .jeg_price_review_list { color : #1476b7; } .jeg_share_button.share-float.share-monocrhome a { background-color : #1476b7; } h1,h2,h3,h4,h5,h6,.jeg_post_title a,.entry-header .jeg_post_title,.jeg_hero_style_7 .jeg_post_title a,.jeg_block_title,.jeg_splitpost_bar .current_title,.jeg_video_playlist_title,.gallery-caption,.jeg_push_notification_button>a.button { color : #111111; } .split-template-9 .pagenum, .split-template-10 .pagenum, .split-template-11 .pagenum, .split-template-12 .pagenum, .split-template-13 .pagenum, .split-template-15 .pagenum, .split-template-18 .pagenum, .split-template-20 .pagenum, .split-template-19 .current_title span, .split-template-20 .current_title span { background-color : #111111; } .jeg_topbar .jeg_nav_row, .jeg_topbar .jeg_search_no_expand .jeg_search_input { line-height : 36px; } .jeg_topbar .jeg_nav_row, .jeg_topbar .jeg_nav_icon { height : 36px; } .jeg_topbar .jeg_logo_img { max-height : 36px; } .jeg_header .jeg_bottombar.jeg_navbar,.jeg_bottombar .jeg_nav_icon { height : 71px; } .jeg_header .jeg_bottombar.jeg_navbar, .jeg_header .jeg_bottombar .jeg_main_menu:not(.jeg_menu_style_1) > li > a, .jeg_header .jeg_bottombar .jeg_menu_style_1 > li, .jeg_header .jeg_bottombar .jeg_menu:not(.jeg_main_menu) > li > a { line-height : 71px; } .jeg_bottombar .jeg_logo_img { max-height : 71px; } .jeg_header .jeg_bottombar a:hover, .jeg_header .jeg_bottombar.jeg_navbar_dark a:hover, .jeg_header .jeg_bottombar .jeg_menu:not(.jeg_main_menu) > li > a:hover { color : #f83838ff; } .jeg_header .jeg_bottombar, .jeg_header .jeg_bottombar.jeg_navbar_dark, .jeg_bottombar.jeg_navbar_boxed .jeg_nav_row, .jeg_bottombar.jeg_navbar_dark.jeg_navbar_boxed .jeg_nav_row { border-bottom-width : 2px; } .jeg_header_wrapper .jeg_bottombar, .jeg_header_wrapper .jeg_bottombar.jeg_navbar_dark, .jeg_bottombar.jeg_navbar_boxed .jeg_nav_row, .jeg_bottombar.jeg_navbar_dark.jeg_navbar_boxed .jeg_nav_row { border-bottom-color : #f2f2f2; } .jeg_mobile_midbar, .jeg_mobile_midbar.dark { background : #ffffffff; } .jeg_navbar_mobile_wrapper .jeg_nav_item a.jeg_mobile_toggle, .jeg_navbar_mobile_wrapper .dark .jeg_nav_item a.jeg_mobile_toggle { color : #d14848ff; } .jeg_navbar_mobile .jeg_search_wrapper .jeg_search_toggle, .jeg_navbar_mobile .dark .jeg_search_wrapper .jeg_search_toggle { color : #ec3a3aff; } .jeg_menu_style_1 > li > a:before, .jeg_menu_style_2 > li > a:before, .jeg_menu_style_3 > li > a:before { background : #e01818ff; } body,input,textarea,select,.chosen-container-single .chosen-single,.btn,.button { font-family: Roboto,Helvetica,Arial,sans-serif; } .jeg_post_title, .entry-header .jeg_post_title, .jeg_single_tpl_2 .entry-header .jeg_post_title, .jeg_single_tpl_3 .entry-header .jeg_post_title, .jeg_single_tpl_6 .entry-header .jeg_post_title, .jeg_content .jeg_custom_title_wrapper .jeg_post_title { font-family: Roboto,Helvetica,Arial,sans-serif; } .jeg_post_excerpt p, .content-inner p { font-family: "Droid Serif",Helvetica,Arial,sans-serif; } </style><style type="text/css">
+					.no_thumbnail .jeg_thumb,
+					.thumbnail-container.no_thumbnail {
+					    display: none !important;
+					}
+					.jeg_search_result .jeg_pl_xs_3.no_thumbnail .jeg_postblock_content,
+					.jeg_sidefeed .jeg_pl_xs_3.no_thumbnail .jeg_postblock_content,
+					.jeg_pl_sm.no_thumbnail .jeg_postblock_content {
+					    margin-left: 0;
+					}
+					.jeg_postblock_11 .no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_12 .no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_12.jeg_col_3o3 .no_thumbnail .jeg_postblock_content  {
+					    margin-top: 0;
+					}
+					.jeg_postblock_15 .jeg_pl_md_box.no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_19 .jeg_pl_md_box.no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_24 .jeg_pl_md_box.no_thumbnail .jeg_postblock_content,
+					.jeg_sidefeed .jeg_pl_md_box .jeg_postblock_content {
+					    position: relative;
+					}
+					.jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a,
+					.jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a:hover,
+					.jeg_postblock_carousel_2 .no_thumbnail .jeg_post_meta .fa {
+					    color: #212121 !important;
+					} 
+					.jnews-dark-mode .jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a,
+					.jnews-dark-mode .jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a:hover,
+					.jnews-dark-mode .jeg_postblock_carousel_2 .no_thumbnail .jeg_post_meta .fa {
+					    color: #fff !important;
+					} 
+				</style><script type="text/javascript">;!function(){"use strict";window.jnews=window.jnews||{},window.jnews.first_load=window.jnews.first_load||{},window.jnews.first_load=function(){var e=this,t=jnews.library,n="object"==typeof jnews&&"object"==typeof jnews.library;e.data=null,e.run_ajax=!0,e.run_loginregister=!0,e.clear=function(){e.run_ajax=!0,e.run_loginregister=!0,e.data=null},e.init=function(){n&&(t.globalBody.querySelectorAll(".jeg_popup_account").length&&jnews.loginregister&&(e.run_loginregister=!1,""===jnewsoption.custom_login&&(jnews.loginregister.init(),jnews.loginregister.hook_form())),jfla.length&&e.run_ajax&&(e.run_ajax=!1,e.do_ajax({action:"jnews_first_load_action",jnews_id:jnewsoption.postid,load_action:jfla})))},e.update_counter=function(){if(n){var o={total_view:t.globalBody.querySelectorAll(".jeg_share_stats .jeg_views_count .counts"),total_share:t.globalBody.querySelectorAll(".jeg_share_stats .jeg_share_count .counts"),total_comment:t.globalBody.querySelectorAll(".jeg_meta_comment a span")};t.forEach(Object.entries(e.data.counter),(function([e,n]){o[e].length&&t.forEach(o[e],(function(e,o){t.setText(e,n)}))}))}},e.do_ajax=function(o){if(n){var a=new XMLHttpRequest;a.onreadystatechange=function(){XMLHttpRequest.DONE===a.readyState&&200==a.status&&(e.data=JSON.parse(a.responseText),e.data.counter&&"object"==typeof e.data.counter&&e.update_counter())},a.open("POST",jnews_ajax_url,!0),a.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8"),a.send(t.httpBuildQuery(o))}}},window.jnews.first_load=new window.jnews.first_load,jnews.first_load.init()}();</script><script async data-ltal-edge="1" src="/_static/ltal-edge-loader.js"></script></body>
+</html>
+
+<!-- Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com -->
