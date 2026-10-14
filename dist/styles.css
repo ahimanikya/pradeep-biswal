@@ -555,3 +555,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .reader-dark .chapter-prose::after{filter:brightness(1.65)}
 @media(max-width:600px){.page-memory-article .memory-story-copy>p:first-child{padding-inline-start:14px}.page-memory-article .memory-story-copy::after{width:156px;height:42px;margin-top:24px}}
 @media print{.memory-story-copy::after,.chapter-prose::after{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* A small, shared colophon for standalone articles. */
+.page-memory-article .article-footer{background:transparent;padding:12px 0;border-top:1px solid var(--line)}
+.page-memory-article .article-footer-row{max-width:760px;gap:8px 24px;flex-wrap:wrap}
+.article-footer-copyright{margin:0;font:13px/1.6 var(--sans);color:var(--muted)}
+.page-memory-article .article-footer nav{gap:20px}
+.page-memory-article .article-footer nav a{font-size:13px;color:var(--muted)}
+.page-memory-article .article-footer nav a:hover{color:var(--ink);text-decoration:underline}
