@@ -545,3 +545,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .footer-credit:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 
 .credits h3{font:500 1.45rem/1.35 var(--serif);margin:28px 0 12px}.source-credits-list{columns:2;column-gap:32px;padding-left:20px;font:1rem/1.65 var(--reading)}.source-credits-list li{break-inside:avoid;margin-bottom:10px;padding-left:2px}.source-credits-list a{overflow-wrap:anywhere}@media(max-width:600px){.source-credits-list{columns:1}}
+
+/* Quiet article ornaments: vector ink, no extra image request or prose. */
+.page-memory-article .memory-story-heading::before{content:"";display:block;width:56px;height:1px;margin:10px 0 22px;background:linear-gradient(90deg,var(--accent) 0 14px,var(--line) 14px 100%)}
+.page-memory-article .memory-story-copy::after,.collection-reader .book-chapter:not([data-article="introduction"]) .chapter-prose::after{content:"";display:block;width:180px;max-width:55%;height:48px;margin:30px auto 16px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20240%2064%22%20fill%3D%22none%22%3E%3Cg%20stroke%3D%22%23617665%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M38%2043c39%202%2076-3%20111-17%2017-7%2032-11%2053-12%22%2F%3E%3Cpath%20d%3D%22M88%2039c-10-1-17-7-20-15%2011%201%2018%206%2020%2015ZM111%2034c-2-10%202-19%2010-25%203%2011%200%2019-10%2025ZM135%2027c12%202%2022%200%2029-7-12-3-22-1-29%207ZM160%2020c0-8%204-13%2011-17%201%208-3%2014-11%2017Z%22%2F%3E%3Cpath%20d%3D%22M61%2051c29%203%2053%202%2077-2M91%2058c17%201%2029%200%2040-1%22%20opacity%3D%22.35%22%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%22190%22%20cy%3D%2231%22%20r%3D%222.2%22%20fill%3D%22%23a65a40%22%20opacity%3D%22.7%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;break-before:avoid;break-inside:avoid;pointer-events:none}
+.page-memory-article .memory-story-copy>p:first-child{border-inline-start:2px solid #a65a4038;padding-inline-start:20px}
+.page-memory-article .related-work{border-top:0;padding-top:12px}
+.collection-reader .book-chapter:not([data-article="introduction"]) .chapter-prose::after{width:130px;height:35px;margin:18px auto 12px}
+.reader-dark .chapter-prose::after{filter:brightness(1.65)}
+@media(max-width:600px){.page-memory-article .memory-story-copy>p:first-child{padding-inline-start:14px}.page-memory-article .memory-story-copy::after{width:156px;height:42px;margin-top:24px}}
+@media print{.memory-story-copy::after,.chapter-prose::after{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
