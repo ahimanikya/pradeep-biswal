@@ -236,7 +236,7 @@ function setEntryContext(entry){
  current=entry;bookContent?.querySelectorAll('.book-chapter').forEach(section=>section.toggleAttribute('data-current',section.dataset.article===entry.id));title.textContent=entry.title;$('#reader-group').textContent=entry.theme||entry.group;
  history.replaceState(null,'','#'+encodeURIComponent(entry.id));document.title=entry.title+' · Reading room · Pradeep Biswal';
  const source=$('#reader-source');source.replaceChildren();
- if(!entry.cover){const link=document.createElement('a');link.href=entry.url||'#front-cover';link.textContent=entry.sourceLabel||(entry.publisher?'Originally published by '+entry.publisher:'Open article · comments and sharing');source.append(link);if(entry.date)source.append(document.createTextNode(' · '+entry.date));}
+ if(!entry.cover&&!entry.frontMatter){const link=document.createElement('a');link.href=entry.url||'#front-cover';link.textContent=entry.sourceLabel||(entry.publisher?'Originally published by '+entry.publisher:'Open article · comments and sharing');source.append(link);if(entry.date)source.append(document.createTextNode(' · '+entry.date));}
  const position=entries.indexOf(entry);
  for(const [selector,index,label] of [['#reader-prev',position-1,'← Previous article'],['#reader-next',position+1,'Next article →']]){
   const a=$(selector),target=entries[index];a.hidden=!target;
@@ -255,7 +255,8 @@ async function loadBook(){
   const response=await fetch('collection-reader-text.json?v=20261014-continuous');if(!response.ok)throw new Error('Book unavailable');
   const texts=await response.json(),container=document.createElement('div');container.className='book-chapters';
   for(const entry of entries.filter(e=>!e.cover)){
-   if(typeof texts[entry.id]!=='string')throw new Error('Missing chapter');
+   const chapterHtml=entry.frontMatter?entry.html:texts[entry.id];
+   if(typeof chapterHtml!=='string')throw new Error('Missing chapter');
    const section=document.createElement('section');section.className='book-chapter';section.dataset.article=entry.id;
    const heading=document.createElement('header');heading.className='chapter-heading';
    const group=document.createElement('p');group.className='chapter-theme';group.textContent=entry.theme||entry.group;
@@ -265,7 +266,7 @@ async function loadBook(){
     if(['pratibha-satpathy-myth-magic-memory-poetry','PBW-b00c33a819'].includes(entry.id))img.classList.add('reader-author-portrait');
     section.append(img);
    }
-   const prose=document.createElement('div');prose.className='chapter-prose';prose.append(...safeContent(texts[entry.id]));section.append(prose);container.append(section);
+   const prose=document.createElement('div');prose.className='chapter-prose';prose.append(...safeContent(chapterHtml));section.append(prose);container.append(section);
   }
   bookContent=container;return container;
  })().catch(error=>{bookLoading=null;throw error;});
@@ -301,7 +302,7 @@ async function display(id,restore=false){
 }
 
 try{
- const response=await fetch('collection-reader.json?v=20261014-desha-landscape');if(!response.ok)throw new Error('Index unavailable');entries=[covers[0],...await response.json(),covers[1]];
+ const [response,opening]=await Promise.all([fetch('collection-reader.json?v=20261014-desha-landscape'),fetch('book-introduction.json?v=20261014-introduction')]);if(!response.ok||!opening.ok)throw new Error('Index unavailable');entries=[covers[0],await opening.json(),...await response.json(),covers[1]];
  const coverNav=document.createElement('p');for(const cover of covers){const a=document.createElement('a');a.href='#'+cover.id;a.textContent=cover.group;coverNav.append(a);}dialog.querySelector('nav').append(coverNav);
  for(const group of [...new Set(entries.filter(r=>!r.cover).map(r=>r.theme||r.group))]){
   const heading=document.createElement('h3');heading.textContent=group;const list=document.createElement('ol');
