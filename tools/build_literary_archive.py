@@ -8,7 +8,11 @@ data=json.loads((R/'archive/research/catalog.json').read_text());rows=data['reco
 with (R/'archive/research/catalog.csv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=['id','category','title','publisher','credit','date','url','note','topic','format','evidence'],extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(rows)
 arrow='<span aria-hidden="true">↗</span>'
+reader_ids={r['id'] for r in json.loads((D/'collection-reader.json').read_text())}
+def reader_link(id=None):
+ return '<a class="text-link book-reader-link" href="reading-room.html'+('#'+e(id,quote=True) if id else '')+'">'+('Read in book' if id else 'Open Book')+' <span aria-hidden="true">↗</span></a>'
 nav='<nav class="collection-links" aria-label="Archive collections"><a href="literary-archive.html">All publications</a><a href="interviewvideo.html">Podcasts &amp; interviews</a><a href="review.html">Book reviews</a><a href="memory.html">Missing Memories</a></nav>'
+nav=nav.replace('</nav>',reader_link()+'</nav>')
 def video_player(r):
  if r['category'] not in ['Video interviews','Author readings']:return ''
  match=re.fullmatch(r'https://www\.youtube\.com/watch\?v=([A-Za-z0-9_-]{11})',r['url'])
@@ -21,7 +25,7 @@ def card(r):
  date=datetime.strptime(r['date'],'%Y-%m-%d').strftime('%d %b %Y').lstrip('0') if len(r['date'])==10 else datetime.strptime(r['date'],'%Y-%m').strftime('%b %Y') if r['date'] else ''
  meta=' · '.join(x for x in [r.get('display_publisher',r['publisher']),date,r.get('duration',''),r.get('format','')] if x)
  alt=''.join('<a class="archive-alternate" href="'+e(u,quote=True)+'" rel="noopener" target="_blank">Also published in '+('Words &amp; Worlds' if 'wordsandworlds' in u else 'Literary Vibes')+' '+arrow+'</a>' for u in r.get('alternate_urls',[]) if 'shalandi.in' not in u)
- return '<article class="archive-entry" id="'+e(r['id'],quote=True)+'">'+video_player(r)+'<p class="archive-meta">'+e(meta)+'</p><h3><a href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+e(r.get('display_title',r['title']))+'</a></h3><p class="archive-credit">'+e(r['credit'])+'</p><p>'+e(r['note'])+'</p><a class="text-link" href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+label+' '+arrow+'</a>'+alt+'</article>'
+ return '<article class="archive-entry" id="'+e(r['id'],quote=True)+'">'+video_player(r)+'<p class="archive-meta">'+e(meta)+'</p><h3><a href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+e(r.get('display_title',r['title']))+'</a></h3><p class="archive-credit">'+e(r['credit'])+'</p><p>'+e(r['note'])+'</p><a class="text-link" href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+label+' '+arrow+'</a>'+alt+(reader_link(r['id']) if r['id'] in reader_ids else '')+'</article>'
 cats=['Author readings','Video interviews','Print interviews','Conversation reports','Book reviews','Published articles','Published poetry']
 def group(cat):
  items=sorted([x for x in rows if x['category']==cat],key=lambda x:x['date'],reverse=True)
@@ -40,6 +44,7 @@ def page(file,title,intro,body):
  s=re.sub(r'<script[^>]*src="episode-player.js[^>]*></script>','',s)
  if 'data-video-id=' in body:s=s.replace('</body>','<script src="episode-player.js?v=20261010" defer></script></body>')
  s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261010-previews"/></head>')
+ if 'href="book-entry.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="book-entry.css?v=20261014"/></head>')
  (D/file).write_text(s)
 page('literary-archive.html','Words in the World','Interviews, essays, poems and readings of Pradeep Biswal’s books, gathered from their original publishers.', '<nav class="archive-jump" aria-label="Browse by form">'+''.join('<a href="#'+c.lower().replace(' ','-')+'">'+e(c)+'</a>' for c in cats)+'</nav>'+''.join(group(c) for c in cats)+'<p class="archive-note">A growing bibliography, researched 10 October 2026. Videos play here; source links open the original publication. Dates refer to publication or issue dates; the Aakhar report uses its upload month. <a href="data/literary-archive.csv" download>Download the catalogue</a>.</p>')
 topics=['Literature','Finance','Tourism','Education & Governance']

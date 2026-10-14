@@ -30,8 +30,9 @@ $('#reader-fullscreen').addEventListener('click',async()=>{try{if(document.fulls
 document.addEventListener('fullscreenchange',()=>{const label=document.fullscreenElement?'Exit full screen':'Enter full screen';$('#reader-fullscreen').setAttribute('aria-label',label);$('#reader-fullscreen').title=label;paginate();});
 let bookmarks=read('pb-collection-bookmarks',[]);if(!Array.isArray(bookmarks))bookmarks=[];
 function bookmarkState(){const saved=current&&bookmarks.some(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);$('#reader-bookmark').setAttribute('aria-pressed',String(!!saved));$('#reader-bookmark').title=saved?'Remove bookmark':'Bookmark this page';$('#reader-bookmark').setAttribute('aria-label',$('#reader-bookmark').title);}
-$('#reader-bookmark').addEventListener('click',()=>{if(!current)return;const i=bookmarks.findIndex(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);if(i>=0)bookmarks.splice(i,1);else bookmarks.push({id:current.id,title:current.title,spread,pagination:'continuous'});save('pb-collection-bookmarks',bookmarks);bookmarkState();renderSaved();});
-function renderSaved(){const list=$('#reader-saved');list.replaceChildren();if(!bookmarks.length)list.textContent='No saved places yet.';for(const b of bookmarks){const button=document.createElement('button');button.type='button';button.textContent=b.title+(b.pagination==='continuous'?' · page '+(b.spread*2+1):'');button.addEventListener('click',async()=>{closeSettings();await display(b.id);if(b.pagination==='continuous')turn(b.spread);frame.focus({preventScroll:true});});list.append(button);}}
+$('#reader-bookmark').addEventListener('click',()=>{if(!current)return;const i=bookmarks.findIndex(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);if(i>=0)bookmarks.splice(i,1);else bookmarks.push({id:current.id,title:current.title,spread,pagination:'continuous',width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations});save('pb-collection-bookmarks',bookmarks);bookmarkState();renderSaved();});
+function samePageLayout(place){return isBook()&&place.width===frame.clientWidth&&place.height===frame.clientHeight&&place.size===size.value&&place.illustrations===illustrations;}
+function renderSaved(){const list=$('#reader-saved');list.replaceChildren();if(!bookmarks.length)list.textContent='No saved places yet.';for(const b of bookmarks){const button=document.createElement('button');button.type='button';button.textContent=b.title+(b.pagination==='continuous'&&samePageLayout(b)?' · page '+(b.spread*2+1):'');button.addEventListener('click',async()=>{closeSettings();await display(b.id);if(b.pagination==='continuous'&&samePageLayout(b))turn(b.spread);frame.focus({preventScroll:true});});list.append(button);}}
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let turnEffect=read('pb-collection-turn','paper');if(!['paper','none'].includes(turnEffect))turnEffect='paper';
@@ -169,7 +170,7 @@ function paginate(reset=false){
  layout.title=bookPreferred?'Switch to scrolling view':'Switch to a two-page book';
  layout.hidden=!desktop.matches;
  $('.book-turn').hidden=!isBook();
- if(!isBook()){frame.scrollLeft=0;return;}
+ if(!isBook()){frame.scrollLeft=0;if(!panel.hidden)renderSaved();return;}
  if(current?.cover){pageCount=1;spreadCount=1;endMarker.style.left='0px';turn(0);return;}
  // Two columns fill each spread; the extra gutter separates consecutive spreads.
  const width=frame.clientWidth;
@@ -180,6 +181,7 @@ function paginate(reset=false){
  chapterStarts=[...body.querySelectorAll('.book-chapter')].map(section=>({id:section.dataset.article,page:Math.max(0,Math.round((section.querySelector('h2').getBoundingClientRect().left-frame.getBoundingClientRect().left+frame.scrollLeft)/pitch))}));
  endMarker.style.left=(spreadCount*(width+64)-65)+'px';
  updateContentsPages();
+ if(!panel.hidden)renderSaved();
  turn(reset?0:Math.round(progress*(spreadCount-1)),false,reset?context:null);
 }
 layout.addEventListener('click',()=>{const id=current?.id;bookPreferred=!bookPreferred;save('pb-collection-book',bookPreferred);if(id)display(id);else paginate();});
@@ -274,11 +276,11 @@ $('#page-jump-form').addEventListener('submit',event=>{
 function offerResume(place){
  const entry=entries.find(e=>e.id===place?.id&&!e.cover);if(!entry)return;
  const resume=$('#reader-resume');$('#resume-description').textContent=entry.title;
- $('#resume-start').onclick=()=>{resume.close();save('pb-collection-place',null);};
+ $('#resume-start').onclick=async()=>{resume.close();await display('front-cover');save('pb-collection-place',null);};
  $('#resume-reading').onclick=async()=>{
   resume.close();await display(entry.id);
   if(current?.id!==entry.id)return;
-  if(isBook()&&place.book&&place.width===frame.clientWidth&&place.height===frame.clientHeight&&place.size===size.value&&place.illustrations===illustrations&&Number.isInteger(place.spread))turn(place.spread);
+  if(place.book&&samePageLayout(place)&&Number.isInteger(place.spread))turn(place.spread);
   else if(!isBook()&&place.book===false&&Number.isFinite(place.y))window.scrollTo({top:place.y,behavior:'instant'});
   remember();
  };
@@ -352,6 +354,6 @@ try{
  $('#contents-open').hidden=false;$('.reader-turn').hidden=false;
  const hash=decodeURIComponent(location.hash.slice(1)),place=read('pb-collection-place',{});
  await display(hash||'front-cover');
- if(!hash||hash==='front-cover')offerResume(place);
+ if(!hash||hash==='front-cover'||hash===place?.id)offerResume(place);
  window.addEventListener('hashchange',()=>{const id=decodeURIComponent(location.hash.slice(1));if(entries.some(r=>r.id===id))display(id);});
 }catch{status.textContent='The reader is unavailable. You can still open every article from the list below.';}
