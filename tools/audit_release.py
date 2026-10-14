@@ -7,10 +7,12 @@ import json
 ROOT=Path(__file__).resolve().parents[1]/'dist'
 class Page(HTMLParser):
  def __init__(self,text):
-  super().__init__();self.ids=[];self.refs=[];self.images=[];self.h1=0;self.feed(text)
+  super().__init__();self.ids=[];self.refs=[];self.images=[];self.aria=[];self.h1=0;self.feed(text)
  def handle_starttag(self,tag,attrs):
   a=dict(attrs)
   if 'id' in a:self.ids.append(a['id'])
+  for key in ['aria-labelledby','aria-describedby','aria-controls']:
+   for ref in a.get(key,'').split():self.aria.append((key,ref))
   if tag=='h1':self.h1+=1
   if tag=='iframe' and 'youtube' in a.get('src',''):raise ValueError('Use the click-to-play YouTube component')
   if tag=='img':self.images.append(a)
@@ -20,6 +22,8 @@ pages={p.resolve():Page(p.read_text()) for p in ROOT.rglob('*.html')}
 errors=[];links=images=0
 for p,data in pages.items():
  if data.h1!=1:errors.append(f'{p.name}: expected one h1')
+ for key,ref in data.aria:
+  if ref not in data.ids:errors.append(f'{p.name}: {key} points to missing id {ref}')
  for value,count in Counter(data.ids).items():
   if count>1:errors.append(f'{p.name}: duplicate id {value}')
  for image in data.images:

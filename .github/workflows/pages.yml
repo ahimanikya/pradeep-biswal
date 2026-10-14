@@ -21,6 +21,8 @@ jobs:
       - uses: actions/configure-pages@v5
       - name: Validate sharing previews and prepare clean URLs
         run: |
+          node --test tools/tests/reader-navigation.test.cjs
+          python3 -m unittest discover -s tools/tests -p test_release_regressions.py
           python3 tools/audit_release.py
           python3 tools/audit_discovery.py
           python3 tools/build_pages.py

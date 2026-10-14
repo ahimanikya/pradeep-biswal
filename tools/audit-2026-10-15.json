@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-15",
+  "scope": "Whole-site static, responsive, interaction, discovery, sharing and backend audit",
+  "fixed": [
+    "Restored missing image-viewer caption IDs on About and draft review pages; release audit now rejects dangling ARIA references.",
+    "Book refresh now offers the saved position on the current chapter; Start from cover actually navigates to the cover.",
+    "Bookmarks restore a numbered spread only when layout matches; changed layouts fall back to the saved article and omit stale page labels.",
+    "Book social previews now identify A Life Among People instead of generic proposal text; draft review count updated to 61.",
+    "Search metadata rebuild preserves the book preview noindex status.",
+    "Sharing generator now covers the reader, literary archive and draft review pages.",
+    "Literary archive rebuild preserves Open Book and 16 chapter links.",
+    "Publishing workflow runs new navigation and rebuild regression checks."
+  ],
+  "checks": {
+    "source_pages": 62,
+    "live_http_200_pages": 62,
+    "generated_pages_including_aliases": 122,
+    "local_links": 2397,
+    "image_references": 375,
+    "indexable_pages": 56,
+    "article_schemas": 41,
+    "mobile_page_types_at_390x844": 16,
+    "desktop_page_types_at_1440x900": 9,
+    "horizontal_overflow_detected": false,
+    "normalized_main_menu_variants": 1,
+    "python_tests_passed": 19,
+    "reader_navigation_tests_passed": 3,
+    "backend_security_tests_passed": 12,
+    "backend_toolchain_tests_passed": 4,
+    "dependency_advisories": 0,
+    "app_check_enforced": true,
+    "backend_run": "https://github.com/ahimanikya/pradeep-biswal/actions/runs/38632729721"
+  },
+  "browser_verification": [
+    "Mobile menu opens and Escape closes it.",
+    "Interview next arrow advances and enables previous.",
+    "Gallery Books & Press filter displays 7 images; lightbox opens with caption.",
+    "Live contact form has required labeled fields and size limits.",
+    "Live guest comments initialize and enable the form without console errors; no test message or comment posted.",
+    "Reader page jump, Contents highlighting, refreshed saved spread and changed-font bookmark fallback exercised."
+  ],
+  "limitations": [
+    "Local Java runtime was incomplete; emulator tests passed in the existing GitHub security workflow instead.",
+    "Did not send a new production contact message or comment, modify moderation data, or change Firebase rules.",
+    "Not an exhaustive external-source availability, assistive-technology or penetration test.",
+    "Book page numbers vary by device and text size; changed-layout saved places resume at the article rather than exact paragraph."
+  ],
+  "pending_owner_author_work": [
+    "Poet review of the manuscript, quotation references, dates and image-reuse permissions remains pending as documented in the author review.",
+    "Final domain migration and search-engine submission remain deferred by the owner.",
+    "Establish and test private Firestore inbox/comment backups; Git does not back up reader submissions."
+  ]
+}
