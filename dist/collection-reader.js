@@ -5,6 +5,7 @@ const dialog=$('#reader-contents'),size=$('#reader-size'),art=$('#reader-art');
 const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}};
 const save=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));}catch{}};
 let entries=[],current=null,generation=0,restoring=false;
+$('.skip').addEventListener('click',event=>{event.preventDefault();title.focus();title.scrollIntoView({block:'start'});});
 let illustrations=read('pb-collection-art',true);
 const sizes=['18','21','24','28'];
 size.value=String(read('pb-collection-size',21));if(!sizes.includes(size.value))size.value='21';
