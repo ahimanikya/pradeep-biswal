@@ -21,7 +21,10 @@ for page in source.rglob('*.html'):
  prefix='../' if page.parent.name=='memories' else ''
  page_footer=(ROOT/'templates/article-footer.html').read_text().strip() if page.parent.name=='memories' or page.name.startswith('essay-') else footer_template
  expected_footer=page_footer.replace('href="credits.html','href="'+prefix+'credits.html').replace('href="contact.html','href="'+prefix+'contact.html').replace('href="index.html','href="'+prefix+'index.html').replace('href="memory.html','href="'+prefix+'memory.html')
- assert expected_footer in text, f'Footer differs from the shared template: {page}'
+ if page.name == 'author-review.html':
+  assert 'noindex' in p.meta.get('robots','') and 'A manuscript in conversation</footer>' in text
+ else:
+  assert expected_footer in text, f'Footer differs from the shared template: {page}'
  required=['og:title','og:description','og:url','og:image','og:image:alt','og:image:width','og:image:height','twitter:card','twitter:image']
  assert all(p.meta.get(k) for k in required),f'Missing sharing metadata: {page}'
  assert len(p.links)==1 and p.links[0]==p.meta['og:url'],f'Canonical mismatch: {page}'

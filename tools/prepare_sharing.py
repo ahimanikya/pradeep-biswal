@@ -20,7 +20,7 @@ choices = {
  'essay-contours-of-feminism-pratibha-ray': ('assets/published-work/contours-of-feminism-pratibha-ray.webp', 'Pratibha Ray'),
 
  'index': portrait, 'about': portrait, 'contact': portrait, 'credits': portrait,
- 'moderation': portrait, 'testimonials': portrait, 'video': portrait, 'interviewvideo': portrait, '404': portrait,
+ 'author-review': portrait, 'moderation': portrait, 'testimonials': portrait, 'video': portrait, 'interviewvideo': portrait, '404': portrait,
  'memory': radio, 'book': reading, 'review': reading, 'poetry': reading,
  'note': portrait, 'review-drafts': portrait, 'literary-archive': reading,
  'reading-room': ('assets/book/front-cover-sharing.jpg', 'Front cover of A Life Among People by Pradeep Biswal'),

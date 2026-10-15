@@ -78,5 +78,54 @@ service cloud.firestore {
     && getAfter(/databases/$(database)/documents/contactMessages/$(request.resource.data.lastId)).data.createdAt == request.time;
   }
 
+  // Editorial material is accessible only through owner access or a revocable
+  // invitation. Invitation secrets and membership tokens are never listable.
+  match /editorialProjects/{project} {
+   function invitation(id) { return get(/databases/$(database)/documents/editorialProjects/$(project)/invites/$(id)).data; }
+   function member() { return get(/databases/$(database)/documents/editorialProjects/$(project)/members/$(request.auth.uid)).data; }
+   function activeInvite(id) { return invitation(id).active == true && invitation(id).expiresAt > request.time; }
+   function reviewer() {
+    return signedIn() && (admin() || (activeInvite(member().inviteId) && member().token == invitation(member().inviteId).token));
+   }
+   function actor() { return admin() ? request.auth.uid : member().inviteId; }
+   function actorName() { return admin() ? 'Ahimanikya' : invitation(member().inviteId).label; }
+   allow get: if reviewer();
+   allow list: if false;
+   allow write: if admin();
+   match /invites/{id} {
+    allow get: if admin() || (reviewer() && member().inviteId == id);
+    allow list, write: if admin();
+   }
+   match /members/{uid} {
+    allow get: if signedIn() && (request.auth.uid == uid || admin());
+    allow list: if admin();
+    allow create, update: if signedIn() && request.auth.uid == uid
+     && request.resource.data.keys().hasOnly(['inviteId','token','joinedAt'])
+     && request.resource.data.inviteId is string && request.resource.data.token is string
+     && request.resource.data.joinedAt == request.time
+     && activeInvite(request.resource.data.inviteId)
+     && request.resource.data.token == invitation(request.resource.data.inviteId).token;
+    allow delete: if admin();
+   }
+   match /items/{id} { allow read: if reviewer(); allow write: if admin(); }
+   match /chapters/{id} { allow read: if reviewer(); allow write: if admin(); }
+   match /responses/{id} {
+    allow read: if reviewer();
+    // Append-only decisions retain both reviewers' work and previous responses.
+    // The version binds approval to the exact passage and recommendation.
+    allow create: if reviewer()
+     && request.resource.data.keys().hasOnly(['itemId','version','reviewerId','reviewerName','status','comment','alternative','createdAt'])
+     && request.resource.data.itemId is string
+     && request.resource.data.version == get(/databases/$(database)/documents/editorialProjects/$(project)/items/$(request.resource.data.itemId)).data.version
+     && request.resource.data.reviewerId == actor() && request.resource.data.reviewerName == actorName()
+     && request.resource.data.status in ['approved','suggested','comment','keep','pending']
+     && request.resource.data.comment is string && request.resource.data.comment.size() <= 12000
+     && request.resource.data.alternative is string && request.resource.data.alternative.size() <= 12000
+     && (request.resource.data.status != 'suggested' || request.resource.data.alternative.size() > 0)
+     && (request.resource.data.status != 'comment' || request.resource.data.comment.size() > 0)
+     && request.resource.data.createdAt == request.time;
+    allow update, delete: if false;
+   }
+  }
  }
 }
