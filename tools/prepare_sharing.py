@@ -13,11 +13,11 @@ portrait = ('assets/pradeep-biswal-800.webp', 'Watercolor portrait of Pradeep Bi
 radio = ('assets/radio-memory-960.webp', 'A family listening together to an old wooden radio')
 reading = ('assets/reading-table-960.webp', 'Watercolor of an open book on a wooden table')
 choices = {
- 'essay-biotechnology-landscape-in-odisha': portrait,
- 'essay-why-cooperative-banks-ail': portrait,
- 'essay-subarnarekha-manoj-das': portrait,
- 'essay-from-soil-to-the-sky-sachi-routray': portrait,
- 'essay-contours-of-feminism-pratibha-ray': portrait,
+ 'essay-biotechnology-landscape-in-odisha': ('assets/published-work/biotechnology-landscape-in-odisha.webp', 'A scientist studying plant cultures in an Odisha laboratory'),
+ 'essay-why-cooperative-banks-ail': ('assets/published-work/why-cooperative-banks-ail.webp', 'A farmer and bank clerk reviewing a passbook'),
+ 'essay-subarnarekha-manoj-das': ('assets/published-work/subarnarekha-manoj-das.webp', 'Manoj Das'),
+ 'essay-from-soil-to-the-sky-sachi-routray': ('assets/published-work/from-soil-to-the-sky-sachi-routray.webp', 'Sachi Routray'),
+ 'essay-contours-of-feminism-pratibha-ray': ('assets/published-work/contours-of-feminism-pratibha-ray.webp', 'Pratibha Ray'),
 
  'index': portrait, 'about': portrait, 'contact': portrait, 'credits': portrait,
  'moderation': portrait, 'testimonials': portrait, 'video': portrait, 'interviewvideo': portrait, '404': portrait,
@@ -52,7 +52,7 @@ for path in sorted(ROOT.rglob('*.html')):
  for tag in list(head.find_all(['meta','link'])):
   if tag.get('property','').startswith('og:') or tag.get('name','').startswith('twitter:') or 'canonical' in tag.get('rel',[]):
    tag.decompose()
- data = {'og:type': 'article' if path.parent.name=='memories' else 'website', 'og:title': title, 'og:description': desc, 'og:url':canonical, 'og:site_name':'Pradeep Biswal', 'og:image':image_url, 'og:image:secure_url':image_url, 'og:image:type':'image/jpeg', 'og:image:width':str(im.width), 'og:image:height':str(im.height), 'og:image:alt':alt, 'twitter:card':'summary_large_image', 'twitter:title':title, 'twitter:description':desc, 'twitter:image':image_url, 'twitter:image:alt':alt}
+ data = {'og:type': 'article' if (path.parent.name=='memories' or path.stem.startswith('essay-')) else 'website', 'og:title': title, 'og:description': desc, 'og:url':canonical, 'og:site_name':'Pradeep Biswal', 'og:image':image_url, 'og:image:secure_url':image_url, 'og:image:type':'image/jpeg', 'og:image:width':str(im.width), 'og:image:height':str(im.height), 'og:image:alt':alt, 'twitter:card':'summary_large_image', 'twitter:title':title, 'twitter:description':desc, 'twitter:image':image_url, 'twitter:image:alt':alt}
  for key,value in data.items():
   tag=soup.new_tag('meta');tag['name' if key.startswith('twitter:') else 'property']=key;tag['content']=value;head.append(tag)
  tag=soup.new_tag('link',rel='canonical',href=canonical);head.append(tag)

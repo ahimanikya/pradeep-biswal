@@ -21,13 +21,16 @@ def video_player(r):
  if not match:return ''
  title=e(r.get('display_title',r['title']),quote=True)
  return '<div class="episode-player" data-video-id="'+match[1]+'" data-video-title="'+title+'" hidden><button class="episode-play" type="button" aria-label="Play '+title+'"><img class="episode-thumbnail" src="assets/video-previews/'+match[1]+'.webp" alt="" width="480" height="360" loading="lazy" decoding="async"/><svg aria-hidden="true" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="32" r="28"/><path d="m26 20 19 12-19 12Z"/></svg><span>'+('Play reading' if r['category']=='Author readings' else 'Play episode')+'</span><small>Watch here · YouTube</small></button></div>'
+def artwork(r):
+ if not r.get('image'):return ''
+ return '<img class="archive-art" src="'+e(r['image'],quote=True)+'" alt="'+e(r.get('image_alt',''),quote=True)+'" width="640" height="420" loading="lazy" decoding="async"/>'
 def card(r):
  label='Watch reading' if r['category']=='Author readings' else ('Watch podcast' if r.get('format')=='Podcast' else 'Watch interview') if r['category']=='Video interviews' else 'Read report' if r['category']=='Conversation reports' else 'Read at source'
  from datetime import datetime
  date=datetime.strptime(r['date'],'%Y-%m-%d').strftime('%d %b %Y').lstrip('0') if len(r['date'])==10 else datetime.strptime(r['date'],'%Y-%m').strftime('%b %Y') if r['date'] else ''
  meta=' · '.join(x for x in [r.get('display_publisher',r['publisher']),date,r.get('duration',''),r.get('format','')] if x)
  alt=''.join('<a class="archive-alternate" href="'+e(u,quote=True)+'" rel="noopener" target="_blank">Also published in '+('Words &amp; Worlds' if 'wordsandworlds' in u else 'Literary Vibes')+' '+arrow+'</a>' for u in r.get('alternate_urls',[]) if 'shalandi.in' not in u)
- return '<article class="archive-entry" id="'+e(r['id'],quote=True)+'">'+video_player(r)+'<p class="archive-meta">'+e(meta)+'</p><h3><a href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+e(r.get('display_title',r['title']))+'</a></h3><p class="archive-credit">'+e(r['credit'])+'</p><p>'+e(r['note'])+'</p><a class="text-link" href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+label+' '+arrow+'</a>'+alt+(reader_link(r['id']) if r['id'] in reader_ids else '')+'</article>'
+ return '<article class="archive-entry" id="'+e(r['id'],quote=True)+'">'+video_player(r)+artwork(r)+'<p class="archive-meta">'+e(meta)+'</p><h3><a href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+e(r.get('display_title',r['title']))+'</a></h3><p class="archive-credit">'+e(r['credit'])+'</p><p>'+e(r['note'])+'</p><a class="text-link" href="'+e(r['url'],quote=True)+'" rel="noopener" target="_blank">'+label+' '+arrow+'</a>'+alt+(reader_link(r['id']) if r['id'] in reader_ids else '')+'</article>'
 cats=['Author readings','Video interviews','Print interviews','Conversation reports','Book reviews','Published articles','Published poetry']
 def group(cat):
  items=sorted([x for x in rows if x['category']==cat],key=lambda x:x['date'],reverse=True)
@@ -45,12 +48,12 @@ def page(file,title,intro,body):
  s=re.sub(r'<link[^>]*href="literary-archive.css[^>]*>','',s)
  s=re.sub(r'<script[^>]*src="episode-player.js[^>]*></script>','',s)
  if 'data-video-id=' in body:s=s.replace('</body>','<script src="episode-player.js?v=20261010" defer></script></body>')
- s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261010-previews"/></head>')
+ s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261015-article-images"/></head>')
  if 'href="book-entry.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="book-entry.css?v=20261014"/></head>')
  (D/file).write_text(s)
 def author_essays():
  items=json.loads((R/'archive/research/author-supplied-essays.json').read_text())
- return '<section class="literary-section" id="author-supplied-essays"><h2>Author-supplied essays</h2><p>Essays shared by Pradeep Biswal. Original publication details are not yet confirmed.</p><div class="archive-grid">'+''.join('<article class="archive-entry"><p class="archive-meta">Author-supplied essay</p><h3><a href="essay-'+e(r['id'])+'.html">'+e(r['title'])+'</a></h3><p class="archive-credit">Pradeep Biswal</p><a class="text-link" href="essay-'+e(r['id'])+'.html">Read essay '+arrow+'</a></article>' for r in items)+'</div></section>'
+ return '<section class="literary-section" id="author-supplied-essays"><h2>Author-supplied essays</h2><p>Essays shared by Pradeep Biswal. Original publication details are not yet confirmed.</p><div class="archive-grid">'+''.join('<article class="archive-entry">'+artwork(r)+'<p class="archive-meta">Author-supplied essay</p><h3><a href="essay-'+e(r['id'])+'.html">'+e(r['title'])+'</a></h3><p class="archive-credit">Pradeep Biswal</p><a class="text-link" href="essay-'+e(r['id'])+'.html">Read essay '+arrow+'</a></article>' for r in items)+'</div></section>'
 page('literary-archive.html','Words in the World','Interviews, essays, poems and readings of Pradeep Biswal’s books, gathered from their original publishers.', '<nav class="archive-jump" aria-label="Browse by form">'+''.join('<a href="#'+c.lower().replace(' ','-')+'">'+e(c)+'</a>' for c in cats)+'<a href="#author-supplied-essays">Author-supplied essays</a></nav>'+''.join(group(c)+(author_essays() if c=='Published articles' else '') for c in cats)+'<p class="archive-note">A growing bibliography, updated '+research_date+'. Videos play here; source links open the original publication. Dates refer to publication or issue dates; the Aakhar report uses its upload month. <a href="data/literary-archive.csv" download>Download the catalogue</a>.</p>')
 topics=['Literature','Finance','Tourism','Education & Governance']
 def topic_group(topic):
