@@ -10,6 +10,9 @@ const params=new URLSearchParams(location.hash.slice(1));let invitation=params.g
 // Remove the bearer link from the address bar after reading; no third-party
 // analytics or embeds are present on this page.
 if(invitation)history.replaceState(null,'',location.pathname+location.search);
+// Pasting an invitation into an already open review tab is a hash navigation.
+// Reload so it follows the same validated entry flow (with unsaved-draft warning).
+window.addEventListener('hashchange',()=>{if(new URLSearchParams(location.hash.slice(1)).has('invite'))location.reload();});
 const ref=(...parts)=>doc(db,'editorialProjects',project,...parts);
 const group=name=>collection(db,'editorialProjects',project,name);
 const tell=(message,error=false)=>{$('notice').textContent=message;$('notice').classList.toggle('error',error);};
