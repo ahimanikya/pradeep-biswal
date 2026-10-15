@@ -14,7 +14,7 @@ const ref=(...parts)=>doc(db,'editorialProjects',project,...parts);
 const group=name=>collection(db,'editorialProjects',project,name);
 const tell=(message,error=false)=>{$('notice').textContent=message;$('notice').classList.toggle('error',error);};
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;};
-function friendly(e){if(e.code==='permission-denied')return 'Access is unavailable. Your invitation may have expired or been revoked. Ask the owner for a new link.';if(e.code==='auth/popup-closed-by-user')return 'Sign-in was closed. You can try again.';return 'Could not connect or save. Check your connection and try again. Your unsaved wording is still here.';}
+function friendly(e){if(['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].includes(e.code))return 'Please open this page in Chrome or another regular browser and allow the Google sign-in pop-up.';if(e.code==='review/not-member')return 'Use your invitation link, or sign in with the owner’s Google account.';if(e.code==='permission-denied')return 'Access is unavailable. Your invitation may have expired or been revoked. Ask the owner for a new link.';if(e.code==='auth/popup-closed-by-user')return 'Sign-in was closed. You can try again.';return 'Could not connect or save. Check your connection and try again. Your unsaved wording is still here.';}
 async function setup(){
  if(!db){const config=await fetch('reader-config.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('config');return r.json();});if(!config.enabled)throw Error('disabled');const app=initializeApp(config.firebase);if(config.recaptchaSiteKey)appCheck=initializeAppCheck(app,{provider:new ReCaptchaEnterpriseProvider(config.recaptchaSiteKey),isTokenAutoRefreshEnabled:true});db=getFirestore(app);auth=getAuth(app);}
  if(appCheck)await getToken(appCheck);await auth.authStateReady();
@@ -23,7 +23,7 @@ function access(){ $('access').hidden=false;$('join').hidden=!invitation;$('acce
 async function identify(){
  isOwner=(await getDoc(doc(db,'admins',auth.currentUser.uid))).exists();
  if(isOwner){actor=auth.currentUser.uid;reviewerName='Ahimanikya';return;}
- const member=await getDoc(ref('members',auth.currentUser.uid));if(!member.exists())throw Object.assign(Error('access'),{code:'permission-denied'});
+ const member=await getDoc(ref('members',auth.currentUser.uid));if(!member.exists())throw Object.assign(Error('access'),{code:'review/not-member'});
  const invite=(await getDoc(ref('invites',member.data().inviteId))).data();actor=member.data().inviteId;reviewerName=invite.label;
 }
 function option(value,title){const o=node('option',title);o.value=value;return o;}
@@ -110,4 +110,4 @@ $('export').onclick=()=>{const data={project,exportedAt:new Date().toISOString()
 $('invite').onclick=async()=>{const button=$('invite');button.disabled=true;try{const target=ref('invites','poet'),existing=await getDoc(target);let invite=existing.data();if(!invite?.active||invite.expiresAt.toMillis()<Date.now()){const bytes=crypto.getRandomValues(new Uint8Array(32));invite={label:'Pradeep Biswal',token:Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join(''),active:true,expiresAt:Timestamp.fromMillis(Date.now()+365*86400000)};await setDoc(target,invite);}activeInvite=target;$('invite-link').value=`${location.origin}${location.pathname}#invite=poet.${invite.token}`;$('invite-panel').hidden=false;}catch(e){tell(friendly(e),true);}finally{button.disabled=false;}};
 $('copy-invite').onclick=async()=>{try{await navigator.clipboard.writeText($('invite-link').value);tell('Invitation link copied. Share it directly with the poet.');}catch{$('invite-link').select();tell('Select and copy the invitation link above.');}};
 $('revoke').onclick=async()=>{try{await updateDoc(activeInvite,{active:false});$('invite-panel').hidden=true;$('invite-link').value='';tell('Invitation revoked. Devices using it can no longer read or save reviews.');}catch(e){tell(friendly(e),true);}};
-(async()=>{access();try{await setup();if(auth.currentUser&&!invitation)await openRoom();else tell('Choose how to enter the review room.');}catch(e){tell(friendly(e),true);}})();
+(async()=>{access();try{await setup();if(auth.currentUser&&!invitation)await openRoom();else tell('Choose how to enter the review room.');}catch(e){if(e.code==='review/not-member')tell('Choose how to enter the review room.');else tell(friendly(e),true);}})();
