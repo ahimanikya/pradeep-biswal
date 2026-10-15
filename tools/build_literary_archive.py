@@ -10,9 +10,12 @@ research_date=date.fromisoformat(data['researched_on']).strftime('%-d %B %Y')
 with (R/'archive/research/catalog.csv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=['id','category','title','publisher','credit','date','url','note','topic','format','evidence'],extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(rows)
 arrow='<span aria-hidden="true">↗</span>'
-reader_ids={r['id'] for r in json.loads((D/'collection-reader.json').read_text())}
+routes=json.loads((D/'book-routes.json').read_text())
+reader_ids=set(routes)
 def reader_link(id=None):
- return '<a class="text-link book-reader-link" href="reading-room.html'+('#'+e(id,quote=True) if id else '')+'">'+('Read in book' if id else 'Open Book')+' <span aria-hidden="true">↗</span></a>'
+ target=routes[id] if id else 'book.html#read-online'
+ return '<a class="text-link book-reader-link" href="'+e(target,quote=True)+'">'+('Read in book' if id else 'Read the books')+' <span aria-hidden="true">↗</span></a>'
+
 nav='<nav class="collection-links" aria-label="Archive collections"><a href="literary-archive.html">All publications</a><a href="interviewvideo.html">Podcasts &amp; interviews</a><a href="review.html">Book reviews</a><a href="memory.html">Missing Memories</a></nav>'
 nav=nav.replace('</nav>',reader_link()+'</nav>')
 def video_player(r):
@@ -53,7 +56,7 @@ def page(file,title,intro,body):
  (D/file).write_text(s)
 def author_essays():
  items=json.loads((R/'archive/research/author-supplied-essays.json').read_text())
- return '<section class="literary-section" id="author-supplied-essays"><h2>Author-supplied essays</h2><p>Essays shared by Pradeep Biswal. Original publication details are not yet confirmed.</p><div class="archive-grid">'+''.join('<article class="archive-entry">'+artwork(r)+'<p class="archive-meta">Author-supplied essay</p><h3><a href="essay-'+e(r['id'])+'.html">'+e(r['title'])+'</a></h3><p class="archive-credit">Pradeep Biswal</p><a class="text-link" href="essay-'+e(r['id'])+'.html">Read essay '+arrow+'</a></article>' for r in items)+'</div></section>'
+ return '<section class="literary-section" id="author-supplied-essays"><h2>Author-supplied essays</h2><p>Essays shared by Pradeep Biswal. Original publication details are not yet confirmed.</p><div class="archive-grid">'+''.join('<article class="archive-entry">'+artwork(r)+'<p class="archive-meta">Author-supplied essay</p><h3><a href="essay-'+e(r['id'])+'.html">'+e(r['title'])+'</a></h3><p class="archive-credit">Pradeep Biswal</p><a class="text-link" href="essay-'+e(r['id'])+'.html">Read essay '+arrow+'</a>'+(reader_link(r['id']) if r['id'] in reader_ids else '')+'</article>' for r in items)+'</div></section>'
 page('literary-archive.html','Words in the World','Interviews, essays, poems and readings of Pradeep Biswal’s books, gathered from their original publishers.', '<nav class="archive-jump" aria-label="Browse by form">'+''.join('<a href="#'+c.lower().replace(' ','-')+'">'+e(c)+'</a>' for c in cats)+'<a href="#author-supplied-essays">Author-supplied essays</a></nav>'+''.join(group(c)+(author_essays() if c=='Published articles' else '') for c in cats)+'<p class="archive-note">A growing bibliography, updated '+research_date+'. Videos play here; source links open the original publication. Dates refer to publication or issue dates; the Aakhar report uses its upload month. <a href="data/literary-archive.csv" download>Download the catalogue</a>.</p>')
 topics=['Literature','Finance','Tourism','Education & Governance']
 def topic_group(topic):

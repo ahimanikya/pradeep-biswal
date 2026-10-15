@@ -23,7 +23,8 @@ choices = {
  'author-review': portrait, 'moderation': portrait, 'testimonials': portrait, 'video': portrait, 'interviewvideo': portrait, '404': portrait,
  'memory': radio, 'book': reading, 'review': reading, 'poetry': reading,
  'note': portrait, 'review-drafts': portrait, 'literary-archive': reading,
- 'reading-room': ('assets/book/front-cover-sharing.jpg', 'Front cover of A Life Among People by Pradeep Biswal'),
+ 'reading-room': ('assets/books/missing-memories/front-cover-sharing.jpg', 'Front cover of Missing Memories by Pradeep Biswal'),
+ 'odisha-at-the-crossroads': ('assets/books/odisha-at-the-crossroads/front-cover-sharing.jpg', 'Front cover of Odisha at the Crossroads by Pradeep Biswal'),
  'gallery': ('assets/source-thumbs/034bbbebd1d64829.webp', 'Audience at a literary gathering in a bookshop'),
  'family': ('assets/source-thumbs/2388fd282d7d15f2.webp', 'Pradeep Biswal and a woman beneath a framed Jagannath artwork'),
  'achive': ('assets/source-thumbs/2d709601008817c2.webp', 'Certificate presentation at a RERA seminar'),
@@ -40,7 +41,7 @@ for path in sorted(ROOT.rglob('*.html')):
   alt = img.get('alt') or soup.h1.get_text(' ',strip=True)
  else:
   source, alt = choices[path.stem]
- target = ROOT/'assets/sharing'/f'{Path(source).stem}.jpg'
+ target = ROOT/'assets/sharing'/f'{path.stem}-{Path(source).stem}.jpg' if source.startswith('assets/books/') else ROOT/'assets/sharing'/f'{Path(source).stem}.jpg'
  im = Image.open(ROOT/source).convert('RGB')
  im.save(target, 'JPEG', quality=88, optimize=True)
  image_url = ORIGIN + '/' + target.relative_to(ROOT).as_posix()

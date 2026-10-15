@@ -453,5 +453,19 @@
     "source": "assets/published-work/contours-of-feminism-pratibha-ray.webp",
     "width": 489,
     "height": 640
+  },
+  {
+    "page": "reading-room.html",
+    "image": "assets/books/missing-memories/front-cover-sharing.jpg",
+    "source": "assets/books/missing-memories/front-cover-sharing.jpg",
+    "width": 901,
+    "height": 1350
+  },
+  {
+    "page": "odisha-at-the-crossroads.html",
+    "image": "assets/books/odisha-at-the-crossroads/front-cover-sharing.jpg",
+    "source": "assets/books/odisha-at-the-crossroads/front-cover-sharing.jpg",
+    "width": 901,
+    "height": 1350
   }
 ]

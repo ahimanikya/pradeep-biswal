@@ -12,7 +12,7 @@ The `pb` DNS CNAME points to `ahimanikya.github.io`. The custom domain is config
 
 ## Sharing images
 
-All 61 source pages have static Open Graph and Twitter card metadata, canonical URLs, and a local JPEG preview. Memory articles use their own existing banner; section pages use relevant existing artwork or the poet's portrait. `tools/sharing-images.json` records each association. The website's visible images and authored text are unchanged.
+All maintained source pages have static Open Graph and Twitter card metadata, canonical URLs, and a local JPEG preview. Memory articles use their own existing banner; section pages use relevant existing artwork or the poet's portrait. `tools/sharing-images.json` records each association. The website's visible images and authored text are unchanged.
 
 To refresh previews after changing artwork, install `beautifulsoup4` and `Pillow`, then run `python3 tools/prepare_sharing.py`. The regular publish build uses only the Python standard library.
 
@@ -35,3 +35,13 @@ Do not add a new homepage section for each publication, recording or announcemen
 ## Workspace housekeeping
 
 Generated `_site/`, Python caches and emulator debug logs are disposable and ignored by Git. Keep build screenshots and temporary review exports outside this repository. The current audit is `tools/audit-2026-10-10-end-of-day.json`; superseded audit snapshots have been removed. Preserve the source/research records and the unlisted `dist/review-drafts.html` page until the poet completes his review.
+
+## Two online books
+
+The Books page has a compact “Read online” shelf. `reading-room.html` is the 52-chapter **Missing Memories** reader; `odisha-at-the-crossroads.html` is the 43-chapter companion reader. Both remain working previews (`noindex`) while author decisions are open. The two-book integration is released through the GitHub Pages workflow after release checks. Author approval and print-production clearance remain separate.
+
+Each reader has a `book-config` JSON block, its own cover previews, and separate `dist/books/<book-id>/contents.json` and `text.json` files. The shared `collection-reader.js` provides reading tools. Chapter text follows the stage-7 working copies used in the Word/PDF manuscripts. Editorial notes and publication sources remain separate from article prose. Do not silently apply unresolved review suggestions.
+
+`dist/book-routes.json` maps all selected chapters and the consolidated Twin Tower alias. Old combined-reader hashes route to the right book. Local bookmarks and progress are namespaced per book; legacy chapter bookmarks migrate without deleting their originals. Old spread numbers are discarded because the new sequence changes pagination. The earlier 61-entry JSON files remain as compatibility/source records; `prepare_collection_reader.py` must not overwrite the new reader pages.
+
+Keep manuscript PDFs, Word files, review findings, correspondence and editorial archives outside `dist/`. The previously authorized shared review page is unchanged. Run the two-book tests alongside the standard release checks. Do not use the earlier single-book generator to resequence these books.

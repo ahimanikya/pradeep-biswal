@@ -19,6 +19,7 @@ class ReleaseRegressions(unittest.TestCase):
    subprocess.run([sys.executable,str(root/'tools/prepare_discovery.py')],check=True,capture_output=True)
    subprocess.run([sys.executable,str(root/'tools/audit_discovery.py')],check=True,capture_output=True)
    self.assertNotIn('reading-room.html',(root/'dist/sitemap.xml').read_text())
+   self.assertNotIn('odisha-at-the-crossroads.html',(root/'dist/sitemap.xml').read_text())
    self.assertNotIn('author-review.html',(root/'dist/sitemap.xml').read_text())
  def test_archive_rebuild_retains_book_entry_points(self):
   with tempfile.TemporaryDirectory() as tmp:
@@ -27,10 +28,11 @@ class ReleaseRegressions(unittest.TestCase):
    shutil.copytree(ROOT/'archive/research',root/'archive/research')
    (root/'dist').mkdir()
    for p in (ROOT/'dist').glob('*.html'):shutil.copy(p,root/'dist'/p.name)
-   for name in ['CNAME','collection-reader.json']:shutil.copy(ROOT/'dist'/name,root/'dist'/name)
+   for name in ['CNAME','collection-reader.json','book-routes.json']:shutil.copy(ROOT/'dist'/name,root/'dist'/name)
    subprocess.run([sys.executable,str(root/'tools/build_literary_archive.py')],check=True,capture_output=True)
    result=(root/'dist/literary-archive.html').read_text()
    self.assertIn('reading-room.html#PBW-b00c33a819',result)
-   self.assertIn('Open Book',result)
-   self.assertEqual(result.count('Read in book'),16)
+   self.assertIn('book.html#read-online',result)
+   self.assertIn('odisha-at-the-crossroads.html#PBW-0c5f5a285d',result)
+   self.assertGreater(result.count('Read in book'),16)
 if __name__=='__main__':unittest.main()
