@@ -18,3 +18,9 @@ export function validateResponse(status,comment,alternative){
  if(comment.length>12000||alternative.length>12000)return 'Please keep each response within 12,000 characters.';
  return '';
 }
+
+// Use order, not a list index: a just-approved item can leave the pending filter.
+export function adjacentReviewItem(matches,current,direction){
+ if(!current)return null;
+ return direction>0?matches.find(item=>item.order>current.order)||null:[...matches].reverse().find(item=>item.order<current.order)||null;
+}

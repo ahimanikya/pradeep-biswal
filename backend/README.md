@@ -73,6 +73,8 @@ Before broad launch, establish a private backup/restore procedure for Firestore 
 
 The existing owner signs in with Google and selects **Create poet’s review link**. The poet uses that revocable, one-year invitation without a Google or GitHub account. It is a bearer link: anyone receiving it can act under that invitation's reviewer name. The token is removed from the address bar on entry. Membership is checked against the active invitation on every protected operation, including token rotation and expiry. Owner access uses the existing `admins/{uid}` record; invitations never grant inbox or moderation access.
 
+The workspace displays one finding at a time. Previous/Next and Save & next follow the selected book and filters across chapter boundaries. Unfinished wording is retained in page memory when navigating between items. Chapter/filter choices, optional comments, full chapter text, and saved response history open on demand.
+
 Each response is immutable and bound to a SHA-256 fingerprint of the finding, recommendation, tracked changes, and chapter context. Further responses are appended; the latest response per reviewer is shown, with earlier responses available. Neither reviewer can overwrite the other's response. Approvals do not alter manuscripts or establish factual correctness. Export includes all saved response history. Unsaved input stays in page memory, with a warning before leaving; it is not a saved response.
 
 After running the security tests, deploy `firestore.rules`, then seed from the private payload:
