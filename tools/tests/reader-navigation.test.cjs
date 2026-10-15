@@ -2,9 +2,9 @@ const {test}=require('node:test');const assert=require('node:assert/strict');con
 const source=fs.readFileSync(path.resolve(__dirname,'../../dist/collection-reader.js'),'utf8');
 const layout=source.match(/function samePageLayout\(place\)\{[^\n]+/)[0];
 test('saved page positions apply only to an identical reading layout',()=>{
- const ctx={isBook:()=>true,frame:{clientWidth:1000,clientHeight:600},size:{value:'21'},illustrations:true};vm.createContext(ctx);vm.runInContext(layout,ctx);
- const place={width:1000,height:600,size:'21',illustrations:true};assert.equal(ctx.samePageLayout(place),true);
- for(const changes of [{width:800},{height:500},{size:'24'},{illustrations:false}])assert.equal(ctx.samePageLayout({...place,...changes}),false);
+ const ctx={bookConfig:{edition:'two-books'},isBook:()=>true,frame:{clientWidth:1000,clientHeight:600},size:{value:'21'},illustrations:true};vm.createContext(ctx);vm.runInContext(layout,ctx);
+ const place={edition:'two-books',width:1000,height:600,size:'21',illustrations:true};assert.equal(ctx.samePageLayout(place),true);
+ for(const changes of [{edition:'old'},{width:800},{height:500},{size:'24'},{illustrations:false}])assert.equal(ctx.samePageLayout({...place,...changes}),false);
  assert.equal(ctx.samePageLayout({}),false);ctx.isBook=()=>false;assert.equal(ctx.samePageLayout(place),false);
 });
 test('start from cover actually opens the cover and clears the saved place',async()=>{

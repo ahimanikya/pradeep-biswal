@@ -1,0 +1,44 @@
+"""Guard book membership, legacy routing and separate reader packages."""
+import unittest,json,re
+from pathlib import Path
+from html.parser import HTMLParser
+D=Path(__file__).resolve().parents[2]/'dist'
+class TwoBookTests(unittest.TestCase):
+ def test_each_book_has_one_complete_sequence_and_its_own_cover(self):
+  ids=[];covers=[]
+  for book,page,count in [('missing-memories','reading-room.html',52),('odisha-at-the-crossroads','odisha-at-the-crossroads.html',43)]:
+   raw=(D/page).read_text();cfg=json.loads(re.search(r'<script type="application/json" id="book-config">(.*?)</script>',raw,re.S)[1])
+   self.assertEqual(cfg['id'],book);self.assertEqual(cfg['page'],page)
+   entries=json.loads((D/cfg['contentsUrl']).read_text());texts=json.loads((D/cfg['textUrl']).read_text());chapters=[r for r in entries if 'chapter' in r]
+   self.assertEqual([r['chapter'] for r in chapters],list(range(1,count+1)))
+   self.assertEqual(set(texts),{r['id'] for r in chapters});ids.extend(texts)
+   self.assertEqual(sum(r.get('sectionOpening',False) for r in entries),8)
+   self.assertEqual(entries[0]['id'],'introduction')
+   self.assertIn('noindex,follow',raw)
+   for cover in cfg['covers']:
+    covers.append(cover['image']);self.assertTrue((D/cover['image']).is_file());self.assertIn(cfg['title'],cover['alt'])
+   for r in entries:
+    if r.get('image'):self.assertTrue((D/r['image']).is_file(),r['id'])
+    if r.get('srcset'):
+     for src in r['srcset'].split(','):self.assertTrue((D/src.strip().split()[0]).is_file(),src)
+   self.assertIn(cfg['covers'][0]['image'].replace('.webp','-sharing.jpg'),raw)
+  self.assertEqual(len(ids),95);self.assertEqual(len(set(ids)),95);self.assertEqual(len(set(covers)),4)
+  self.assertNotIn('PBW-c2d6ad005c',ids)
+ def test_old_book_links_resolve_to_an_existing_chapter(self):
+  routes=json.loads((D/'book-routes.json').read_text());old=json.loads((D/'collection-reader.json').read_text())
+  for r in old:self.assertIn(r['id'],routes)
+  for ident,target in routes.items():
+   page,anchor=target.split('#');raw=(D/page).read_text();self.assertIn('id="'+anchor+'"',raw)
+  self.assertTrue(routes['PBW-0c5f5a285d'].startswith('odisha-at-the-crossroads.html#'))
+  self.assertEqual(routes['PBW-e5ffc390eb'],routes['twin-tower-demolition-key-takeaways'])
+ def test_private_editorial_records_not_in_public_payload(self):
+  for p in (D/'books').rglob('*.json'):
+   raw=p.read_text()
+   for private in ['original_sha256','edited_sha256','working_changes','author_question','/Users/ahimanikya','Decision or evidence needed']:
+    self.assertNotIn(private,raw,p)
+ def test_all_article_links_have_correct_membership(self):
+  routes=json.loads((D/'book-routes.json').read_text())
+  for p in [*(D/'memories').glob('*.html'),*D.glob('essay-*.html')]:
+   ident=p.stem.removeprefix('essay-');self.assertIn(ident,routes)
+   self.assertIn(routes[ident],p.read_text(),p.name)
+if __name__=='__main__':unittest.main()

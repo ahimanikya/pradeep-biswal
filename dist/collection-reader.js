@@ -2,9 +2,11 @@
 const $=s=>document.querySelector(s);
 const title=$('#reader-title'),body=$('#reader-body'),status=$('#reader-status');
 const dialog=$('#reader-contents'),size=$('#reader-size'),art=$('#reader-art');
-const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}};
-const save=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));}catch{}};
-const covers=[{id:'front-cover',title:'A Life Among People',group:'Front cover',cover:true,image:'assets/book/front-cover.webp',alt:'A Life Among People — Recollections and Essays from Odisha, by Pradeep Biswal. Two men sit beneath a village tree.'},{id:'back-cover',title:'A Life Among People — Back cover',group:'Back cover',cover:true,image:'assets/book/back-cover-open-edition.webp',alt:'Back cover of A Life Among People, with Pradeep Biswal’s portrait and an Odisha village scene.'}];
+const bookConfig=JSON.parse($('#book-config').textContent);
+const storageKey=key=>['pb-collection-place','pb-collection-bookmarks'].includes(key)?key+':'+bookConfig.id:key;
+const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(storageKey(key)))??fallback;}catch{return fallback;}};
+const save=(key,value)=>{try{localStorage.setItem(storageKey(key),JSON.stringify(value));}catch{}};
+const covers=bookConfig.covers;
 let entries=[],current=null,generation=0,restoring=false;
 const frame=$('.book-window'), sheet=$('.reader-sheet'), layout=$('#reader-layout');
 const desktop=matchMedia('(min-width:1000px) and (min-height:650px)');
@@ -30,8 +32,8 @@ $('#reader-fullscreen').addEventListener('click',async()=>{try{if(document.fulls
 document.addEventListener('fullscreenchange',()=>{const label=document.fullscreenElement?'Exit full screen':'Enter full screen';$('#reader-fullscreen').setAttribute('aria-label',label);$('#reader-fullscreen').title=label;paginate();});
 let bookmarks=read('pb-collection-bookmarks',[]);if(!Array.isArray(bookmarks))bookmarks=[];
 function bookmarkState(){const saved=current&&bookmarks.some(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);$('#reader-bookmark').setAttribute('aria-pressed',String(!!saved));$('#reader-bookmark').title=saved?'Remove bookmark':'Bookmark this page';$('#reader-bookmark').setAttribute('aria-label',$('#reader-bookmark').title);}
-$('#reader-bookmark').addEventListener('click',()=>{if(!current)return;const i=bookmarks.findIndex(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);if(i>=0)bookmarks.splice(i,1);else bookmarks.push({id:current.id,title:current.title,spread,pagination:'continuous',width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations});save('pb-collection-bookmarks',bookmarks);bookmarkState();renderSaved();});
-function samePageLayout(place){return isBook()&&place.width===frame.clientWidth&&place.height===frame.clientHeight&&place.size===size.value&&place.illustrations===illustrations;}
+$('#reader-bookmark').addEventListener('click',()=>{if(!current)return;const i=bookmarks.findIndex(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);if(i>=0)bookmarks.splice(i,1);else bookmarks.push({id:current.id,title:current.title,spread,pagination:'continuous',width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations,edition:bookConfig.edition});save('pb-collection-bookmarks',bookmarks);bookmarkState();renderSaved();});
+function samePageLayout(place){return place.edition===bookConfig.edition&&isBook()&&place.width===frame.clientWidth&&place.height===frame.clientHeight&&place.size===size.value&&place.illustrations===illustrations;}
 function renderSaved(){const list=$('#reader-saved');list.replaceChildren();if(!bookmarks.length)list.textContent='No saved places yet.';for(const b of bookmarks){const button=document.createElement('button');button.type='button';button.textContent=b.title+(b.pagination==='continuous'&&samePageLayout(b)?' · page '+(b.spread*2+1):'');button.addEventListener('click',async()=>{closeSettings();await display(b.id);if(b.pagination==='continuous'&&samePageLayout(b))turn(b.spread);frame.focus({preventScroll:true});});list.append(button);}}
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -220,7 +222,7 @@ size.value=String(read('pb-collection-size',21));if(!sizes.includes(size.value))
 function settings(){document.documentElement.style.setProperty('--reader-size',size.value+'px');art.setAttribute('aria-pressed',String(illustrations));body.querySelectorAll('img').forEach(img=>img.hidden=!illustrations&&!current?.cover);}
 size.addEventListener('change',()=>{settings();save('pb-collection-size',Number(size.value));paginate();});
 art.addEventListener('click',()=>{illustrations=!illustrations;settings();save('pb-collection-art',illustrations);paginate();});
-function remember(){if(current&&!current.cover&&!restoring)save('pb-collection-place',{id:current.id,y:window.scrollY,spread,book:isBook(),width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations});}
+function remember(){if(current&&!current.cover&&!restoring)save('pb-collection-place',{id:current.id,y:window.scrollY,spread,book:isBook(),width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations,edition:bookConfig.edition});}
 let timer;window.addEventListener('scroll',()=>{clearTimeout(timer);timer=setTimeout(remember,160);},{passive:true});
 window.addEventListener('pagehide',remember);
 $('#contents-open').addEventListener('click',()=>{updateContentsPages();dialog.showModal();});
@@ -242,9 +244,9 @@ function safeContent(html){
 let bookContent=null,bookLoading=null,chapterStarts=[];
 function setEntryContext(entry){
  current=entry;bookContent?.querySelectorAll('.book-chapter').forEach(section=>section.toggleAttribute('data-current',section.dataset.article===entry.id));title.textContent=entry.title;$('#reader-group').textContent=entry.theme||entry.group;
- history.replaceState(null,'','#'+encodeURIComponent(entry.id));document.title=entry.title+' · Reading room · Pradeep Biswal';
+ history.replaceState(null,'','#'+encodeURIComponent(entry.id));document.title=entry.title+' · '+bookConfig.title+' · Pradeep Biswal';
  const source=$('#reader-source');source.replaceChildren();
- if(!entry.cover&&!entry.frontMatter){const link=document.createElement('a');link.href=entry.url||'#front-cover';link.textContent=entry.sourceLabel||(entry.publisher?'Originally published by '+entry.publisher:'Open article · comments and sharing');source.append(link);if(entry.date)source.append(document.createTextNode(' · '+entry.date));}
+ if(!entry.cover&&!entry.frontMatter){const link=document.createElement('a');link.href=entry.url||'#front-cover';link.textContent=entry.sourceLabel||(entry.publisher?'Originally published by '+entry.publisher:'Open article · comments and sharing');source.append(link);}
  const position=entries.indexOf(entry);
  for(const [selector,index,label] of [['#reader-prev',position-1,'← Previous article'],['#reader-next',position+1,'Next article →']]){
   const a=$(selector),target=entries[index];a.hidden=!target;
@@ -295,21 +297,25 @@ async function loadBook(){
  if(bookContent)return bookContent;
  if(bookLoading)return bookLoading;
  bookLoading=(async()=>{
-  const response=await fetch('collection-reader-text.json?v=20261014-continuous');if(!response.ok)throw new Error('Book unavailable');
+  const response=await fetch(bookConfig.textUrl+'?v='+bookConfig.edition);if(!response.ok)throw new Error('Book unavailable');
   const texts=await response.json(),container=document.createElement('div');container.className='book-chapters';
   for(const entry of entries.filter(e=>!e.cover)){
    const chapterHtml=entry.frontMatter?entry.html:texts[entry.id];
    if(typeof chapterHtml!=='string')throw new Error('Missing chapter');
-   const section=document.createElement('section');section.className='book-chapter';section.dataset.article=entry.id;
+   const section=document.createElement('section');section.className='book-chapter';section.dataset.article=entry.id;if(entry.sectionOpening)section.classList.add('book-section-opening');
    const heading=document.createElement('header');heading.className='chapter-heading';
-   const group=document.createElement('p');group.className='chapter-theme';group.textContent=entry.theme||entry.group;
+   const group=document.createElement('p');group.className='chapter-theme';group.textContent=entry.sectionOpening?'Section '+entry.id.split('-')[1]:entry.chapter?'Chapter '+entry.chapter:entry.group;
    const h=document.createElement('h2');h.textContent=entry.title;h.tabIndex=-1;heading.append(group,h);section.append(heading);
-   if(entry.image){const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt||'';img.width=1536;img.height=960;img.loading='lazy';img.decoding='async';img.srcset=`${entry.image.replace('.webp','-384.webp')} 384w, ${entry.image.replace('.webp','-640.webp')} 640w, ${entry.image} 1024w`;img.sizes='(max-width:600px) calc(100vw - 112px), 420px';img.src=entry.image.replace('.webp','-640.webp');img.fetchPriority='high';
+   if(entry.image){const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt||'';img.width=entry.width||1536;img.height=entry.height||960;img.loading='lazy';img.decoding='async';
+    if(entry.srcset){img.srcset=entry.srcset;img.sizes='(max-width:600px) calc(100vw - 48px), 420px';}
     if(entry.id==='the-golden-days')img.classList.add('reader-documentary-image');
     if(['pratibha-satpathy-myth-magic-memory-poetry','PBW-b00c33a819'].includes(entry.id))img.classList.add('reader-author-portrait');
     section.append(img);
    }
-   const prose=document.createElement('div');prose.className='chapter-prose';prose.append(...safeContent(chapterHtml));section.append(prose);container.append(section);
+   if(entry.editorialNote){const note=document.createElement('aside');note.className='chapter-editorial-note';const label=document.createElement('span');label.textContent='Editorial note · ';note.append(label,document.createTextNode(entry.editorialNote));section.append(note);}
+   const prose=document.createElement('div');prose.className='chapter-prose';prose.append(...safeContent(chapterHtml));section.append(prose);
+   if(!entry.frontMatter){const footer=document.createElement('p');footer.className='chapter-source';const source=entry.url?document.createElement('a'):document.createElement('span');if(entry.url)source.href=entry.url;source.textContent=entry.sourceLabel||'Pradeep Biswal';footer.append(source);section.append(footer);}
+   container.append(section);
   }
   bookContent=container;return container;
  })().catch(error=>{bookLoading=null;throw error;});
@@ -323,10 +329,10 @@ async function display(id,restore=false){
  try{
   if(entry.cover)body.replaceChildren();
   if(entry.cover){
-   const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt;img.width=1024;img.height=1536;img.decoding='async';img.srcset=`${entry.image.replace('.webp','-384.webp')} 384w, ${entry.image.replace('.webp','-640.webp')} 640w, ${entry.image} 1024w`;img.sizes='(max-width:600px) calc(100vw - 112px), 420px';img.src=entry.image.replace('.webp','-640.webp');img.fetchPriority='high';
-   const button=document.createElement('button');button.type='button';button.className='book-cover-button'+(entry.id==='back-cover'?' book-back-cover':'');button.setAttribute('aria-label',entry.id==='front-cover'?'Open A Life Among People':'Return to the front cover');const face=document.createElement('span');face.className='book-cover-face';face.append(img);button.append(face);
+   const img=document.createElement('img');img.src=entry.image;img.alt=entry.alt;img.width=entry.width;img.height=entry.height;img.decoding='async';img.srcset=`${entry.image.replace('.webp','-384.webp')} 384w, ${entry.image.replace('.webp','-640.webp')} 640w, ${entry.image} ${entry.width}w`;img.sizes='(max-width:600px) calc(100vw - 112px), 420px';img.src=entry.image.replace('.webp','-640.webp');img.fetchPriority='high';
+   const button=document.createElement('button');button.type='button';button.className='book-cover-button'+(entry.id==='back-cover'?' book-back-cover':'');button.setAttribute('aria-label',entry.id==='front-cover'?'Open '+bookConfig.title:'Return to the front cover');const face=document.createElement('span');face.className='book-cover-face';face.append(img);button.append(face);
    button.addEventListener('click',()=>{pageRustle();location.hash=entry.id==='front-cover'?entries[1].id:'front-cover';});body.append(button);
-   if(entry.id==='back-cover'){const copy=document.createElement('div');copy.className='cover-description';copy.textContent='A family radio, a bicycle, a conversation with a poet, a pension letter on an office desk. Pradeep Biswal returns to the people and encounters that have shaped his life. Moving from an Odisha village to literary gatherings and the working world of public service, these recollections and essays bring personal memory into conversation with public responsibility. These pieces trace a life among family, teachers, writers and colleagues, before turning to the questions of livelihoods, institutions and the common good. Pradeep Biswal: Poet, writer and former civil servant.';body.append(copy);}
+   if(entry.id==='back-cover'){const copy=document.createElement('div');copy.className='cover-description';copy.textContent=entry.description;body.append(copy);}
    await img.decode().catch(()=>{});if(ticket!==generation)return;paginate(true);status.textContent='';title.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});return;
   }
 
@@ -345,15 +351,29 @@ async function display(id,restore=false){
 }
 
 try{
- const [response,opening]=await Promise.all([fetch('collection-reader.json?v=20261014-desha-landscape'),fetch('book-introduction.json?v=20261014-introduction')]);if(!response.ok||!opening.ok)throw new Error('Index unavailable');entries=[covers[0],await opening.json(),...await response.json(),covers[1]];
+ const response=await fetch(bookConfig.contentsUrl+'?v='+bookConfig.edition);if(!response.ok)throw new Error('Index unavailable');entries=[covers[0],...await response.json(),covers[1]];
+ // The old combined-reader state remains intact. Only chapter anchors migrate;
+ // pixel positions and spread numbers cannot describe the newly sequenced books.
+ const legacy=key=>{try{return JSON.parse(localStorage.getItem(key));}catch{return null;}};
+ const belongs=id=>entries.some(e=>e.id===id&&!e.cover&&id!=='introduction');
+ if(!read('pb-collection-bookmarks',null)){
+  const previous=legacy('pb-collection-bookmarks');bookmarks=Array.isArray(previous)?previous.filter(b=>belongs(b.id)).map(b=>({id:b.id,title:entries.find(e=>e.id===b.id).title})):[];
+  save('pb-collection-bookmarks',bookmarks);
+ }
+ if(!read('pb-collection-place',null)){const previous=legacy('pb-collection-place');if(belongs(previous?.id))save('pb-collection-place',{id:previous.id});}
+
  const coverNav=document.createElement('p');for(const cover of covers){const a=document.createElement('a');a.href='#'+cover.id;a.textContent=cover.group;coverNav.append(a);}dialog.querySelector('nav').append(coverNav);
  for(const group of [...new Set(entries.filter(r=>!r.cover).map(r=>r.theme||r.group))]){
-  const heading=document.createElement('h3');heading.textContent=group;const list=document.createElement('ol');
-  entries.filter(r=>(r.theme||r.group)===group).forEach(r=>{const li=document.createElement('li'),a=document.createElement('a');a.href='#'+r.id;a.textContent=r.title;li.append(a);list.append(li);});dialog.querySelector('nav').append(heading,list);
+  const heading=document.createElement('h3');const section=entries.find(r=>r.sectionOpening&&r.group===group);if(section){const link=document.createElement('a');link.href='#'+section.id;link.textContent=group;heading.append(link);}else heading.textContent=group;const list=document.createElement('ol');
+  entries.filter(r=>!r.sectionOpening&&(r.theme||r.group)===group).forEach(r=>{const li=document.createElement('li'),a=document.createElement('a');a.href='#'+r.id;a.textContent=(r.chapter?r.chapter+'. ':'')+r.title;li.append(a);list.append(li);});dialog.querySelector('nav').append(heading,list);
  }
  $('#contents-open').hidden=false;$('.reader-turn').hidden=false;
- const hash=decodeURIComponent(location.hash.slice(1)),place=read('pb-collection-place',{});
- await display(hash||'front-cover');
- if(!hash||hash==='front-cover'||hash===place?.id)offerResume(place);
- window.addEventListener('hashchange',()=>{const id=decodeURIComponent(location.hash.slice(1));if(entries.some(r=>r.id===id))display(id);});
+ const decodeHash=()=>{try{return decodeURIComponent(location.hash.slice(1));}catch{return '';}};
+ function migrateHash(id){const target=bookConfig.routes[id];if(!target)return false;const [page,hash]=target.split('#');if(page!==bookConfig.page){location.replace(page+location.search+'#'+encodeURIComponent(hash));return true;}if(hash!==id)history.replaceState(null,'','#'+encodeURIComponent(hash));return false;}
+ let hash=decodeHash();const place=read('pb-collection-place',{});
+ if(migrateHash(hash))await new Promise(()=>{});
+ hash=decodeHash();
+ await display(hash||'front-cover');if(hash&&!entries.some(e=>e.id===hash))status.textContent='That reading place is unavailable. Choose a chapter from Contents.';
+ if(!hash)offerResume(place);
+ window.addEventListener('hashchange',()=>{const id=decodeHash();if(!migrateHash(id)&&entries.some(r=>r.id===decodeHash()))display(decodeHash());});
 }catch{document.body.classList.remove('cover-view','continuous-reading','book-view');body.replaceChildren($('#reader-fallback').content.cloneNode(true));status.textContent='The reader is unavailable. You can still open every article from the list below.';}

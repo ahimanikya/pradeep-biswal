@@ -120,6 +120,8 @@ def main():
     from html import escape
     page=DIST/'reading-room.html'
     markup=page.read_text()
+    if 'id="book-config"' in markup:
+        return  # Two-book pages are assembled from the manuscript sequence, not this legacy archive.
     items=''.join('<li id="'+escape(r['id'],quote=True)+'"><a href="'+escape(r['url'],quote=True)+'">'+escape(r['title'])+'</a></li>' for r in public)
     markup=re.sub(r'<ol>.*?</ol>','<ol>'+items+'</ol>',markup,count=1,flags=re.S)
     markup=re.sub(r'Reader preview · \d+ articles','Reader preview · '+str(len(public))+' articles',markup)

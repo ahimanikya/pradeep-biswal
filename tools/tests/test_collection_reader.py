@@ -45,16 +45,12 @@ class CollectionReaderTests(unittest.TestCase):
         for record in records:
             self.assertEqual(book[record['id']],record['html'],record['id'])
 
-    def test_fallback_index_matches_entire_book(self):
-        from html.parser import HTMLParser
-        class Index(HTMLParser):
-            ids=[]
-            def handle_starttag(self,tag,attrs):
-                if tag=='li' and dict(attrs).get('id'):self.ids.append(dict(attrs)['id'])
-        page=(DIST/'reading-room.html').read_text();parser=Index();parser.feed(page)
-        index=json.loads((DIST/'collection-reader.json').read_text())
-        self.assertEqual(parser.ids,[r['id'] for r in index])
-        self.assertIn(f'Reader preview · {len(index)} articles',page)
+    def test_fallback_index_matches_both_book_sequences(self):
+        for book,page,count in [('missing-memories','reading-room.html',52),('odisha-at-the-crossroads','odisha-at-the-crossroads.html',43)]:
+            text=(DIST/page).read_text()
+            entries=json.loads((DIST/'books'/book/'contents.json').read_text())
+            for entry in entries:self.assertIn('id="'+entry['id']+'"',text)
+            self.assertIn(f'Working book preview · {count} chapters',text)
 
     def test_author_manuscripts_preserve_text(self):
         from html import unescape
