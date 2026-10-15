@@ -13,6 +13,12 @@ portrait = ('assets/pradeep-biswal-800.webp', 'Watercolor portrait of Pradeep Bi
 radio = ('assets/radio-memory-960.webp', 'A family listening together to an old wooden radio')
 reading = ('assets/reading-table-960.webp', 'Watercolor of an open book on a wooden table')
 choices = {
+ 'essay-biotechnology-landscape-in-odisha': portrait,
+ 'essay-why-cooperative-banks-ail': portrait,
+ 'essay-subarnarekha-manoj-das': portrait,
+ 'essay-from-soil-to-the-sky-sachi-routray': portrait,
+ 'essay-contours-of-feminism-pratibha-ray': portrait,
+
  'index': portrait, 'about': portrait, 'contact': portrait, 'credits': portrait,
  'moderation': portrait, 'testimonials': portrait, 'video': portrait, 'interviewvideo': portrait, '404': portrait,
  'memory': radio, 'book': reading, 'review': reading, 'poetry': reading,
