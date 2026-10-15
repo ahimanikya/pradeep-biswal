@@ -16,8 +16,20 @@ for row in rows:
   s=re.sub(r'<meta\b(?=[^>]*(?:name|property)="'+re.escape(key)+r'")[^>]*>',lambda _,k=key,v=value:'<meta '+('property' if k.startswith('og:') else 'name')+'="'+k+'" content="'+escape(v,quote=True)+'"/>',s)
  s=re.sub(r'<link\b(?=[^>]*rel="canonical")[^>]*>','<link rel="canonical" href="'+url+'"/>',s)
  s=re.sub(r'<script\b[^>]*id="discovery-schema"[^>]*>.*?</script>','',s,flags=re.S)
+ image=row.get('image');figure=''
+ if image:
+  from PIL import Image
+  width,height=Image.open(D/image).size
+  credit=escape(row['image_credit'])
+  if row.get('image_source'):
+   credit='<a href="'+escape(row['image_source'],quote=True)+'">'+credit+'</a> · <a href="'+row['image_license']+'">CC BY 4.0</a> · Resized for display'
+  figure='<figure class="essay-art"><img src="'+image+'" alt="'+escape(row['image_alt'],quote=True)+'" width="'+str(width)+'" height="'+str(height)+'" fetchpriority="high"/><figcaption>'+credit+'</figcaption></figure>'
+  social=origin+'/assets/sharing/'+row['id']+'.jpg'
+  for key,value in [('og:image',social),('og:image:secure_url',social),('twitter:image',social),('og:image:alt',row['image_alt']),('twitter:image:alt',row['image_alt']),('og:image:width',str(width)),('og:image:height',str(height))]:
+   s=re.sub(r'<meta\b(?=[^>]*(?:name|property)="'+re.escape(key)+r'")[^>]*>',lambda _,k=key,v=value:'<meta '+('property' if k.startswith('og:') else 'name')+'="'+k+'" content="'+escape(v,quote=True)+'"/>',s)
+ s=s.replace('</head>','<link rel="stylesheet" href="essay-art.css?v=20261015"/></head>')
  body=''.join('<p>'+escape(p).replace('\n','<br/>')+'</p>' for p in re.split(r'\n\s*\n',row['text']) if p.strip())
- main='<main class="wrap inner-page" id="main" tabindex="-1"><article class="memory-story"><header class="memory-story-heading"><a class="memory-back" href="literary-archive.html#author-supplied-essays">← Author-supplied essays</a><h1>'+escape(title)+'</h1><p class="memory-byline">Pradeep Biswal</p><p class="archive-meta">Author-supplied essay · Original publication details not confirmed</p></header><div class="memory-story-copy">'+body+'</div><p class="memory-back"><a href="literary-archive.html#author-supplied-essays">Browse more essays →</a></p></article></main>'
+ main='<main class="wrap inner-page" id="main" tabindex="-1"><article class="memory-story"><header class="memory-story-heading"><a class="memory-back" href="literary-archive.html#author-supplied-essays">← Author-supplied essays</a><h1>'+escape(title)+'</h1><p class="memory-byline">Pradeep Biswal</p><p class="archive-meta">Author-supplied essay · Original publication details not confirmed</p></header>'+figure+'<div class="memory-story-copy">'+body+'</div><p class="memory-back"><a href="literary-archive.html#author-supplied-essays">Browse more essays →</a></p></article></main>'
  s=re.sub(r'<main\b.*?</main>',lambda _:main,s,flags=re.S)
  s=re.sub(r'<footer\b.*?</footer>',lambda _:(R/'templates/article-footer.html').read_text().strip(),s,flags=re.S)
  s=s.replace('styles.css?v=20261010-simple-comments','styles.css?v=20261015-simple-footer')
