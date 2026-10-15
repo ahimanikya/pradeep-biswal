@@ -19,6 +19,7 @@ class ReleaseRegressions(unittest.TestCase):
    subprocess.run([sys.executable,str(root/'tools/prepare_discovery.py')],check=True,capture_output=True)
    subprocess.run([sys.executable,str(root/'tools/audit_discovery.py')],check=True,capture_output=True)
    self.assertNotIn('reading-room.html',(root/'dist/sitemap.xml').read_text())
+   self.assertNotIn('author-review.html',(root/'dist/sitemap.xml').read_text())
  def test_archive_rebuild_retains_book_entry_points(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);(root/'tools').mkdir()

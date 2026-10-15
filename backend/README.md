@@ -66,3 +66,19 @@ Scoped CLI overrides address dependencies still vulnerable in the upstream relea
 The Backend security checks workflow installs the lockfile on Node 24 / npm 11.13.0 / Temurin 21, runs the full audit, compatibility tests, security-rule tests and browser build, and checks that the generated browser bundle matches Git. It requires no production credentials. Audit results are a point-in-time dependency check, not a guarantee against all vulnerabilities.
 
 Before broad launch, establish a private backup/restore procedure for Firestore submissions and the moderation role. GitHub backups do not include this data. Never put private inbox exports in this public repository.
+
+## Shared editorial review
+
+`/author-review.html` is an unlinked, noindex review room. Its public shell contains no manuscript or review findings. The private corpus is in `editorialProjects/two-books-2026`; build its payload outside this public Git repository using `editorial/two-books/tools/build_shared_review.py` in the parent workspace.
+
+The existing owner signs in with Google and selects **Create poet’s review link**. The poet uses that revocable, one-year invitation without a Google or GitHub account. It is a bearer link: anyone receiving it can act under that invitation's reviewer name. The token is removed from the address bar on entry. Membership is checked against the active invitation on every protected operation, including token rotation and expiry. Owner access uses the existing `admins/{uid}` record; invitations never grant inbox or moderation access.
+
+Each response is immutable and bound to a SHA-256 fingerprint of the finding, recommendation, tracked changes, and chapter context. Further responses are appended; the latest response per reviewer is shown, with earlier responses available. Neither reviewer can overwrite the other's response. Approvals do not alter manuscripts or establish factual correctness. Export includes all saved response history. Unsaved input stays in page memory, with a warning before leaving; it is not a saved response.
+
+After running the security tests, deploy `firestore.rules`, then seed from the private payload:
+
+```
+node tools/seed-editorial-review.cjs ../../editorial/two-books/shared-review/payload.json
+```
+
+The seed uses the authenticated Firebase CLI owner. It never modifies responses or invitations. The project's current item manifest determines which findings are displayed; archived documents can remain for history. Do not publish the payload, invitation tokens, browser exports, or manuscript files in this repository. No production App Check bypass is provided. Browser testing uses an isolated, temporary emulator bundle; production remains protected by the existing reCAPTCHA Enterprise App Check configuration.

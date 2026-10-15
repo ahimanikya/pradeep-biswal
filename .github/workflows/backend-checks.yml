@@ -2,9 +2,9 @@ name: Backend security checks
 on:
   push:
     branches: [main]
-    paths: ['backend/**', 'dist/community.js', '.github/workflows/backend-checks.yml']
+    paths: ['backend/**', 'dist/community.js', 'dist/author-review.js', '.github/workflows/backend-checks.yml']
   pull_request:
-    paths: ['backend/**', 'dist/community.js', '.github/workflows/backend-checks.yml']
+    paths: ['backend/**', 'dist/community.js', 'dist/author-review.js', '.github/workflows/backend-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -36,4 +36,4 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Verify the committed browser bundle
-        run: git diff --exit-code -- ../dist/community.js
+        run: git diff --exit-code -- ../dist/community.js ../dist/author-review.js
