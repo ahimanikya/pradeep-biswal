@@ -27,7 +27,7 @@ website={'@type':'WebSite','@id':ORIGIN+'/#website','url':ORIGIN+'/','name':'Pra
 entries=[]
 for p in sorted(SOURCE.rglob('*.html')):
  raw=p.read_text();d=Extract(raw);title=' '.join(''.join(d.title).split()).rstrip('.')
- public=p.name not in EXCLUDE;article=p.parent.name=='memories';url=d.canonical
+ public=p.name not in EXCLUDE;article=p.parent.name=='memories' or p.name.startswith('essay-');essay=p.name.startswith('essay-');url=d.canonical
  robots='index,follow,max-image-preview:large' if public else 'noindex,follow'
  raw=re.sub(r'<meta\b(?=[^>]*\bname="robots")[^>]*>',lambda _:f'<meta name="robots" content="{robots}"/>',raw)
  raw=re.sub(r'<script\b[^>]*id="discovery-schema"[^>]*>.*?</script>','',raw,flags=re.S)
@@ -37,15 +37,15 @@ for p in sorted(SOURCE.rglob('*.html')):
   graph=[website,person,page]
   if p.name=='about.html':page['mainEntity']={'@id':person['@id']}
   if article:
-   item={'@type':'Article','@id':url+'#article','headline':title,'description':d.meta['description'],'author':{'@id':person['@id']},'publisher':{'@id':person['@id']},'image':[d.meta['og:image']],'inLanguage':'en','mainEntityOfPage':{'@id':page['@id']},'isPartOf':{'@id':ORIGIN+'/memory.html#webpage'}}
+   item={'@type':'Article','@id':url+'#article','headline':title,'description':d.meta['description'],'author':{'@id':person['@id']},'publisher':{'@id':person['@id']},'image':[d.meta['og:image']],'inLanguage':'en','mainEntityOfPage':{'@id':page['@id']},'isPartOf':{'@id':ORIGIN+('/literary-archive.html#webpage' if essay else '/memory.html#webpage')}}
    page['mainEntity']={'@id':item['@id']};graph.append(item)
   if p.name!='index.html':
    crumbs=[{'@type':'ListItem','position':1,'name':'Home','item':ORIGIN+'/'}]
-   if article:crumbs.append({'@type':'ListItem','position':2,'name':'Missing Memories','item':ORIGIN+'/memory.html'})
+   if article:crumbs.append({'@type':'ListItem','position':2,'name':'Published Work' if essay else 'Missing Memories','item':ORIGIN+('/literary-archive.html' if essay else '/memory.html')})
    crumbs.append({'@type':'ListItem','position':len(crumbs)+1,'name':title,'item':url})
    crumb={'@type':'BreadcrumbList','@id':url+'#breadcrumbs','itemListElement':crumbs};graph.append(crumb);page['breadcrumb']={'@id':crumb['@id']}
   raw=raw.replace('</head>',tag_json({'@context':'https://schema.org','@graph':graph})+'</head>',1)
-  entries.append({'title':title,'url':url,'article':article})
+  entries.append({'title':title,'url':url,'article':article,'essay':essay})
  p.write_text(raw)
 namespace='http://www.sitemaps.org/schemas/sitemap/0.9';ET.register_namespace('',namespace)
 sitemap=ET.Element('{'+namespace+'}urlset')
@@ -55,6 +55,8 @@ ET.indent(sitemap);ET.ElementTree(sitemap).write(SOURCE/'sitemap.xml',encoding='
 lines=['# Pradeep Biswal','','> Poetry, books, memoirs and photographs from Pradeep Biswal, a poet writing in Odia and English, translator, and editor of Kabita Live.','','The linked HTML pages are the canonical sources. Article text is available without JavaScript. Reader comments are moderated visitor contributions, separate from the author’s writing.','','## Main pages','']
 lines += [f'- [{x["title"]}]({x["url"]})' for x in entries if not x['article']]
 lines += ['','## Missing Memories — articles','']
-lines += [f'- [{x["title"]}]({x["url"]})' for x in entries if x['article']]
+lines += [f'- [{x["title"]}]({x["url"]})' for x in entries if x['article'] and not x['essay']]
+lines += ['','## Author-supplied essays','']
+lines += [f'- [{x["title"]}]({x["url"]})' for x in entries if x['essay']]
 (SOURCE/'llms.txt').write_text('\n'.join(lines)+'\n')
 print(f'Prepared {len(entries)} indexable pages; excluded {len(EXCLUDE)} utility or unfinished pages. No publication dates invented.')

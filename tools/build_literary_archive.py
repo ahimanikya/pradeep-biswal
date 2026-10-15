@@ -2,9 +2,11 @@
 from pathlib import Path
 from html import escape as e
 import json,re,shutil,csv
+from datetime import date
 R=Path(__file__).resolve().parents[1];D=R/'dist'
 ORIGIN='https://'+(D/'CNAME').read_text().strip()
 data=json.loads((R/'archive/research/catalog.json').read_text());rows=data['records']
+research_date=date.fromisoformat(data['researched_on']).strftime('%-d %B %Y')
 with (R/'archive/research/catalog.csv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=['id','category','title','publisher','credit','date','url','note','topic','format','evidence'],extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(rows)
 arrow='<span aria-hidden="true">↗</span>'
@@ -46,7 +48,10 @@ def page(file,title,intro,body):
  s=s.replace('</head>','<link rel="stylesheet" href="literary-archive.css?v=20261010-previews"/></head>')
  if 'href="book-entry.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="book-entry.css?v=20261014"/></head>')
  (D/file).write_text(s)
-page('literary-archive.html','Words in the World','Interviews, essays, poems and readings of Pradeep Biswal’s books, gathered from their original publishers.', '<nav class="archive-jump" aria-label="Browse by form">'+''.join('<a href="#'+c.lower().replace(' ','-')+'">'+e(c)+'</a>' for c in cats)+'</nav>'+''.join(group(c) for c in cats)+'<p class="archive-note">A growing bibliography, researched 10 October 2026. Videos play here; source links open the original publication. Dates refer to publication or issue dates; the Aakhar report uses its upload month. <a href="data/literary-archive.csv" download>Download the catalogue</a>.</p>')
+def author_essays():
+ items=json.loads((R/'archive/research/author-supplied-essays.json').read_text())
+ return '<section class="literary-section" id="author-supplied-essays"><h2>Author-supplied essays</h2><p>Essays shared by Pradeep Biswal. Original publication details are not yet confirmed.</p><div class="archive-grid">'+''.join('<article class="archive-entry"><p class="archive-meta">Author-supplied essay</p><h3><a href="essay-'+e(r['id'])+'.html">'+e(r['title'])+'</a></h3><p class="archive-credit">Pradeep Biswal</p><a class="text-link" href="essay-'+e(r['id'])+'.html">Read essay '+arrow+'</a></article>' for r in items)+'</div></section>'
+page('literary-archive.html','Words in the World','Interviews, essays, poems and readings of Pradeep Biswal’s books, gathered from their original publishers.', '<nav class="archive-jump" aria-label="Browse by form">'+''.join('<a href="#'+c.lower().replace(' ','-')+'">'+e(c)+'</a>' for c in cats)+'<a href="#author-supplied-essays">Author-supplied essays</a></nav>'+''.join(group(c)+(author_essays() if c=='Published articles' else '') for c in cats)+'<p class="archive-note">A growing bibliography, updated '+research_date+'. Videos play here; source links open the original publication. Dates refer to publication or issue dates; the Aakhar report uses its upload month. <a href="data/literary-archive.csv" download>Download the catalogue</a>.</p>')
 topics=['Literature','Finance','Tourism','Education & Governance']
 def topic_group(topic):
  items=sorted([r for r in rows if r.get('topic')==topic and r['category']=='Video interviews'],key=lambda r:r['date'],reverse=True)
