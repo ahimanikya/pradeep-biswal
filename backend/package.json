@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "esbuild src/community.js src/author-review.js --bundle --minify --format=esm --outdir=../dist",
-    "test": "firebase emulators:exec --only firestore --project demo-pradeep-biswal \"node --test --test-concurrency=1 test/rules.test.js test/editorial-rules.test.js test/review-model.test.js\"",
+    "test": "firebase emulators:exec --only firestore --project demo-pradeep-biswal \"node --test --test-concurrency=1 test/rules.test.js test/editorial-rules.test.js test/review-model.test.js test/private-backup.test.cjs\"",
     "test:tools": "node --test test/toolchain.test.js"
   },
   "dependencies": {
