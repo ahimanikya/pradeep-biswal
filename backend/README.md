@@ -65,7 +65,24 @@ Scoped CLI overrides address dependencies still vulnerable in the upstream relea
 
 The Backend security checks workflow installs the lockfile on Node 24 / npm 11.13.0 / Temurin 21, runs the full audit, compatibility tests, security-rule tests and browser build, and checks that the generated browser bundle matches Git. It requires no production credentials. Audit results are a point-in-time dependency check, not a guarantee against all vulnerabilities.
 
-Before broad launch, establish a private backup/restore procedure for Firestore submissions and the moderation role. GitHub backups do not include this data. Never put private inbox exports in this public repository.
+Private Firestore backup and local restoration verification are available in `tools/private-backup.cjs`. GitHub does not contain reader data. See the procedure below; never put private inbox exports in this public repository.
+
+## Private backup and recovery check
+
+Run from `backend` using the authenticated Firebase CLI owner. Choose a new, private destination outside this public repository for each export:
+
+```sh
+node tools/private-backup.cjs export /absolute/private/location/dated-backup
+node node_modules/firebase-tools/lib/bin/firebase.js emulators:exec --only firestore --project demo-pradeep-biswal 'node tools/private-backup.cjs verify-restore /absolute/private/location/dated-backup/firestore.json 127.0.0.1:8085 demo-pb-backup-check'
+```
+
+The first command reads production at one snapshot time and follows all document/subcollection pages, including subcollections whose parent documents do not exist. It preserves Firestore field types and large integer strings. The destination directory is owner-only (0700), files are owner-only (0600), and existing exports are never overwritten. A SHA-256 checksum detects accidental corruption. The second command writes only to an empty local emulator under a `demo-` project, then compares every document path and field value. It refuses a real project, remote host or populated target. There is deliberately no production-restore command. No private values are printed.
+
+This is a document-level recovery copy, not a managed Firestore service export. Document creation/update metadata is recorded but server metadata changes on restoration. Field-level timestamps are preserved. It includes inbox submissions, comments, likes, admin-role documents and shared editorial records present at the snapshot. It does **not** back up Firebase Authentication users, rules, indexes, App Check configuration or account credentials. Rules/indexes are versioned here; recovering owner access also requires the original Firebase Authentication identity. A production recovery must be planned against the target project and existing data, with writes paused and conflicts reviewed before any write.
+
+Keep an encrypted second copy in an owner-controlled location, restrict access, and define retention before relying on this as disaster recovery. This repository does not schedule live exports or hold production credentials. Re-run the export and isolated restoration check after important review activity and before backend migrations. The emulator test suite uses synthetic data only.
+
+On 17 October 2026, the owner workspace captured 684 production documents to a private local folder and verified all 684 paths and field values through an isolated emulator restoration. Production data was not modified. This point-in-time check does not include later submissions or constitute an off-device backup.
 
 ## Shared editorial review
 
