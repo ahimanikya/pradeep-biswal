@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="240" height="110" preserveAspectRatio="xMinYMin meet" viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="240" height="110"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-110)" style="clip-path: url(#clip)">
+		<g transform="">
+			<ellipse cx="120.0" cy="31.0" rx="49.0" ry="13.0" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+			<path d="M 71 31 L 73 22 C 90 7 151 7 167 22 L 169 31 M 118 32 C 115 55 122 75 135 89 M 119 55 C 101 52 92 61 92 72 C 108 72 117 66 119 55 M 122 68 C 138 64 151 74 154 86 C 139 88 126 79 122 68 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

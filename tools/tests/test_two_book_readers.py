@@ -23,6 +23,9 @@ class TwoBookTests(unittest.TestCase):
     covers.append(cover['image']);self.assertTrue((D/cover['image']).is_file());self.assertIn(cfg['title'],cover['alt'])
    for r in entries:
     if r.get('image'):self.assertTrue((D/r['image']).is_file(),r['id'])
+    if r.get('closingArt'):
+     path=D/r['closingArt'];self.assertTrue(path.is_file(),r['id'])
+     self.assertEqual(path.suffix,'.svg');self.assertLess(path.stat().st_size,16000)
     if r.get('srcset'):
      for src in r['srcset'].split(','):self.assertTrue((D/src.strip().split()[0]).is_file(),src)
    self.assertIn(cfg['covers'][0]['image'].replace('.webp','-sharing.jpg'),raw)

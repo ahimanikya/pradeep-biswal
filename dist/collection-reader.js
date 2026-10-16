@@ -162,21 +162,41 @@ function turn(to,animate=false,entryHint=null){
  if(animate&&direction&&isBook())pageRustle();
  if(current&&!restoring)remember();
 }
+function fitClosingArt(){
+ const drawings=[...body.querySelectorAll('.chapter-closing-art')];
+ drawings.forEach(drawing=>drawing.hidden=true);
+ if(!illustrations)return;
+ if(!isBook()){drawings.forEach(drawing=>drawing.hidden=false);return;}
+ const bounds=frame.getBoundingClientRect();
+ for(const drawing of drawings){
+  const marker=drawing.previousElementSibling;
+  const preceding=marker.previousElementSibling;
+  const range=document.createRange();range.selectNodeContents(preceding);
+  const last=[...range.getClientRects()].at(-1),position=marker.getBoundingClientRect();
+  // Never move a drawing onto a page without its closing text.
+  if(!last||position.left>last.right+64||bounds.bottom-position.top<116)continue;
+  drawing.hidden=false;
+  const placed=drawing.getBoundingClientRect();
+  if(placed.left>position.right||placed.bottom>bounds.bottom+1)drawing.hidden=true;
+ }
+}
 function paginate(reset=false){
  cancelPaperTurn();
  const progress=spreadCount>1?spread/(spreadCount-1):0;
  const context=current;
+ const enteringBook=isBook()&&!document.body.classList.contains('book-view');
  document.body.classList.toggle('book-view',isBook());
  layout.setAttribute('aria-pressed',String(bookPreferred));
  layout.textContent='Book view';
  layout.title=bookPreferred?'Switch to scrolling view':'Switch to a two-page book';
  layout.hidden=!desktop.matches;
  $('.book-turn').hidden=!isBook();
- if(!isBook()){frame.scrollLeft=0;if(!panel.hidden)renderSaved();return;}
+ if(!isBook()){fitClosingArt();frame.scrollLeft=0;if(!panel.hidden)renderSaved();return;}
  if(current?.cover){pageCount=1;spreadCount=1;endMarker.style.left='0px';turn(0);return;}
  // Two columns fill each spread; the extra gutter separates consecutive spreads.
  const width=frame.clientWidth;
  sheet.style.setProperty('--page-width',((width-64)/2)+'px');
+ fitClosingArt();
  pageCount=Math.max(1,Math.round((sheet.scrollWidth+64)/((width-64)/2+64)));
  spreadCount=Math.ceil(pageCount/2);
  const pitch=(width+64)/2;
@@ -184,7 +204,9 @@ function paginate(reset=false){
  endMarker.style.left=(spreadCount*(width+64)-65)+'px';
  updateContentsPages();
  if(!panel.hidden)renderSaved();
- turn(reset?0:Math.round(progress*(spreadCount-1)),false,reset?context:null);
+ const contextPage=enteringBook?chapterStarts.find(chapter=>chapter.id===context?.id)?.page:null;
+ const target=contextPage==null?Math.round(progress*(spreadCount-1)):Math.floor(contextPage/2);
+ turn(reset?0:target,false,reset||enteringBook?context:null);
 }
 layout.addEventListener('click',()=>{const id=current?.id;bookPreferred=!bookPreferred;save('pb-collection-book',bookPreferred);if(id)display(id);else paginate();});
 async function step(direction){
@@ -315,6 +337,11 @@ async function loadBook(){
    if(entry.editorialNote){const note=document.createElement('aside');note.className='chapter-editorial-note';const label=document.createElement('span');label.textContent='Editorial note · ';note.append(label,document.createTextNode(entry.editorialNote));section.append(note);}
    const prose=document.createElement('div');prose.className='chapter-prose';prose.append(...safeContent(chapterHtml));section.append(prose);
    if(bookConfig.showPublicationSources!==false&&!entry.frontMatter){const footer=document.createElement('p');footer.className='chapter-source';const source=entry.url?document.createElement('a'):document.createElement('span');if(entry.url)source.href=entry.url;source.textContent=entry.sourceLabel||'Pradeep Biswal';footer.append(source);section.append(footer);}
+   if(entry.closingArt){
+    const marker=document.createElement('span');marker.className='chapter-art-position';marker.setAttribute('aria-hidden','true');
+    const drawing=document.createElement('div');drawing.className='chapter-closing-art';drawing.hidden=true;drawing.setAttribute('aria-hidden','true');
+    const image=document.createElement('img');image.src=entry.closingArt;image.alt='';image.width=240;image.height=110;image.loading='lazy';image.decoding='async';drawing.append(image);section.append(marker,drawing);
+   }
    container.append(section);
   }
   bookContent=container;return container;

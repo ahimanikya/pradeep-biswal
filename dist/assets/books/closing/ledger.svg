@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="240" height="110" preserveAspectRatio="xMinYMin meet" viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="240" height="110"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-110)" style="clip-path: url(#clip)">
+		<g transform="">
+			<path d="M 55 30 L 59 88 C 87 90 105 83 122 72 C 141 84 166 85 187 83 L 182 25 C 158 27 140 29 119 19 C 100 30 79 34 55 30 M 122 72 L 119 19 M 66 75 C 83 75 99 69 110 62 M 66 64 C 82 65 96 59 109 52 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+			<path d="M 136,41 L 137,64 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 150,41 L 151,64 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 164,41 L 165,64 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 132,41 L 176,41 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 130,53 L 177,53 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 132,65 L 179,65 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 177 15 L 207 83 L 212 81 L 183 15 L 178 10 L 177 15 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

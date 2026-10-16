@@ -178,3 +178,13 @@
 .reader-sheet .book-title-credit span{font-size:1.15em}
 .book-view .book-title-page + .book-chapter{break-before:column;padding-top:0}
 @media print{.book-title-page + .book-chapter{break-before:page;page-break-before:always}}
+/* Every essay and part has its own opening; no forced right-hand blank pages. */
+.collection-reader #reader-body .chapter-prose::after{display:none}
+.book-view .book-chapter+.book-chapter{break-before:column;padding-top:0}
+.book-view .book-section-opening .chapter-heading{padding-top:clamp(28px,8vh,80px)}
+.chapter-art-position{display:block;height:0;margin:0;padding:0}
+.reader-sheet .chapter-closing-art{width:210px;max-width:70%;height:112px;margin:0 auto;padding:16px 0 0;break-inside:avoid;box-sizing:border-box}
+.reader-sheet .chapter-closing-art[hidden]{display:none}
+.reader-sheet .chapter-closing-art img{display:block;width:100%;height:auto;max-height:96px;object-fit:contain;margin:0}
+.reader-dark .chapter-closing-art img{filter:brightness(1.8)}
+@media print{.book-chapter+.book-chapter{break-before:page;page-break-before:always;padding-top:0}.chapter-closing-art{break-inside:avoid}}
