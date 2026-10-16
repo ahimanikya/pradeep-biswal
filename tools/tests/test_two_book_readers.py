@@ -13,7 +13,11 @@ class TwoBookTests(unittest.TestCase):
    self.assertEqual([r['chapter'] for r in chapters],list(range(1,count+1)))
    self.assertEqual(set(texts),{r['id'] for r in chapters});ids.extend(texts)
    self.assertEqual(sum(r.get('sectionOpening',False) for r in entries),8)
-   self.assertEqual(entries[0]['id'],'introduction')
+   self.assertEqual(entries[0]['id'],'title-page')
+   self.assertTrue(entries[0]['titlePage'])
+   self.assertIn('Ahimanikya Satapathy',entries[0]['html'])
+   self.assertEqual(entries[1]['id'],'introduction')
+   self.assertIn('Editing, Introduction & Cover Design',cfg['covers'][1]['description'])
    self.assertIn('noindex,follow',raw)
    for cover in cfg['covers']:
     covers.append(cover['image']);self.assertTrue((D/cover['image']).is_file());self.assertIn(cfg['title'],cover['alt'])

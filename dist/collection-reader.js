@@ -302,7 +302,7 @@ async function loadBook(){
   for(const entry of entries.filter(e=>!e.cover)){
    const chapterHtml=entry.frontMatter?entry.html:texts[entry.id];
    if(typeof chapterHtml!=='string')throw new Error('Missing chapter');
-   const section=document.createElement('section');section.className='book-chapter';section.dataset.article=entry.id;if(entry.sectionOpening)section.classList.add('book-section-opening');
+   const section=document.createElement('section');section.className='book-chapter';section.dataset.article=entry.id;if(entry.sectionOpening)section.classList.add('book-section-opening');if(entry.titlePage)section.classList.add('book-title-page');
    const heading=document.createElement('header');heading.className='chapter-heading';
    const group=document.createElement('p');group.className='chapter-theme';group.textContent=entry.sectionOpening?'Section '+entry.id.split('-')[1]:entry.chapter?'Chapter '+entry.chapter:entry.group;
    const h=document.createElement('h2');h.textContent=entry.title;h.tabIndex=-1;heading.append(group,h);section.append(heading);

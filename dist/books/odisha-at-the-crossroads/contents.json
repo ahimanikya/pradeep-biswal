@@ -1,5 +1,13 @@
 [
   {
+    "id": "title-page",
+    "title": "Odisha at the Crossroads",
+    "group": "Title page",
+    "frontMatter": true,
+    "titlePage": true,
+    "html": "<p class=\"book-title-subtitle\">Society, Economy and the Common Good</p><p class=\"book-title-author\">Pradeep Biswal</p><p class=\"book-title-credit\">Edited, with an Introduction and Notes, by<br/><span>Ahimanikya Satapathy</span></p>"
+  },
+  {
     "id": "introduction",
     "title": "To Love a Place, and Speak for It",
     "group": "Introduction",

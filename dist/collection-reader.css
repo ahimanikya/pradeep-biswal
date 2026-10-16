@@ -167,3 +167,14 @@
 .collection-reader .reader-bar>a.reader-book-name{display:block;width:auto;min-width:0;max-width:45vw;line-height:28px;text-align:center;text-decoration:none;padding:8px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media(max-width:600px){.collection-reader .reader-bar>a.reader-book-name{max-width:calc(100vw - 280px);padding:8px 0;font-size:.8rem}}
 
 #reader-contents ol{list-style:none;padding-left:0}#reader-contents h3 a{padding:0;text-decoration:none}.book-chapter h2{scroll-margin-top:80px}@media(max-width:999px){.collection-reader .reader-bar{position:sticky;top:0;z-index:20;background:var(--paper,#f4f0e2)}}
+
+/* A quiet title page credits the author and editor before the introduction. */
+.reader-sheet .book-title-page{text-align:center;padding-top:clamp(1rem,5vh,3rem)}
+.reader-sheet .book-title-page .chapter-theme{display:none}
+.reader-sheet .book-title-page .chapter-heading h2{font-size:clamp(1.8rem,2.8vw,2.6rem)}
+.reader-sheet .book-title-page .book-title-subtitle{font-size:.85em;line-height:1.5;margin:1.2em 0 2.5em}
+.reader-sheet .book-title-page .book-title-author{font-size:1.1em;margin:0 0 2em}
+.reader-sheet .book-title-page .book-title-credit{font-size:.72em;line-height:1.7;margin:0}
+.reader-sheet .book-title-credit span{font-size:1.15em}
+.book-view .book-title-page + .book-chapter{break-before:column;padding-top:0}
+@media print{.book-title-page + .book-chapter{break-before:page;page-break-before:always}}

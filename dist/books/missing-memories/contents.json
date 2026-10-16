@@ -1,5 +1,13 @@
 [
   {
+    "id": "title-page",
+    "title": "Missing Memories",
+    "group": "Title page",
+    "frontMatter": true,
+    "titlePage": true,
+    "html": "<p class=\"book-title-subtitle\">People, Places and a Life in Letters</p><p class=\"book-title-author\">Pradeep Biswal</p><p class=\"book-title-credit\">Edited, with an Introduction and Notes, by<br/><span>Ahimanikya Satapathy</span></p>"
+  },
+  {
     "id": "introduction",
     "title": "The Sweetness We Keep",
     "group": "Introduction",
