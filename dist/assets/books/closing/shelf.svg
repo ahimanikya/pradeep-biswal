@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="240" height="110" preserveAspectRatio="xMinYMin meet" viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="240" height="110"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-110)" style="clip-path: url(#clip)">
+		<g transform="">
+			<path d="M 30 29 C 70 28 170 30 211 29 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+			<path d="M 37,31 L 39,78 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 39,78 L 53,80 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 53,80 L 55,31 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 58 31 L 58 70 L 70 71 L 71 31 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+			<path d="M 61,61 L 67,61 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 74 31 L 74 83 L 86 84 L 87 31 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+			<path d="M 77,74 L 83,74 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 91 31 L 91 75 L 103 76 L 104 31 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+			<path d="M 94,66 L 100,66 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 119 30 L 106 71 L 117 75 L 132 31 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+			<path d="M 111,64 L 121,67 Z" style="stroke: rgb(39%,46%,41%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<path d="M 138 31 C 151 45 169 45 178 38 C 189 45 205 40 215 31 C 199 34 190 32 178 27 C 165 33 153 33 138 31 M 178 27 L 178 38 " style="stroke: rgb(39%,46%,41%); stroke-linecap: round; stroke-width: 0.85; fill: none; fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>
