@@ -1,0 +1,184 @@
+[
+  {
+    "title": "Kabita Satak",
+    "source_page": "https://www.amazon.in/dp/B0HG5S2Q44",
+    "source_image": "https://m.media-amazon.com/images/I/51WuyvQXzbL._SL1500_.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "4360800c74a27bb13a7410c93f0b0bcd16d025b758acd805a60911c9ec162ebd",
+    "original_dimensions": [
+      1116,
+      1500
+    ],
+    "thumbnail": "assets/books/published/kabita-satak-320.webp",
+    "full_cover": "assets/books/published/kabita-satak-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Anupapadya",
+    "source_page": "https://www.shalandi.in/description.php?ID=669",
+    "source_image": "https://www.shalandi.in/admin/uploads/1784186444_anupapadya_front.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "26d9af7d175f65306c95e5b30d16e4ee236e9621b69aba02f1261f342442548e",
+    "original_dimensions": [
+      878,
+      1300
+    ],
+    "thumbnail": "assets/books/published/anupapadya-320.webp",
+    "full_cover": "assets/books/published/anupapadya-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Jiban Jemiti",
+    "source_page": "https://www.shalandi.in/description.php?ID=370",
+    "source_image": "https://www.shalandi.in/admin/uploads/jiban_jemiti.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "0f63c1ff0b3cf754ef1e008a07525d6a6e8760431518206b8ea018a48da0fb42",
+    "original_dimensions": [
+      825,
+      1305
+    ],
+    "thumbnail": "assets/books/published/jiban-jemiti-320.webp",
+    "full_cover": "assets/books/published/jiban-jemiti-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Rendezvous with Dreams",
+    "source_page": "https://www.shalandi.in/description.php?ID=492",
+    "source_image": "https://www.shalandi.in/admin/uploads/1774083459_Rendezvous with dreams.jpeg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "53d3dc832a7a30c2e153cf10880b113c0e59b95248f424ed3ceb9504fd7ccadc",
+    "original_dimensions": [
+      880,
+      1280
+    ],
+    "thumbnail": "assets/books/published/rendezvous-with-dreams-320.webp",
+    "full_cover": "assets/books/published/rendezvous-with-dreams-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Life As It Is",
+    "source_page": "https://www.shalandi.in/description.php?ID=674",
+    "source_image": "https://www.shalandi.in/admin/uploads/1789707581_WhatsApp Image 2026-09-18 at 10.25.12.jpeg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "fe0a6d4acef27bd6a5a0a748ea3083f5a5b35c85ae2b8a3ccc2c0d6977f4ad87",
+    "original_dimensions": [
+      1139,
+      1759
+    ],
+    "thumbnail": "assets/books/published/life-as-it-is-320.webp",
+    "full_cover": "assets/books/published/life-as-it-is-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Aatmaganam",
+    "source_page": "https://www.shalandi.in/description.php?ID=414",
+    "source_image": "https://www.shalandi.in/admin/uploads/aatmaganam.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "e1c5e99b9afe169ed8b69068ee7d8e0dd8586108c22e06039ba1530871128e88",
+    "original_dimensions": [
+      160,
+      212
+    ],
+    "thumbnail": "assets/books/published/aatmaganam-320.webp",
+    "full_cover": "assets/books/published/aatmaganam-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only. Source is low resolution; replace when a better original is available."
+  },
+  {
+    "title": "Cha Khedi Khedi",
+    "source_page": "https://www.amazon.in/dp/B0DHLKKMPG",
+    "source_image": "https://m.media-amazon.com/images/I/81lSskR7Q5L._SL1500_.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "6d3265cfeddf2e6511cc8c39d40f2c3cbfd88e7cd79939f4826439f5c59d5d8e",
+    "original_dimensions": [
+      950,
+      1500
+    ],
+    "thumbnail": "assets/books/published/cha-khedi-khedi-320.webp",
+    "full_cover": "assets/books/published/cha-khedi-khedi-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Reforms in Indirect Taxes in Odisha",
+    "source_page": "https://www.shalandi.in/description.php?ID=482",
+    "source_image": "https://www.shalandi.in/admin/uploads/1774079643_Reforms in Indirect Taxes In Odisha 1.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "f1f53ac2c704e70a88188c35058ec1b560e38e44da3764dbfaf1d40a23941c3f",
+    "original_dimensions": [
+      1031,
+      1600
+    ],
+    "thumbnail": "assets/books/published/reforms-in-indirect-taxes-in-odisha-320.webp",
+    "full_cover": "assets/books/published/reforms-in-indirect-taxes-in-odisha-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Toshali Anthology of Poetry 2023",
+    "source_page": "https://www.shalandi.in/description.php?ID=368",
+    "source_image": "https://www.shalandi.in/admin/uploads/Toshali Anthology of Poetry 2023.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "3efcdfdedb040aaad260a347a98bce947586b9d6c19322bed761e382fe4ef4ed",
+    "original_dimensions": [
+      579,
+      919
+    ],
+    "thumbnail": "assets/books/published/toshali-anthology-of-poetry-2023-320.webp",
+    "full_cover": "assets/books/published/toshali-anthology-of-poetry-2023-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Toshali Anthology of Poetry 2024",
+    "source_page": "https://www.amazon.in/dp/B0D4D1XD5F",
+    "source_image": "https://m.media-amazon.com/images/I/71O1E63GvCL._SL1500_.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "6eac0bf47a9eeedc1aab6e3d2f9f86a198384fa5a23e3f8a6ea7fbbfdee33eae",
+    "original_dimensions": [
+      949,
+      1500
+    ],
+    "thumbnail": "assets/books/published/toshali-anthology-of-poetry-2024-320.webp",
+    "full_cover": "assets/books/published/toshali-anthology-of-poetry-2024-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Toshali Anthology of Poetry 2025",
+    "source_page": "https://www.amazon.in/dp/B0DVYJ1HKM",
+    "source_image": "https://m.media-amazon.com/images/I/81LGcU9f70L._SL1500_.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "3b4633189c76ceb4f7d7acb6a78db3440e60ea236a0273e608bc994c6cbc2fc6",
+    "original_dimensions": [
+      945,
+      1500
+    ],
+    "thumbnail": "assets/books/published/toshali-anthology-of-poetry-2025-320.webp",
+    "full_cover": "assets/books/published/toshali-anthology-of-poetry-2025-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Toshali Anthology of Poetry 2026",
+    "source_page": "https://www.shalandi.in/description.php?ID=483",
+    "source_image": "https://www.shalandi.in/admin/uploads/1774079867_Toshali Anthology poetry 2026.jpeg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "ee77ef4aacb5a05f286e0049a85af80c334090c9914e701209bbb95557356756",
+    "original_dimensions": [
+      1200,
+      1854
+    ],
+    "thumbnail": "assets/books/published/toshali-anthology-of-poetry-2026-320.webp",
+    "full_cover": "assets/books/published/toshali-anthology-of-poetry-2026-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  },
+  {
+    "title": "Toshali Anthology of Love Poems 2026",
+    "source_page": "https://www.shalandi.in/description.php?ID=654",
+    "source_image": "https://www.shalandi.in/admin/uploads/1780850547_Love_poems_front.jpg",
+    "retrieved": "2026-10-17",
+    "original_sha256": "3f3bf507a8e5d604c1d9ca33e374b8b55c8070ae6120965269789606d14919b0",
+    "original_dimensions": [
+      719,
+      1140
+    ],
+    "thumbnail": "assets/books/published/toshali-anthology-of-love-poems-2026-320.webp",
+    "full_cover": "assets/books/published/toshali-anthology-of-love-poems-2026-960.webp",
+    "notes": "Original cover preserved; resized and encoded as WebP only."
+  }
+]
