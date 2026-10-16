@@ -28,6 +28,13 @@ class TwoBookTests(unittest.TestCase):
    self.assertIn(cfg['covers'][0]['image'].replace('.webp','-sharing.jpg'),raw)
   self.assertEqual(len(ids),95);self.assertEqual(len(set(ids)),95);self.assertEqual(len(set(covers)),4)
   self.assertNotIn('PBW-c2d6ad005c',ids)
+ def test_publication_credits_follow_each_books_policy(self):
+  for book,page in [('missing-memories','reading-room.html'),('odisha-at-the-crossroads','odisha-at-the-crossroads.html')]:
+   raw=(D/page).read_text();cfg=json.loads(re.search(r'<script type="application/json" id="book-config">(.*?)</script>',raw,re.S)[1])
+   expected=book=='odisha-at-the-crossroads';self.assertEqual(cfg['showPublicationSources'],expected)
+   chapters=[r for r in json.loads((D/cfg['contentsUrl']).read_text()) if 'chapter' in r]
+   for chapter in chapters:
+    for key in ['sourceLabel','publisher','date']:self.assertEqual(key in chapter,expected)
  def test_old_book_links_resolve_to_an_existing_chapter(self):
   routes=json.loads((D/'book-routes.json').read_text());old=json.loads((D/'collection-reader.json').read_text())
   for r in old:self.assertIn(r['id'],routes)

@@ -246,7 +246,7 @@ function setEntryContext(entry){
  current=entry;bookContent?.querySelectorAll('.book-chapter').forEach(section=>section.toggleAttribute('data-current',section.dataset.article===entry.id));title.textContent=entry.title;$('#reader-group').textContent=entry.theme||entry.group;
  history.replaceState(null,'','#'+encodeURIComponent(entry.id));document.title=entry.title+' · '+bookConfig.title+' · Pradeep Biswal';
  const source=$('#reader-source');source.replaceChildren();
- if(!entry.cover&&!entry.frontMatter){const link=document.createElement('a');link.href=entry.url||'#front-cover';link.textContent=entry.sourceLabel||(entry.publisher?'Originally published by '+entry.publisher:'Open article · comments and sharing');source.append(link);}
+ if(bookConfig.showPublicationSources!==false&&!entry.cover&&!entry.frontMatter){const link=document.createElement('a');link.href=entry.url||'#front-cover';link.textContent=entry.sourceLabel||(entry.publisher?'Originally published by '+entry.publisher:'Open article · comments and sharing');source.append(link);}
  const position=entries.indexOf(entry);
  for(const [selector,index,label] of [['#reader-prev',position-1,'← Previous article'],['#reader-next',position+1,'Next article →']]){
   const a=$(selector),target=entries[index];a.hidden=!target;
@@ -314,7 +314,7 @@ async function loadBook(){
    }
    if(entry.editorialNote){const note=document.createElement('aside');note.className='chapter-editorial-note';const label=document.createElement('span');label.textContent='Editorial note · ';note.append(label,document.createTextNode(entry.editorialNote));section.append(note);}
    const prose=document.createElement('div');prose.className='chapter-prose';prose.append(...safeContent(chapterHtml));section.append(prose);
-   if(!entry.frontMatter){const footer=document.createElement('p');footer.className='chapter-source';const source=entry.url?document.createElement('a'):document.createElement('span');if(entry.url)source.href=entry.url;source.textContent=entry.sourceLabel||'Pradeep Biswal';footer.append(source);section.append(footer);}
+   if(bookConfig.showPublicationSources!==false&&!entry.frontMatter){const footer=document.createElement('p');footer.className='chapter-source';const source=entry.url?document.createElement('a'):document.createElement('span');if(entry.url)source.href=entry.url;source.textContent=entry.sourceLabel||'Pradeep Biswal';footer.append(source);section.append(footer);}
    container.append(section);
   }
   bookContent=container;return container;
