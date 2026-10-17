@@ -24,3 +24,5 @@ export function adjacentReviewItem(matches,current,direction){
  if(!current)return null;
  return direction>0?matches.find(item=>item.order>current.order)||null:[...matches].reverse().find(item=>item.order<current.order)||null;
 }
+
+export function matchesReviewArea(item,area){return !area||area==='all'||(item.reviewArea||'editorial')===area;}

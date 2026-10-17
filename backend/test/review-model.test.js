@@ -22,3 +22,12 @@ test('saving an item in the pending filter does not skip the next remaining item
  assert.equal(adjacentReviewItem(pending,current,-1).id,'earlier');
  assert.equal(adjacentReviewItem([],current,1),null);
 });
+
+import {matchesReviewArea} from '../src/review-model.js';
+test('review areas retain legacy editorial items and separate artwork decisions',()=>{
+ assert.equal(matchesReviewArea({id:'old'},'editorial'),true);
+ assert.equal(matchesReviewArea({id:'old'},'artwork'),false);
+ assert.equal(matchesReviewArea({reviewArea:'artwork'},'editorial'),false);
+ assert.equal(matchesReviewArea({reviewArea:'artwork'},'artwork'),true);
+ assert.equal(matchesReviewArea({reviewArea:'artwork'},'all'),true);
+});

@@ -2,7 +2,7 @@ import {initializeApp} from 'firebase/app';
 import {initializeAppCheck,ReCaptchaEnterpriseProvider,getToken} from 'firebase/app-check';
 import {getAuth,signInAnonymously,GoogleAuthProvider,signInWithPopup,signOut} from 'firebase/auth';
 import {getFirestore,collection,doc,getDoc,getDocs,setDoc,updateDoc,onSnapshot,serverTimestamp,Timestamp} from 'firebase/firestore';
-import {labels,latestResponses,ownResponse,matchesState,validateResponse,adjacentReviewItem} from './review-model.js';
+import {labels,latestResponses,ownResponse,matchesState,validateResponse,adjacentReviewItem,matchesReviewArea} from './review-model.js';
 const $=id=>document.getElementById(id),project='two-books-2026';
 let db,auth,appCheck,actor,reviewerName,isOwner=false,items=[],chapters=[],responses=[],unsubscribe,metadata;
 const drafts=new Map(),chapterCache=new Map();let activeInvite=null,contextRun=0,activeItem=null,saving=false;
@@ -35,6 +35,7 @@ async function openRoom(){
  const snap=await getDocs(group('items'));items=snap.docs.map(d=>({...d.data(),id:d.id})).filter(i=>!metadata.itemIds||metadata.itemIds.includes(i.id)).sort((a,b)=>a.order-b.order);
  if(items.length!==metadata.itemCount)throw Error('Review data incomplete');
  chapters=metadata.chapters;
+ $('edition').textContent=metadata.edition||'Shared manuscript review';
  $('book').replaceChildren(option('','All books'));
  const books=new Map(chapters.map(c=>[c.bookId,c.book]));for(const [id,title] of books)$('book').append(option(id,title));
  $('identity').textContent=`Reviewing as ${reviewerName}`;$('invite').hidden=!isOwner;$('logout').hidden=false;
@@ -46,10 +47,10 @@ async function openRoom(){
  },error=>{if(first)reject(error);else tell('Live updates have stopped. Refresh to reconnect. Unsaved wording is still on this page.',true);});});
  $('access').hidden=true;$('workspace').hidden=false;document.body.classList.add('reviewing');updateChapters();tell('Review one suggestion at a time. Save your response before moving on.');$('workspace').focus();
 }
-function selectedChapters(){return chapters.filter(c=>!$('book').value||c.bookId===$('book').value);}
+function selectedChapters(){return chapters.filter(c=>(!$('book').value||c.bookId===$('book').value)&&items.some(i=>i.articleId===c.id&&matchesReviewArea(i,$('review-area').value)));}
 function updateChapters(){const selected=$('chapter').value,visible=selectedChapters();$('chapter').replaceChildren(...visible.map(c=>option(c.id,`${c.number?`${c.number}. `:''}${c.title}`)));if(visible.some(c=>c.id===selected))$('chapter').value=selected;render();}
 function updateProgress(){const responded=items.filter(i=>{const mine=ownResponse(responses,i,actor);return mine?.version===i.version&&mine.status!=='pending';}).length;const approved=items.filter(i=>matchesState(i,responses,actor,'approved')).length;$('progress').textContent=`Your responses: ${responded} / ${items.length} · ${approved} ${approved===1?'approval':'approvals'}`;} 
-function matchingItems(){return items.filter(i=>(!$('book').value||i.bookId===$('book').value)&&(!$('priority').value||i.severity===$('priority').value)&&matchesState(i,responses,actor,$('state').value));}
+function matchingItems(){return items.filter(i=>matchesReviewArea(i,$('review-area').value)&&(!$('book').value||i.bookId===$('book').value)&&(!$('priority').value||i.severity===$('priority').value)&&matchesState(i,responses,actor,$('state').value));}
 function refreshItemNavigation(){
  const matches=matchingItems();
  $('previous-item').disabled=saving||!adjacentReviewItem(matches,activeItem,-1);$('next-item').disabled=saving||!adjacentReviewItem(matches,activeItem,1);
@@ -61,8 +62,9 @@ function moveItem(direction){
 }
 function focusItem(){const card=$('items').firstElementChild;if(card){card.focus({preventScroll:true});$('chapter-heading').scrollIntoView({block:'start'});}}
 function render(preferredId){
- const chapter=chapters.find(c=>c.id===$('chapter').value);if(!chapter)return;
+ const chapter=chapters.find(c=>c.id===$('chapter').value);if(!chapter){activeItem=null;$('chapter-heading').replaceChildren();$('items').replaceChildren();$('empty').hidden=false;$('item-position').textContent='';refreshItemNavigation();return;}
  $('chapter-heading').replaceChildren(node('p',`${chapter.book} · ${chapter.section}`,'eyebrow'),node('h2',`${chapter.number?chapter.number+'. ':''}${chapter.title}`));
+ if(chapter.manuscriptPage)$('chapter-heading').append(node('p',`Printed manuscript · page ${chapter.manuscriptPage}`,'muted'));
  const visible=matchingItems().filter(i=>i.articleId===chapter.id);
  activeItem=visible.find(i=>i.id===preferredId)||visible[0]||null;
  $('items').replaceChildren(...(activeItem?[renderCard(activeItem)]:[]));$('empty').hidden=!!activeItem;
@@ -74,7 +76,8 @@ function renderCard(item){
  const card=node('article',undefined,'review-card');card.dataset.item=item.id;card.id=item.id;card.tabIndex=-1;
  const meta=node('div',undefined,'meta');meta.append(node('span',item.category,'badge'),node('span',item.severity+' priority',`badge ${item.severity}`),node('span',item.id));
  card.append(meta,node('h3',item.finding));
- card.append(node('p','Passage under review','label'),node('blockquote',item.passage,'passage'));
+ if(item.reviewArea==='artwork'&&item.visualKey==='artwork'){const preview=node('div',undefined,'artwork-preview');preview.append(node('p','Loading the image and page preview…','muted'));card.append(preview);loadArtwork(item,preview);}
+ card.append(node('p',item.reviewArea==='artwork'?'Design under review':'Passage under review','label'),node('blockquote',item.passage,'passage'));
  const rec=node('div',undefined,'recommendation');rec.append(node('p','Editorial recommendation','label'),node('p',item.recommendation));if(item.question)rec.append(node('p',item.question,'question'));card.append(rec);
  if(item.changes.length){const details=node('details');details.append(node('summary',`${item.changes.length} tracked ${item.changes.length===1?'change':'changes'} in the working draft`));for(const edit of item.changes){const row=node('p',undefined,'change');row.append(node('del',edit.original),document.createTextNode(' → '),node('ins',edit.replacement||'[Removed from working draft]'));details.append(row);}details.append(node('p',item.handling,'muted'));card.append(details);}else card.append(node('p',item.handling,'muted'));
  const responseList=node('details',undefined,'response-list');card.append(responseList);
@@ -83,9 +86,9 @@ function renderCard(item){
  const initial=drafts.get(item.id)||(mine?.version===item.version?mine:null)||{status:'',comment:'',alternative:''};
  const choice=node('select');choice.name='status';choice.id=`decision-${item.id}`;
  choice.append(option('','Choose a response'));choice.required=true;
- for(const [value,label] of Object.entries(labels))choice.append(option(value,label));choice.value=initial.status;
+ for(const [value,label] of Object.entries(labels))choice.append(option(value,item.reviewArea==='artwork'&&value==='suggested'?'Alternative treatment suggested':label));choice.value=initial.status;
  const label=node('label','Decision');label.htmlFor=choice.id;label.append(choice);fieldset.append(label);
- const altLabel=node('label','Your suggested wording');const alt=node('textarea');alt.name='alternative';alt.maxLength=12000;alt.value=initial.alternative||'';altLabel.append(alt);fieldset.append(altLabel);
+ const altLabel=node('label',item.reviewArea==='artwork'?'Your suggested image or treatment':'Your suggested wording');const alt=node('textarea');alt.name='alternative';alt.maxLength=12000;alt.value=initial.alternative||'';altLabel.append(alt);fieldset.append(altLabel);
  const commentLabel=node('label','Comment or explanation');const comment=node('textarea');comment.name='comment';comment.maxLength=12000;comment.value=initial.comment||'';commentLabel.append(comment);const commentDetails=node('details',undefined,'comment-details');commentDetails.append(node('summary','Add a comment'),commentLabel);commentDetails.open=!!initial.comment||initial.status==='comment';fieldset.append(commentDetails);
  const actions=node('div',undefined,'actions'),save=node('button','Save response','primary'),message=node('p','','save-status');save.type='submit';const saveNext=node('button','Save & next','primary');save.classList.remove('primary');saveNext.type='submit';saveNext.value='next';message.setAttribute('role','status');message.setAttribute('aria-live','polite');actions.append(saveNext,save,message);fieldset.append(actions);form.append(fieldset);card.append(form);
  if(drafts.has(item.id))message.textContent='Unsaved draft · not shared yet';
@@ -94,10 +97,10 @@ function renderCard(item){
  visibility();form.addEventListener('input',()=>{drafts.set(item.id,fields());message.textContent='Not saved yet';visibility();});choice.addEventListener('change',visibility);
  let pending=null;
  form.addEventListener('submit',async event=>{event.preventDefault();const value=fields();value.comment=value.comment.trim();value.alternative=value.status==='suggested'?value.alternative.trim():'';const error=validateResponse(value.status,value.comment,value.alternative);if(error){message.textContent=error;return;}
-  saving=true;refreshItemNavigation();$('filters').querySelectorAll('select').forEach(el=>el.disabled=true);$('previous').disabled=true;$('next').disabled=true;fieldset.disabled=true;message.textContent='Saving…';let saved=false;const serialized=JSON.stringify(value);if(!pending||pending.serialized!==serialized)pending={ref:doc(group('responses')),serialized};
+  saving=true;refreshItemNavigation();$('workspace').querySelectorAll('select').forEach(el=>el.disabled=true);$('previous').disabled=true;$('next').disabled=true;fieldset.disabled=true;message.textContent='Saving…';let saved=false;const serialized=JSON.stringify(value);if(!pending||pending.serialized!==serialized)pending={ref:doc(group('responses')),serialized};
   try{const existing=await getDoc(pending.ref);if(!existing.exists())await setDoc(pending.ref,{itemId:item.id,version:item.version,reviewerId:actor,reviewerName,...value,createdAt:serverTimestamp()});drafts.delete(item.id);pending=null;saved=true;message.textContent='Saved · visible to both reviewers';}
   catch(e){drafts.set(item.id,fields());message.textContent=friendly(e);}
-  finally{fieldset.disabled=false;saving=false;$('filters').querySelectorAll('select').forEach(el=>el.disabled=false);const list=selectedChapters(),index=list.findIndex(c=>c.id===$('chapter').value);$('previous').disabled=index===0;$('next').disabled=index===list.length-1;refreshItemNavigation();}
+  finally{fieldset.disabled=false;saving=false;$('workspace').querySelectorAll('select').forEach(el=>el.disabled=false);const list=selectedChapters(),index=list.findIndex(c=>c.id===$('chapter').value);$('previous').disabled=index===0;$('next').disabled=index===list.length-1;refreshItemNavigation();}
   if(saved&&event.submitter===saveNext){moveItem(1);tell('Your response was saved and shared.');}
  });refreshResponses(card,item);return card;
 }
@@ -113,10 +116,28 @@ function chapterContext(chapter){
  for(const fact of chapter.factChecks||[]){const details=node('details');details.append(node('summary',`Source check: ${fact.claim}`),node('p',fact.result));for(const source of fact.sources){const a=link(source);if(a){const p=node('p');p.append(a);details.append(p);}}nodes.push(details);}
  return nodes;
 }
-async function loadContext(){if(!$('context').open)return;const id=$('chapter').value,run=++contextRun;$('context-status').textContent='Loading chapter…';try{if(!chapterCache.has(id)){const snap=await getDoc(ref('chapters',id));if(!snap.exists())throw Error('missing');chapterCache.set(id,snap.data());}if(run!==contextRun)return;const chapter=chapterCache.get(id);$('chapter-text').replaceChildren(...chapterContext(chapter));$('context-status').textContent=$('text-version').value==='text'?'Working draft with the tracked language changes.':'Original text, preserved unchanged.';}catch(e){if(run===contextRun)$('context-status').textContent=friendly(e);}}
+async function getChapter(id){
+ if(!chapterCache.has(id)){const request=getDoc(ref('chapters',id)).then(snap=>{if(!snap.exists())throw Error('missing');return snap.data();});chapterCache.set(id,request);request.catch(()=>chapterCache.delete(id));}
+ return chapterCache.get(id);
+}
+function artworkFigure(asset){
+ const figure=node('figure'),img=node('img');if(!/^data:image\/(jpeg|png|webp);base64,/.test(asset.src||''))return figure;
+ img.src=asset.src;img.alt=asset.caption||'Manuscript preview';img.width=asset.width;img.height=asset.height;img.decoding='async';figure.append(img,node('figcaption',asset.caption||''));return figure;
+}
+async function loadArtwork(item,area){
+ try{const chapter=await getChapter(item.articleId);if(!area.isConnected)return;const art=chapter.artwork;if(!art){area.replaceChildren(node('p','No image preview is available for this item.','muted'));return;}
+ area.replaceChildren();if(art.description)area.append(node('p',art.description));if(art.image)area.append(artworkFigure(art.image));
+ for(const key of ['credit','rights','resolution'])if(art[key])area.append(node('p',art[key],'muted'));
+ const links=node('p',undefined,'artwork-sources');for(const [key,label] of [['source','Image source'],['license','Licence record']]){try{const url=new URL(art[key]);if(!['https:','http:'].includes(url.protocol))continue;const a=node('a',label);a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}catch{}}
+ if(links.children.length)area.append(links);
+ for(const proof of art.proofs||[]){const details=node('details',undefined,'page-proof');details.append(node('summary',proof.caption||'View the printed page'));let loaded=false;details.addEventListener('toggle',()=>{if(details.open&&!loaded){details.append(artworkFigure(proof));loaded=true;}});area.append(details);}
+ }catch{if(area.isConnected){const retry=node('button','Try loading the preview again');retry.type='button';retry.onclick=()=>{retry.disabled=true;loadArtwork(item,area);};area.replaceChildren(node('p','The preview could not load. Your review can still be saved.','muted'),retry);}}
+}
+async function loadContext(){if(!$('context').open)return;const id=$('chapter').value,run=++contextRun;$('context-status').textContent='Loading chapter…';try{const chapter=await getChapter(id);if(run!==contextRun)return;$('chapter-text').replaceChildren(...chapterContext(chapter));$('context-status').textContent=$('text-version').value==='text'?'Working draft with the tracked language changes.':'Original text, preserved unchanged.';}catch(e){if(run===contextRun)$('context-status').textContent=friendly(e);}}
+
 function navigate(delta){const list=selectedChapters(),index=list.findIndex(c=>c.id===$('chapter').value);if(list[index+delta]){$('chapter').value=list[index+delta].id;render();$('chapter-heading').scrollIntoView({block:'start'});}}
-$('book').addEventListener('change',updateChapters);for(const id of ['chapter','state','priority'])$(id).addEventListener('change',()=>render());$('filters').addEventListener('submit',e=>e.preventDefault());$('previous').onclick=()=>navigate(-1);$('next').onclick=()=>navigate(1);$('previous-item').onclick=()=>moveItem(-1);$('next-item').onclick=()=>moveItem(1);
-$('next-pending').onclick=()=>{const pending=items.filter(i=>(!$('book').value||i.bookId===$('book').value)&&matchesState(i,responses,actor,'pending'));const next=pending.find(i=>i.order>(activeItem?.order??-1))||pending[0];if(next){$('chapter').value=next.articleId;$('state').value='pending';$('priority').value='';render(next.id);focusItem();}else tell('You have responded to every item in the selected book.');};
+$('book').addEventListener('change',updateChapters);$('review-area').addEventListener('change',()=>{updateChapters();tell('Review area changed. Any unsaved drafts remain available in this tab.');});for(const id of ['chapter','state','priority'])$(id).addEventListener('change',()=>render());$('filters').addEventListener('submit',e=>e.preventDefault());$('previous').onclick=()=>navigate(-1);$('next').onclick=()=>navigate(1);$('previous-item').onclick=()=>moveItem(-1);$('next-item').onclick=()=>moveItem(1);
+$('next-pending').onclick=()=>{const pending=items.filter(i=>matchesReviewArea(i,$('review-area').value)&&(!$('book').value||i.bookId===$('book').value)&&matchesState(i,responses,actor,'pending'));const next=pending.find(i=>i.order>(activeItem?.order??-1))||pending[0];if(next){$('chapter').value=next.articleId;$('state').value='pending';$('priority').value='';render(next.id);focusItem();}else tell('You have responded to every item in this review area and book.');};
 $('context').addEventListener('toggle',loadContext);$('text-version').onchange=loadContext;
 $('join').onclick=async()=>{const button=$('join');button.disabled=true;try{await setup();if(!auth.currentUser)await signInAnonymously(auth);const match=invitation?.match(/^([a-zA-Z0-9_-]{1,80})\.([a-f0-9]{64})$/);if(!match)throw Error('invalid invite');await setDoc(ref('members',auth.currentUser.uid),{inviteId:match[1],token:match[2],joinedAt:serverTimestamp()});invitation=null;await openRoom();}catch(e){tell(friendly(e),true);}finally{button.disabled=false;}};
 $('login').onclick=async()=>{const button=$('login');button.disabled=true;try{await setup();await signInWithPopup(auth,new GoogleAuthProvider());await openRoom();}catch(e){tell(friendly(e),true);}finally{button.disabled=false;}};

@@ -11,10 +11,12 @@ function encode(v){if(v===null)return {nullValue:null};if(typeof v==='string')re
  const project='pradeep-biswal',account=getGlobalDefaultAccount();await requireAuth({...account,project});
  const api=new Client({urlPrefix:'https://firestore.googleapis.com',apiVersion:'v1'}),base=`projects/${project}/databases/(default)/documents`,root=`${base}/editorialProjects/${payload.project}`;
  const write=(name,data)=>({update:{name,fields:encode(data).mapValue.fields}});
- const summary={title:payload.title,version:payload.version,itemCount:payload.itemCount,chapterCount:payload.chapterCount,itemIds:payload.items.map(i=>i.id),ready:false,chapters:payload.chapters.map(({text,originalText,editorialNotes,publication,assessment,factChecks,...summary})=>summary)};
- await api.post(`/${base}:commit`,{writes:[write(root,summary)]});
+ const summary={title:payload.title,version:payload.version,itemCount:payload.itemCount,chapterCount:payload.chapterCount,itemIds:payload.items.map(i=>i.id),ready:true,edition:payload.edition||'Editorial review',chapters:payload.chapters.map(({text,originalText,editorialNotes,publication,assessment,factChecks,artwork,...summary})=>summary)};
+
  const records=[...payload.items.map(item=>write(`${root}/items/${item.id}`,item)),...payload.chapters.map(chapter=>write(`${root}/chapters/${chapter.id}`,chapter))];
- for(let i=0;i<records.length;i+=100)await api.post(`/${base}:commit`,{writes:records.slice(i,i+100)});
- await api.post(`/${base}:commit`,{writes:[write(root,{...summary,ready:true})]});
+ const commit=writes=>api.post(`/${base}:commit`,{writes},{skipLog:{body:true,resBody:true}});
+ // Keep the current edition readable until every new record is uploaded.
+ let batch=[],bytes=0;for(const record of records){const size=Buffer.byteLength(JSON.stringify(record));if(batch.length&&(bytes+size>4_000_000||batch.length>=50)){await commit(batch);batch=[];bytes=0;}batch.push(record);bytes+=size;}if(batch.length)await commit(batch);
+ await commit([write(root,summary)]);
  console.log(`Uploaded ${payload.itemCount} review items and ${payload.chapterCount} chapter contexts. Responses and invitations untouched.`);
 })().catch(e=>{console.error(e.message);process.exitCode=1});
