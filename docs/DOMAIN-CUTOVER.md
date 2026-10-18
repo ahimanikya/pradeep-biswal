@@ -1,6 +1,6 @@
 # Move to pradeepbiswal.in
 
-Permanent domain confirmed by the owner on 10 October 2026. The owner authorized the cutover on 18 October 2026 after the provider updated DNS. GitHub Pages is now assigned to `pradeepbiswal.in`; maintained sharing/discovery URLs and backend domain allowlists have been updated. The temporary address is retained for forwarding existing links. Final HTTPS and browser checks are recorded below after completion. Search submission remains deferred.
+Permanent domain confirmed by the owner on 10 October 2026. The owner authorized the cutover on 18 October 2026 after the provider updated DNS. GitHub Pages is now assigned to `pradeepbiswal.in`; maintained sharing/discovery URLs and backend domain allowlists have been updated. The temporary address is retained for forwarding existing links. HTTPS and browser checks are recorded below. Search submission remains deferred.
 
 ## Before DNS changes
 
@@ -34,3 +34,14 @@ Source: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-gi
 ## Rollback
 
 Restore the saved DNS records if old hosting must resume. If reverting the new site's domain configuration, restore its CNAME, metadata and GitHub Pages custom domain together; keep both Firebase domains authorized until the rollback is verified. Do not delete old hosting or mail services during the observation period.
+
+## Cutover verification — 18 October 2026
+
+- `https://pradeepbiswal.in/` serves the redesigned site. GitHub issued a certificate covering both apex and www; HTTPS is enforced. `www` redirects to the apex.
+- Main deployment `98c87f4` and its backend security checks passed. The homepage, clean aliases, books, review page, social image, sitemap, robots.txt and llms.txt return successfully with permanent-domain URLs.
+- Firebase Authentication and the existing reCAPTCHA Enterprise key allow apex, www and the former host. App Check enforcement was not changed. API-key restrictions did not require a domain change.
+- A regular in-app browser passed review-room App Check and loaded public article comment/count data, enabling the response controls. A fresh headless browser was rejected by App Check; no bypass or policy relaxation was applied.
+- Book opening/page navigation, mobile layout and forwarding of book fragments and review invitation fragments were verified. Owner Google sign-in was not completed in this test; the new domain is authorized and owners may need to sign in again. Browser-local reading progress remains stored under its original origin.
+- No live contact message, comment or reaction was submitted: automatic approval review rejected the proposed production-write test without explicit authorization. Contact layout/validation and backend reads were checked instead. A real end-to-end submission test remains optional and requires specific approval.
+- The former address is served by `ahimanikya/pradeep-biswal-redirect`, with unchanged DNS pointing to GitHub. It forwards in the browser, preserving path, query and fragment. This is not a server-side HTTP 301; non-JavaScript visitors see a destination link.
+- No Search Console/Bing submission was performed. Existing mail, DNS nameservers and unrelated services were not changed. Private editorial responses and reader records were not modified.
