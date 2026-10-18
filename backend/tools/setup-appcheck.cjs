@@ -12,7 +12,7 @@ const fs=require('node:fs');
  const recaptcha=new Client({urlPrefix:'https://recaptchaenterprise.googleapis.com',apiVersion:'v1'});
  const {body:existing}=await recaptcha.get('/projects/pradeep-biswal/keys');
  let key=(existing.keys||[]).find(k=>k.displayName==='Pradeep Biswal website App Check');
- if(!key){const response=await recaptcha.post('/projects/pradeep-biswal/keys',{displayName:'Pradeep Biswal website App Check',webSettings:{allowedDomains:['pb.kabitawithoutborders.org'],allowAllDomains:false,allowAmpTraffic:false,integrationType:'SCORE'}});key=response.body;}
+ if(!key){const response=await recaptcha.post('/projects/pradeep-biswal/keys',{displayName:'Pradeep Biswal website App Check',webSettings:{allowedDomains:['pradeepbiswal.in','www.pradeepbiswal.in','pb.kabitawithoutborders.org'],allowAllDomains:false,allowAmpTraffic:false,integrationType:'SCORE'}});key=response.body;}
  const siteKey=key.name.split('/').at(-1);
  const client=new Client({urlPrefix:'https://firebaseappcheck.googleapis.com',apiVersion:'v1'});
  const name='projects/698241623854/apps/1:698241623854:web:65035d82c5e491f036fcbf/recaptchaEnterpriseConfig';

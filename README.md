@@ -1,6 +1,6 @@
 # Pradeep Biswal — literary website
 
-Live website: https://pb.kabitawithoutborders.org/
+Live website: https://pradeepbiswal.in/
 
 ## Edit and publish
 
@@ -8,7 +8,7 @@ This independent repository is the source of truth. The maintained HTML, CSS, Ja
 
 Run `python3 tools/build_pages.py` to validate sharing metadata and build `_site/`. Preview with `python3 -m http.server 4173 --directory _site`. The build preserves `.html` links and creates complete HTML aliases for existing extensionless URLs, so crawlers can read the page and preview without JavaScript.
 
-The `pb` DNS CNAME points to `ahimanikya.github.io`. The custom domain is configured in this repository's Pages settings. The root domain and other subdomains are independent.
+The permanent domain is `pradeepbiswal.in`, with GitHub Pages A records at the apex and `www` pointing to `ahimanikya.github.io`. The custom domain is also configured in this repository’s Pages settings. The former temporary address is reserved for forwarding existing links.
 
 ## Sharing images
 
@@ -18,7 +18,7 @@ To refresh previews after changing artwork, install `beautifulsoup4` and `Pillow
 
 ## Content and deferred features
 
-Preserve the poet's wording and reviewed attributions. Guest likes and moderated comments use Firebase; readers need no account. Owner moderation is at `/moderation.html`. See `backend/README.md`. The contact form uses a private Firebase inbox. Finished public pages are indexable; search-engine submission is deferred until the final domain is selected. Social preview crawlers may fetch public pages and images.
+Preserve the poet's wording and reviewed attributions. Guest likes and moderated comments use Firebase; readers need no account. Owner moderation is at `/moderation.html`. See `backend/README.md`. The contact form uses a private Firebase inbox. Finished public pages are indexable; search-engine submission remains deferred until explicitly approved. Social preview crawlers may fetch public pages and images.
 
 This repository is independent of Kabita Live and Singhasan. Private research and Facebook capture archives are excluded. Font licenses are in `dist/assets/fonts/`. Content, photographs and artwork retain their respective rights; a public repository does not grant blanket reuse rights.
 
