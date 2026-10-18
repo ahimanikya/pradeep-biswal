@@ -4,7 +4,7 @@ You manage contact messages and reader comments. The website is published from G
 
 ## Check messages
 
-1. Open [the moderation page](https://pb.kabitawithoutborders.org/moderation.html) and sign in with your existing authorized Google account.
+1. Open [the moderation page](https://pradeepbiswal.in/moderation.html) and sign in with your existing authorized Google account.
 2. In the private inbox, use **Refresh inbox** to check for messages. Use the load-more button for older messages.
 3. **Reply by email** opens your email application. Review and send the reply there; the website does not send it for you.
 4. Use **Mark read**, **Mark unread**, or **Archive** to track your work. Archiving changes the status and does not delete the message; archived messages remain in the inbox listing.
@@ -38,7 +38,7 @@ For a website regression, the maintainer can revert the relevant Git commit and 
 
 ## Deferred work
 
-The poet should approve the proposed reading selection, timeline, new biography wording and personal note. Three supplied poetry recitations are live; the poet should check their titles and credits. Additional recordings are optional. The current pending checklist is on the unlisted [poet review page](https://pb.kabitawithoutborders.org/review-drafts.html), including homepage highlight choices and article-image decisions. Search submission remains deferred until the final domain is chosen.
+The poet should approve the proposed reading selection, timeline, new biography wording and personal note. Three supplied poetry recitations are live; the poet should check their titles and credits. Additional recordings are optional. The current pending checklist is on the unlisted [poet review page](https://pradeepbiswal.in/review-drafts.html), including homepage highlight choices and article-image decisions. Search submission remains deferred until the final domain is chosen.
 
 A domain change must also update Firebase sign-in and App Check settings, social previews, canonical URLs, sitemap and discovery files, followed by live checks of contact delivery, comments and owner sign-in. Change these together to avoid interrupting submissions.
 

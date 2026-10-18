@@ -6,7 +6,7 @@ Readers can like without registering and submit a name and comment for review. F
 
 ## Moderation
 
-Open https://pb.kabitawithoutborders.org/moderation.html and sign in with the owner's Google account. Approve or reject pending comments. Only an account with a corresponding `admins/{uid}` record can moderate. To remove an already published comment, delete its document under `articles/{slug}/comments` in Firebase Console. No owner email is embedded in website content.
+Open https://pradeepbiswal.in/moderation.html and sign in with the owner's Google account. Approve or reject pending comments. Only an account with a corresponding `admins/{uid}` record can moderate. To remove an already published comment, delete its document under `articles/{slug}/comments` in Firebase Console. No owner email is embedded in website content.
 
 ## Development
 
@@ -41,7 +41,7 @@ No contact content or sender details are committed to Git. Firebase Spark quotas
 
 ## App Check rollout (2026-10-10)
 
-The Enterprise SCORE key allows only `pb.kabitawithoutborders.org`; tokens refresh automatically with a one-hour lifetime. No billing account was linked or plan changed. Browser verification, public comment reads, and a temporary like/unlike were verified on the live domain. An earlier browser session had intermittent connection errors; a fresh session passed. No test comments or contact messages were submitted in this rollout.
+The Enterprise SCORE key allows `pradeepbiswal.in`, `www.pradeepbiswal.in`, and the temporary `pb.kabitawithoutborders.org` during migration; tokens refresh automatically with a one-hour lifetime. No billing account was linked or plan changed. Browser verification, public comment reads, and a temporary like/unlike were verified on the live domain. An earlier browser session had intermittent connection errors; a fresh session passed. No test comments or contact messages were submitted in this rollout.
 
 `tools/audit-appcheck.cjs` reads the provider, enforcement and billing configuration. `tools/setup-appcheck.cjs` configures the provider without enforcement. Run `tools/enforce-appcheck.cjs` only after explicit approval for production-wide Firestore enforcement: it rejects unverified reads and writes, including older open tabs and unattested moderation clients. The user explicitly approved enforcement, which was enabled on 2026-10-10 at 00:41:37 UTC. Configuration readback confirmed ENFORCED. A direct unverified read returned HTTP 403, while the production browser loaded comments and saved then removed a temporary like. Post-enforcement live checks passed: guest contact delivery, owner Google sign-in, inbox receipt, mark-read/archive, guest comment submission, and owner rejection. The test comment was never published; two clearly labeled contact tests remain archived. Approval permissions are covered by emulator tests.
 
@@ -53,7 +53,7 @@ Local previews do not qualify for production-domain attestation. Use the Firebas
 
 ## Operating ownership and domain migration
 
-Ahimanikya is responsible for the private contact inbox and comment moderation, confirmed 2026-10-10. Check `/moderation.html` regularly; automatic email notifications are not enabled. Search Console and Bing submission are deferred at the owner's request until the final domain is selected; no submission was made. Before changing domains, update GitHub Pages/DNS, Firebase authorized domains, the App Check allowed domain, canonical/social URLs, sitemap and llms.txt, then re-test guest submissions and owner sign-in.
+Ahimanikya is responsible for the private contact inbox and comment moderation, confirmed 2026-10-10. Check `/moderation.html` regularly; automatic email notifications are not enabled. Search Console and Bing submission remain deferred pending explicit owner approval; no submission was made. Before changing domains, update GitHub Pages/DNS, Firebase authorized domains, the App Check allowed domain, canonical/social URLs, sitemap and llms.txt, then re-test guest submissions and owner sign-in.
 
 ## Follow-up audit (10 October 2026)
 

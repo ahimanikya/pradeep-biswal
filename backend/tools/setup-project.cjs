@@ -15,5 +15,5 @@ const project='pradeep-biswal';
  fs.writeFileSync('../dist/reader-config.json',JSON.stringify({enabled:false,firebase:config,recaptchaSiteKey:''},null,2)+'\n');
  console.log('Saved public Firebase web configuration. Activation remains off.');
  const auth=new Client({urlPrefix:'https://identitytoolkit.googleapis.com',apiVersion:'v2'});
- try{await auth.patch(`/projects/${project}/config`,{signIn:{anonymous:{enabled:true}},authorizedDomains:['localhost','pb.kabitawithoutborders.org',`${project}.firebaseapp.com`,`${project}.web.app`]},{queryParams:{updateMask:'signIn.anonymous.enabled,authorizedDomains'}});console.log('Anonymous authentication enabled.');}catch(e){console.log('Authentication setup still required: '+e.message);}
+ try{await auth.patch(`/projects/${project}/config`,{signIn:{anonymous:{enabled:true}},authorizedDomains:['localhost','pradeepbiswal.in','www.pradeepbiswal.in','pb.kabitawithoutborders.org',`${project}.firebaseapp.com`,`${project}.web.app`]},{queryParams:{updateMask:'signIn.anonymous.enabled,authorizedDomains'}});console.log('Anonymous authentication enabled.');}catch(e){console.log('Authentication setup still required: '+e.message);}
 })().catch(e=>{console.error(e.message);process.exitCode=1});

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pb.kabitawithoutborders.org/sitemap.xml
+Sitemap: https://pradeepbiswal.in/sitemap.xml

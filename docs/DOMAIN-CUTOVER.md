@@ -1,6 +1,6 @@
 # Move to pradeepbiswal.in
 
-Permanent domain confirmed by the owner on 10 October 2026. The current production address remains https://pb.kabitawithoutborders.org until coordinated cutover. This document does not authorize an immediate DNS switch.
+Permanent domain confirmed by the owner on 10 October 2026. The owner authorized the cutover on 18 October 2026 after the provider updated DNS. GitHub Pages is now assigned to `pradeepbiswal.in`; maintained sharing/discovery URLs and backend domain allowlists have been updated. The temporary address is retained for forwarding existing links. Final HTTPS and browser checks are recorded below after completion. Search submission remains deferred.
 
 ## Before DNS changes
 
