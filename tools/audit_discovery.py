@@ -28,7 +28,7 @@ for p in ROOT.rglob('*.html'):
  public.append(d.canonical)
 urls=[x.text for x in ET.parse(ROOT/'sitemap.xml').findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
 assert len(urls)==len(set(urls)) and set(urls)==set(public)
-assert len(public)==63 and articles==48
+assert len(public)==64 and articles==49
 assert all(url in (ROOT/'llms.txt').read_text() for url in public)
 assert 'Sitemap: '+ORIGIN+'/sitemap.xml' in (ROOT/'robots.txt').read_text()
 print(f'Discovery validated: {len(public)} canonical pages, {articles} attributed articles.')
