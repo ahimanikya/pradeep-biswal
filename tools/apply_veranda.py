@@ -14,7 +14,7 @@ def apply_theme(root=ROOT):
         source = page.read_text()
         prefix = '../' * len(page.relative_to(root / 'dist').parts[:-1])
         source = re.sub(r'<link\b[^>]*href="[^"]*veranda\.css[^\"]*"[^>]*>', '', source)
-        source = source.replace('</head>', f'<link rel="stylesheet" href="{prefix}veranda.css?v=20261019-audit"/></head>')
+        source = source.replace('</head>', f'<link rel="stylesheet" href="{prefix}veranda.css?v=20261019-monogram"/></head>')
         def body(match):
             tag = re.sub(r'\sdata-theme="[^"]*"', '', match[0])
             return tag[:-1] + ' data-theme="veranda">'
