@@ -209,3 +209,6 @@
 .collection-reader #reader-status,.collection-reader .settings-note{color:var(--muted)}
 @media(max-width:600px){.collection-reader .reader-bar>a.reader-book-name{font-size:1rem}}
 @media print{.collection-reader{--paper:white;--ink:#263f36;--muted:#666e60;--rule:#d9d6c7;--accent:#9a4e36;background:white;color:var(--ink)}}
+
+/* Small settings text needs full contrast in both paper modes. */
+.collection-reader #reader-tools-panel .settings-note{opacity:1;color:var(--muted)}

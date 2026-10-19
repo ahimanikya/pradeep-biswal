@@ -18,3 +18,16 @@ test('arrow keys work after button focus but do not hijack editing or dialogs',(
  const run=extra=>{ctx.event={key:'ArrowRight',target:{isContentEditable:false,closest:()=>null},preventDefault:()=>{},...extra};vm.runInContext('(function(){'+handler+'})()',ctx);};
  run({});run({key:'ArrowLeft'});for(const extra of [{repeat:true},{ctrlKey:true},{target:{isContentEditable:true}},{target:{closest:()=>({})}}])run(extra);ctx.document.querySelector=()=>({});run({});assert.deepEqual(moves,[1,-1]);
 });
+test('bookmarks from older typography or another layout remain saved without claiming the current page',()=>{
+ const ctx={readerLayoutVersion:'veranda-20261019',bookConfig:{edition:'two-books'},isBook:()=>true,frame:{clientWidth:1000,clientHeight:600},size:{value:'21'},illustrations:true,current:{id:'story'},spread:4};vm.createContext(ctx);
+ vm.runInContext(layout+'\n'+source.match(/function bookmarkMatches\(b\)\{[^\n]+/)[0],ctx);
+ const bookmark={id:'story',pagination:'continuous',spread:4,book:true,layoutVersion:'veranda-20261019',edition:'two-books',width:1000,height:600,size:'21',illustrations:true};
+ assert.equal(ctx.bookmarkMatches(bookmark),true);
+ for(const change of [{layoutVersion:'old'},{width:900},{spread:5}])assert.equal(ctx.bookmarkMatches({...bookmark,...change}),false);
+ ctx.isBook=()=>false;assert.equal(ctx.bookmarkMatches(bookmark),false);assert.equal(ctx.bookmarkMatches({...bookmark,book:false}),true);
+});
+test('mobile resume does not reuse a scroll offset after typography or width changes',()=>{
+ const ctx={readerLayoutVersion:'veranda-20261019',bookConfig:{edition:'two-books'},frame:{clientWidth:390},size:{value:'21'},illustrations:true};vm.createContext(ctx);vm.runInContext(source.match(/function sameScrollLayout\(place\)\{[^\n]+/)[0],ctx);
+ const place={layoutVersion:'veranda-20261019',edition:'two-books',width:390,size:'21',illustrations:true};assert.equal(ctx.sameScrollLayout(place),true);
+ for(const change of [{layoutVersion:undefined},{edition:'old'},{width:320},{size:'24'},{illustrations:false}])assert.equal(ctx.sameScrollLayout({...place,...change}),false);
+});

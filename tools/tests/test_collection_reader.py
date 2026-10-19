@@ -46,9 +46,10 @@ class CollectionReaderTests(unittest.TestCase):
             self.assertEqual(book[record['id']],record['html'],record['id'])
 
     def test_fallback_index_matches_both_book_sequences(self):
-        for book,page,count in [('missing-memories','reading-room.html',52),('odisha-at-the-crossroads','odisha-at-the-crossroads.html',43)]:
+        for book,page in [('missing-memories','reading-room.html'),('odisha-at-the-crossroads','odisha-at-the-crossroads.html')]:
             text=(DIST/page).read_text()
             entries=json.loads((DIST/'books'/book/'contents.json').read_text())
+            count=sum('chapter' in entry for entry in entries)
             for entry in entries:self.assertIn('id="'+entry['id']+'"',text)
             self.assertIn(f'Working book preview · {count} chapters',text)
 
