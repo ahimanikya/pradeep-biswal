@@ -53,6 +53,23 @@ class TwoBookTests(unittest.TestCase):
     if self.inside:self.paragraphs[-1]+=data
   parser=Paragraphs();parser.feed(raw)
   self.assertEqual(parser.paragraphs,source['text'].split('\n\n'))
+ def test_diamond_triangle_uses_selected_author_version_without_duplicate_chapter(self):
+  ident='PBW-28e9e66000'
+  source=next(r for r in json.loads((D.parent/'archive/research/author-supplied-essays.json').read_text()) if r['id']==ident)
+  entries=json.loads((D/'books/odisha-at-the-crossroads/contents.json').read_text())
+  selected=[r for r in entries if r['id']==ident]
+  self.assertEqual(len(selected),1)
+  self.assertEqual(selected[0]['chapter'],28)
+  self.assertEqual(selected[0]['title'],source['title'])
+  self.assertIsNone(selected[0]['date'])
+  self.assertIn('Earlier publication',selected[0]['sourceLabel'])
+  class Text(HTMLParser):
+   def __init__(self):super().__init__();self.parts=[]
+   def handle_data(self,data):self.parts.append(data)
+  reader=Text();reader.feed(json.loads((D/'books/odisha-at-the-crossroads/text.json').read_text())[ident])
+  compact=lambda text:re.sub(r'\s+','',text)
+  self.assertEqual(compact(''.join(reader.parts)),compact(source['text']))
+  self.assertIn('Dr Rabi Narayan Behera',source['text'])
  def test_publication_credits_follow_each_books_policy(self):
   for book,page in [('missing-memories','reading-room.html'),('odisha-at-the-crossroads','odisha-at-the-crossroads.html')]:
    raw=(D/page).read_text();cfg=json.loads(re.search(r'<script type="application/json" id="book-config">(.*?)</script>',raw,re.S)[1])
