@@ -13,6 +13,7 @@ portrait = ('assets/pradeep-biswal-800.webp', 'Watercolor portrait of Pradeep Bi
 radio = ('assets/radio-memory-960.webp', 'A family listening together to an old wooden radio')
 reading = ('assets/reading-table-960.webp', 'Watercolor of an open book on a wooden table')
 choices = {
+ 'essay-odishas-budget-stabilisation-fund': ('assets/published-work/budget-stabilisation-ledger.webp', 'Line drawing of an open ledger and a pencil'),
  'essay-indias-economic-reforms-a-decade-of-change': ('assets/published-work/why-cooperative-banks-ail.webp', 'A farmer and bank clerk reviewing a passbook'),
  'essay-biotechnology-landscape-in-odisha': ('assets/published-work/biotechnology-landscape-in-odisha.webp', 'A scientist studying plant cultures in an Odisha laboratory'),
  'essay-why-cooperative-banks-ail': ('assets/published-work/why-cooperative-banks-ail.webp', 'A farmer and bank clerk reviewing a passbook'),
