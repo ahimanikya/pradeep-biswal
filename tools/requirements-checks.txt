@@ -1,0 +1,2 @@
+# Used by the archived-source extraction regression tests; never shipped to readers.
+lxml==6.1.1
