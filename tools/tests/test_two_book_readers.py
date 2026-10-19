@@ -52,7 +52,15 @@ class TwoBookTests(unittest.TestCase):
     self.assertNotIn(private,raw,p)
  def test_all_article_links_have_correct_membership(self):
   routes=json.loads((D/'book-routes.json').read_text())
+  supplied=json.loads((D.parent/'archive/research/author-supplied-essays.json').read_text())
+  website_only={r['id'] for r in supplied if r.get('book_status')=='website-only'}
+  self.assertFalse(website_only & routes.keys(), 'Website-only essays must not silently enter a book')
   for p in [*(D/'memories').glob('*.html'),*D.glob('essay-*.html')]:
-   ident=p.stem.removeprefix('essay-');self.assertIn(ident,routes)
+   ident=p.stem.removeprefix('essay-')
+   if p.name.startswith('essay-') and ident in website_only:
+    self.assertNotIn('Read in book',p.read_text(),p.name)
+    self.assertIn('literary-archive.html#author-supplied-essays',p.read_text(),p.name)
+    continue
+   self.assertIn(ident,routes)
    self.assertIn(routes[ident],p.read_text(),p.name)
 if __name__=='__main__':unittest.main()
