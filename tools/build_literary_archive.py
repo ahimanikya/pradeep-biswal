@@ -1,7 +1,7 @@
 """Build a light, static source directory without republishing third-party works."""
 from pathlib import Path
 from html import escape as e
-import json,re,shutil,csv
+import json,re,shutil,csv,sys
 from datetime import date
 R=Path(__file__).resolve().parents[1];D=R/'dist'
 ORIGIN='https://'+(D/'CNAME').read_text().strip()
@@ -56,8 +56,10 @@ def page(file,title,intro,body):
  (D/file).write_text(s)
 def author_essays():
  items=json.loads((R/'archive/research/author-supplied-essays.json').read_text())
- return '<section class="literary-section" id="author-supplied-essays"><h2>Author-supplied essays</h2><p>Essays shared by Pradeep Biswal. Original publication details are not yet confirmed.</p><div class="archive-grid">'+''.join('<article class="archive-entry">'+artwork(r)+'<p class="archive-meta">Author-supplied essay</p><h3><a href="essay-'+e(r['id'])+'.html">'+e(r['title'])+'</a></h3><p class="archive-credit">Pradeep Biswal</p><a class="text-link" href="essay-'+e(r['id'])+'.html">Read essay '+arrow+'</a>'+(reader_link(r['id']) if r['id'] in reader_ids else '')+'</article>' for r in items)+'</div></section>'
+ return '<section class="literary-section" id="author-supplied-essays"><h2>Author-supplied essays</h2><p>Essays shared by Pradeep Biswal. Original publication details are not yet confirmed.</p><div class="archive-grid">'+''.join('<article class="archive-entry">'+artwork(r)+'<p class="archive-meta">Author-supplied essay'+(' · '+e(r['topic']) if r.get('topic') else '')+'</p><h3><a href="essay-'+e(r['id'])+'.html">'+e(r['title'])+'</a></h3><p class="archive-credit">Pradeep Biswal</p><a class="text-link" href="essay-'+e(r['id'])+'.html">Read essay '+arrow+'</a>'+(reader_link(r['id']) if r['id'] in reader_ids else '')+'</article>' for r in items)+'</div></section>'
 page('literary-archive.html','Words in the World','Interviews, essays, poems and readings of Pradeep Biswal’s books, gathered from their original publishers.', '<nav class="archive-jump" aria-label="Browse by form">'+''.join('<a href="#'+c.lower().replace(' ','-')+'">'+e(c)+'</a>' for c in cats)+'<a href="#author-supplied-essays">Author-supplied essays</a></nav>'+''.join(group(c)+(author_essays() if c=='Published articles' else '') for c in cats)+'<p class="archive-note">A growing bibliography, updated '+research_date+'. Videos play here; source links open the original publication. Dates refer to publication or issue dates; the Aakhar report uses its upload month. <a href="data/literary-archive.csv" download>Download the catalogue</a>.</p>')
+if '--only-archive' in sys.argv:
+ print('Updated literary archive, including author-supplied essays.');sys.exit(0)
 topics=['Literature','Finance','Tourism','Education & Governance']
 def topic_group(topic):
  items=sorted([r for r in rows if r.get('topic')==topic and r['category']=='Video interviews'],key=lambda r:r['date'],reverse=True)
