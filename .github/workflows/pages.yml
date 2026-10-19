@@ -17,19 +17,18 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/configure-pages@v6.0.0
       - name: Validate sharing previews and prepare clean URLs
         run: |
           node --test tools/tests/reader-navigation.test.cjs
-          python3 -m unittest discover -s tools/tests -p test_release_regressions.py
-          python3 -m unittest discover -s tools/tests -p test_two_book_readers.py
+          python3 -m unittest discover -s tools/tests
           python3 tools/audit_release.py
           python3 tools/audit_discovery.py
           python3 tools/build_pages.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: _site
       - name: Publish
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1

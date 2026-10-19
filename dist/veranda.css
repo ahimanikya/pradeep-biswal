@@ -103,3 +103,12 @@ body[data-theme=veranda] .veranda-reading.wrap{margin-inline:auto;width:calc(100
 body[data-theme=veranda] .books-band,body[data-theme=veranda] .books-band h2,body[data-theme=veranda] .books-band a{color:var(--ink)}
 body[data-theme=veranda] .veranda-window img{mask-image:radial-gradient(ellipse 70% 71% at 50% 46%,#000 49%,#000d 63%,transparent 79%)}
 @media(max-width:700px){body[data-theme=veranda] .veranda-hero h1>span{display:block}body[data-theme=veranda] .veranda-reading.wrap{width:calc(100% - 40px)}}
+
+/* Keep small award-source text readable against the tinted paper. */
+body[data-theme=veranda] .recognition-feature .eyebrow{color:#6c5e47}
+body[data-theme=veranda] .recognition-source{color:#596151}
+
+/* Match fallback letter widths so the name and introduction do not rewrap. */
+@font-face{font-family:'Veranda Display Fallback';src:local('Georgia');size-adjust:87%;font-weight:300 700}
+@font-face{font-family:'Veranda Reading Fallback';src:local('Georgia');size-adjust:107.1%;font-weight:200 900}
+body[data-theme=veranda]{--serif:'Cormorant Garamond','Veranda Display Fallback',Georgia,serif;--reading:'Source Serif 4','Veranda Reading Fallback',Georgia,serif}

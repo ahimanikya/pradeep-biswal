@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-19",
+  "scope": "Post-Veranda public website and two-book reader audit",
+  "fixes": [
+    "Corrected low-contrast award labels and source text, and reader motion-setting help text.",
+    "Matched fallback font widths and prioritized the homepage display font to prevent late reflow.",
+    "Prevented stale bookmarks from claiming a different page after typography or viewport changes; mobile resume now validates layout before restoring its scroll offset.",
+    "Replaced a stale fallback chapter-count expectation with the maintained contents count; deployment now runs all Python regression tests.",
+    "Upgraded the Pages deployment actions to official Node 24-compatible releases."
+  ],
+  "validation": {
+    "maintained_html_pages": 72,
+    "local_links": 2795,
+    "image_references": 441,
+    "responsive_page_viewport_checks": 87,
+    "responsive_errors": 0,
+    "broken_loaded_images": 0,
+    "browser_script_errors": 0,
+    "accessibility": "WCAG A/AA automated checks on 12 representative mobile pages, with final desktop and light/dark reader checks: no remaining violations in checked states. This is not a full accessibility certification.",
+    "python_tests": 26,
+    "reader_js_tests": 5,
+    "isolated_backend_tests_passed": 14,
+    "isolated_backend_tests_skipped": 1,
+    "dependency_advisories": 0,
+    "canonical_indexable_pages": 64,
+    "attributed_articles": 49,
+    "book_chapters": {
+      "missing-memories": 52,
+      "odisha-at-the-crossroads": 45
+    }
+  },
+  "performance": {
+    "profile": "Cold local assets, 390px mobile, 1.6Mbps download, 150ms latency, 4x CPU slowdown. Lab observations, not field Core Web Vitals.",
+    "homepage_cls_before": 0.12117969589599462,
+    "homepage_cls_after": 0.0006382710708688899,
+    "homepage_lcp_ms_after": 1864,
+    "reader_cover_lcp_ms": [
+      1684,
+      1432
+    ],
+    "reader_open_ms": [
+      1804,
+      1630
+    ]
+  },
+  "limits": [
+    "No production message, comment or like was submitted during this audit.",
+    "Firestore emulator rules and the typed-field emulator backup round trip were not rerun; isolated backend checks and dependency audit passed.",
+    "Browser checks used Chromium; a manual Safari/iPhone pass remains useful.",
+    "Author editorial decisions and manuscript review remain in the shared review workflow.",
+    "Search-engine submission was not performed."
+  ],
+  "deployment_action_sources": [
+    "https://github.com/actions/checkout/releases/tag/v7.0.1",
+    "https://github.com/actions/configure-pages/releases/tag/v6.0.0",
+    "https://github.com/actions/upload-pages-artifact/releases/tag/v5.0.0",
+    "https://github.com/actions/deploy-pages/releases/tag/v5.0.1"
+  ]
+}
