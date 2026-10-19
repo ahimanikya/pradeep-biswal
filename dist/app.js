@@ -42,7 +42,7 @@ if (memoryRoutes) {
   window.addEventListener('hashchange', followMemoryLink);
 }
 const memoryStory = document.querySelector('.memory-story');
-if (memoryStory) {
+if (memoryStory && document.querySelector('.memory-copy') && document.querySelector('.memory-share')) {
   const copy = document.querySelector('.memory-copy');
   const share = document.querySelector('.memory-share');
   const status = document.querySelector('.share-status');
