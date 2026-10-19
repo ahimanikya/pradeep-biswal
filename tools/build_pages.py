@@ -3,7 +3,9 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import shutil, re, json
+from apply_veranda import apply_theme
 ROOT=Path(__file__).resolve().parents[1]
+apply_theme(ROOT)
 source=ROOT/'dist'
 out=ROOT/'_site'
 class Metadata(HTMLParser):
