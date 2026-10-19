@@ -19,6 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/configure-pages@v6.0.0
+      - name: Prepare isolated test dependencies
+        run: |
+          python3 -m venv "$RUNNER_TEMP/site-checks"
+          "$RUNNER_TEMP/site-checks/bin/pip" install -r tools/requirements-checks.txt
+          echo "$RUNNER_TEMP/site-checks/bin" >> "$GITHUB_PATH"
       - name: Validate sharing previews and prepare clean URLs
         run: |
           node --test tools/tests/reader-navigation.test.cjs
