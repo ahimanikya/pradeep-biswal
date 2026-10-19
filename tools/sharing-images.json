@@ -474,5 +474,12 @@
     "source": "assets/pradeep-biswal-800.webp",
     "width": 800,
     "height": 800
+  },
+  {
+    "page": "essay-odishas-budget-stabilisation-fund.html",
+    "image": "assets/sharing/budget-stabilisation-ledger.jpg",
+    "source": "assets/published-work/budget-stabilisation-ledger.webp",
+    "width": 960,
+    "height": 440
   }
 ]
