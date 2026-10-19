@@ -114,3 +114,6 @@ body[data-theme=veranda] .recognition-source{color:#596151}
 body[data-theme=veranda]{--serif:'Cormorant Garamond','Veranda Display Fallback',Georgia,serif;--reading:'Source Serif 4','Veranda Reading Fallback',Georgia,serif}
 
 @media(max-width:700px){body[data-theme=veranda] .brand{gap:12px}body[data-theme=veranda] .brand .monogram{width:42px;height:42px;flex-basis:42px;font-size:26px}}
+
+/* Approved option A: an open ring with one terracotta signature dot. */
+body[data-theme=veranda] .brand .monogram{border:0;background:url('assets/pb-seal.svg') center/100% 100% no-repeat}
