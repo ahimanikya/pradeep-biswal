@@ -3,6 +3,8 @@ const $=s=>document.querySelector(s);
 const title=$('#reader-title'),body=$('#reader-body'),status=$('#reader-status');
 const dialog=$('#reader-contents'),size=$('#reader-size'),art=$('#reader-art');
 const bookConfig=JSON.parse($('#book-config').textContent);
+// Font changes can move folios; older saved places still open their chapter.
+const readerLayoutVersion='veranda-20261019';
 const storageKey=key=>['pb-collection-place','pb-collection-bookmarks'].includes(key)?key+':'+bookConfig.id:key;
 const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(storageKey(key)))??fallback;}catch{return fallback;}};
 const save=(key,value)=>{try{localStorage.setItem(storageKey(key),JSON.stringify(value));}catch{}};
@@ -32,8 +34,8 @@ $('#reader-fullscreen').addEventListener('click',async()=>{try{if(document.fulls
 document.addEventListener('fullscreenchange',()=>{const label=document.fullscreenElement?'Exit full screen':'Enter full screen';$('#reader-fullscreen').setAttribute('aria-label',label);$('#reader-fullscreen').title=label;paginate();});
 let bookmarks=read('pb-collection-bookmarks',[]);if(!Array.isArray(bookmarks))bookmarks=[];
 function bookmarkState(){const saved=current&&bookmarks.some(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);$('#reader-bookmark').setAttribute('aria-pressed',String(!!saved));$('#reader-bookmark').title=saved?'Remove bookmark':'Bookmark this page';$('#reader-bookmark').setAttribute('aria-label',$('#reader-bookmark').title);}
-$('#reader-bookmark').addEventListener('click',()=>{if(!current)return;const i=bookmarks.findIndex(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);if(i>=0)bookmarks.splice(i,1);else bookmarks.push({id:current.id,title:current.title,spread,pagination:'continuous',width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations,edition:bookConfig.edition});save('pb-collection-bookmarks',bookmarks);bookmarkState();renderSaved();});
-function samePageLayout(place){return place.edition===bookConfig.edition&&isBook()&&place.width===frame.clientWidth&&place.height===frame.clientHeight&&place.size===size.value&&place.illustrations===illustrations;}
+$('#reader-bookmark').addEventListener('click',()=>{if(!current)return;const i=bookmarks.findIndex(b=>b.pagination==='continuous'&&b.id===current.id&&b.spread===spread);if(i>=0)bookmarks.splice(i,1);else bookmarks.push({id:current.id,title:current.title,spread,pagination:'continuous',width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations,edition:bookConfig.edition,layoutVersion:readerLayoutVersion});save('pb-collection-bookmarks',bookmarks);bookmarkState();renderSaved();});
+function samePageLayout(place){return place.layoutVersion===readerLayoutVersion&&place.edition===bookConfig.edition&&isBook()&&place.width===frame.clientWidth&&place.height===frame.clientHeight&&place.size===size.value&&place.illustrations===illustrations;}
 function renderSaved(){const list=$('#reader-saved');list.replaceChildren();if(!bookmarks.length)list.textContent='No saved places yet.';for(const b of bookmarks){const button=document.createElement('button');button.type='button';button.textContent=b.title+(b.pagination==='continuous'&&samePageLayout(b)?' · page '+(b.spread*2+1):'');button.addEventListener('click',async()=>{closeSettings();await display(b.id);if(b.pagination==='continuous'&&samePageLayout(b))turn(b.spread);frame.focus({preventScroll:true});});list.append(button);}}
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -244,7 +246,7 @@ size.value=String(read('pb-collection-size',21));if(!sizes.includes(size.value))
 function settings(){document.documentElement.style.setProperty('--reader-size',size.value+'px');art.setAttribute('aria-pressed',String(illustrations));body.querySelectorAll('img').forEach(img=>img.hidden=!illustrations&&!current?.cover);}
 size.addEventListener('change',()=>{settings();save('pb-collection-size',Number(size.value));paginate();});
 art.addEventListener('click',()=>{illustrations=!illustrations;settings();save('pb-collection-art',illustrations);paginate();});
-function remember(){if(current&&!current.cover&&!restoring)save('pb-collection-place',{id:current.id,y:window.scrollY,spread,book:isBook(),width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations,edition:bookConfig.edition});}
+function remember(){if(current&&!current.cover&&!restoring)save('pb-collection-place',{id:current.id,y:window.scrollY,spread,book:isBook(),width:frame.clientWidth,height:frame.clientHeight,size:size.value,illustrations,edition:bookConfig.edition,layoutVersion:readerLayoutVersion});}
 let timer;window.addEventListener('scroll',()=>{clearTimeout(timer);timer=setTimeout(remember,160);},{passive:true});
 window.addEventListener('pagehide',remember);
 $('#contents-open').addEventListener('click',()=>{updateContentsPages();dialog.showModal();});
