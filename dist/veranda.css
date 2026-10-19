@@ -1,0 +1,105 @@
+/* A Veranda in Odisha — Public website theme. */
+body[data-theme=veranda]{--paper:#f6f2e8;--ink:#263f36;--muted:#666e60;--line:#d9d6c7;--accent:#9a4e36;--indigo:#526776}
+body[data-theme=veranda]{background:var(--paper);color:var(--ink);background-image:radial-gradient(ellipse at 95% 0%,#e7dfca66,transparent 50%)}
+body[data-theme=veranda] .wrap{max-width:1160px}
+body[data-theme=veranda] h1,body[data-theme=veranda] h2,body[data-theme=veranda] h3{font-weight:500;letter-spacing:-.025em}
+body[data-theme=veranda] h2{font-size:clamp(32px,3.5vw,48px);line-height:1.12}
+body[data-theme=veranda] .eyebrow{font-size:10px;letter-spacing:.19em;color:#786b52;font-weight:500}
+body[data-theme=veranda] .site-header{background:transparent;backdrop-filter:none;position:relative;border-bottom:1px solid var(--line);max-width:1320px;margin:auto;padding:25px 40px;box-shadow:none}
+body[data-theme=veranda] .brand{font-family:var(--serif);font-size:18px;line-height:1.08;font-weight:500;gap:14px}
+body[data-theme=veranda] .brand .monogram{font-family:var(--serif);font-size:32px;border:0;border-right:1px solid var(--line);border-radius:0;padding-right:16px;width:auto;height:auto}
+body[data-theme=veranda] .brand .monogram span{display:none}
+body[data-theme=veranda] .desktop-nav{gap:24px}
+body[data-theme=veranda] .desktop-nav a{font-size:12px;font-weight:450}
+body[data-theme=veranda] .desktop-nav .site-line-icon{display:none}
+body[data-theme=veranda] .veranda-hero{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:70px;padding-top:64px;padding-bottom:58px;position:relative;min-height:610px}
+.veranda-intro{position:relative;z-index:1}.veranda-rule{width:45px;height:2px;background:#a76549;margin-bottom:25px}
+body[data-theme=veranda] .veranda-hero h1{font-size:clamp(68px,7.7vw,110px);line-height:.91;letter-spacing:-.045em;margin:0 0 28px;font-weight:450}
+body[data-theme=veranda] .veranda-hero h1>span{display:block;white-space:normal}
+body[data-theme=veranda] .veranda-hero .period{color:#ac6849}
+.intro-slot p{max-width:455px;font:17px/1.8 var(--reading);color:#576052;margin:0 0 24px}
+.intro-slot a{font-size:14px;white-space:normal;color:var(--ink)}
+.veranda-start{display:inline-flex;gap:35px;align-items:center;text-decoration:none;border-bottom:1px solid #aa7052;padding:6px 0;font:13px var(--sans)}
+.veranda-start span{font-size:23px}.veranda-window{position:relative;isolation:isolate;min-width:0;align-self:stretch;display:grid;align-items:end;max-height:490px;margin:10px 10px 0}
+.window-recess{position:absolute;inset:0 12px 25px;border:1px solid #babfaa;border-radius:44% 44% 0 0;background:linear-gradient(112deg,#dfdfc866 0%,#edeadbaa 49%,#dfdac33b 49.2%,#e6e4d366 55%,#f7f3e800 55.3%);box-shadow:inset 13px 4px 22px #5963480c;z-index:-1}
+.window-recess:before{content:'';position:absolute;inset:13px;border:1px solid #bdc1ad80;border-radius:44% 44% 0 0}
+body[data-theme=veranda] .veranda-window .poet-portrait{width:100%;max-width:440px;margin:0;position:relative;transform:none;padding:0}
+body[data-theme=veranda] .veranda-window img{width:100%;height:auto;display:block;mix-blend-mode:multiply;filter:none;mask-image:linear-gradient(to bottom,#000 87%,transparent 100%)}
+.window-sill{position:absolute;bottom:18px;left:-7px;right:-7px;height:9px;border-top:1px solid #b3b99f;border-bottom:1px solid #b3b99f;box-shadow:0 15px 18px #4b513912;z-index:-1}
+body[data-theme=veranda] .home-section{padding-top:48px;padding-bottom:48px;margin-top:0;margin-bottom:0;border-color:var(--line)}
+body[data-theme=veranda] .overview-heading{align-items:end;margin-bottom:26px}
+body[data-theme=veranda] .overview-heading h2{margin:8px 0 0}
+body[data-theme=veranda] .text-link{font-size:12px;font-weight:500;gap:9px}
+body[data-theme=veranda] .button{border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);font-size:12px;box-shadow:none;padding:11px 17px}
+body[data-theme=veranda] button.carousel-next,body[data-theme=veranda] button.carousel-previous,body[data-theme=veranda] .testimonial-controls button{border:1px solid #aeb7a5;background:transparent;border-radius:50%;width:36px;height:36px;min-width:36px;padding:7px;color:var(--ink)}
+body[data-theme=veranda] button:disabled{opacity:.35}
+body[data-theme=veranda] .poetry-preview{position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:90px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-left:45px;padding-right:45px;background:#eeeadd60}
+.poetry-mark{position:absolute;left:0;top:27px;font:100px var(--serif);color:#a86e4d70;line-height:1}
+body[data-theme=veranda] .poetry-preview h2{font-size:34px;margin-top:10px}
+body[data-theme=veranda] .poetry-preview .poem-lines{font:23px/1.6 var(--serif);margin:18px 0 20px;columns:2;max-width:420px}
+body[data-theme=veranda] .poetry-aside{align-self:center;border-left:1px solid #b7bead;padding-left:40px}
+body[data-theme=veranda] .poetry-aside>a{font:20px/1.5 var(--serif);padding:9px 0;border-color:#d8d8ca}
+body[data-theme=veranda] .poetry-aside>.text-link{font:12px var(--sans);margin-top:12px}
+body[data-theme=veranda] .veranda-reading{padding:50px 0;border:0;position:relative}
+body[data-theme=veranda] .veranda-reading>h2{margin-bottom:7px}
+body[data-theme=veranda] .veranda-reading>.online-books-note{font:12px var(--sans);color:var(--muted);margin-bottom:25px}
+body[data-theme=veranda] .online-books-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+body[data-theme=veranda] .online-book{padding:26px 30px;display:flex;gap:30px;align-items:center;border:1px solid #d6d1bf;background:#eee7d866;box-shadow:none;border-radius:0}
+body[data-theme=veranda] .online-book:nth-child(2){background:#e5e9e366;border-color:#cdd5ca}
+body[data-theme=veranda] .online-book>a{flex:0 0 112px;max-width:112px;transform:rotate(-2deg);box-shadow:5px 7px 12px #273b3322}
+body[data-theme=veranda] .online-book:nth-child(2)>a{transform:rotate(2deg)}
+body[data-theme=veranda] .online-book img{width:112px;height:auto;display:block}
+body[data-theme=veranda] .online-book h3{font:30px/1.05 var(--serif);margin:0 0 9px}
+body[data-theme=veranda] .online-book p{font:13px/1.6 var(--reading);color:var(--muted);margin-bottom:15px}
+body[data-theme=veranda] .books-band{background:#e8e9de70;border-block:1px solid var(--line);padding:38px 0 28px;margin:0}
+body[data-theme=veranda] .books-heading{display:block}
+body[data-theme=veranda] .books-heading h2{margin:8px 0}
+body[data-theme=veranda] .book-layout{display:block}
+body[data-theme=veranda] .books-intro{display:flex;align-items:end;justify-content:space-between;margin-bottom:24px;gap:20px}
+body[data-theme=veranda] .books-track{grid-auto-columns:calc((100% - 90px)/4);gap:30px;padding:10px 16px 28px;border-bottom:1px solid #c4c9b7}
+body[data-theme=veranda] .book-stage{min-height:260px;padding:12px 20px;background:transparent;border:0;box-shadow:none}
+body[data-theme=veranda] .book-volume{height:240px;max-width:100%;filter:drop-shadow(7px 8px 6px #33403224)}
+body[data-theme=veranda] .memories-track{grid-auto-columns:calc((100% - 48px)/3);gap:24px}
+body[data-theme=veranda] .story-card{background:transparent;border:0;border-bottom:1px solid #cbd0be;border-radius:0;padding:0 0 20px;box-shadow:none}
+body[data-theme=veranda] .story-card img{aspect-ratio:3/2;object-fit:cover;width:100%;height:auto;border-radius:0;filter:saturate(.88)}
+body[data-theme=veranda] .story-card h3{font:28px/1.1 var(--serif);margin:17px 0 12px}
+body[data-theme=veranda] .story-card p{font:14px/1.75 var(--reading);color:var(--muted)}
+body[data-theme=veranda] #home-photos .media-item{padding:8px 8px 22px;background:#fbf9f2;border:1px solid #d8d7c8;box-shadow:0 3px 7px #3643320a;transform:none}
+body[data-theme=veranda] #home-photos img{filter:saturate(.8);border-radius:0}
+body[data-theme=veranda] .recognition-highlight{background:#ebe5d74d;border-color:#d5c7aa;border-radius:0}
+body[data-theme=veranda] .testimonial-card{box-shadow:none;background:transparent;border:0;padding:30px 50px}
+body[data-theme=veranda] .testimonials{background:#eaece280;border-block:1px solid #d3d8c9;margin-top:20px}
+body[data-theme=veranda] .testimonial-card blockquote{font:28px/1.6 var(--serif);max-width:850px;margin:auto}
+body[data-theme=veranda] .footer.literary-closing{background:transparent;border:0;padding-top:30px;padding-bottom:55px}
+body[data-theme=veranda] .closing-art{display:none}
+body[data-theme=veranda] .veranda-drawing{width:min(580px,100%);height:auto;display:block!important;margin:auto;color:#6e7a60}
+body[data-theme=veranda] .closing-composition{display:block;text-align:center;border:0;padding:0 0 20px}
+body[data-theme=veranda] .closing-copy{margin:0 auto;padding-top:22px}
+body[data-theme=veranda] .closing-copy h2{font-size:40px;margin:12px 0}
+body[data-theme=veranda] .closing-copy .eyebrow{color:#7a6c58}
+body[data-theme=veranda] .closing-copy p{font:14px var(--reading);color:var(--muted)}
+body[data-theme=veranda] .closing-flourish{display:none}
+body[data-theme=veranda] .colophon{padding-top:25px;text-align:center;border-top:1px solid var(--line);font-size:10px;opacity:.8}
+/* Inner pages share paper, typography and a quieter reading surface. */
+body.inner-refined[data-theme=veranda] main{padding-top:30px}
+body.inner-refined[data-theme=veranda] main>h1,body.inner-refined[data-theme=veranda] .book-opening h1,body.inner-refined[data-theme=veranda] .memory-index-heading h1{font-size:clamp(48px,6vw,76px);line-height:1.05;margin-bottom:22px}
+body.inner-refined[data-theme=veranda] .breadcrumb{font-size:11px;color:#737661;margin-bottom:22px}
+body.inner-refined[data-theme=veranda] .collection-links{border-color:var(--line);font-size:12px;gap:25px}
+body.inner-refined[data-theme=veranda] .about-reading{max-width:950px}
+body.inner-refined[data-theme=veranda] .about-reading p,body.inner-refined[data-theme=veranda] .memory-story-copy p{font:18px/1.9 var(--reading)}
+body.inner-refined[data-theme=veranda] .memory-story{background:#faf8f0;border:1px solid #e2dfd2;padding:40px 55px;max-width:900px;margin:auto;box-shadow:0 6px 30px #2c3f3106}
+body.inner-refined[data-theme=veranda] .memory-story h1{font-size:clamp(40px,5vw,64px)}
+body.inner-refined[data-theme=veranda] .memory-story-art,body.inner-refined[data-theme=veranda] .memory-story>img{border-radius:0}
+body.inner-refined[data-theme=veranda] .memory-story-meta,body.inner-refined[data-theme=veranda] .memory-meta{font-size:11px;letter-spacing:.03em;color:var(--muted)}
+body.inner-refined[data-theme=veranda] .memory-story-copy{max-width:680px;margin:auto}
+body.inner-refined[data-theme=veranda] .book-card{background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+body.inner-refined[data-theme=veranda] .contact-form-layout{max-width:720px;border-top:1px solid var(--line);padding-top:25px}
+body.inner-refined[data-theme=veranda] input,body.inner-refined[data-theme=veranda] textarea{background:#fbf9f2;border:1px solid #c8cfbf;border-radius:2px}
+@media(min-width:1400px){body[data-theme=veranda] .veranda-hero{gap:100px}}
+@media(max-width:1000px){body[data-theme=veranda] .site-header{padding:20px}.veranda-hero{gap:25px!important;min-height:530px!important}.veranda-window{max-height:400px}body[data-theme=veranda] .desktop-nav{gap:15px}body[data-theme=veranda] .online-book{gap:18px;padding:23px 18px}body[data-theme=veranda] .poetry-preview{gap:35px;padding-inline:25px}body[data-theme=veranda] .book-volume{height:210px}}
+@media(max-width:700px){body[data-theme=veranda] .site-header{padding:16px 20px}body[data-theme=veranda] .brand{font-size:15px}body[data-theme=veranda] .wrap{width:calc(100% - 40px)}body[data-theme=veranda] .veranda-hero{grid-template-columns:1fr;padding-top:34px;padding-bottom:28px;gap:20px!important;min-height:0!important}.veranda-intro{display:contents}.veranda-rule{display:none}.name-slot{grid-row:1}.intro-slot{grid-row:3}.veranda-start{grid-row:4;width:max-content}.veranda-window{grid-row:2;max-width:290px;width:100%;height:295px;justify-self:center;margin:0}.window-recess{inset:0 12px 20px}body[data-theme=veranda] .veranda-hero h1{font-size:62px;margin:0;line-height:.93}body[data-theme=veranda] .veranda-hero h1 br{display:none}body[data-theme=veranda] .veranda-hero h1>span{display:inline}.intro-slot p{font-size:15px;line-height:1.8;margin-bottom:0}.window-sill{bottom:10px}body[data-theme=veranda] .poetry-preview{grid-template-columns:1fr;gap:25px;padding:30px 22px}.poetry-mark{left:-2px;top:15px;font-size:70px}body[data-theme=veranda] .poetry-preview .poem-lines{font-size:23px;columns:1}body[data-theme=veranda] .poetry-aside{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}body[data-theme=veranda] .online-books-grid{grid-template-columns:1fr;gap:16px}body[data-theme=veranda] .online-book{padding:22px;gap:24px}body[data-theme=veranda] .online-book h3{font-size:28px}body[data-theme=veranda] .veranda-reading{padding:34px 0}body[data-theme=veranda] .books-intro{align-items:start}body[data-theme=veranda] .books-intro .carousel-actions{flex-wrap:wrap;max-width:160px;justify-content:end}body[data-theme=veranda] .books-track{grid-auto-columns:calc((100% - 24px)/2);gap:24px;padding:5px 0 25px}body[data-theme=veranda] .book-stage{min-height:210px;padding:8px 12px}body[data-theme=veranda] .book-volume{height:190px}body[data-theme=veranda] .memories-track{grid-auto-columns:85%;gap:20px}body[data-theme=veranda] .home-section{padding-top:32px;padding-bottom:32px}body[data-theme=veranda] .overview-heading{align-items:start;gap:20px}body[data-theme=veranda] .overview-heading .carousel-actions{max-width:145px;justify-content:end}body[data-theme=veranda] .overview-heading h2{font-size:34px}.veranda-drawing{max-width:360px}body[data-theme=veranda] .closing-copy h2{font-size:33px}body[data-theme=veranda] .testimonial-card{padding:15px 0}body[data-theme=veranda] .testimonial-card blockquote{font-size:24px}body.inner-refined[data-theme=veranda] .memory-story{padding:24px 18px;margin-inline:-5px}body.inner-refined[data-theme=veranda] .memory-story-copy p{font-size:17px;line-height:1.85}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body[data-theme=veranda] .veranda-reading.wrap{margin-inline:auto;width:calc(100% - 80px)}
+body[data-theme=veranda] .books-band,body[data-theme=veranda] .books-band h2,body[data-theme=veranda] .books-band a{color:var(--ink)}
+body[data-theme=veranda] .veranda-window img{mask-image:radial-gradient(ellipse 70% 71% at 50% 46%,#000 49%,#000d 63%,transparent 79%)}
+@media(max-width:700px){body[data-theme=veranda] .veranda-hero h1>span{display:block}body[data-theme=veranda] .veranda-reading.wrap{width:calc(100% - 40px)}}
