@@ -41,7 +41,9 @@ class TwoBookTests(unittest.TestCase):
   self.assertEqual(chapters[21]['id'],ident)
   self.assertEqual(chapters[22]['id'],'PBW-6f0854748e')
   self.assertIsNone(chapters[21]['date'])
-  self.assertIn('writing date has not yet been confirmed',chapters[21]['editorialNote'])
+  self.assertIn('17 January 2025',chapters[21]['editorialNote'])
+  self.assertIn('author-supplied text',chapters[21]['editorialNote'])
+  self.assertIn('Earlier publication',chapters[21]['sourceLabel'])
   raw=json.loads((D/'books/odisha-at-the-crossroads/text.json').read_text())[ident]
   class Paragraphs(HTMLParser):
    def __init__(self):super().__init__();self.paragraphs=[];self.inside=False

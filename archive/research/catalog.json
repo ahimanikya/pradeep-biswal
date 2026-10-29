@@ -1,5 +1,5 @@
 {
-  "researched_on": "2026-10-15",
+  "researched_on": "2026-10-29",
   "records": [
     {
       "id": "PBW-77e82fec0f",
@@ -1278,6 +1278,34 @@
       "image": "assets/published-work/PBW-0214c730f9.webp",
       "image_alt": "Illustration accompanying Common Man Missing from Budget Priorities",
       "image_source": "https://odisha.plus/wp-content/uploads/2026/02/Common-Man-Missing-from-Budget-Priorities-union-budget-2026-27.jpg"
+    },
+    {
+      "id": "indias-economic-reforms-a-decade-of-change",
+      "category": "Published articles",
+      "title": "Indian Economy Achieving New Heights in the Last Decade",
+      "url": "https://odisha.plus/2025/01/indian-economy-achieving-new-heights-in-the-last-decade/",
+      "publisher": "OdishaPlus",
+      "credit": "Pradip Biswal",
+      "date": "2025-01-17",
+      "note": "Published version of the essay retained in Odisha at the Crossroads as “ABC of Modinomics”. The book uses the author-supplied text.",
+      "evidence": "Publisher page and full-text comparison with selected manuscript",
+      "checked": "2026-10-29"
+    },
+    {
+      "id": "podcast-MKMKAQq0ovs",
+      "category": "Video interviews",
+      "title": "ଦଶ ହଜାର ଟଙ୍କାର କାମକୁ 50 ଲକ୍ଷ କହି ଲୁଟିନେଲେ ବଡ଼ ଅଫିସର | PODCAST WITH PRADEEP KUMAR BISWAL (Retd.IAS)",
+      "display_title": "Public service and accountability — a conversation with Pradeep Biswal",
+      "url": "https://www.youtube.com/watch?v=MKMKAQq0ovs",
+      "publisher": "Alexxzandar Dass",
+      "credit": "Pradeep Biswal in conversation with Alexxzandar Dass",
+      "date": "",
+      "note": "An Odia podcast with Pradeep Biswal, retired IAS officer, on his experience in public service.",
+      "topic": "Education & Governance",
+      "format": "Podcast",
+      "evidence": "Author-shared WhatsApp link and YouTube oEmbed metadata verified 29 October 2026",
+      "checked": "2026-10-29",
+      "date_note": "Publication date not verified; omitted from display."
     }
   ],
   "leads": [
