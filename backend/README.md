@@ -86,7 +86,7 @@ On 17 October 2026, the owner workspace captured 684 production documents to a p
 
 ## Shared editorial review
 
-`/author-review.html` is an unlinked, noindex review room. Its public shell contains no manuscript or review findings. The private corpus is in `editorialProjects/two-books-2026`; build its payload outside this public Git repository using `editorial/two-books/tools/build_shared_review.py` in the parent workspace.
+`/author-review.html` was removed from the public website at the owner’s request on 10 November 2026. The backend implementation and existing private review records are retained. The following describes the former review room and its recovery workflow; it is no longer an available website page. The private corpus is in `editorialProjects/two-books-2026`; build its payload outside this public Git repository using `editorial/two-books/tools/build_shared_review.py` in the parent workspace.
 
 The existing owner signs in with Google and selects **Create poet’s review link**. The poet uses that revocable, one-year invitation without a Google or GitHub account. It is a bearer link: anyone receiving it can act under that invitation's reviewer name. The token is removed from the address bar on entry. Membership is checked against the active invitation on every protected operation, including token rotation and expiry. Owner access uses the existing `admins/{uid}` record; invitations never grant inbox or moderation access.
 
