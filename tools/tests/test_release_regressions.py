@@ -34,7 +34,7 @@ class ReleaseRegressions(unittest.TestCase):
    for forbidden in ['reading-room.html','odisha-at-the-crossroads.html','Read in book','book.html#read-online']:
     self.assertNotIn(forbidden,result)
  def test_book_manuscripts_and_readers_are_not_deployed(self):
-  for name in ['reading-room.html','odisha-at-the-crossroads.html','collection-reader.json','collection-reader-text.json','collection-reader.js','books/missing-memories/text.json','books/odisha-at-the-crossroads/text.json']:
+  for name in ['reading-room.html','odisha-at-the-crossroads.html','book-introduction.json','collection-reader.json','collection-reader-text.json','collection-reader.js','books/missing-memories/text.json','books/odisha-at-the-crossroads/text.json']:
    self.assertFalse((ROOT/'dist'/name).exists(),name)
   for folder in ['books','reader-text']:
    self.assertFalse(list((ROOT/'dist'/folder).rglob('*.json')))
