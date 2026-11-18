@@ -427,25 +427,11 @@
     "height": 800
   },
   {
-    "page": "odisha-at-the-crossroads.html",
-    "image": "assets/books/odisha-at-the-crossroads/front-cover-sharing.jpg",
-    "source": "assets/books/odisha-at-the-crossroads/front-cover-sharing.jpg",
-    "width": 901,
-    "height": 1350
-  },
-  {
     "page": "poetry.html",
     "image": "assets/sharing/reading-table-960.jpg",
     "source": "assets/reading-table-960.webp",
     "width": 960,
     "height": 640
-  },
-  {
-    "page": "reading-room.html",
-    "image": "assets/books/missing-memories/front-cover-sharing.jpg",
-    "source": "assets/books/missing-memories/front-cover-sharing.jpg",
-    "width": 901,
-    "height": 1350
   },
   {
     "page": "review-drafts.html",

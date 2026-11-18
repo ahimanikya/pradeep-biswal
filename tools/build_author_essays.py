@@ -55,11 +55,6 @@ for row in rows:
  if in_list:body+='</ul>'
  main='<main class="wrap inner-page" id="main" tabindex="-1"><article class="memory-story"><header class="memory-story-heading"><a class="memory-back" href="literary-archive.html#author-supplied-essays">← Author-supplied essays</a><h1>'+escape(title)+'</h1><p class="memory-byline">Pradeep Biswal</p><p class="archive-meta">'+publication_label+'</p></header>'+figure+context+actions+'<div class="memory-story-copy">'+body+'</div><p class="memory-back"><a href="literary-archive.html#author-supplied-essays">Browse more essays →</a></p></article></main>'
  s=re.sub(r'<main\b.*?</main>',lambda _:main,s,flags=re.S)
- routes=json.loads((D/'book-routes.json').read_text())
- if row['id'] in routes:
-  link='<a class="text-link book-reader-link" href="'+escape(routes[row['id']],quote=True)+'">Read in book <span aria-hidden="true">↗</span></a>'
-  s=s.replace('</h1>','</h1>'+link,1)
-  if 'book-entry.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="book-entry.css?v=20261017-sources"/></head>')
  s=re.sub(r'<footer\b.*?</footer>',lambda _:(R/'templates/article-footer.html').read_text().strip(),s,flags=re.S)
  s=s.replace('styles.css?v=20261010-simple-comments','styles.css?v=20261015-simple-footer')
  s=s.replace('app.js?v=20261010-release-review','app.js?v=20261019-essay-sharing')

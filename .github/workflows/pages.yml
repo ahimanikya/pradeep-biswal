@@ -26,7 +26,6 @@ jobs:
           echo "$RUNNER_TEMP/site-checks/bin" >> "$GITHUB_PATH"
       - name: Validate sharing previews and prepare clean URLs
         run: |
-          node --test tools/tests/reader-navigation.test.cjs
           python3 -m unittest discover -s tools/tests
           python3 tools/audit_release.py
           python3 tools/audit_discovery.py
